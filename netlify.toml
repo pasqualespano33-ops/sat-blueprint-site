@@ -1,1 +1,17 @@
+[build]
+  publish = "."
 
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/sat-blueprint"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/book"
+  to = "https://link.gradefultestprep.com/widget/bookings/sat-strategy-session"
+  status = 301
