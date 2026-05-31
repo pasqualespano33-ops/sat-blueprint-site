@@ -257,7 +257,7 @@ nav {
 .faq-q:hover { background: var(--gray-50); }
 .faq-arrow { color: var(--blue); font-size: 14px; transition: transform .25s; flex-shrink: 0; }
 .faq-a { font-size: 14px; color: var(--gray-600); line-height: 1.78; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; padding: 0 22px; }
-.faq-item.open .faq-a { max-height: 360px; padding: 0 22px 18px; }
+.faq-item.open .faq-a { max-height: 600px; padding: 0 22px 18px; }
 .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
 /* ── FINAL CTA ── */
@@ -334,6 +334,35 @@ footer { background: #060d16; padding: 44px 32px; }
 .proof-coming-icon { font-size: 24px; }
 .proof-coming-text { font-size: 12px; font-weight: 700; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.08em; }
 .proof-coming-sub { font-size: 11px; color: #94a3b8; }
+
+/* WhatsApp style */
+.proof-whatsapp { background: #e5ddd5; padding: 14px; }
+.proof-whatsapp-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.proof-whatsapp-avatar { width: 32px; height: 32px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.proof-whatsapp-name { font-size: 12px; font-weight: 700; color: #075e54; }
+.proof-whatsapp-sub { font-size: 10px; color: #667781; }
+.wa-them { background: #fff; border-radius: 8px 8px 8px 0; padding: 8px 12px; font-size: 13px; color: #111; line-height: 1.5; margin-bottom: 6px; display: inline-block; max-width: 88%; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.wa-us { background: #dcf8c6; border-radius: 8px 8px 0 8px; padding: 8px 12px; font-size: 13px; color: #111; line-height: 1.5; margin-bottom: 6px; display: inline-block; max-width: 88%; margin-left: auto; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.wa-time { font-size: 9px; color: #667781; float: right; margin: 4px 0 0 8px; }
+
+/* Score report style */
+.proof-report { background: #fff; padding: 20px; border-top: 4px solid var(--blue); }
+.proof-report-head { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+.proof-report-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+.proof-report-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 14px; }
+.proof-report-col { text-align: center; flex: 1; }
+.proof-report-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); margin-bottom: 4px; }
+.proof-report-old { font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--gray-400); line-height: 1; }
+.proof-report-new { font-family: 'Bebas Neue', sans-serif; font-size: 46px; color: var(--blue); line-height: 1; }
+.proof-report-arrow { font-size: 22px; color: var(--green); padding: 0 6px 6px; }
+.proof-report-gain { background: var(--green); color: #fff; font-size: 11px; font-weight: 800; text-align: center; padding: 6px; border-radius: 6px; letter-spacing: 0.05em; }
+
+/* Score badge color variants for visual variety */
+.proof-score-badge.green { background: var(--green); color: #fff; }
+.proof-score-badge.blue { background: var(--blue); color: #fff; }
+/* Gold accent score card variant */
+.proof-score.gold-accent { border-top: 4px solid var(--gold); }
+.proof-score.green-accent { border-top: 4px solid var(--green); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
@@ -468,10 +497,9 @@ footer { background: #060d16; padding: 44px 32px; }
 <!-- ═══════════ TRUST BAR ═══════════ -->
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item"><div class="trust-dot"></div>2,000+ Families Helped</div>
-    <div class="trust-item"><div class="trust-dot"></div>15+ Years Experience</div>
-    <div class="trust-item"><div class="trust-dot"></div>Founded by Yale Graduates</div>
+    <div class="trust-item"><div class="trust-dot"></div>Founded by a Yale Graduate</div>
     <div class="trust-item"><div class="trust-dot"></div>Coached by a Perfect SAT Scorer</div>
+    <div class="trust-item"><div class="trust-dot"></div>15+ Years Experience</div>
   </div>
 </div>
 
@@ -532,7 +560,7 @@ footer { background: #060d16; padding: 44px 32px; }
     <div class="method-head">
       <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">The SAT Blueprint Method™</span></div>
       <h2 class="sec-title">Three Pillars. One <em style="color:var(--blue);font-style:normal;">Proven System.</em></h2>
-      <p class="sec-sub">A structured, step-by-step approach that turns confusion into confidence and preparation into performance — designed specifically for high school High Schoolers.</p>
+      <p class="sec-sub">A structured, step-by-step approach that turns confusion into confidence and preparation into performance — designed specifically for high schoolers.</p>
     </div>
     <div class="pillars">
       <div class="pillar">
@@ -591,7 +619,7 @@ footer { background: #060d16; padding: 44px 32px; }
       <div class="inc-card">
         <div class="inc-icon">📡</div>
         <div class="inc-title">Weekly Live Instruction Sessions</div>
-        <div class="inc-body">Direct small-group coaching with Patrick each week — focused on the exact concepts and strategies your teen needs most. Real instruction, real feedback, no pre-recorded fluff.</div>
+        <div class="inc-body">Direct small-group coaching with our expert SAT coaches each week — focused on the exact concepts and strategies your teen needs most. Real instruction, real feedback, no pre-recorded fluff.</div>
       </div>
       <div class="inc-card">
         <div class="inc-icon">🏫</div>
@@ -657,7 +685,7 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
         <div>
           <div class="step-title">Test Day — Calm, Confident, and Ready</div>
-          <p class="step-body">By test day, the SAT feels familiar — not frightening. Your teen walks in knowing exactly what to expect, how to pace themselves, and how to apply every strategy they've practiced. That confidence is what converts preparation into a 1500+ score — and $1,000s in scholarships.</p>
+          <p class="step-body">By test day, the SAT feels familiar — not frightening. Your teen walks in knowing exactly what to expect, how to pace themselves, and how to apply every strategy they've practiced. That confidence is what converts preparation into a score that opens doors — and $1,000s in scholarships.</p>
           <span class="step-pill">🎯 Score. Scholarship. Dream school.</span>
         </div>
       </div>
@@ -705,18 +733,18 @@ footer { background: #060d16; padding: 44px 32px; }
     <div class="quotes-grid" id="testimonials-grid">
       <div class="qcard">
         <div class="qcard-stars">★★★★★</div>
-        <p class="qcard-body">"Mark's SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying — what do you think?"</p>
-        <div class="qcard-foot"><div class="qcard-av">S</div><div><div class="qcard-name">Sasha</div><div class="qcard-sub">Parent of Mark · → 1490</div></div></div>
-      </div>
-      <div class="qcard">
-        <div class="qcard-stars">★★★★★</div>
         <p class="qcard-body">"Thank you for working with Adin and sharing your knowledge and expertise. He has said repeatedly how much he enjoys your meetings and how much you have helped him master the concepts."</p>
-        <div class="qcard-foot"><div class="qcard-av">AP</div><div><div class="qcard-name">Andrea P.</div><div class="qcard-sub">Parent of HS Senior</div></div></div>
+        <div class="qcard-foot"><div class="qcard-av">DC</div><div><div class="qcard-name">David C.</div><div class="qcard-sub">Parent of Adin</div></div></div>
       </div>
       <div class="qcard">
         <div class="qcard-stars">★★★★★</div>
         <p class="qcard-body">"Annabel was accepted to Yale and Princeton! She was beyond excited and wanted you to know. She was also accepted to Emory and Johns Hopkins with huge scholarships. She still feels like she's dreaming."</p>
         <div class="qcard-foot"><div class="qcard-av">SS</div><div><div class="qcard-name">Shari S.</div><div class="qcard-sub">Parent of Annabel · 1550</div></div></div>
+      </div>
+      <div class="qcard">
+        <div class="qcard-stars">★★★★★</div>
+        <p class="qcard-body">"Mark's SAT is 1490 :) THANK YOU SO MUCH FOR HELPING HIM!!!!!"</p>
+        <div class="qcard-foot"><div class="qcard-av">S</div><div><div class="qcard-name">Sasha</div><div class="qcard-sub">Parent of Mark · 1490</div></div></div>
       </div>
     </div>
   </div>
@@ -726,12 +754,11 @@ footer { background: #060d16; padding: 44px 32px; }
 <section class="results">
   <div class="container">
     <div class="results-intro">
-      <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">Score Screenshots & Proof</span></div>
-      <h2 class="sec-title">Score Improvements, Straight <em style="color:var(--blue);font-style:normal;">From Students</em></h2>
-      <p class="sec-sub">Real screenshots from real students — unedited, unfiltered. Add your score result images and DM screenshots below.</p>
+      <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">Video Testimonials</span></div>
+      <h2 class="sec-title">Hear It Straight <em style="color:var(--blue);font-style:normal;">From Students</em></h2>
+      <p class="sec-sub">Real students sharing their results in their own words — with more on the way.</p>
     </div>
 
-    <div class="slots-label">🎥 Video Testimonials — More coming soon</div>
     <div class="video-slots" id="video-slots">
       <div class="vembed"><iframe src="https://www.youtube-nocookie.com/embed/5Bi-oBb8rAE?rel=0&modestbranding=1" title="SAT Blueprint video testimonial" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
       <div class="vembed"><iframe src="https://www.youtube-nocookie.com/embed/tVnn4XjRJdg?rel=0&modestbranding=1" title="SAT Blueprint video testimonial" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
@@ -797,14 +824,14 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="bubble-row right"><span class="bubble-us">Yale here you come</span></div>
       </div>
 
-      <!-- Score: Annabel -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Result</div>
+      <!-- Score: Wyatt C. perfect score -->
+      <div class="proof-card proof-score gold-accent">
+        <div class="proof-score-eyebrow">🏆 Perfect Score</div>
         <div class="proof-score-nums">
-          <div class="proof-score-after" style="font-size:60px;">1550</div>
+          <div class="proof-score-after" style="font-size:60px;">1600</div>
         </div>
-        <div class="proof-score-detail">750 Reading · 800 Math<br/>Accepted to Yale &amp; Princeton</div>
-        <div class="proof-score-badge">Ivy League Bound ✓</div>
+        <div class="proof-score-detail">Wyatt C. · Now at UF<br/>100% Bright Futures</div>
+        <div class="proof-score-badge">Perfect 1600 ✓</div>
       </div>
 
       <!-- iMessage: Annabel admissions -->
@@ -819,14 +846,16 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="bubble-row right"><span class="bubble-us">Wow that is incredible</span></div>
       </div>
 
-      <!-- Score: Briana 1530 -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Result</div>
+      <!-- Score: Sammi big improvement (non-FL) -->
+      <div class="proof-card proof-score green-accent">
+        <div class="proof-score-eyebrow">📈 Biggest Jumps</div>
         <div class="proof-score-nums">
-          <div class="proof-score-after" style="font-size:60px;">1530</div>
+          <div class="proof-score-before">1070</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1280</div>
         </div>
-        <div class="proof-score-detail">740 Reading/Writing · 790 Math<br/>Superscore</div>
-        <div class="proof-score-badge">Top 1% Nationally ✓</div>
+        <div class="proof-score-detail">Sammi W. · +210 points</div>
+        <div class="proof-score-badge green">+210 Point Jump ✓</div>
       </div>
 
       <!-- iMessage: Briana -->
@@ -842,39 +871,109 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="bubble-row right"><span class="bubble-us">You deserve it</span></div>
       </div>
 
-      <!-- Score: Mark 1490 -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Result</div>
+      <!-- Score: Abhi 1580 -->
+      <div class="proof-card proof-score gold-accent">
+        <div class="proof-score-eyebrow">⭐ Top Score</div>
         <div class="proof-score-nums">
-          <div class="proof-score-after" style="font-size:60px;">1490</div>
+          <div class="proof-score-after" style="font-size:60px;">1580</div>
         </div>
-        <div class="proof-score-detail">HS Senior<br/>"THANK YOU SO MUCH!!!!"</div>
-        <div class="proof-score-badge">College Ready ✓</div>
+        <div class="proof-score-detail">Abhi · Top 1% Nationally</div>
+        <div class="proof-score-badge">Elite Scorer ✓</div>
       </div>
 
-      <!-- Review: Mark -->
-      <div class="proof-card proof-review">
-        <div class="proof-review-stars">★★★★★</div>
-        <div class="proof-review-text">"Mark's SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying — what do you think?"</div>
-        <div class="proof-review-author">
-          <div class="proof-review-av">P</div>
-          <div><div class="proof-review-name">Parent of HS Senior</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
+      <!-- Score: Jacob Bright Futures -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">🎓 Bright Futures</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-after" style="font-size:56px;">1260</div>
         </div>
+        <div class="proof-score-detail">Jacob S. · Florida<br/>~$20,000 in scholarship</div>
+        <div class="proof-score-badge">Bright Futures 75% ✓</div>
       </div>
 
-      <!-- Score: Sammi W -->
+      <!-- WhatsApp: Liana 1420 -->
+      <div class="proof-card proof-whatsapp">
+        <div class="proof-whatsapp-header">
+          <div class="proof-whatsapp-avatar">L</div>
+          <div><div class="proof-whatsapp-name">Liana</div><div class="proof-whatsapp-sub">WhatsApp</div></div>
+        </div>
+        <div class="bubble-row"><span class="wa-them">Hi Patrick! It's Liana. Just wanted to let you know that I got my SAT score back and I got a 1420 <span class="wa-time">4:01</span></span></div>
+        <div class="bubble-row right"><span class="wa-us">Hey nice job! Are you happy with that? <span class="wa-time">6:59 ✓✓</span></span></div>
+        <div class="bubble-row"><span class="wa-them">I definitely am happy with the improvement! <span class="wa-time">8:07</span></span></div>
+      </div>
+
+      <!-- Score report: 1140 -> 1240 -->
+      <div class="proof-card proof-report">
+        <div class="proof-report-head">SAT Score Report</div>
+        <div class="proof-report-title">Total Score Improvement</div>
+        <div class="proof-report-row">
+          <div class="proof-report-col"><div class="proof-report-lbl">Before</div><div class="proof-report-old">1140</div></div>
+          <div class="proof-report-arrow">→</div>
+          <div class="proof-report-col"><div class="proof-report-lbl">After</div><div class="proof-report-new">1240</div></div>
+        </div>
+        <div class="proof-report-gain">+100 POINTS</div>
+      </div>
+
+      <!-- Score: Jordan +170 -->
+      <div class="proof-card proof-score green-accent">
+        <div class="proof-score-eyebrow">📈 Biggest Jumps</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">930</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1100</div>
+        </div>
+        <div class="proof-score-detail">Jordan · +170 points</div>
+        <div class="proof-score-badge green">+170 Point Jump ✓</div>
+      </div>
+
+      <!-- iMessage: Sasha 1380 (converted from review) -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar" style="background:#ff9500;">S</div>
+          <div><div class="proof-imessage-name">Sasha</div><div class="proof-imessage-sub">iMessage</div></div>
+        </div>
+        <div class="bubble-time">Today</div>
+        <div class="bubble-row"><span class="bubble-them">I scored a 1380 on the SAT!! My mom is so thrilled, especially compared to my last score 😊</span></div>
+        <div class="bubble-row right"><span class="bubble-us">That's a huge jump — so happy for you!</span></div>
+      </div>
+
+      <!-- Score: Xavier Bright Futures FL -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">🎓 Bright Futures</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1090</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1200</div>
+        </div>
+        <div class="proof-score-detail">Xavier · Florida · +110 points</div>
+        <div class="proof-score-badge">Bright Futures 75% ✓</div>
+      </div>
+
+      <!-- Score: Eshaan +200 -->
+      <div class="proof-card proof-score green-accent">
+        <div class="proof-score-eyebrow">📈 Biggest Jumps</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1230</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1430</div>
+        </div>
+        <div class="proof-score-detail">Eshaan · +200 points</div>
+        <div class="proof-score-badge green">+200 Point Jump ✓</div>
+      </div>
+
+      <!-- Score: Drew +120 -->
       <div class="proof-card proof-score">
         <div class="proof-score-eyebrow">📈 Score Improvement</div>
         <div class="proof-score-nums">
-          <div class="proof-score-before">1070</div>
+          <div class="proof-score-before">1040</div>
           <div class="proof-score-arrow">→</div>
-          <div class="proof-score-after">1280</div>
+          <div class="proof-score-after">1160</div>
         </div>
-        <div class="proof-score-detail">Sammi W. · +210 points</div>
-        <div class="proof-score-badge">+210 Point Jump ✓</div>
+        <div class="proof-score-detail">Drew V. · +120 points</div>
+        <div class="proof-score-badge blue">+120 Point Jump ✓</div>
       </div>
 
-      <!-- Score: Tristan -->
+      <!-- Score: Tristan +100 -->
       <div class="proof-card proof-score">
         <div class="proof-score-eyebrow">📈 Score Improvement</div>
         <div class="proof-score-nums">
@@ -886,73 +985,7 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="proof-score-badge">Bright Futures 75% ✓</div>
       </div>
 
-      <!-- iMessage: Liana 1420 -->
-      <div class="proof-card proof-imessage">
-        <div class="proof-imessage-header">
-          <div class="proof-imessage-avatar" style="background:#ff9500;">L</div>
-          <div><div class="proof-imessage-name">Liana</div><div class="proof-imessage-sub">WhatsApp</div></div>
-        </div>
-        <div class="bubble-time">Jul 13</div>
-        <div class="bubble-row"><span class="bubble-them">Hi Patrick! It's Liana. Just wanted to let you know that I got my SAT score back and I got a 1420</span></div>
-        <div class="bubble-row right"><span class="bubble-us">Hey nice job! Are you happy with that?</span></div>
-        <div class="bubble-row"><span class="bubble-them">I definitely am happy with the improvement!</span></div>
-      </div>
-
-      <!-- Score: Jacob S -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Result</div>
-        <div class="proof-score-nums">
-          <div class="proof-score-after" style="font-size:60px;">1260</div>
-        </div>
-        <div class="proof-score-detail">Jacob S.</div>
-        <div class="proof-score-badge">Bright Futures 75% ✓</div>
-      </div>
-
-      <!-- Score: Sammi already above; now Xavier -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Improvement</div>
-        <div class="proof-score-nums">
-          <div class="proof-score-before">1090</div>
-          <div class="proof-score-arrow">→</div>
-          <div class="proof-score-after">1200</div>
-        </div>
-        <div class="proof-score-detail">Xavier · +110 points</div>
-        <div class="proof-score-badge">Bright Futures 75% ✓</div>
-      </div>
-
-      <!-- Review: Sasha (Angelica's group / referral) -->
-      <div class="proof-card proof-review">
-        <div class="proof-review-stars">★★★★★</div>
-        <div class="proof-review-text">"Sasha scored 1380 on the SAT! Her mom is thrilled, especially compared to her previous score :)"</div>
-        <div class="proof-review-author">
-          <div class="proof-review-av">P</div>
-          <div><div class="proof-review-name">Referred Family</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
-        </div>
-      </div>
-
-      <!-- Score: Drew V -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Improvement</div>
-        <div class="proof-score-nums">
-          <div class="proof-score-before">1040</div>
-          <div class="proof-score-arrow">→</div>
-          <div class="proof-score-after">1160</div>
-        </div>
-        <div class="proof-score-detail">Drew V. · +120 points</div>
-        <div class="proof-score-badge">+120 Point Jump ✓</div>
-      </div>
-
-      <!-- Review: Emily / son +100 -->
-      <div class="proof-card proof-review">
-        <div class="proof-review-stars">★★★★★</div>
-        <div class="proof-review-text">"He went up 100 points. He got a 1240!"</div>
-        <div class="proof-review-author">
-          <div class="proof-review-av">P</div>
-          <div><div class="proof-review-name">Parent of HS Junior</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
-        </div>
-      </div>
-
-      <!-- Score: Valentina N -->
+      <!-- Score: Valentina -->
       <div class="proof-card proof-score">
         <div class="proof-score-eyebrow">📈 Score Improvement</div>
         <div class="proof-score-nums">
@@ -961,31 +994,7 @@ footer { background: #060d16; padding: 44px 32px; }
           <div class="proof-score-after">1090</div>
         </div>
         <div class="proof-score-detail">Valentina N. · +130 points</div>
-        <div class="proof-score-badge">+130 Point Jump ✓</div>
-      </div>
-
-      <!-- Score: Jordan -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Improvement</div>
-        <div class="proof-score-nums">
-          <div class="proof-score-before">930</div>
-          <div class="proof-score-arrow">→</div>
-          <div class="proof-score-after">1100</div>
-        </div>
-        <div class="proof-score-detail">Jordan · +170 points</div>
-        <div class="proof-score-badge">+170 Point Jump ✓</div>
-      </div>
-
-      <!-- Score: Joshua M -->
-      <div class="proof-card proof-score">
-        <div class="proof-score-eyebrow">📈 Score Improvement</div>
-        <div class="proof-score-nums">
-          <div class="proof-score-before">920</div>
-          <div class="proof-score-arrow">→</div>
-          <div class="proof-score-after">1020</div>
-        </div>
-        <div class="proof-score-detail">Joshua M. · +100 points</div>
-        <div class="proof-score-badge">Broke 1000 ✓</div>
+        <div class="proof-score-badge blue">+130 Point Jump ✓</div>
       </div>
 
       <!-- iMessage: Nick 1200 -->
@@ -1002,7 +1011,7 @@ footer { background: #060d16; padding: 44px 32px; }
       <!-- Coming soon slot -->
       <div class="proof-card proof-coming">
         <div class="proof-coming-icon">🎥</div>
-        <div class="proof-coming-text">Video testimonials</div>
+        <div class="proof-coming-text">More results</div>
         <div class="proof-coming-sub">Coming soon</div>
       </div>
 
@@ -1024,11 +1033,11 @@ footer { background: #060d16; padding: 44px 32px; }
     <div class="faq-wrap">
       <div class="faq-item open">
         <div class="faq-q">Who is this program designed for? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">The SAT Blueprint Method™ is built for high school High Schoolers across the U.S. who are serious about reaching a 1500+ SAT score — whether for college admissions, scholarship eligibility, or both. It's especially popular with Florida families targeting Bright Futures and other merit scholarships where score thresholds matter significantly.</div>
+        <div class="faq-a">The SAT Blueprint Method™ is built for high schoolers across the U.S. who are serious about reaching their target SAT score — whether for college admissions, scholarship eligibility, or both. It's especially popular with Florida families targeting Bright Futures and other merit scholarships where score thresholds matter significantly.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What does the 12-week program include? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Every student receives: weekly live group instruction sessions with Patrick, weekly office hours for Q&A and problem review, access to a personalized SAT portal with targeted practice questions and full-length tests, The SAT Blueprint™ (all formulas, strategies, and time management tools), and a fully customized study plan built around their starting score, target score, and next test date.</div>
+        <div class="faq-a">Every student receives: weekly live group instruction sessions led by our expert SAT coaches, weekly office hours with Patrick for Q&A and problem review, access to a personalized SAT portal with targeted practice questions and full-length tests, The SAT Blueprint™ (all formulas, strategies, and time management tools), and a fully customized study plan built around their starting score, target score, and next test date.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How is this different from other SAT prep courses or tutors? <span class="faq-arrow">▾</span></div>
@@ -1044,7 +1053,7 @@ footer { background: #060d16; padding: 44px 32px; }
       </div>
       <div class="faq-item">
         <div class="faq-q">How important is the SAT for college scholarships? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Extremely — especially in Florida. Programs like Bright Futures have specific SAT score thresholds that unlock different levels of scholarship funding. A difference of even 40-50 points can mean the difference between a partial and a full scholarship worth thousands of dollars. This is why Patrick builds score targets not just around admissions goals but around the specific scholarship thresholds that matter most to your family.</div>
+        <div class="faq-a">Extremely — especially in Florida. The gap between no scholarship and a strong scholarship can come down to a relatively small difference in SAT score. Programs like Bright Futures and merit aid have specific score thresholds, and depending on how high a student scores, scholarships can range from roughly $5,000 to $50,000 per year. A difference of even 40-50 points can be the line between paying full tuition and earning tens of thousands in aid. This is why Patrick builds score targets not just around admissions goals but around the specific scholarship thresholds that matter most to your family.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How much does the program cost? <span class="faq-arrow">▾</span></div>
