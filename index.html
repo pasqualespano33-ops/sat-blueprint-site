@@ -77,7 +77,34 @@ nav {
 
 /* ── HERO ── */
 .hero { margin-top: 68px; line-height: 0; }
-.hero img { width: 100%; height: auto; display: block; }
+.hero-desktop { display: block; }
+.hero-desktop img { width: 100%; height: auto; display: block; }
+.hero-mobile { display: none; }
+
+/* Mobile hero (overlay version) */
+.hero-m-bg {
+  position: relative;
+  min-height: 520px;
+  background-image: url('Banner.png');
+  background-size: cover;
+  background-position: 18% center;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-m-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(12,26,42,0.35) 0%, rgba(12,26,42,0.72) 55%, rgba(12,26,42,0.94) 100%);
+}
+.hero-m-content { position: relative; z-index: 2; padding: 0 22px 36px; width: 100%; line-height: 1.4; }
+.hero-m-title { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 0.95; color: #fff; letter-spacing: 0.02em; }
+.hero-m-title em { color: var(--blue-light); font-style: normal; }
+.hero-m-rule { width: 100%; height: 2px; background: var(--blue); margin: 14px 0; opacity: 0.8; }
+.hero-m-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+.hero-m-sub { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.6; margin-bottom: 22px; }
+.hero-m-sub strong { color: var(--blue-light); font-weight: 700; }
+.hero-m-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 20px; border-radius: 8px; min-height: 52px; }
+.hero-m-note { font-size: 12px; color: rgba(255,255,255,0.6); text-align: center; margin-top: 12px; }
 
 /* ── TRUST BAR ── */
 .trust-bar { background: var(--navy); padding: 18px 32px; border-bottom: 1px solid rgba(255,255,255,0.07); }
@@ -87,7 +114,7 @@ nav {
 
 /* ── STATS STRIP ── */
 .stats-strip { background: var(--blue); }
-.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); }
 .stat-col { display: flex; flex-direction: column; align-items: center; padding: 32px 16px; border-right: 1px solid rgba(255,255,255,0.18); }
 .stat-col:last-child { border-right: none; }
 .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; }
@@ -194,6 +221,8 @@ nav {
 .vslot { background: var(--navy); border-radius: var(--radius); aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
 .vslot-play { width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--white); }
 .vslot-lbl { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); text-align: center; padding: 0 16px; }
+.vembed { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16/9; background: #000; }
+.vembed iframe { width: 100%; height: 100%; display: block; border: 0; }
 
 /* ── ROADMAP CTA BLOCK ── */
 .roadmap { background: var(--navy-mid); }
@@ -254,27 +283,147 @@ footer { background: #060d16; padding: 44px 32px; }
 .footer-links a:hover { color: rgba(255,255,255,0.6); }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.18); margin-top: 6px; }
 
+/* ── PROOF WALL ── */
+.proof-wall { background: var(--gray-50); padding: 72px 0; }
+.proof-wall .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.proof-wall-head { text-align: center; margin-bottom: 48px; }
+.proof-wall-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--navy); letter-spacing: 0.02em; }
+.proof-wall-head p { font-size: 15px; color: var(--gray-600); margin-top: 10px; }
+
+/* masonry grid */
+.proof-masonry { columns: 4; column-gap: 16px; }
+@media(max-width:1000px){ .proof-masonry { columns: 3; } }
+@media(max-width:700px){ .proof-masonry { columns: 2; } }
+@media(max-width:440px){ .proof-masonry { columns: 1; } }
+
+.proof-card { break-inside: avoid; margin-bottom: 16px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+
+/* iMessage style */
+.proof-imessage { background: #fff; padding: 14px; }
+.proof-imessage-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+.proof-imessage-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.proof-imessage-name { font-size: 12px; font-weight: 700; color: #333; }
+.proof-imessage-sub { font-size: 10px; color: #999; }
+.bubble-them { background: #e9e9eb; border-radius: 18px 18px 18px 4px; padding: 10px 14px; font-size: 13px; color: #1c1c1e; line-height: 1.5; margin-bottom: 6px; display: inline-block; max-width: 85%; }
+.bubble-us { background: #007AFF; border-radius: 18px 18px 4px 18px; padding: 10px 14px; font-size: 13px; color: #fff; line-height: 1.5; margin-bottom: 6px; display: inline-block; max-width: 85%; margin-left: auto; }
+.bubble-row { display: flex; }
+.bubble-row.right { justify-content: flex-end; }
+.bubble-time { font-size: 10px; color: #999; text-align: center; margin: 4px 0 8px; }
+
+/* Score card */
+.proof-score { background: var(--navy); padding: 20px; }
+.proof-score-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.proof-score-nums { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.proof-score-before { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: rgba(255,255,255,0.35); }
+.proof-score-arrow { font-size: 20px; color: var(--gold); }
+.proof-score-after { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; }
+.proof-score-detail { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.proof-score-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; margin-top: 10px; text-transform: uppercase; }
+
+/* Email/review card */
+.proof-review { background: #fff; padding: 18px; }
+.proof-review-stars { color: #FFB800; font-size: 14px; margin-bottom: 8px; }
+.proof-review-text { font-size: 13px; color: #333; line-height: 1.6; margin-bottom: 12px; }
+.proof-review-author { display: flex; align-items: center; gap: 8px; }
+.proof-review-av { width: 28px; height: 28px; border-radius: 50%; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.proof-review-name { font-size: 12px; font-weight: 700; color: #333; }
+.proof-review-platform { font-size: 10px; color: #999; }
+
+/* Coming soon overlay */
+.proof-coming { background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 32px 20px; text-align: center; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.proof-coming-icon { font-size: 24px; }
+.proof-coming-text { font-size: 12px; font-weight: 700; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.08em; }
+.proof-coming-sub { font-size: 11px; color: #94a3b8; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .nav-links { display: none; }
   .hook-grid, .about-grid, .roadmap-grid { grid-template-columns: 1fr; }
   .pillars, .inc-grid, .quotes-grid, .score-slots, .video-slots { grid-template-columns: 1fr 1fr; }
-  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .stats-inner { grid-template-columns: repeat(3,1fr); }
   .sec-title { font-size: 38px; }
   .cta-title { font-size: 48px; }
   section { padding: 68px 24px; }
 }
+
+@media (max-width: 768px) {
+  /* HERO */
+  .hero { margin-top: 68px; }
+  .hero-desktop { display: none; }
+  .hero-mobile { display: block; }
+
+  /* NAV */
+  .nav-inner { padding: 0 16px; }
+  .nav-book { padding: 8px 14px; font-size: 11px; }
+
+  /* STATS */
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-col { padding: 20px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-col:last-child { border-bottom: none; }
+  .stat-num { font-size: 38px; }
+
+  /* SECTIONS */
+  .container { padding: 0 16px; }
+  section { padding: 48px 0; }
+  .sec-title { font-size: clamp(28px, 7vw, 40px); }
+  .sec-sub { font-size: 14px; }
+
+  /* HOOK / PAIN */
+  .hook-grid { grid-template-columns: 1fr; gap: 24px; }
+  .pain-card { padding: 16px 18px; }
+  .hook-callout { padding: 28px 24px; }
+  .hook-callout-title { font-size: 26px; }
+
+  /* PILLARS */
+  .pillars { grid-template-columns: 1fr; gap: 20px; }
+
+  /* PROGRAM INCLUDES */
+  .inc-grid { grid-template-columns: 1fr; }
+
+  /* ABOUT */
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-img-wrap img { max-width: 360px; margin: 0 auto; }
+
+  /* QUOTES */
+  .quotes-grid { grid-template-columns: 1fr; }
+  .qcard { padding: 22px 20px; }
+
+  /* SCORE / VIDEO SLOTS */
+  .score-slots, .video-slots { grid-template-columns: 1fr; }
+
+  /* ROADMAP */
+  .roadmap-grid { grid-template-columns: 1fr; gap: 36px; }
+  .roadmap-card { padding: 28px 24px; }
+
+  /* GUARANTEE */
+  .guarantee { padding: 40px 16px; }
+  .guar-title { font-size: 30px; }
+
+  /* FAQ */
+  .faq-q { font-size: 13px; padding: 16px 18px; }
+  .faq-a { font-size: 13px; }
+
+  /* FINAL CTA */
+  .final-cta { padding: 56px 16px; }
+  .cta-title { font-size: clamp(34px, 9vw, 48px); }
+  .cta-btns { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-btns .btn { text-align: center; }
+
+  /* FOOTER */
+  .footer-in { gap: 14px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  /* TOUCH / MOBILE */
+  .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+  * { -webkit-tap-highlight-color: transparent; }
+}
+
 @media (max-width: 600px) {
-  .pillars, .inc-grid, .quotes-grid, .score-slots, .video-slots { grid-template-columns: 1fr; }
-  .stats-inner { grid-template-columns: 1fr 1fr; }
   .sec-title { font-size: 32px; }
   .cta-title { font-size: 38px; }
-  section { padding: 56px 20px; }
-  .container { padding: 0 20px; }
 }
 </style>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Favicon: upload favicon.png to your GitHub repo and it appears automatically -->
   <link rel="icon" type="image/png" href="/Favicon.png" />
   <link rel="apple-touch-icon" href="/Favicon.png" />
 </head>
@@ -283,14 +432,11 @@ footer { background: #060d16; padding: 44px 32px; }
 <!-- ═══════════ NAV ═══════════ -->
 <nav aria-label="Main navigation">
   <div class="nav-inner">
-    <div class="nav-logo">
-        <img src="/logo.png" alt="SAT Blueprint Method™" style="height:36px;width:auto;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-        <span style="display:none;">SAT <em>Blueprint</em> Method™</span>
-      </div>
+    <div class="nav-logo">SAT <em>Blueprint</em> Method™</div>
     <ul class="nav-links">
       <li><a href="#method">The Method</a></li>
-      <li><a href="#program">Program</a></li>
-      <li><a href="#about">Patrick</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#book" class="nav-book">Book Free Call</a></li>
@@ -299,27 +445,40 @@ footer { background: #060d16; padding: 44px 32px; }
 </nav>
 
 <!-- ═══════════ HERO ═══════════ -->
-<!-- To add your banner: place your image in the same folder as this file,
-     name it banner.jpg, and it will appear here automatically. -->
 <div class="hero">
-  <img src="Banner.png" alt="SAT Blueprint — Patrick Spano" />
+  <!-- Desktop: full banner image -->
+  <a href="#book" class="hero-desktop" aria-label="SAT Blueprint — Book a free roadmap session">
+    <img src="Banner.png" alt="SAT Blueprint — Strategy. Skills. Confidence. Results." />
+  </a>
+  <!-- Mobile: cropped background with readable text + working CTA -->
+  <div class="hero-mobile">
+    <div class="hero-m-bg">
+      <div class="hero-m-content">
+        <div class="hero-m-title">SAT <em>Blueprint</em></div>
+        <div class="hero-m-rule"></div>
+        <div class="hero-m-tag">Strategy · Skills · Confidence · Results</div>
+        <div class="hero-m-sub">A proven program that helps students master the SAT, boost their scores, and <strong>unlock their college potential.</strong></div>
+        <a href="#book" class="hero-m-btn">📅 Book a Free Roadmap Session</a>
+        <div class="hero-m-note">Let's build your blueprint for success.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════ TRUST BAR ═══════════ -->
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item"><div class="trust-dot"></div>Yale Graduate</div>
-    <div class="trust-item"><div class="trust-dot"></div>Perfect SAT Scorer</div>
-    <div class="trust-item"><div class="trust-dot"></div>Former Professional Athlete</div>
-    <div class="trust-item"><div class="trust-dot"></div>10+ Years SAT Coaching</div>
-    <div class="trust-item"><div class="trust-dot"></div>Trusted by Thousands of Families Nationwide</div>
+    <div class="trust-item"><div class="trust-dot"></div>2,000+ Families Helped</div>
+    <div class="trust-item"><div class="trust-dot"></div>15+ Years Experience</div>
+    <div class="trust-item"><div class="trust-dot"></div>Founded by Yale Graduates</div>
+    <div class="trust-item"><div class="trust-dot"></div>Coached by a Perfect SAT Scorer</div>
   </div>
 </div>
 
-<!-- ═══════════ ATTENTION HOOK (parent-targeted) ═══════════ -->
+<!-- ═══════════ ATTENTION HOOK ═══════════ -->
 <section class="hook" id="hook">
   <div class="container">
-    <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">For Parents of High School High Schoolers</span></div>
+    <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">For Parents of High Schoolers</span></div>
     <h2 class="sec-title">Does Any of This Sound <em style="color:var(--blue);font-style:normal;">Familiar?</em></h2>
     <div class="hook-grid">
       <div class="pain-list">
@@ -336,10 +495,6 @@ footer { background: #060d16; padding: 44px 32px; }
           <div class="pain-body"><strong>Time is running out before the next test date</strong><p>Between AP classes, sports, and extracurriculars, SAT prep keeps getting pushed down the list — until it's almost too late.</p></div>
         </div>
         <div class="pain-card">
-          <div class="pain-icon">😰</div>
-          <div class="pain-body"><strong>Anxiety and burnout are getting in the way</strong><p>The pressure is affecting confidence and focus — making it harder to absorb anything they do study.</p></div>
-        </div>
-        <div class="pain-card">
           <div class="pain-icon">💰</div>
           <div class="pain-body"><strong>Scholarships and dream schools are on the line</strong><p>Especially in Florida — a 1480 vs a 1520 can mean the difference between full merit scholarships and paying full tuition.</p></div>
         </div>
@@ -353,8 +508,8 @@ footer { background: #060d16; padding: 44px 32px; }
           That clarity — that structure — is exactly what <strong style="color:var(--gold-light)">The SAT Blueprint Method™</strong> provides.
         </div>
         <div class="hook-quote">
-          <p>"The SAT Blueprint program was exactly what our teen needed. We went from unprepared and lacking confidence to a 1470 within 12 weeks. Thank you Patrick!"</p>
-          <div class="attr">— Parent of HS Junior</div>
+          <p>"The SAT Blueprint program was exactly what our teen needed. We went from unprepared and lacking confidence to a 200 point boost up to a 1430 within 12 weeks. Thank you Patrick!"</p>
+          <div class="attr">— Preethi, parent of Eshaan</div>
         </div>
         <a href="#book" class="btn btn-gold" style="text-align:center;">📅 Book a Free Roadmap Session →</a>
       </div>
@@ -364,11 +519,10 @@ footer { background: #060d16; padding: 44px 32px; }
 
 <!-- ═══════════ STATS STRIP ═══════════ -->
 <div class="stats-strip">
-  <div class="stats-inner" style="grid-template-columns:repeat(4,1fr);">
+  <div class="stats-inner">
     <div class="stat-col"><span class="stat-num">100-200</span><span class="stat-lbl">Avg. Point Improvement</span></div>
-    <div class="stat-col"><span class="stat-num" id="counter-students">0</span><span class="stat-lbl">Students Helped</span></div>
+    <div class="stat-col"><span class="stat-num" id="counter-students">0</span><span class="stat-lbl">Families Helped</span></div>
     <div class="stat-col"><span class="stat-num" id="counter-scholarships">$0</span><span class="stat-lbl">In Scholarships Earned</span></div>
-    <div class="stat-col"><span class="stat-num">10+</span><span class="stat-lbl">Years Experience</span></div>
   </div>
 </div>
 
@@ -391,10 +545,8 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="pillar-body">
           <p style="font-size:13px;color:var(--gray-600);line-height:1.7;margin-bottom:6px;">We diagnose the <em>specific</em> root causes — not just "needs improvement."</p>
           <div class="pillar-item"><span class="pi-check blue">✓</span><span>Content gaps and forgotten formulas</span></div>
-          <div class="pillar-item"><span class="pi-check blue">✓</span><span>Incorrect or inconsistent strategies</span></div>
           <div class="pillar-item"><span class="pi-check blue">✓</span><span>Timing and pacing breakdowns</span></div>
-          <div class="pillar-item"><span class="pi-check blue">✓</span><span>Anxiety and uncertainty under test conditions</span></div>
-          <div class="pillar-item"><span class="pi-check blue">✓</span><span>Clear map of where every point is being lost</span></div>
+          <div class="pillar-item"><span class="pi-check blue">✓</span><span>A clear map of where every point is being lost</span></div>
         </div>
       </div>
       <div class="pillar">
@@ -408,9 +560,7 @@ footer { background: #060d16; padding: 44px 32px; }
           <p style="font-size:13px;color:var(--gray-600);line-height:1.7;margin-bottom:6px;">We fill every gap using <strong>The SAT Blueprint™</strong> — all formulas, strategies, and time management solutions in one place.</p>
           <div class="pillar-item"><span class="pi-check gold">✓</span><span>Core concepts taught in order of SAT priority</span></div>
           <div class="pillar-item"><span class="pi-check gold">✓</span><span>Proven strategies for every question type</span></div>
-          <div class="pillar-item"><span class="pi-check gold">✓</span><span>Pattern recognition and timing solutions</span></div>
           <div class="pillar-item"><span class="pi-check gold">✓</span><span>Customized plan: starting score → target score</span></div>
-          <div class="pillar-item"><span class="pi-check gold">✓</span><span>Zero time wasted on what they already know</span></div>
         </div>
       </div>
       <div class="pillar">
@@ -422,10 +572,8 @@ footer { background: #060d16; padding: 44px 32px; }
         <div class="pillar-stripe green"></div>
         <div class="pillar-body">
           <p style="font-size:13px;color:var(--gray-600);line-height:1.7;margin-bottom:6px;">Sustained, structured effort on weak areas builds mastery — and test-day confidence you can't fake.</p>
-          <div class="pillar-item"><span class="pi-check green">✓</span><span>Accuracy improves, timing speeds up</span></div>
           <div class="pillar-item"><span class="pi-check green">✓</span><span>Confidence compounds week over week</span></div>
           <div class="pillar-item"><span class="pi-check green">✓</span><span>Test day feels familiar, not frightening</span></div>
-          <div class="pillar-item"><span class="pi-check green">✓</span><span>Score gains that hold and keep climbing</span></div>
           <div class="pillar-item"><span class="pi-check green">✓</span><span>Dream college. Scholarships. Done.</span></div>
         </div>
       </div>
@@ -437,7 +585,7 @@ footer { background: #060d16; padding: 44px 32px; }
 <section class="includes" id="program">
   <div class="container">
     <div class="eyebrow"><div class="ey-line gold"></div><span class="ey-text gold">What's Inside</span></div>
-    <h2 class="sec-title on-dark">Everything Your Teen Needs to Score <em>1500+</em></h2>
+    <h2 class="sec-title on-dark">Everything Your Teen Needs to Boost <em>200+ Points</em></h2>
     <p class="sec-sub on-dark">A complete coaching system — not a tutoring center, not a video library. A personalized, live program built around your teen's exact situation.</p>
     <div class="inc-grid">
       <div class="inc-card">
@@ -478,7 +626,7 @@ footer { background: #060d16; padding: 44px 32px; }
 <section class="how" id="how">
   <div class="container">
     <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">Step-by-Step Process</span></div>
-    <h2 class="sec-title">From Where You Are <em style="color:var(--blue);font-style:normal;">to 1500+</em></h2>
+    <h2 class="sec-title">From Where You Are <em style="color:var(--blue);font-style:normal;">to Your Dream College</em></h2>
     <p class="sec-sub">A clear four-step path — from your first conversation with Patrick to walking out of the testing center with a score that changes everything.</p>
     <div class="steps">
       <div class="step">
@@ -526,22 +674,21 @@ footer { background: #060d16; padding: 44px 32px; }
         <h2 class="sec-title">Patrick <em style="color:var(--blue);font-style:normal;">Spano</em></h2>
         <div class="about-body">
           <p>I'm Patrick Spano — Founder and Creator of The SAT Blueprint Method™. As a <strong>Yale graduate, perfect SAT scorer, and former professional athlete</strong>, I've made it my mission to give every student the same advantage I had: a clear, proven system that replaces guesswork with results.</p>
-          <p>Over <strong>10+ years in SAT coaching</strong>, I've worked with thousands of families across the U.S. What I kept seeing wasn't a lack of effort — it was a lack of direction. Students were studying hard without understanding what the SAT actually tests, which strategies mattered most, or how to use them under pressure.</p>
+          <p>Over <strong>15 years of test prep coaching</strong>, I've worked with thousands of families across the U.S. What I kept seeing wasn't a lack of effort — it was a lack of direction. Students were studying hard without understanding what the SAT actually tests, which strategies mattered most, or how to use them under pressure.</p>
           <p>I built The SAT Blueprint™ to eliminate that uncertainty. I only work with a small number of students at a time so every family receives focused guidance, consistent support, and truly personalized attention — not a one-size-fits-all program.</p>
         </div>
         <div class="creds">
           <div class="cred"><div class="cred-ico">🎓</div>Yale Graduate</div>
           <div class="cred"><div class="cred-ico">📝</div>Perfect SAT Scorer</div>
           <div class="cred"><div class="cred-ico">🏆</div>Former Professional Athlete</div>
-          <div class="cred"><div class="cred-ico">📅</div>10+ Years SAT Coaching Experience</div>
-          <div class="cred"><div class="cred-ico">👨‍👩‍👧</div>Thousands of Families Helped Nationwide</div>
+          <div class="cred"><div class="cred-ico">📅</div>15+ Years Test Prep Coaching Experience</div>
         </div>
         <a href="#book" class="btn btn-blue">Book a Free Roadmap Session →</a>
       </div>
       <div class="about-img-wrap">
-        <img src="patrick-banner.png" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" />
+        <img src="patrick-headshot.png" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" />
         <div class="about-badge">
-          <div class="about-badge-num">10+</div>
+          <div class="about-badge-num">15+</div>
           <div class="about-badge-lbl">Years Coaching</div>
         </div>
       </div>
@@ -558,18 +705,18 @@ footer { background: #060d16; padding: 44px 32px; }
     <div class="quotes-grid" id="testimonials-grid">
       <div class="qcard">
         <div class="qcard-stars">★★★★★</div>
-        <p class="qcard-body">"The SAT Blueprint program was exactly what our teen needed. We went from unprepared and lacking confidence to a 1470 within 12 weeks. Thank you Patrick!"</p>
-        <div class="qcard-foot"><div class="qcard-av">HP</div><div><div class="qcard-name">Parent of HS Junior</div><div class="qcard-sub">Score: → 1470 in 12 weeks</div></div></div>
+        <p class="qcard-body">"Mark's SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying — what do you think?"</p>
+        <div class="qcard-foot"><div class="qcard-av">S</div><div><div class="qcard-name">Sasha</div><div class="qcard-sub">Parent of Mark · → 1490</div></div></div>
       </div>
       <div class="qcard">
         <div class="qcard-stars">★★★★★</div>
         <p class="qcard-body">"Thank you for working with Adin and sharing your knowledge and expertise. He has said repeatedly how much he enjoys your meetings and how much you have helped him master the concepts."</p>
-        <div class="qcard-foot"><div class="qcard-av">AP</div><div><div class="qcard-name">Parent of HS Senior</div><div class="qcard-sub">SAT Blueprint Student</div></div></div>
+        <div class="qcard-foot"><div class="qcard-av">AP</div><div><div class="qcard-name">Andrea P.</div><div class="qcard-sub">Parent of HS Senior</div></div></div>
       </div>
       <div class="qcard">
         <div class="qcard-stars">★★★★★</div>
-        <p class="qcard-body">"Excellent test prep! We have seen a significant increase in scores. Not only is the student treated with respect and confidence — they are empowered. Highly recommend!"</p>
-        <div class="qcard-foot"><div class="qcard-av">SP</div><div><div class="qcard-name">Parent of HS Senior</div><div class="qcard-sub">SAT Blueprint Student</div></div></div>
+        <p class="qcard-body">"Annabel was accepted to Yale and Princeton! She was beyond excited and wanted you to know. She was also accepted to Emory and Johns Hopkins with huge scholarships. She still feels like she's dreaming."</p>
+        <div class="qcard-foot"><div class="qcard-av">SS</div><div><div class="qcard-name">Shari S.</div><div class="qcard-sub">Parent of Annabel · 1550</div></div></div>
       </div>
     </div>
   </div>
@@ -584,21 +731,11 @@ footer { background: #060d16; padding: 44px 32px; }
       <p class="sec-sub">Real screenshots from real students — unedited, unfiltered. Add your score result images and DM screenshots below.</p>
     </div>
 
-    <div class="slots-label">📸 Score Results — Video testimonials & screenshots coming soon</div>
-    <div class="score-slots">
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-      <div class="slot"><div style="font-size:22px;">🏆</div><div style="font-size:13px;font-weight:700;color:var(--gray-600);">Coming Soon</div><div style="font-size:11px;color:var(--gray-400);">Real student results — check back soon</div></div>
-    </div>
-
-    <div class="slots-label" style="margin-top:16px;">🎥 Video Testimonials — Coming soon</div>
+    <div class="slots-label">🎥 Video Testimonials — More coming soon</div>
     <div class="video-slots" id="video-slots">
-      <div class="vslot"><div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;">🎬</div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;">Coming Soon</div><div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 16px;">Video testimonials coming shortly</div></div>
-      <div class="vslot"><div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;">🎬</div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;">Coming Soon</div><div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 16px;">Video testimonials coming shortly</div></div>
-      <div class="vslot"><div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;">🎬</div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;">Coming Soon</div><div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 16px;">Video testimonials coming shortly</div></div>
+      <div class="vembed"><iframe src="https://www.youtube-nocookie.com/embed/5Bi-oBb8rAE?rel=0&modestbranding=1" title="SAT Blueprint video testimonial" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vembed"><iframe src="https://www.youtube-nocookie.com/embed/tVnn4XjRJdg?rel=0&modestbranding=1" title="SAT Blueprint video testimonial" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="vslot"><div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;">🎬</div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;">More Coming</div><div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 16px;">More video testimonials coming shortly</div></div>
     </div>
   </div>
 </section>
@@ -637,6 +774,247 @@ footer { background: #060d16; padding: 44px 32px; }
     <p class="guar-body">You will leave the free Roadmap Session knowing <strong>exactly what is holding your teen's score back and what they need to do to fix it</strong> — regardless of whether you decide to enroll. There's no pressure, no pitch, and no wasted time. Just clarity and a concrete plan. If we decide to work together, every element of the program is built specifically around your teen's needs — not a recycled template.</p>
   </div>
 </div>
+
+<!-- ═══════════ PROOF WALL ═══════════ -->
+<section class="proof-wall">
+  <div class="container">
+    <div class="proof-wall-head">
+      <div class="eyebrow" style="justify-content:center;"><div class="ey-line"></div><span class="ey-text">Student Results</span><div class="ey-line"></div></div>
+      <h2>The Results Speak <em style="color:var(--blue);font-style:normal;">For Themselves</em></h2>
+      <p>Real texts, scores, and messages from students and parents in the SAT Blueprint program.</p>
+    </div>
+    <div class="proof-masonry">
+
+      <!-- iMessage: Annabel 1550 -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar">A</div>
+          <div><div class="proof-imessage-name">Annabel</div><div class="proof-imessage-sub">iMessage</div></div>
+        </div>
+        <div class="bubble-time">Fri, Jun 20</div>
+        <div class="bubble-row"><span class="bubble-them">Good morning! SAT scores came out this morning. I got a 1550: 750 reading and 800 math. Thank you so much for helping me get there! 🙂</span></div>
+        <div class="bubble-row right"><span class="bubble-us">That's amazing!</span></div>
+        <div class="bubble-row right"><span class="bubble-us">Yale here you come</span></div>
+      </div>
+
+      <!-- Score: Annabel -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Result</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-after" style="font-size:60px;">1550</div>
+        </div>
+        <div class="proof-score-detail">750 Reading · 800 Math<br/>Accepted to Yale &amp; Princeton</div>
+        <div class="proof-score-badge">Ivy League Bound ✓</div>
+      </div>
+
+      <!-- iMessage: Annabel admissions -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar" style="background:#af52de;">SS</div>
+          <div><div class="proof-imessage-name">Parent of Annabel</div><div class="proof-imessage-sub">iMessage</div></div>
+        </div>
+        <div class="bubble-time">Sat, Apr 11</div>
+        <div class="bubble-row"><span class="bubble-them">Annabel was accepted to Yale and Princeton! She was beyond excited and wanted you to know.</span></div>
+        <div class="bubble-row"><span class="bubble-them">Also accepted to Emory &amp; Johns Hopkins (huge scholarships), UNC Chapel Hill, UVA, and Tufts 🎉</span></div>
+        <div class="bubble-row right"><span class="bubble-us">Wow that is incredible</span></div>
+      </div>
+
+      <!-- Score: Briana 1530 -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Result</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-after" style="font-size:60px;">1530</div>
+        </div>
+        <div class="proof-score-detail">740 Reading/Writing · 790 Math<br/>Superscore</div>
+        <div class="proof-score-badge">Top 1% Nationally ✓</div>
+      </div>
+
+      <!-- iMessage: Briana -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar" style="background:#34c759;">B</div>
+          <div><div class="proof-imessage-name">Briana</div><div class="proof-imessage-sub">iMessage</div></div>
+        </div>
+        <div class="bubble-time">Apr 3</div>
+        <div class="bubble-row"><span class="bubble-them">hey Patrick!!!! my school SAT score just came out, my superscore is a 1530 now!! 740 RW and 790 math</span></div>
+        <div class="bubble-row"><span class="bubble-them">thanks for all your help!!</span></div>
+        <div class="bubble-row right"><span class="bubble-us">That's amazing</span></div>
+        <div class="bubble-row right"><span class="bubble-us">You deserve it</span></div>
+      </div>
+
+      <!-- Score: Mark 1490 -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Result</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-after" style="font-size:60px;">1490</div>
+        </div>
+        <div class="proof-score-detail">HS Senior<br/>"THANK YOU SO MUCH!!!!"</div>
+        <div class="proof-score-badge">College Ready ✓</div>
+      </div>
+
+      <!-- Review: Mark -->
+      <div class="proof-card proof-review">
+        <div class="proof-review-stars">★★★★★</div>
+        <div class="proof-review-text">"Mark's SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying — what do you think?"</div>
+        <div class="proof-review-author">
+          <div class="proof-review-av">P</div>
+          <div><div class="proof-review-name">Parent of HS Senior</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
+        </div>
+      </div>
+
+      <!-- Score: Sammi W -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1070</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1280</div>
+        </div>
+        <div class="proof-score-detail">Sammi W. · +210 points</div>
+        <div class="proof-score-badge">+210 Point Jump ✓</div>
+      </div>
+
+      <!-- Score: Tristan -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1190</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1290</div>
+        </div>
+        <div class="proof-score-detail">Tristan · +100 points</div>
+        <div class="proof-score-badge">Bright Futures 75% ✓</div>
+      </div>
+
+      <!-- iMessage: Liana 1420 -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar" style="background:#ff9500;">L</div>
+          <div><div class="proof-imessage-name">Liana</div><div class="proof-imessage-sub">WhatsApp</div></div>
+        </div>
+        <div class="bubble-time">Jul 13</div>
+        <div class="bubble-row"><span class="bubble-them">Hi Patrick! It's Liana. Just wanted to let you know that I got my SAT score back and I got a 1420</span></div>
+        <div class="bubble-row right"><span class="bubble-us">Hey nice job! Are you happy with that?</span></div>
+        <div class="bubble-row"><span class="bubble-them">I definitely am happy with the improvement!</span></div>
+      </div>
+
+      <!-- Score: Jacob S -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Result</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-after" style="font-size:60px;">1260</div>
+        </div>
+        <div class="proof-score-detail">Jacob S.</div>
+        <div class="proof-score-badge">Bright Futures 75% ✓</div>
+      </div>
+
+      <!-- Score: Sammi already above; now Xavier -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1090</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1200</div>
+        </div>
+        <div class="proof-score-detail">Xavier · +110 points</div>
+        <div class="proof-score-badge">Bright Futures 75% ✓</div>
+      </div>
+
+      <!-- Review: Sasha (Angelica's group / referral) -->
+      <div class="proof-card proof-review">
+        <div class="proof-review-stars">★★★★★</div>
+        <div class="proof-review-text">"Sasha scored 1380 on the SAT! Her mom is thrilled, especially compared to her previous score :)"</div>
+        <div class="proof-review-author">
+          <div class="proof-review-av">P</div>
+          <div><div class="proof-review-name">Referred Family</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
+        </div>
+      </div>
+
+      <!-- Score: Drew V -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">1040</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1160</div>
+        </div>
+        <div class="proof-score-detail">Drew V. · +120 points</div>
+        <div class="proof-score-badge">+120 Point Jump ✓</div>
+      </div>
+
+      <!-- Review: Emily / son +100 -->
+      <div class="proof-card proof-review">
+        <div class="proof-review-stars">★★★★★</div>
+        <div class="proof-review-text">"He went up 100 points. He got a 1240!"</div>
+        <div class="proof-review-author">
+          <div class="proof-review-av">P</div>
+          <div><div class="proof-review-name">Parent of HS Junior</div><div class="proof-review-platform">SAT Blueprint Family</div></div>
+        </div>
+      </div>
+
+      <!-- Score: Valentina N -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">960</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1090</div>
+        </div>
+        <div class="proof-score-detail">Valentina N. · +130 points</div>
+        <div class="proof-score-badge">+130 Point Jump ✓</div>
+      </div>
+
+      <!-- Score: Jordan -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">930</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1100</div>
+        </div>
+        <div class="proof-score-detail">Jordan · +170 points</div>
+        <div class="proof-score-badge">+170 Point Jump ✓</div>
+      </div>
+
+      <!-- Score: Joshua M -->
+      <div class="proof-card proof-score">
+        <div class="proof-score-eyebrow">📈 Score Improvement</div>
+        <div class="proof-score-nums">
+          <div class="proof-score-before">920</div>
+          <div class="proof-score-arrow">→</div>
+          <div class="proof-score-after">1020</div>
+        </div>
+        <div class="proof-score-detail">Joshua M. · +100 points</div>
+        <div class="proof-score-badge">Broke 1000 ✓</div>
+      </div>
+
+      <!-- iMessage: Nick 1200 -->
+      <div class="proof-card proof-imessage">
+        <div class="proof-imessage-header">
+          <div class="proof-imessage-avatar">M</div>
+          <div><div class="proof-imessage-name">Parent of Nick</div><div class="proof-imessage-sub">iMessage</div></div>
+        </div>
+        <div class="bubble-time">Apr 4</div>
+        <div class="bubble-row"><span class="bubble-them">Hi Patrick, it's Melanie. Nick scored a 1200 on the new SAT! He'd like to start back with tutoring to try for 1300.</span></div>
+        <div class="bubble-row right"><span class="bubble-us">Not bad at all — I believe he can score higher. Let's do it</span></div>
+      </div>
+
+      <!-- Coming soon slot -->
+      <div class="proof-card proof-coming">
+        <div class="proof-coming-icon">🎥</div>
+        <div class="proof-coming-text">Video testimonials</div>
+        <div class="proof-coming-sub">Coming soon</div>
+      </div>
+
+    </div><!-- end masonry -->
+
+
+    <div style="text-align:center;margin-top:48px;">
+      <p style="font-size:13px;color:var(--gray-600);margin-bottom:20px;">Join the families who've already unlocked better scores and bigger scholarships.</p>
+      <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" class="btn btn-blue">📅 Book Your Free Roadmap Session →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════ FAQ ═══════════ -->
 <section class="faq" id="faq">
@@ -697,7 +1075,7 @@ footer { background: #060d16; padding: 44px 32px; }
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="footer-in">
-    <div class="footer-logo">SAT <em>Blueprint</em> Method™</div>
+    <div class="footer-logo"><img src="logo-footer.png" alt="SAT Blueprint" style="height:84px;width:auto;display:block;" /></div>
     <div class="footer-links">
       <a href="mailto:patrick@gradefultestprep.com">patrick@gradefultestprep.com</a>
       <a href="tel:5614302972">(561) 430-2972</a>
@@ -721,7 +1099,6 @@ footer { background: #060d16; padding: 44px 32px; }
 <script>
 // Load testimonials from JSON files generated by CMS
 async function loadCMSContent() {
-  // Load testimonials
   try {
     const tRes = await fetch('/content/testimonials/index.json');
     if (tRes.ok) {
@@ -742,7 +1119,6 @@ async function loadCMSContent() {
     }
   } catch(e) {}
 
-  // Load videos
   try {
     const vRes = await fetch('/content/videos/index.json');
     if (vRes.ok) {
@@ -759,7 +1135,6 @@ async function loadCMSContent() {
   } catch(e) {}
 }
 
-// Netlify Identity redirect
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", user => {
     if (!user) {
@@ -790,11 +1165,8 @@ function animateCounter(id, start, end, duration, prefix, suffix, formatFn) {
   requestAnimationFrame(step);
 }
 
-function formatNumber(n) {
-  return n.toLocaleString('en-US');
-}
+function formatNumber(n) { return n.toLocaleString('en-US'); }
 
-// Trigger counters when stats strip scrolls into view
 const statsStrip = document.querySelector('.stats-strip');
 let countersStarted = false;
 if (statsStrip) {
@@ -802,8 +1174,8 @@ if (statsStrip) {
     entries.forEach(entry => {
       if (entry.isIntersecting && !countersStarted) {
         countersStarted = true;
-        animateCounter('counter-students', 0, 1000, 2000, '', '+', formatNumber);
-        animateCounter('counter-scholarships', 0, 500000, 2500, '$', '+', formatNumber);
+        animateCounter('counter-students', 0, 2000, 2000, '', '+', formatNumber);
+        animateCounter('counter-scholarships', 0, 1500000, 2500, '$', '+', formatNumber);
       }
     });
   }, { threshold: 0.3 });
