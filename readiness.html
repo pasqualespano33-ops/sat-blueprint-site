@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAT Readiness Report — Gradeful Test Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-50: #EEF4FF;
+    --blue-100: #B5D4F4;
+    --blue-400: #3B82F6;
+    --blue-600: #1D5FD4;
+    --blue-800: #0C447C;
+    --blue-900: #0C1A2A;
+    --green-50: #EAF3DE;
+    --green-600: #16a34a;
+    --green-800: #15803d;
+    --amber-50: #FAEEDA;
+    --amber-600: #C89B2A;
+    --red-50: #FCEBEB;
+    --red-600: #A32D2D;
+    --gray-50: #F7F7F5;
+    --gray-100: #EBEBEB;
+    --gray-300: #C8C8C8;
+    --gray-500: #888;
+    --gray-700: #444;
+    --gray-900: #0C1A2A;
+    --gold: #C89B2A;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+  }
+
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .rd-header {
+    padding: 18px 24px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .rd-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gray-900);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-align: center;
+  }
+  .rd-logo em { color: var(--blue-600); font-style: normal; }
+  .rd-logo-wrap { text-align: center; }
+  .rd-logo-tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  .rd-footer {
+    background: var(--blue-900);
+    text-align: center;
+    padding: 36px 24px;
+    margin-top: 2rem;
+  }
+  .rd-footer-logo { height: 64px; width: auto; display: block; margin: 0 auto 14px; }
+  .rd-footer-tagline { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .rd-footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .rd-footer-disclaimer { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 10px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+  .lede {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-600);
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--gray-900);
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+
+  .subline {
+    font-size: 15px;
+    color: var(--gray-500);
+    margin-bottom: 2rem;
+    line-height: 1.65;
+  }
+
+  .trust-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 12px;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green-600);
+    flex-shrink: 0;
+  }
+
+  .field { margin-bottom: 1.25rem; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+  }
+
+  .label-hint {
+    font-weight: 400;
+    color: var(--gray-500);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    color: var(--gray-900);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  input:focus, select:focus { border-color: var(--blue-400); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .slider-wrap { padding: 4px 0; }
+
+  .slider-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .slider-score {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue-600);
+  }
+
+  .slider-range { font-size: 12px; color: var(--gray-500); }
+
+  input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    border: none;
+    background: var(--gray-100);
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    padding: 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1.5px var(--blue-400);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    cursor: pointer;
+    border: 3px solid #fff;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .check-item {
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    transition: border-color 0.12s, background 0.12s;
+    user-select: none;
+  }
+
+  .check-item:hover { border-color: var(--blue-400); }
+
+  .check-item.on {
+    border-color: var(--blue-600);
+    background: var(--blue-50);
+    color: var(--blue-800);
+  }
+
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid var(--gray-300);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.12s, border-color 0.12s;
+  }
+
+  .check-item.on .check-box {
+    background: var(--blue-600);
+    border-color: var(--blue-600);
+  }
+
+  .check-tick {
+    display: none;
+    width: 9px;
+    height: 6px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+
+  .check-item.on .check-tick { display: block; }
+
+  .hint { font-size: 12px; color: var(--gray-500); margin-top: 5px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-100);
+    margin: 1.75rem 0;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 4px;
+  }
+
+  .btn-primary:hover { background: var(--blue-800); }
+
+  .error-msg {
+    font-size: 13px;
+    color: #c0392b;
+    margin-top: 10px;
+    display: none;
+    padding: 10px 14px;
+    background: var(--red-50);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid #c0392b;
+  }
+
+  .page-hidden { display: none !important; }
+
+  .report-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-100);
+    margin-bottom: 1.5rem;
+  }
+
+  .report-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+
+  .report-meta { font-size: 13px; color: var(--gray-500); }
+
+  .overall-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .overall-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .overall-label { font-size: 13px; color: var(--gray-500); margin-bottom: 4px; }
+  .overall-desc { font-size: 14px; color: var(--gray-700); line-height: 1.5; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--gray-500);
+    margin-bottom: 5px;
+  }
+
+  .stat-val {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+
+  .section-card {
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 3px;
+  }
+
+  .section-sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 1.1rem;
+  }
+
+  .readiness-row { margin-bottom: 14px; }
+  .readiness-row:last-child { margin-bottom: 0; }
+
+  .readiness-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+
+  .readiness-name { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .readiness-pct { font-size: 13px; font-weight: 700; }
+
+  .bar-track {
+    height: 9px;
+    background: var(--gray-100);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .bar-fill { height: 100%; border-radius: 5px; transition: width 0.7s cubic-bezier(.4,0,.2,1); }
+
+  .risk-list { list-style: none; }
+
+  .risk-item {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+
+  .risk-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .risk-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .timeline-pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  .pill-green { background: var(--green-50); color: var(--green-600); }
+  .pill-amber { background: var(--amber-50); color: var(--amber-600); }
+
+  .cta-card {
+    border-radius: var(--radius-md);
+    border: 2px solid var(--blue-600);
+    background: var(--blue-50);
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .cta-headline {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--blue-800);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .cta-body {
+    font-size: 13px;
+    color: var(--blue-600);
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+  }
+
+  .cta-bullets {
+    list-style: none;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-bullets li {
+    font-size: 13px;
+    color: var(--blue-800);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .cta-check {
+    color: var(--green-600);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .btn-cta {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-cta:hover { background: var(--blue-800); }
+
+  .cta-sub {
+    font-size: 12px;
+    color: var(--blue-400);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .cta-soft {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    margin-top: 14px;
+  }
+  .cta-soft a { color: #fff; text-decoration: underline; font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .two-col { grid-template-columns: 1fr; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 22px; }
+    .overall-num { font-size: 42px; }
+    .container { padding: 1.5rem 1rem 3rem; }
+  }
+</style>
+</head>
+<body>
+<header class="rd-header">
+  <div class="rd-logo-wrap"><div class="rd-logo">SAT <em>Blueprint</em> Method™</div><div class="rd-logo-tag">by Gradeful Test Prep</div></div>
+</header>
+<div class="container">
+
+  <div id="page1">
+    <p class="lede">Gradeful Test Prep — Free Assessment</p>
+    <h1>How competitive is your teen's SAT score?</h1>
+    <p class="subline">Answer a few quick questions to instantly see your teen's SAT Readiness Score for Florida colleges and Bright Futures — personalized, free, and takes under a minute.</p>
+
+    <div class="trust-row">
+      <span class="trust-item"><span class="trust-dot"></span>Florida-specific data</span>
+      <span class="trust-item"><span class="trust-dot"></span>Bright Futures thresholds included</span>
+      <span class="trust-item"><span class="trust-dot"></span>Takes under a minute</span>
+    </div>
+
+    <div class="two-col">
+      <div class="field">
+        <label for="student-name">Student's first name</label>
+        <input type="text" id="student-name" placeholder="e.g. Patrick" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="grade">Current grade</label>
+        <select id="grade">
+          <option value="">Select grade</option>
+          <option value="9">9th grade (freshman)</option>
+          <option value="10">10th grade (sophomore)</option>
+          <option value="11">11th grade (junior)</option>
+          <option value="12">12th grade (senior)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Current SAT score (or best estimate)</label>
+      <div class="slider-wrap">
+        <div class="slider-top">
+          <span class="slider-score" id="sat-display">1050</span>
+          <span class="slider-range">400 – 1600</span>
+        </div>
+        <input type="range" min="400" max="1600" step="10" value="1050" id="sat-score" aria-label="SAT score" />
+      </div>
+      <p class="hint">No score yet? Use PSAT score × 1.04, or your best practice test estimate.</p>
+    </div>
+
+    <div class="field">
+      <label>Is this an official SAT score or a practice/estimate?</label>
+      <div class="checkbox-grid" id="score-type-toggle" style="grid-template-columns:1fr 1fr;">
+        <div class="check-item radio-item on" data-val="official" onclick="setScoreType(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Official SAT
+        </div>
+        <div class="check-item radio-item" data-val="practice" onclick="setScoreType(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Practice / estimate
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="gpa">Unweighted GPA <span class="label-hint">(optional)</span></label>
+      <select id="gpa">
+        <option value="">Select GPA range</option>
+        <option value="4.0">4.0 (all As)</option>
+        <option value="3.7">3.5 – 3.9</option>
+        <option value="3.2">3.0 – 3.4</option>
+        <option value="2.7">2.5 – 2.9</option>
+        <option value="2.0">Below 2.5</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Target schools &amp; scholarships <span class="label-hint">(select all that apply)</span></label>
+      <div class="checkbox-grid" id="college-checks">
+        <div class="check-item" data-val="UF" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>University of Florida
+        </div>
+        <div class="check-item" data-val="FSU" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Florida State University
+        </div>
+        <div class="check-item" data-val="UCF" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>UCF
+        </div>
+        <div class="check-item" data-val="USF" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>USF
+        </div>
+        <div class="check-item" data-val="UM" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>University of Miami
+        </div>
+        <div class="check-item" data-val="FAMU" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>FAU / FGCU / Other FL
+        </div>
+        <div class="check-item" data-val="BF100" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Bright Futures 100%
+        </div>
+        <div class="check-item" data-val="BF75" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Bright Futures 75%
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="test-date">Next planned test date</label>
+      <select id="test-date">
+        <option value="">Select a window</option>
+        <option value="1">Within 4 weeks</option>
+        <option value="2">1 – 2 months</option>
+        <option value="3">2 – 4 months</option>
+        <option value="5">4 – 6 months</option>
+        <option value="8">6+ months away</option>
+        <option value="0">Haven't scheduled yet</option>
+      </select>
+    </div>
+
+    <div id="form-error" class="error-msg">Please complete all fields and select at least one target school.</div>
+    <button class="btn-primary" onclick="goToReport()">See my readiness report &rarr;</button>
+  </div>
+
+  <div id="page3" class="page-hidden">
+    <div class="report-header">
+      <p class="lede">SAT Readiness Report — Gradeful Test Prep</p>
+      <div class="report-name" id="report-name"></div>
+      <div class="report-meta" id="report-meta"></div>
+    </div>
+
+    <div class="overall-block">
+      <div class="overall-num" id="overall-num"></div>
+      <div>
+        <div class="overall-label">Overall SAT readiness</div>
+        <div class="overall-desc" id="overall-desc"></div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-label">Points to close</div>
+        <div class="stat-val" id="stat-gap"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Est. prep needed</div>
+        <div class="stat-val" id="stat-hours"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Time available</div>
+        <div class="stat-val" id="stat-time"></div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Readiness by school &amp; scholarship</div>
+      <div class="section-sub">How competitive is your teen's current score at each target?</div>
+      <div id="school-bars"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Biggest risk factors identified</div>
+      <div class="section-sub">Based on current score, grade level, and timeline</div>
+      <ul class="risk-list" id="risk-list"></ul>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Recommended prep plan</div>
+      <div class="section-sub" id="prep-summary"></div>
+      <div id="timeline-pill"></div>
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-headline" id="cta-headline"></div>
+      <div class="cta-body" id="cta-body"></div>
+      <ul class="cta-bullets">
+        <li><span class="cta-check">✓</span> Review your teen's full score picture in detail</li>
+        <li><span class="cta-check">✓</span> Identify the highest-leverage areas to improve fast</li>
+        <li><span class="cta-check">✓</span> See how our group tutoring program works &amp; what it costs</li>
+        <li><span class="cta-check">✓</span> Get a realistic timeline to hit Bright Futures and college targets</li>
+      </ul>
+      <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank" class="btn-cta" id="cta-btn">Book my free SAT roadmap session &rarr;</a>
+      <p class="cta-sub">Free 30-minute call &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Florida SAT specialists</p>
+      <p class="cta-soft" id="cta-soft" style="display:none;">Not ready to book? <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank">Send us a question first &rarr;</a></p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="rd-footer">
+  <img src="logo-footer.png" alt="SAT Blueprint" class="rd-footer-logo" />
+  <div class="rd-footer-tagline">The SAT Blueprint Method™ is the signature SAT program of Gradeful Test Prep.</div>
+  <div class="rd-footer-copy">© 2026 SAT Blueprint Method™ · Gradeful Test Prep · Patrick Spano · All Rights Reserved</div>
+  <div class="rd-footer-disclaimer">SAT® is a registered trademark of the College Board, which is not affiliated with and does not endorse this website or program.</div>
+</footer>
+
+<script>
+const COLLEGES = {
+  UF:    { name: 'University of Florida',  p25: 1330, p75: 1500, avg: 1415 },
+  FSU:   { name: 'Florida State',          p25: 1290, p75: 1400, avg: 1345 },
+  UCF:   { name: 'UCF',                    p25: 1140, p75: 1330, avg: 1235 },
+  USF:   { name: 'USF',                    p25: 1170, p75: 1330, avg: 1250 },
+  UM:    { name: 'University of Miami',    p25: 1330, p75: 1500, avg: 1415 },
+  FAMU:  { name: 'FAU / FGCU / Other FL', p25: 1080, p75: 1270, avg: 1175 },
+  BF100: { name: 'Bright Futures 100%',   p25: 1330, p75: 1330, avg: 1330 },
+  BF75:  { name: 'Bright Futures 75%',    p25: 1190, p75: 1190, avg: 1190 },
+};
+
+const selected = new Set();
+
+document.getElementById('sat-score').addEventListener('input', function() {
+  document.getElementById('sat-display').textContent = this.value;
+});
+
+function toggleCheck(el) {
+  const v = el.dataset.val;
+  if (selected.has(v)) { selected.delete(v); el.classList.remove('on'); }
+  else { selected.add(v); el.classList.add('on'); }
+}
+
+function show(id) {
+  ['page1','page3'].forEach(p => {
+    document.getElementById(p).classList.toggle('page-hidden', p !== id);
+  });
+  window.scrollTo(0, 0);
+}
+
+let scoreType = 'official';
+function setScoreType(el) {
+  document.querySelectorAll('#score-type-toggle .radio-item').forEach(r => r.classList.remove('on'));
+  el.classList.add('on');
+  scoreType = el.dataset.val;
+}
+
+function goToReport() {
+  const name = document.getElementById('student-name').value.trim();
+  const grade = document.getElementById('grade').value;
+  const testDate = document.getElementById('test-date').value;
+  const err = document.getElementById('form-error');
+  // GPA is optional now; only require name, grade, a target, and a test window.
+  if (!name || !grade || selected.size === 0 || testDate === '') {
+    err.style.display = 'block';
+    return;
+  }
+  err.style.display = 'none';
+  showReport();
+}
+
+function calcReadiness(score, col, grade, months) {
+  let base;
+  if (score >= col.p75) base = 97;
+  else if (score >= col.avg) base = 74 + Math.round(((score - col.avg) / (col.p75 - col.avg)) * 23);
+  else if (score >= col.p25) base = 40 + Math.round(((score - col.p25) / (col.avg - col.p25)) * 34);
+  else {
+    const gap = col.p25 - score;
+    base = Math.max(5, 40 - Math.round((gap / 250) * 40));
+  }
+  let timeMod = 0;
+  if (grade <= 10) timeMod = 8;
+  else if (grade == 12) { timeMod = months > 3 ? -4 : -16; }
+  return Math.min(99, Math.max(4, base + timeMod));
+}
+
+function barColor(pct) {
+  if (pct >= 80) return '#639922';
+  if (pct >= 55) return '#BA7517';
+  return '#E24B4A';
+}
+
+function pctColor(pct) {
+  if (pct >= 80) return '#3B6D11';
+  if (pct >= 55) return '#854F0B';
+  return '#A32D2D';
+}
+
+function prepHours(gap, months) {
+  if (gap <= 0) return { hrs: 0, wkly: 0 };
+  let hrs;
+  if (gap <= 50) hrs = 20;
+  else if (gap <= 100) hrs = 45;
+  else if (gap <= 150) hrs = 75;
+  else if (gap <= 200) hrs = 110;
+  else if (gap <= 300) hrs = 160;
+  else hrs = 220;
+  const avail = Math.max(1, (months || 3) * 4);
+  return { hrs, wkly: Math.ceil(hrs / avail) };
+}
+
+function buildRisks(score, grade, months, gap, gpaPotential) {
+  const risks = [];
+  const svgClock = '<svg class="risk-icon" viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 15.5 14"/></svg>';
+  const svgStar  = '<svg class="risk-icon" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+  const svgWarn  = '<svg class="risk-icon" viewBox="0 0 24 24" fill="none" stroke="#E24B4A" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+  const svgCheck = '<svg class="risk-icon" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  if (months <= 1 && gap > 80) risks.push({ icon: svgWarn, text: 'Very limited time before your test — a compressed timeline makes meaningful score gains harder without intensive daily prep starting now.' });
+  else if (months <= 2 && gap > 120) risks.push({ icon: svgClock, text: 'Your timeline is tight relative to the score gap. Students in this window need structured, focused prep beginning immediately.' });
+  if (grade == 12 && gap > 60) risks.push({ icon: svgWarn, text: 'As a senior, retake options are limited. Missing the target now could delay admissions or scholarship eligibility by a full year.' });
+  if (gap > 150) risks.push({ icon: svgClock, text: 'A ' + gap + '-point gap typically requires more than practice tests — foundational math and reading gaps likely need direct instruction to close.' });
+  if (selected.has('BF100') && score < 1330) risks.push({ icon: svgStar, text: 'Bright Futures 100% requires a 1330+. At ' + score + ', your teen needs +' + (1330 - score) + ' points — worth roughly $24,000 in tuition over four years. Absolutely achievable with the right prep.' });
+  if (selected.has('BF75') && score < 1190) risks.push({ icon: svgStar, text: 'Bright Futures 75% requires a 1190+. Missing this threshold means leaving roughly $20,000 in free tuition on the table over four years.' });
+  if (months == 0) risks.push({ icon: svgClock, text: 'No test date is scheduled yet. Every week without a target date is momentum lost — especially for juniors and seniors.' });
+  if (scoreType === 'practice') risks.unshift({ icon: svgWarn, text: 'This is a practice/estimated score — and practice and official SAT scores often differ by 100+ points in either direction. Confirming your teen\'s real starting point is the single most important first step, and something we pin down right away on a call.' });
+  if (gpaPotential === 'high') risks.push({ icon: svgStar, text: 'A strong GPA is a great sign — it usually means the academic foundation is already there, so the test score has real room to climb quickly. Students like this often see some of the fastest gains.' });
+  if (risks.length === 0) risks.push({ icon: svgCheck, text: 'Score is already competitive. The focus now is consistency, test strategy, and ensuring the highest possible score before the deadline.' });
+  return risks.slice(0, 4);
+}
+
+function showReport() {
+  const sName = document.getElementById('student-name').value.trim();
+  const grade = parseInt(document.getElementById('grade').value);
+  const score = parseInt(document.getElementById('sat-score').value);
+  const months = parseFloat(document.getElementById('test-date').value) || 0;
+  const gpaVal = parseFloat(document.getElementById('gpa').value) || 0; // 0 = not provided
+
+  const cols = [...selected].map(k => ({ key: k, ...COLLEGES[k] }));
+  const readinesses = cols.map(c => calcReadiness(score, c, grade, months));
+  const avgR = Math.round(readinesses.reduce((a,b)=>a+b,0)/readinesses.length);
+  const maxAvg = Math.max(...cols.map(c=>c.avg));
+  const gap = Math.max(0, maxAvg - score);
+  const { hrs, wkly } = prepHours(gap, months);
+  const timeLabel = months === 0 ? 'TBD' : months < 2 ? Math.round(months*4)+'w' : Math.round(months)+'mo';
+  const gradeLabel = ['','9th','10th','11th','12th'][grade] || '';
+
+  // ── GPA as a ceiling/potential signal ──
+  // High GPA + lower test score = strong academic foundation, high ceiling, faster ramp.
+  // Low GPA = typically a longer road and lower ceiling. (Patrick's real-world pattern.)
+  // 'high' only flags when there's a real gap to close (otherwise it's moot).
+  let gpaPotential = 'none';
+  if (gpaVal >= 3.7 && gap >= 60) gpaPotential = 'high';
+  else if (gpaVal && gpaVal <= 3.2 && gap >= 60) gpaPotential = 'foundational';
+
+  /* ═══════════════════════════════════════════════════════════════════
+     ►►► SUBMISSION NOTIFICATION — see notifySubmission() at the bottom ◄◄◄
+     This version has NO lead-capture gate (it's for people already in your
+     CRM). We still ping you so you can see activity. Drop your endpoint URL
+     into notifySubmission() and you'll get a notification on every submit.
+     ═══════════════════════════════════════════════════════════════════ */
+  const submission = {
+    student_name: sName,
+    grade: gradeLabel,
+    current_sat: score,
+    score_type: scoreType,
+    gpa: document.getElementById('gpa').value || 'n/a',
+    targets: [...selected].map(k => COLLEGES[k].name).join(', '),
+    test_window_months: months,
+    readiness_pct: avgR,
+    point_gap: gap,
+    est_prep_hours: hrs,
+    source: new URLSearchParams(window.location.search).get('utm_source') || 'readiness_tool'
+  };
+  notifySubmission(submission);
+
+
+  document.getElementById('report-name').textContent = sName + "'s SAT Readiness Report";
+  document.getElementById('report-meta').textContent = 'SAT score: ' + score + '  ·  Grade: ' + gradeLabel + '  ·  ' + cols.length + ' target' + (cols.length>1?'s':'') + ' selected';
+
+  const ovEl = document.getElementById('overall-num');
+  ovEl.textContent = avgR + '%';
+  ovEl.style.color = pctColor(avgR);
+
+  let desc = '';
+  if (avgR >= 85) desc = sName + ' is well-positioned for their targets. The goal is to protect this score and optimize test strategy.';
+  else if (avgR >= 65) desc = sName + ' is within striking distance. Focused, structured prep can close the gap before the deadline.';
+  else if (avgR >= 45) desc = sName + ' has meaningful ground to cover. A structured program with direct instruction is the fastest path forward.';
+  else desc = sName + ' is not yet competitive for these targets. The gap is closeable — but time and structure matter significantly.';
+  document.getElementById('overall-desc').textContent = desc;
+
+  document.getElementById('stat-gap').textContent = gap > 0 ? '+' + gap + ' pts' : 'On target';
+  document.getElementById('stat-hours').textContent = hrs > 0 ? '~' + hrs + ' hrs' : 'Maintenance';
+  document.getElementById('stat-time').textContent = timeLabel;
+
+  const barsDiv = document.getElementById('school-bars');
+  barsDiv.innerHTML = '';
+  cols.forEach((c, i) => {
+    const r = readinesses[i];
+    const d = document.createElement('div');
+    d.className = 'readiness-row';
+    d.innerHTML = '<div class="readiness-top"><span class="readiness-name">' + c.name + '</span><span class="readiness-pct" style="color:' + pctColor(r) + ';">' + r + '% ready</span></div><div class="bar-track"><div class="bar-fill" style="width:0%;background:' + barColor(r) + ';" data-target="' + r + '"></div></div>';
+    barsDiv.appendChild(d);
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill[data-target]').forEach(el => {
+      el.style.width = el.dataset.target + '%';
+    });
+  }, 120);
+
+  const riskList = document.getElementById('risk-list');
+  riskList.innerHTML = '';
+  buildRisks(score, grade, months, gap, gpaPotential).forEach(r => {
+    const li = document.createElement('li');
+    li.className = 'risk-item';
+    li.innerHTML = r.icon + '<span>' + r.text + '</span>';
+    riskList.appendChild(li);
+  });
+
+  let prepSum = '';
+  if (gap <= 0) prepSum = sName + ' is already at or above the average for their targets. Focus now is on score protection and test-day strategy.';
+  else prepSum = 'To close a ' + gap + '-point gap, ' + sName + ' needs approximately ' + hrs + ' hours of structured prep — about ' + wkly + ' hours/week from today.';
+  document.getElementById('prep-summary').textContent = prepSum;
+
+  const pillEl = document.getElementById('timeline-pill');
+  pillEl.innerHTML = '';
+  let pillText = '', pillClass = 'pill-green';
+  if (grade <= 10) { pillText = 'Ideal testing window: Aug – Oct of junior year'; }
+  else if (grade == 11) { pillText = 'Ideal testing window: Aug – Nov of this school year'; }
+  else { pillText = months <= 2 ? 'Urgent: limited retake windows remaining' : 'Test as early as possible this semester'; pillClass = months <= 2 ? 'pill-amber' : 'pill-green'; }
+  const pill = document.createElement('span');
+  pill.className = 'timeline-pill ' + pillClass;
+  pill.textContent = pillText;
+  pillEl.appendChild(pill);
+
+  // ── Tiered, honest nudge by situation ──
+  const ctaHeadEl = document.getElementById('cta-headline');
+  const ctaBodyEl = document.getElementById('cta-body');
+  const ctaBtnEl  = document.getElementById('cta-btn');
+  const ctaSoftEl = document.getElementById('cta-soft');
+  let cHead, cBody, cBtn, soft = false;
+
+  const wantsBF100 = selected.has('BF100');
+  const wantsBF75  = selected.has('BF75');
+  const hasBF100 = score >= 1330;
+  const hasBF75  = score >= 1190;
+  // "Strong" = clearing every selected target's average comfortably
+  const strong = gap <= 0 && avgR >= 85;
+
+  if (scoreType === 'practice') {
+    // Nudge #1: confirm the real starting point — applies at every score level
+    cHead = 'First — let\'s confirm ' + sName + '\'s real starting point.';
+    cBody = 'This report is based on a practice/estimated score, and those can be off by 100+ points from an official result in either direction. Before building any plan, the smartest move is a quick call to pin down where ' + sName + ' truly stands — then we map the fastest path from there.';
+    cBtn  = 'Book my free roadmap session →';
+  } else if (gap > 0 && gap <= 50) {
+    // Small gap — prep still makes sense, just a lighter touch
+    cHead = sName + ' is close — just ' + gap + ' points to go.';
+    cBody = 'A gap this size is very closeable, and it usually doesn\'t take the most intensive program to get there — a lighter, focused level of support is often enough. On a free roadmap session, we\'ll figure out the right amount of prep to get ' + sName + ' over the line without overdoing it.';
+    cBtn  = 'Book my free roadmap session →';
+  } else if (gap > 0 && avgR < 80) {
+    // Below target — there's a real, closeable gap
+    if (gpaPotential === 'high') {
+      cHead = 'Great news: ' + sName + ' has a high ceiling.';
+      cBody = 'A strong GPA tells us the academic foundation is already there — which means the ' + gap + '-point gap to your top target is usually one of the faster, higher-ceiling cases to close. The score just hasn\'t caught up to the ability yet. On a free roadmap session, we\'ll map exactly how to close it before test day.';
+      cBtn  = 'Book my free roadmap session →';
+    } else if (gpaPotential === 'foundational') {
+      cHead = sName + ' has a ' + gap + '-point gap — let\'s build the foundation.';
+      cBody = 'Closing this gap is very doable, but it works best with structure — strengthening the underlying skills first, then layering on test strategy. On a free, no-pressure call, we\'ll lay out a realistic plan and the right level of support for ' + sName + '.';
+      cBtn  = 'Let\'s talk through a plan →';
+      soft = true;
+    } else {
+      cHead = sName + ' has a clear, closeable gap — let\'s map the plan.';
+      cBody = 'You\'re ' + gap + ' points from the average for your top target. In a free roadmap session, we\'ll break down exactly how to close that gap before test day — and the right level of support to get there.';
+      cBtn  = 'Book my free roadmap session →';
+      if (avgR < 45) { cBtn = 'Let\'s talk through a plan →'; soft = true; }
+    }
+  } else if (wantsBF75 && hasBF75 && !hasBF100) {
+    // Cleared 75% but not 100% — show the money still on the table
+    const ptsTo100 = 1330 - score;
+    cHead = sName + ' qualifies for 75% — but 100% is within reach.';
+    cBody = sName + ' is just +' + ptsTo100 + ' points from Bright Futures 100% — the difference between 75% and full tuition is roughly $4,000+ over four years. On a free call, we\'ll show you exactly how to capture those last points before the deadline.';
+    cBtn  = 'Book my free roadmap session →';
+  } else if (hasBF100 || strong) {
+    // Scholarship secured / strong — pivot to competitive admissions, aiming higher, and "being safe"
+    cHead = sName + ' has a strong score — now let\'s make sure it\'s enough.';
+    cBody = 'Hitting the average isn\'t always the same as being competitive. At the most selective schools and programs, the middle of the range can be a coin flip — aiming for the upper end is what makes an application safe and maximizes merit aid. A free roadmap session pins down the right target score for the specific schools on your list, and whether it\'s worth pushing for more.';
+    cBtn  = 'Book my free roadmap session →';
+  } else {
+    // Default / on-target — "be safe," aim for the upper end of the range
+    cHead = sName + ' is on track — let\'s make the score bulletproof.';
+    cBody = 'You\'re right around target, which is great — but for competitive schools, landing at the upper end of the range (rather than the middle) is what makes an application truly safe and unlocks the most merit aid. On a free roadmap session, we\'ll set the right target and a light plan to lock it in before test day.';
+    cBtn  = 'Book my free roadmap session →';
+  }
+
+  ctaHeadEl.textContent = cHead;
+  ctaBodyEl.textContent = cBody;
+  ctaBtnEl.textContent = cBtn;
+  ctaSoftEl.style.display = soft ? 'block' : 'none';
+
+  show('page3');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ►►► SUBMISSION NOTIFICATION — OPTIONAL, SET YOUR ENDPOINT BELOW ◄◄◄
+   This version has NO lead-capture gate (it's for people already in your
+   CRM). You don't collect new contact info here — but you can still get a
+   ping every time someone runs the tool, so you can see activity and follow
+   up. To turn it on, paste a webhook/form endpoint into ENDPOINT below
+   (e.g. a GoHighLevel inbound webhook, a Zapier/Make catch hook, or a
+   Formspree URL). Until you do, it just logs to the console.
+
+   The `data` object contains: student_name, grade, current_sat, score_type,
+   gpa, targets, test_window_months, readiness_pct, point_gap,
+   est_prep_hours, source.
+   ═══════════════════════════════════════════════════════════════════ */
+const NOTIFY_ENDPOINT = ''; // ◄◄◄ paste your webhook/form URL here to start getting pings
+
+function notifySubmission(data) {
+  if (!NOTIFY_ENDPOINT) {
+    console.log('READINESS SUBMISSION (no endpoint set yet):', data);
+    return;
+  }
+  try {
+    fetch(NOTIFY_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  } catch (e) {
+    console.error('Submission notify failed', e);
+  }
+}
+</script>
+</body>
+</html>
