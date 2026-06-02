@@ -109,8 +109,14 @@
   .subline {
     font-size: 15px;
     color: var(--gray-500);
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
     line-height: 1.65;
+  }
+  .subline-note {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue-600);
+    margin-bottom: 2rem;
   }
 
   .trust-row {
@@ -398,6 +404,65 @@
     margin-bottom: 1.25rem;
   }
 
+  /* ── Gated ("locked") section: blurred content + overlay CTA ── */
+  .gated-wrap {
+    position: relative;
+    margin-bottom: 1.25rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .gated-wrap .gated-content {
+    filter: blur(7px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.85;
+  }
+  .gated-wrap .gated-content .section-card { margin-bottom: 1rem; }
+  .gated-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.8) 100%);
+  }
+  .gated-lock {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 18px rgba(29,95,212,0.35);
+  }
+  .gated-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+    max-width: 340px;
+  }
+  .gated-body {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.55;
+    max-width: 360px;
+    margin-bottom: 16px;
+  }
+  .gated-btn {
+    display: inline-block;
+    background: var(--blue-600);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm, 8px);
+    text-decoration: none;
+  }
+  .gated-btn:hover { background: var(--blue-700, #1a4fb0); }
+
   .section-title {
     font-size: 15px;
     font-weight: 700;
@@ -560,9 +625,10 @@
 <div class="container">
 
   <div id="page1">
-    <p class="lede">Gradeful Test Prep — Free Assessment</p>
+    <p class="lede">For Parents — Free SAT Assessment</p>
     <h1>How competitive is your teen's SAT score?</h1>
-    <p class="subline">Answer a few quick questions to instantly see your teen's SAT Readiness Score for Florida colleges and Bright Futures — personalized, free, and takes under a minute.</p>
+    <p class="subline">Parents: answer a few quick questions about your teen to instantly see their SAT Readiness Score for Florida colleges and Bright Futures — personalized, free, and takes under a minute.</p>
+    <p class="subline-note">This assessment is designed for parents to complete about their teen.</p>
 
     <div class="trust-row">
       <span class="trust-item"><span class="trust-dot"></span>Florida-specific data</span>
@@ -572,7 +638,7 @@
 
     <div class="two-col">
       <div class="field">
-        <label for="student-name">Student's first name</label>
+        <label for="student-name">Your teen's first name</label>
         <input type="text" id="student-name" placeholder="e.g. Patrick" autocomplete="off" />
       </div>
       <div class="field">
@@ -645,7 +711,10 @@
           <span class="check-box"><span class="check-tick"></span></span>Florida International (FIU)
         </div>
         <div class="check-item" data-val="FAMU" onclick="toggleCheck(this)">
-          <span class="check-box"><span class="check-tick"></span></span>FAU / FGCU / Other FL
+          <span class="check-box"><span class="check-tick"></span></span>FAU / FGCU
+        </div>
+        <div class="check-item" data-val="OTHER" onclick="toggleCheck(this)">
+          <span class="check-box"><span class="check-tick"></span></span>Other Florida college
         </div>
         <div class="check-item" data-val="BF100" onclick="toggleCheck(this)">
           <span class="check-box"><span class="check-tick"></span></span>Bright Futures 100%
@@ -670,7 +739,7 @@
     </div>
 
     <div id="form-error" class="error-msg">Please complete all fields and select at least one target school.</div>
-    <button class="btn-primary" onclick="goToReport()">See my readiness report &rarr;</button>
+    <button class="btn-primary" onclick="goToReport()">See my teen's readiness report &rarr;</button>
   </div>
 
   <div id="page3" class="page-hidden">
@@ -709,29 +778,35 @@
       <div id="school-bars"></div>
     </div>
 
-    <div class="section-card">
-      <div class="section-title">Biggest risk factors identified</div>
-      <div class="section-sub">Based on current score, grade level, and timeline</div>
-      <ul class="risk-list" id="risk-list"></ul>
-    </div>
+    <div class="gated-wrap">
+      <div class="gated-content">
+        <div class="section-card">
+          <div class="section-title">Biggest risk factors identified</div>
+          <div class="section-sub">Based on current score, grade level, and timeline</div>
+          <ul class="risk-list" id="risk-list"></ul>
+        </div>
 
-    <div class="section-card">
-      <div class="section-title">Recommended prep plan</div>
-      <div class="section-sub" id="prep-summary"></div>
-      <div id="timeline-pill"></div>
+        <div class="section-card">
+          <div class="section-title">How to actually get there</div>
+          <div class="section-sub" id="prep-summary"></div>
+          <div id="timeline-pill"></div>
+        </div>
+      </div>
+      <div class="gated-overlay">
+        <div class="gated-lock">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        </div>
+        <div class="gated-title" id="gated-title">Your teen's personalized roadmap is ready</div>
+        <div class="gated-body" id="gated-body">We've pinpointed the biggest score-limiting factors and the exact plan to close the gap. On a free 45-minute roadmap session, Patrick walks you through it — step by step.</div>
+        <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank" class="gated-btn">Reveal the full roadmap — book free session &rarr;</a>
+      </div>
     </div>
 
     <div class="cta-card">
       <div class="cta-headline" id="cta-headline"></div>
       <div class="cta-body" id="cta-body"></div>
-      <ul class="cta-bullets">
-        <li><span class="cta-check">✓</span> Review your teen's full score picture in detail</li>
-        <li><span class="cta-check">✓</span> Identify the highest-leverage areas to improve fast</li>
-        <li><span class="cta-check">✓</span> See how our group tutoring program works &amp; what it costs</li>
-        <li><span class="cta-check">✓</span> Get a realistic timeline to hit Bright Futures and college targets</li>
-      </ul>
       <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank" class="btn-cta" id="cta-btn">Book my free SAT roadmap session &rarr;</a>
-      <p class="cta-sub">Free 30-minute call &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Florida SAT specialists</p>
+      <p class="cta-sub">Free 45-minute call &nbsp;·&nbsp; Bright Futures specialists &nbsp;·&nbsp; Led by Yale graduates &amp; perfect scorers</p>
       <p class="cta-soft" id="cta-soft" style="display:none;">Not ready to book? <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank">Send us a question first &rarr;</a></p>
     </div>
   </div>
@@ -753,7 +828,8 @@ const COLLEGES = {
   USF:   { name: 'USF',                    p25: 1170, p75: 1330, avg: 1250 },
   UM:    { name: 'University of Miami',    p25: 1330, p75: 1500, avg: 1415 },
   FIU:   { name: 'Florida International',  p25: 1090, p75: 1270, avg: 1180 },
-  FAMU:  { name: 'FAU / FGCU / Other FL', p25: 1080, p75: 1270, avg: 1175 },
+  FAMU:  { name: 'FAU / FGCU',            p25: 1080, p75: 1270, avg: 1175 },
+  OTHER: { name: 'Other Florida college', p25: 1080, p75: 1280, avg: 1180 },
   BF100: { name: 'Bright Futures 100%',   p25: 1330, p75: 1330, avg: 1330 },
   BF75:  { name: 'Bright Futures 75%',    p25: 1190, p75: 1190, avg: 1190 },
 };
@@ -872,7 +948,7 @@ function showReport() {
   const gap = Math.max(0, maxAvg - score);
   const { hrs, wkly } = prepHours(gap, months);
   const timeLabel = months === 0 ? 'TBD' : months < 2 ? Math.round(months*4)+'w' : Math.round(months)+'mo';
-  const gradeLabel = ['','9th','10th','11th','12th'][grade] || '';
+  const gradeLabel = ({9:'9th',10:'10th',11:'11th',12:'12th'})[grade] || '';
 
   // ── GPA as a ceiling/potential signal ──
   // High GPA + lower test score = strong academic foundation, high ceiling, faster ramp.
@@ -888,7 +964,12 @@ function showReport() {
      CRM). We still ping you so you can see activity. Drop your endpoint URL
      into notifySubmission() and you'll get a notification on every submit.
      ═══════════════════════════════════════════════════════════════════ */
+  const _params = new URLSearchParams(window.location.search);
   const submission = {
+    // Parent identity — passed in the link when sent via your CRM
+    // e.g. /readiness?email={{contact.email}}&contact_id={{contact.id}}
+    parent_email: _params.get('email') || '',
+    contact_id: _params.get('contact_id') || _params.get('cid') || '',
     student_name: sName,
     grade: gradeLabel,
     current_sat: score,
@@ -899,7 +980,7 @@ function showReport() {
     readiness_pct: avgR,
     point_gap: gap,
     est_prep_hours: hrs,
-    source: new URLSearchParams(window.location.search).get('utm_source') || 'readiness_tool'
+    source: _params.get('utm_source') || 'readiness_tool'
   };
   notifySubmission(submission);
 
@@ -977,10 +1058,36 @@ function showReport() {
   // "Strong" = clearing every selected target's average comfortably
   const strong = gap <= 0 && avgR >= 85;
 
+  // ── Dynamic, outcome-focused gated headline (names THEIR prize) ──
+  let gTitle, gBody;
+  const ptsTo100 = 1330 - score;
+  const ptsTo75  = 1190 - score;
   if (scoreType === 'practice') {
-    // Nudge #1: confirm the real starting point — applies at every score level
-    cHead = 'First — let\'s confirm ' + sName + '\'s real starting point.';
-    cBody = 'This report is based on a practice/estimated score, and those can be off by 100+ points from an official result in either direction. Before building any plan, the smartest move is a quick call to pin down where ' + sName + ' truly stands — then we map the fastest path from there.';
+    gTitle = 'Get an official, detailed diagnostic from SAT Blueprint';
+    gBody  = 'A practice score can be off by 100+ points from the real thing — so the smartest first step is a true diagnostic. Book a free roadmap session and we\'ll get ' + sName + ' an official, detailed assessment, then review exactly what it means and the plan from there.';
+  } else if (wantsBF100 && !hasBF100 && ptsTo100 > 0) {
+    gTitle = 'How to earn the $24,000 Bright Futures scholarship';
+    gBody  = sName + ' is +' + ptsTo100 + ' points from 100% tuition. Inside is exactly how to close that gap — the high-leverage areas and the timeline. Patrick walks you through it on a free 45-minute roadmap session.';
+  } else if (wantsBF75 && !hasBF75 && ptsTo75 > 0) {
+    gTitle = 'How to earn the $20,000 Bright Futures scholarship';
+    gBody  = sName + ' is +' + ptsTo75 + ' points from the 75% threshold. Inside is exactly how to get there before the deadline — Patrick walks you through it on a free 45-minute roadmap session.';
+  } else if (wantsBF75 && hasBF75 && !hasBF100) {
+    gTitle = 'How to jump from 75% to the full $24,000 scholarship';
+    gBody  = sName + ' already qualifies for 75% — full tuition is just +' + ptsTo100 + ' points away. Inside is how to capture those last points. Patrick walks you through it on a free 45-minute roadmap session.';
+  } else if (gap > 0) {
+    gTitle = 'How to add the ' + gap + ' points before test day';
+    gBody  = 'Inside is exactly how ' + sName + ' closes the ' + gap + '-point gap to the top target — the highest-leverage areas and a realistic timeline. Patrick walks you through it on a free 45-minute roadmap session.';
+  } else {
+    gTitle = 'How to maximize merit aid with this score';
+    gBody  = sName + ' is already competitive — but at selective schools the middle of the range can be a coin flip, and pushing to the upper end is what makes an application safe and unlocks the most merit aid. Inside is how to get there. Patrick walks you through it on a free 45-minute roadmap session.';
+  }
+  document.getElementById('gated-title').textContent = gTitle;
+  document.getElementById('gated-body').textContent = gBody;
+
+  if (scoreType === 'practice') {
+    // Practice score → the call gets them a real, official diagnostic
+    cHead = 'Start with a real diagnostic for ' + sName + '.';
+    cBody = 'This report is based on a practice/estimated score, and those can be off by 100+ points from an official result. Book a free roadmap session and we\'ll get ' + sName + ' an official, detailed SAT Blueprint diagnostic — then review the results together and map the fastest path from there.';
     cBtn  = 'Book my free roadmap session →';
   } else if (gap > 0 && gap <= 50) {
     // Small gap — prep still makes sense, just a lighter touch
@@ -1043,7 +1150,7 @@ function showReport() {
    gpa, targets, test_window_months, readiness_pct, point_gap,
    est_prep_hours, source.
    ═══════════════════════════════════════════════════════════════════ */
-const NOTIFY_ENDPOINT = ''; // ◄◄◄ paste your webhook/form URL here to start getting pings
+const NOTIFY_ENDPOINT = 'https://services.leadconnectorhq.com/hooks/INWh6L7gDzpdzxjjCWuK/webhook-trigger/607c2d75-84ba-4b34-9376-5891d2528ba4';
 
 function notifySubmission(data) {
   if (!NOTIFY_ENDPOINT) {
@@ -1051,10 +1158,15 @@ function notifySubmission(data) {
     return;
   }
   try {
+    // Use text/plain to avoid a CORS preflight; GHL inbound webhooks parse the
+    // JSON body fine. no-cors keeps the browser from blocking the fire-and-forget
+    // POST (we don't need to read the response).
     fetch(NOTIFY_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data),
+      keepalive: true
     });
   } catch (e) {
     console.error('Submission notify failed', e);
