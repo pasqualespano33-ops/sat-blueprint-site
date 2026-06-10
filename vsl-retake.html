@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Watch: Turn a Disappointing SAT Into a 200+ Point Jump — SAT Blueprint Method™</title>
+<meta name="description" content="Watch how the SAT Blueprint Method™ helps students boost their SAT scores and unlock thousands in scholarships — then book your free roadmap session." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:        #0C1A2A;
+  --navy-mid:    #112236;
+  --blue:        #1D5FD4;
+  --blue-light:  #3B82F6;
+  --blue-pale:   #EEF4FF;
+  --gold:        #C89B2A;
+  --gold-light:  #F0C040;
+  --green:       #16a34a;
+  --white:       #ffffff;
+  --gray-200:    #E2E8F0;
+  --gray-400:    #94A3B8;
+  --gray-600:    #475569;
+  --text:        #1E293B;
+  --radius-sm:   8px;
+  --radius:      12px;
+  --radius-lg:   16px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 18px 40px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; transition: transform .15s, opacity .2s; min-height: 52px; }
+.btn:hover { opacity: .92; transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-blue { background: var(--blue); color: #fff; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.ey-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: blink 1.6s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+.ey-text { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+/* ── HEADER (logo only, no nav) ── */
+.vsl-header { padding: 20px 24px; display: flex; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.vsl-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white); letter-spacing: 0.08em; line-height: 1; }
+.vsl-logo em { color: var(--blue-light); font-style: normal; }
+.vsl-logo-wrap { text-align: center; }
+.vsl-logo-tag { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+/* ── HERO / VIDEO ── */
+.vsl-hero { max-width: 860px; margin: 0 auto; padding: 56px 24px 40px; text-align: center; }
+.vsl-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 6vw, 60px); line-height: 1.02; letter-spacing: 0.01em; margin-bottom: 20px; }
+.vsl-hero h1 em { color: var(--gold-light); font-style: normal; }
+.vsl-hero h1 .blue { color: var(--blue-light); }
+.vsl-sub { font-size: clamp(15px, 2.2vw, 18px); color: rgba(255,255,255,0.72); max-width: 640px; margin: 0 auto 36px; line-height: 1.7; }
+.vsl-sub strong { color: var(--white); }
+
+.video-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.video-frame { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); }
+.video-frame iframe { width: 100%; height: 100%; display: block; border: 0; }
+.video-frame video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+/* placeholder shown until real video embed is added */
+.video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: radial-gradient(ellipse at 50% 40%, rgba(29,95,212,0.28), transparent 70%), var(--navy-mid); }
+.vp-play { width: 76px; height: 76px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(29,95,212,0.5); }
+.vp-play::after { content: ''; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 6px; }
+.vp-text { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+/* ── PRIMARY CTA ── */
+.cta-block { text-align: center; padding: 40px 24px 16px; }
+.cta-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+.cta-note strong { color: var(--gold-light); }
+
+/* ── PROOF STRIP ── */
+.proof-strip { background: var(--blue); margin-top: 40px; }
+.proof-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+.proof-col { display: flex; flex-direction: column; align-items: center; padding: 28px 14px; border-right: 1px solid rgba(255,255,255,0.18); }
+.proof-col:last-child { border-right: none; }
+.proof-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1; }
+.proof-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 6px; text-align: center; }
+
+/* ── METHOD ── */
+.method { max-width: 1000px; margin: 0 auto; padding: 80px 24px; }
+.method-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+.method-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5vw, 46px); line-height: 1.05; margin-bottom: 12px; }
+.method-head h2 .blue { color: var(--blue-light); }
+.method-head p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+.pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.pillar { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius-lg); padding: 30px 26px; }
+.pillar-step { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.pillar-step.blue { color: var(--blue-light); }
+.pillar-step.gold { color: var(--gold-light); }
+.pillar-step.green { color: #4ade80; }
+.pillar-name { font-family: 'Bebas Neue', sans-serif; font-size: 34px; line-height: 1; margin-bottom: 12px; letter-spacing: 0.02em; }
+.pillar-body { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+/* ── FAQ ── */
+.faq { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+.faq h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px, 5vw, 42px); text-align: center; margin-bottom: 36px; }
+.faq h2 .blue { color: var(--blue-light); }
+.faq-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius-sm); padding: 20px 22px; margin-bottom: 12px; }
+.faq-q { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.faq-a { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+/* ── FINAL CTA ── */
+.final { text-align: center; padding: 80px 24px 100px; background: radial-gradient(ellipse at 50% 0%, rgba(29,95,212,0.22), transparent 60%); }
+.final h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(34px, 6vw, 56px); line-height: 1.02; margin-bottom: 18px; }
+.final h2 em { color: var(--blue-light); font-style: normal; }
+.final p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+
+/* ── FOOTER ── */
+.vsl-footer { background: #060d16; padding: 36px 24px; text-align: center; }
+.vsl-footer .fl { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
+.vsl-footer .fl em { color: var(--blue-light); font-style: normal; }
+.vsl-footer .fc { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 8px; }
+
+@media (max-width: 760px) {
+  .proof-inner { grid-template-columns: repeat(2,1fr); }
+  .proof-col:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.18); }
+  .proof-col:nth-child(2) { border-right: none; }
+  .proof-col:nth-child(1), .proof-col:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .pillars { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="vsl-header">
+  <div class="vsl-logo-wrap"><div class="vsl-logo">SAT <em>Blueprint</em> Method™</div><div class="vsl-logo-tag">by Gradeful Test Prep</div></div>
+</header>
+
+<!-- ── HERO + VIDEO ── -->
+<section class="vsl-hero">
+  <div class="eyebrow"><span class="ey-dot"></span><span class="ey-text">Free Video for Parents of High Schoolers</span></div>
+  <h1>They <span class="blue">Scored Lower Than Expected.</span> Here's the Plan for a <em>200+ Point Jump.</em></h1>
+  <p class="vsl-sub">Your teen studied, took the test, and the score came back below what they needed. In this short video, Patrick Spano breaks down <strong>The SAT Blueprint Method™</strong> — why scores fall short of expectations, and the structured retake plan that turns the next test date into a real jump.</p>
+</section>
+
+<div class="video-wrap">
+  <div class="video-frame">
+    <iframe
+      src="https://player.vimeo.com/video/1199985580?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0"
+      title="The SAT Blueprint Method™ — Patrick Spano"
+      allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- ── PRIMARY CTA ── -->
+<div class="cta-block">
+  <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" class="btn btn-gold">📅 Book Your Free Roadmap Session →</a>
+  <div class="cta-note">Free · 45 minutes · No pressure · <strong>Limited spots — groups fill before SAT dates</strong></div>
+</div>
+
+<!-- ── PROOF STRIP ── -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-col"><span class="proof-num">150+</span><span class="proof-lbl">Avg. Point Improvement</span></div>
+    <div class="proof-col"><span class="proof-num">2,000+</span><span class="proof-lbl">Families Helped</span></div>
+    <div class="proof-col"><span class="proof-num">$1.5M+</span><span class="proof-lbl">In Scholarships Earned</span></div>
+    <div class="proof-col"><span class="proof-num">15+</span><span class="proof-lbl">Years Experience</span></div>
+  </div>
+</div>
+
+<!-- ── METHOD ── -->
+<section class="method">
+  <div class="method-head">
+    <h2>Three Pillars. One <span class="blue">Proven System.</span></h2>
+    <p>The SAT isn't a test of how smart your teen is — it's a test of how well they understand the exam. The Blueprint replaces guesswork with structure.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-step blue">Pillar 01</div>
+      <div class="pillar-name">ASSESS</div>
+      <div class="pillar-body">We pinpoint exactly what's holding the score back — content gaps, timing breakdowns, and where every point is being lost.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-step gold">Pillar 02</div>
+      <div class="pillar-name">ADDRESS</div>
+      <div class="pillar-body">We attack weak areas with The SAT Blueprint™ — proven formulas, strategies, and a plan built around your teen's target score.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-step green">Pillar 03</div>
+      <div class="pillar-name">SUCCESS</div>
+      <div class="pillar-body">Structured practice builds mastery and test-day confidence — score gains that hold and open doors to college and scholarships.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq">
+  <h2>Common <span class="blue">Questions</span></h2>
+  <div class="faq-item">
+    <div class="faq-q">What happens on the free roadmap session?</div>
+    <div class="faq-a">A free 45-minute video call where Patrick reviews your teen's situation, pinpoints what's holding their score back, and maps a clear plan to their target score. No pressure, no pitch — you'll leave with total clarity whether you enroll or not.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">My teen already prepped once and it didn't work — why would this be different?</div>
+    <div class="faq-a">A disappointing score is almost never about effort or ability — it's about strategy and structure. Most first attempts stall because the prep was generic: practice tests without a plan to fix what's actually costing points. The roadmap session starts by diagnosing exactly what went wrong last time, so the next attempt is built on a real plan instead of more of the same.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How soon should we start?</div>
+    <div class="faq-a">Sooner is better — the biggest gains come from a focused stretch of prep ahead of a test date, so the more runway your teen has, the more we can do. That said, we've helped students make real jumps on tighter timelines too. On the call, Patrick will look at your teen's target test date and tell you honestly what's realistic.</div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final">
+  <h2>Ready to Build Your <em>Blueprint?</em></h2>
+  <p>Watch the video above, then book your free roadmap session. You'll leave knowing exactly what your teen needs — no pressure, no obligation.</p>
+  <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" class="btn btn-gold">📅 Book Your Free Roadmap Session →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="vsl-footer">
+  <div class="fl"><img src="logo-footer.png" alt="SAT Blueprint" style="height:72px;width:auto;display:block;margin:0 auto;" /></div>
+  <div class="fc" style="margin-bottom:6px;">The SAT Blueprint Method™ is the signature SAT program of Gradeful Test Prep.</div>
+  <div class="fc">© 2026 SAT Blueprint Method™ · Gradeful Test Prep · Patrick Spano · All Rights Reserved</div>
+  <div class="fc" style="font-size:10px;opacity:0.5;margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.5;">SAT® is a registered trademark of the College Board, which is not affiliated with and does not endorse this website or program.</div>
+</footer>
+
+</body>
+</html>
