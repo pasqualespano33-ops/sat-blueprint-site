@@ -319,7 +319,7 @@ footer p{margin:.3rem 0}
 <script>
 (function(){
   /* ===== CONFIG ===== */
-  var WEBHOOK_URL = "PASTE_YOUR_GOHIGHLEVEL_INBOUND_WEBHOOK_URL_HERE";
+  var WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/INWh6L7gDzpdzxjjCWuK/webhook-trigger/fa822a36-4006-4163-91c4-9e0d6bfde245";
   var WEBINAR = {
     name: "Your Player's SAT Game Plan — Florida Alliance",
     slug: "florida-alliance-2026-10-19",
@@ -404,14 +404,12 @@ footer p{margin:.3rem 0}
     btn.disabled = true;
     btn.textContent = "Registering…";
 
-    // Same pattern as the live readiness.html: text/plain JSON avoids a CORS
-    // preflight, GHL inbound webhooks parse the JSON body, and no-cors keeps the
-    // browser from blocking the fire-and-forget POST.
+    // Form-encoded body: GHL's inbound webhook rejects text/plain, and
+    // form-encoding needs no CORS preflight, so no-cors delivers it reliably.
     fetch(WEBHOOK_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify(payload),
+      body: new URLSearchParams(payload),
       keepalive: true
     })
       .then(function(){
