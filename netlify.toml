@@ -11,7 +11,5 @@
   to = "/"
   status = 301
 
-[[redirects]]
-  from = "/book"
-  to = "https://link.gradefultestprep.com/widget/bookings/sat-strategy-session"
-  status = 301
+# /book is now the on-site booking page (book/index.html), which embeds the
+# HighLevel scheduler. Old links to /book land there instead of redirecting.
