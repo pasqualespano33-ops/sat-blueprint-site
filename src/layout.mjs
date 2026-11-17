@@ -1,4 +1,4 @@
-import { SITE, SCHEDULE, OFFICE_HOURS_TIME, PARENT_UPDATE_CADENCE } from './config.mjs';
+import { SITE, SCHEDULE, OFFICE_HOURS_TIME } from './config.mjs';
 import { STATS, CREDENTIALS } from './data.mjs';
 import { icon, stars } from './icons.mjs';
 
@@ -51,17 +51,25 @@ export function baseGraph() {
         addressCountry: SITE.address.country,
       },
       areaServed: [{ '@type': 'Country', name: 'United States' }, { '@type': 'State', name: 'Florida' }],
-      founder: { '@id': PERSON_ID },
+      founder: [{ '@id': PERSON_ID }, { '@id': `${SITE.url}/#alex` }],
       sameAs: sameAs(),
     },
     {
       '@type': 'Person',
       '@id': PERSON_ID,
       name: SITE.founder,
-      jobTitle: 'Founder & Head Coach, SAT Blueprint Method',
+      jobTitle: 'Co-founder, SAT Blueprint Method',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Yale University' },
       worksFor: { '@id': ORG_ID },
       image: `${SITE.url}/assets/img/patrick-headshot.jpg`,
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE.url}/#alex`,
+      name: 'Alex Torres',
+      jobTitle: 'Co-founder, SAT Blueprint Method',
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Yale University' },
+      worksFor: { '@id': ORG_ID },
     },
     {
       '@type': 'WebSite',
@@ -207,10 +215,11 @@ export function footer({ hideMobileBar = false } = {}) {
       <div class="ft-col">
         <h2 class="ft-h">The Program</h2>
         <ul>
-          <li><a href="/program/">The 12-Week SAT Blueprint Method</a></li>
+          <li><a href="/program/">The 12-Week SAT Blueprint Program</a></li>
           <li><a href="/book/">Book a Free Roadmap Session</a></li>
           <li><a href="/results/">Student Results</a></li>
           <li><a href="/blog/">SAT Blog for Parents</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -227,7 +236,7 @@ export function footer({ hideMobileBar = false } = {}) {
       <p class="ft-legal"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms</a></p>
     </div>
     <p class="ft-disclaimer">SAT® is a registered trademark of the College Board, which is not affiliated with and does not endorse this website or program.</p>
-    <p class="ft-disclaimer">Results shown are examples of past students’ outcomes, not a guarantee of future results. Individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations.</p>
+    <p class="ft-disclaimer">Results shown are examples of past students’ outcomes, not typical or future results. Individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations.</p>
   </div>
 </footer>
 ${hideMobileBar ? '' : `<div class="mobile-bar" role="region" aria-label="Quick actions">
@@ -255,8 +264,9 @@ ${scripts(p.scripts || '')}
 }
 
 // ── Reusable components ─────────────────────────────────────────────────────
-export const reassure = (cls = '') =>
-  `<p class="reassure ${cls}">Free · 45 minutes · No pressure · No obligation</p>`;
+export const RISK_REDUCER = 'You’ll leave with a clear plan, whether you join or not.';
+export const reassure = (cls = '', { plan = true, extra = '' } = {}) =>
+  `<p class="reassure ${cls}">Free · 45 minutes · No pressure · No obligation${plan ? `<span class="reassure-plan">${RISK_REDUCER}${extra ? ` ${extra}` : ''}</span>` : ''}</p>`;
 
 export function ctaPair({ secondary = 'call', dark = true } = {}) {
   const sec =
@@ -380,7 +390,7 @@ export function videoCard(v) {
 export function scheduleModule() {
   const sections = SCHEDULE.length
     ? `<ul class="sch-list">${SCHEDULE.map((s) => `<li><span class="sch-label">${s.label}</span><span class="sch-days">${s.days}</span><span class="sch-time">${s.time}</span></li>`).join('')}</ul>`
-    : `<p class="sch-big">Weekday evenings</p><p>Eastern Time. Section days and times for the current cohort are confirmed on your Roadmap Session, so we can place your teen in a section that fits around school, sports, and activities.</p>`;
+    : `<p class="sch-big">Weekday evenings</p><p>Eastern Time. 3–6 students max. Class days and times are confirmed on your Roadmap Session, so we can fit your teen around school, sports, and activities.</p>`;
   return `<div class="schedule reveal">
     <div class="sch-card sch-main">
       <p class="sch-kicker">${icon('live', { size: 18 })} Live small-group classes</p>
@@ -397,24 +407,23 @@ export function scheduleModule() {
       <p>Free, 45 minutes, over Google Meet with Patrick. Start here.</p>
     </div>
   </div>
-  <p class="sch-note">${icon('users', { size: 16 })} All sections are live online over Google Meet and kept intentionally small. Exact times are confirmed on your Roadmap Session.</p>`;
+  <p class="sch-note">${icon('users', { size: 16 })} All classes are live online over Google Meet and kept to 3–6 students. Exact times are confirmed on your Roadmap Session.</p>`;
 }
 
 export function parentBlock() {
-  const cadence = PARENT_UPDATE_CADENCE ? ` — ${PARENT_UPDATE_CADENCE}` : '';
   const items = [
     ['compass', 'Clarity from day one', 'You’ll know the plan, the target test date, and what “good” looks like for your teen — in plain numbers, not vague encouragement.'],
-    ['eye', 'Progress you can actually see', `Regular progress visibility${cadence}, so you’re never left guessing whether the work is paying off.`],
-    ['bell', 'Reminders that keep prep on track', 'Classes and homework don’t quietly slip behind practice, games, and AP deadlines. The system keeps everyone on schedule.'],
-    ['users', 'A first conversation built for both of you', 'The Roadmap Session is designed for parents and their teen together — so everyone hears the same plan, at the same time.'],
+    ['eye', 'Progress you can actually see', 'The portal tracks progress and time studied. You get a portal login and a weekly progress report, so you always know where your teen stands without having to nag.'],
+    ['bell', 'Reminders that keep prep on track', 'Homework is assigned in the portal, and weekly checks keep prep from slipping behind practice, games, and AP deadlines — so you’re not the one nagging.'],
+    ['users', 'A first conversation built for both of you', 'The Roadmap Session is designed for parents and their teen together. If anyone else helps make this decision, bring them too, so everyone hears the same plan at the same time.'],
     ['scholar', 'Scholarship math, done for you', 'For Florida families, we plan around the score thresholds that unlock Bright Futures — and talk honestly about what’s realistic.'],
   ];
-  return `<section class="section parents" data-review="new-copy">
+  return `<section class="section parents">
   <div class="wrap parents-grid">
     <div class="parents-head reveal">
       ${eyebrow('For parents', 'gold')}
       <h2 class="h2">You’re part of the plan — <span>not left on the sidelines</span></h2>
-      <p class="lead">Your teen does the work. You make the decisions. SAT Blueprint is built so you always know where things stand — without having to nag.</p>
+      <p class="lead">Your teen does the work. You make the decisions. You get a portal login and a weekly progress report, so you always know where your teen stands without having to nag.</p>
       <a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>
       ${reassure()}
     </div>
@@ -429,13 +438,13 @@ export function trustAside({ quote } = {}) {
   return `<aside class="trust-aside" aria-label="Why families choose SAT Blueprint">
     <div class="ta-head">
       <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" width="72" height="86" loading="lazy"></picture>
-      <div><p class="ta-name">Patrick Spano</p><p class="ta-role">Founder & Head Coach</p></div>
+      <div><p class="ta-name">Patrick Spano</p><p class="ta-role">Co-founder</p></div>
     </div>
     <ul class="ta-list">
       <li>${icon('check', { size: 16 })}<span><strong>150+</strong> avg. point improvement</span></li>
       <li>${icon('check', { size: 16 })}<span><strong>2,000+</strong> families helped</span></li>
       <li>${icon('check', { size: 16 })}<span><strong>$1,500,000+</strong> in scholarships earned</span></li>
-      <li>${icon('check', { size: 16 })}<span>Yale graduate · Perfect SAT scorer</span></li>
+      <li>${icon('check', { size: 16 })}<span>Yale graduate · Perfect SAT Scorer</span></li>
       <li>${icon('check', { size: 16 })}<span>Approved Step Up For Students provider</span></li>
     </ul>
     ${quote ? `<figure class="ta-quote">${stars(5)}<blockquote><p>“${quote.quote}”</p></blockquote><figcaption>— ${quote.name}, ${quote.role}</figcaption></figure>` : ''}
@@ -445,12 +454,12 @@ export function trustAside({ quote } = {}) {
 export function finalCta() {
   return `<section class="final-cta">
   <div class="wrap"><div class="fc-panel reveal"><div class="fc-inner">
-    <p class="badge-gold">Limited Spots Available</p>
+    <p class="badge-gold">Groups fill before each SAT</p>
     <h2 class="fc-title">Ready to build your <span>blueprint?</span></h2>
-    <p class="fc-sub">If your teen is motivated, capable, and serious about their SAT score — all they need is the right structure, the right strategy, and the right coach. Let’s build that plan together.</p>
+    <p class="fc-sub">If your teen is motivated and serious about their SAT score, they don’t need more random practice. They need the right structure, the right plan, and a coach who starts with the tape — where the points are actually being lost. Let’s map that out together.</p>
     ${ctaPair({ secondary: 'email' })}
-    ${reassure('on-dark')}
-    <p class="fc-lock">SAT dates fill the calendar fast, and scholarship deadlines don’t move. The best time to start was last year — the next best time is today.</p>
+    ${reassure('on-dark', { extra: 'Patrick runs every Roadmap Session.' })}
+    <p class="fc-lock">SAT dates fill the calendar fast, and scholarship deadlines don’t move. Starting sooner gives your teen more room to improve — and if you’re already close to a test date, we’ll be honest about what’s realistic.</p>
   </div>
   <div class="fc-photo" aria-hidden="true"><picture><source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp"><img src="/assets/img/patrick-portrait-640.jpg" alt="" width="640" height="800" loading="lazy"></picture></div>
   </div></div>

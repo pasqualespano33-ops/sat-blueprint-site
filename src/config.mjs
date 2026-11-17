@@ -53,6 +53,15 @@ export const SITE = {
   // Contact page lists Roadmap Session availability instead.
   officeHours: '',
 
+  // Home hero promo video (the short talking-head promo, NOT the VSL).
+  // Paste the YouTube video ID (the part after watch?v=), e.g. 'abc123XYZ'.
+  // While empty, the hero shows Patrick's photo and the no-video headline.
+  promoVideoYouTubeId: '',
+
+  // Alex Torres headshot. Drop the file at assets/img/alex-torres.jpg and set
+  // this to '/assets/img/alex-torres.jpg'. While empty, his card shows initials.
+  alexPhoto: '',
+
   // Roadmap Session availability, from the current HighLevel calendar.
   roadmapHours: 'Monday–Friday, 8:00 AM–5:00 PM ET',
 

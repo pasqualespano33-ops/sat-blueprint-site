@@ -1,55 +1,37 @@
 import { SITE, COACHES, OFFICE_HOURS_TIME } from './config.mjs';
 import {
-  STATS, CREDENTIALS, RESULTS, TESTIMONIALS, PROOF_NOTES, VIDEOS, INCLUDES, STEPS, PILLARS, PAINS, WHY,
+  STATS, CREDENTIALS, RESULTS, TESTIMONIALS, PROOF_NOTES, VIDEOS, INCLUDES, INCLUDES_INTRO, STEPS, PILLARS, PAINS,
+  COMPARE, SCREENSHOTS,
 } from './data.mjs';
-import { FAQS } from './faq.mjs';
+import { FAQS, faqById } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
   proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker,
-  breadcrumbs, ORG_ID, PERSON_ID, ADDRESS,
+  breadcrumbs, ORG_ID, PERSON_ID, ADDRESS, RISK_REDUCER,
 } from './layout.mjs';
 
 const slug = (s) => s.toLowerCase().replace(/™/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const T = Object.fromEntries(TESTIMONIALS.map((t) => [t.id, t]));
 const R = Object.fromEntries(RESULTS.map((r) => [r.name, r]));
+const ALEX_ID = `${SITE.url}/#alex`;
 
 // ── Shared section builders ─────────────────────────────────────────────────
-function includesGrid({ linkToProgram = false } = {}) {
-  return `<div class="inc-grid">${INCLUDES.map((c) => {
-    const inner = `<span class="inc-ico">${icon(c.icon, { size: 26 })}</span>
+function includesGrid() {
+  return `<div class="inc-grid">${INCLUDES.map((c) => `<article class="inc-card reveal" id="${slug(c.title)}">
+      <span class="inc-ico">${icon(c.icon, { size: 26 })}</span>
       <h3 class="inc-title">${c.title}</h3>
       <p class="inc-body">${c.body}</p>
-      ${linkToProgram ? `<span class="inc-more">Learn more ${icon('arrow', { size: 14 })}</span>` : ''}`;
-    return linkToProgram
-      ? `<a class="inc-card reveal" href="/program/#${slug(c.title)}">${inner}</a>`
-      : `<article class="inc-card reveal" id="${slug(c.title)}">${inner}</article>`;
-  }).join('')}</div>`;
+    </article>`).join('')}</div>`;
 }
 
-function stepsTimeline() {
-  return `<ol class="timeline">${STEPS.map(
-    (s, i) => `<li class="tl-step reveal"><span class="tl-num" aria-hidden="true">${i + 1}</span><div><h3 class="tl-title"><span class="sr-only">Step ${i + 1}: </span>${s.title}</h3><p>${s.body}</p><span class="pill">${s.pill}</span></div></li>`,
-  ).join('')}</ol>`;
-}
-
-function pillarsGrid() {
-  return `<div class="pillars">${PILLARS.map(
-    (p, i) => `<article class="pillar reveal">
-      <div class="pillar-top"><p class="pillar-step ${p.color}">Pillar 0${i + 1}</p><h3 class="pillar-name">${p.key}</h3><p class="pillar-sub">${p.sub}</p></div>
-      <div class="pillar-stripe ${p.color}" aria-hidden="true"></div>
-      <div class="pillar-body"><p class="pillar-lead">${p.lead}</p><ul>${p.items.map((it) => `<li><span class="pi-check ${p.color}">${icon('check', { size: 16 })}</span>${it}</li>`).join('')}</ul></div>
-    </article>`,
-  ).join('')}</div>`;
-}
-
-function methodSection() {
+function methodSection({ intro = '' } = {}) {
   return `<section class="section bg-surface" id="method">
   <div class="wrap">
     <div class="center-head reveal">
       ${eyebrow('The SAT Blueprint Method™')}
       <h2 class="h2">Three pillars. <span>One proven system.</span></h2>
-      <p class="lead">A structured, step-by-step approach that turns confusion into confidence and preparation into performance — designed specifically for high schoolers.</p>
+      ${intro ? `<p class="lead">${intro}</p>` : ''}
     </div>
     <div class="pillars3">
       ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
@@ -89,8 +71,28 @@ function notesWall(notes = PROOF_NOTES) {
   return `<div class="notes-grid">${notes.map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>`;
 }
 
+function screenshotWall({ bg = '' } = {}) {
+  return `<section class="section ${bg}" id="screenshots">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      ${eyebrow('Original messages')}
+      <h2 class="h2">Straight from <span>Patrick’s phone.</span></h2>
+      <p class="lead">Real texts and emails from students and parents, unedited. Names, numbers, and photos are hidden to protect privacy. Tap any message to see it full size.</p>
+    </div>
+    <div class="shot-grid">
+      ${SCREENSHOTS.map((s) => `<figure class="shot reveal">
+        <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
+          <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="900" loading="lazy"></picture>
+        </a>
+        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
+      </figure>`).join('')}
+    </div>
+  </div>
+</section>`;
+}
+
 function resultsDisclaimer() {
-  return `<p class="fine-print">Results shown are real outcomes from past SAT Blueprint students and are not a promise or guarantee of future results. Every student is different; individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations, not by Gradeful Test Prep.</p>`;
+  return `<p class="fine-print">Results shown are real outcomes from past SAT Blueprint students, not typical or future results. Every student is different; individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations, not by Gradeful Test Prep.</p>`;
 }
 
 function carousel(items) {
@@ -105,71 +107,136 @@ function carousel(items) {
   </div>`;
 }
 
-function bookCta({ title = 'Find out exactly what’s holding the score back.', sub = 'A free 45-minute call with Patrick. You’ll leave with a clear, personalized plan — whether you enroll or not.' } = {}) {
+function bookCta({ title = 'Find out exactly what’s holding the score back.', sub = `A free 45-minute Roadmap Session with Patrick. ${RISK_REDUCER}` } = {}) {
   return `<section class="cta-strip">
   <div class="wrap cs-inner reveal">
     <div><h2 class="cs-title">${title}</h2><p>${sub}</p></div>
-    <div class="cs-actions"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure()}</div>
+    <div class="cs-actions"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('', { plan: false })}</div>
   </div>
 </section>`;
 }
 
+function compareTable() {
+  return `<div class="compare reveal" role="region" aria-label="SAT Blueprint compared with typical SAT prep" tabindex="0">
+      <table>
+        <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="c-us"><img src="/assets/img/logo-mark-96.png" alt="" width="32" height="26"> SAT Blueprint</th><th scope="col">Typical prep</th></tr></thead>
+        <tbody>
+          ${COMPARE.map((f) => `<tr><th scope="row">${f}</th><td class="c-us"><span class="yes">${icon('check', { size: 18, label: 'Yes' })}</span></td><td><span class="no">${icon('close', { size: 16, label: 'Usually not' })}</span></td></tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function founderBlock() {
+  return `<section class="section" id="founder">
+  <div class="wrap founder">
+    <div class="founder-photo reveal">
+      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint co-founder, Yale Graduate" width="433" height="517" loading="lazy"></picture>
+      <div class="founder-badge"><p class="fb-num">15+</p><p class="fb-lbl">Years coaching</p></div>
+    </div>
+    <div class="founder-body reveal">
+      <p class="eyebrow">Meet your coach</p>
+      <h2 class="h2">“Most students aren’t stuck for lack of effort.”</h2>
+      <p>I’m Patrick Spano — co-founder of The SAT Blueprint Method™, with Alex Torres. I played goalie at Yale, then pro hockey in the US and Europe. Now I run Gradeful Test Prep. After helping thousands of families, I’ve learned one thing: most students study hard without knowing what the SAT actually tests, or where the points are going.</p>
+      <p>A goalie doesn’t get better by playing more games. He gets better by watching the tape. Alex and I built The SAT Blueprint™ so your teen isn’t just doing more prep — they’re fixing the pattern that’s costing points.</p>
+      <ul class="cred-row">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
+      <a class="link-arrow" href="/about/">Read Patrick’s story ${icon('arrow', { size: 16 })}</a>
+    </div>
+  </div>
+</section>`;
+}
+
+function heroMedia(hasVideo) {
+  if (hasVideo) {
+    const id = SITE.promoVideoYouTubeId;
+    return `<div class="hv-video">
+      <div class="video" data-yt="${id}" data-title="SAT Blueprint — how we help your teen raise their SAT score">
+        <button type="button" class="video-play" aria-label="Play video: how SAT Blueprint helps your teen raise their SAT score">
+          <img src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" alt="" width="1280" height="720" fetchpriority="high">
+          <span class="vp-btn">${icon('play', { size: 30 })}</span>
+        </button>
+        <noscript><a href="https://www.youtube.com/watch?v=${id}">Watch the video on YouTube</a></noscript>
+      </div>
+    </div>`;
+  }
+  return `<div class="hv-frame">
+      <picture>
+        <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.webp" type="image/webp">
+        <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.jpg">
+        <source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp">
+        <img src="/assets/img/patrick-portrait-640.jpg" width="640" height="800" alt="Patrick Spano, co-founder of the SAT Blueprint Method, at his desk" fetchpriority="high">
+      </picture>
+    </div>`;
+}
+
+function proofCard() {
+  return `<figure class="proof-card">
+      <p class="pc-kick">Real result · 12 weeks</p>
+      <p class="pc-score" role="img" aria-label="1230 to 1430"><span class="from" aria-hidden="true">1230</span><span class="arr" aria-hidden="true">${icon('arrow', { size: 30 })}</span><span class="to" aria-hidden="true" data-count-from="1230" data-count-to="1430">1430</span></p>
+      <figcaption>Eshaan · +200 points · “Thank you Patrick!” — Preethi, parent of Eshaan</figcaption>
+    </figure>`;
+}
+
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
-  const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan'].map((n) => R[n]);
+  const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan', 'Eitan', 'Brooklyn'].map((n) => R[n]);
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
-  const compare = [
-    ['Starts with a diagnosis of exactly where points are lost', true, false],
-    ['Live instruction with real feedback every week', true, false],
-    ['Week-by-week plan to a target score and test date', true, false],
-    ['Small groups — never one of 50', true, false],
-    ['Homework reviewed, reminders, and accountability', true, false],
-    ['Parents kept in the loop', true, false],
-    ['Scholarship-score strategy (Bright Futures & merit aid)', true, false],
-  ];
+  const hasVideo = Boolean(SITE.promoVideoYouTubeId);
   const bento = [
     { ...INCLUDES[0], cls: 'b-wide b-blue' },
-    { ...INCLUDES[3], cls: 'b-tall b-ink' },
-    { ...INCLUDES[1], cls: '' },
+    { ...INCLUDES[1], cls: 'b-tall b-ink' },
     { ...INCLUDES[2], cls: '' },
+    { ...INCLUDES[3], cls: '' },
     { ...INCLUDES[4], cls: '' },
     { ...INCLUDES[5], cls: 'b-gold' },
   ];
+  const h1 = hasVideo
+    ? 'Watch the video and discover how we help your teen <span>raise their SAT score.</span>'
+    : 'Discover how we help your teen <span>raise their SAT score.</span>';
   return {
     path: '/',
     out: 'index.html',
-    title: 'SAT Blueprint Method™ — Patrick Spano | 150+ Point SAT Coaching for High Schoolers',
-    ogTitle: 'SAT Blueprint Method™ — A Clear Blueprint for the SAT',
-    description: 'Help your teen boost their SAT score with a structured 12-week program — 150+ point average improvement. Live online SAT coaching with Yale grad Patrick Spano. Book a free Roadmap Session.',
+    title: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
+    ogTitle: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
+    description: 'See how the 12-Week SAT Blueprint Program helps your teen raise their SAT score with a clear plan, not more guessing. 150+ point average improvement. Live online coaching from co-founders Patrick Spano and Alex Torres, a team of SAT specialists and tutors, and a personalized Digital SAT portal. Book a free Roadmap Session.',
     headExtra: '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>',
     bodyClass: 'is-home',
     schema: [],
     body: `
-<section class="hero hero-b">
-  <div class="wrap">
-    <p class="hb-kick">Real result · 12 weeks</p>
-    <p class="hb-score" role="img" aria-label="Eshaan's SAT score went from 1230 to 1430"><span class="from" aria-hidden="true">1230</span><span class="arr" aria-hidden="true">${icon('arrow', { size: 96 })}</span><span class="to" aria-hidden="true" data-count-from="1230" data-count-to="1430">1430</span></p>
-    <p class="hb-cap">Eshaan · +200 points · “Thank you Patrick!” — Preethi, parent of Eshaan</p>
-    <h1 class="hero-title">150+ average point improvement. <span>A clear blueprint for the SAT.</span></h1>
-    <p class="hero-sub">The SAT Blueprint Method™ is live, personalized SAT coaching for high schoolers — built on a diagnosis of exactly where your teen is losing points. Strategy. Skills. Confidence. Results.</p>
-    ${ctaPair({ dark: true })}
-    <p class="hero-assure">${icon('check', { size: 16 })} Free · 45 minutes · No pressure · No obligation</p>
-    <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · Perfect SAT scorer</p></div>
-    <div class="hb-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<section class="hero hero-v${hasVideo ? ' has-video' : ''}">
+  <div class="wrap hv-grid">
+    <div class="hv-copy">
+      <p class="hb-kick">Live online SAT coaching for high schoolers</p>
+      <h1 class="hero-title">${h1}</h1>
+      ${hasVideo ? heroMedia(true) : ''}
+      <p class="hero-sub">The 12-Week SAT Blueprint Program finds exactly where your teen is losing points, then builds a live, personalized plan to go after them. Book a free Roadmap Session and leave with that plan, whether you join or not.</p>
+      ${ctaPair({ dark: true })}
+      ${reassure('hero-reassure')}
+      <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · Perfect SAT Scorer<span>${stars(5)} Trusted by 2,000+ families</span></p></div>
+    </div>
+    <div class="hv-side">
+      ${hasVideo ? '' : heroMedia(false)}
+      ${proofCard()}
+    </div>
   </div>
 </section>
 
 ${trustBar()}
 ${ticker(RESULTS)}
 
-<section class="section" id="familiar">
+${founderBlock()}
+
+<section class="section bg-surface" id="familiar">
   <div class="wrap">
     <div class="split-head reveal">
       <div>
         <p class="eyebrow">Sound familiar?</p>
         <h2 class="h2">Your teen is working hard. <span class="muted">The score isn’t moving.</span></h2>
       </div>
-      <p class="lead">Most SAT struggles aren’t about intelligence. They’re about structure, strategy, and execution. The SAT isn’t a test of how smart your teen is — it’s a test of how well they understand the exam: its patterns, its traps, and how to move through it under pressure.</p>
+      <div>
+        <p class="lead">Most SAT struggles aren’t about intelligence. They’re about structure, strategy, and execution. A lot of prep is more practice without looking at the tape — where the points are actually being lost. The SAT isn’t a test of how smart your teen is. It’s a test of how well they understand the exam: its patterns, its traps, and how to move through it under pressure.</p>
+        <p class="lead mt-sm">The real risk usually isn’t picking the wrong program. It’s waiting, or doing more of the same, while the test date gets closer.</p>
+      </div>
     </div>
     <ol class="pain-grid">
       ${PAINS.map((p, i) => `<li class="pain reveal"><span class="pain-n">0${i + 1}</span><h3>${p.title}</h3><p>${p.body}</p></li>`).join('')}
@@ -185,12 +252,12 @@ ${ticker(RESULTS)}
   </div>
 </section>
 
-<section class="section bg-surface" id="how">
+<section class="section" id="how">
   <div class="wrap">
     <div class="center-head reveal">
       <p class="eyebrow">How it works</p>
       <h2 class="h2">From where you are <span>to your dream college.</span></h2>
-      <p class="lead">Students improve fastest when they know exactly what the SAT tests, which concepts to prioritize, and how to manage time and anxiety on test day. That clarity is what the SAT Blueprint Method™ provides.</p>
+      <p class="lead">Students improve fastest when they know exactly what the SAT tests, which concepts to prioritize, and how to manage time and anxiety on test day. That clarity is what the SAT Blueprint Method™ provides — Assess, Address, Success — and what you and Patrick map out together on the Roadmap Session.</p>
     </div>
     <ol class="steps4">
       ${STEPS.map((s, i) => `<li class="s4 reveal${i === 0 ? ' is-first' : ''}"><span class="s4-n">Step ${i + 1}</span><h3>${s.title}</h3><p>${s.body}</p>${i === 0 ? `<a class="btn btn-primary btn-sm" href="/book/">Book Your Free Session</a>` : `<span class="s4-pill">${s.pill}</span>`}</li>`).join('')}
@@ -198,7 +265,7 @@ ${ticker(RESULTS)}
   </div>
 </section>
 
-<section class="section" id="program">
+<section class="section bg-surface" id="program">
   <div class="wrap">
     <div class="split-head reveal">
       <div>
@@ -206,7 +273,7 @@ ${ticker(RESULTS)}
         <h2 class="h2">A complete coaching system. <span>Not a video library.</span></h2>
       </div>
       <div>
-        <p class="lead">A personalized, live 12-week program built around your teen’s exact situation — every piece designed to turn effort into points.</p>
+        <p class="lead">${INCLUDES_INTRO}</p>
         <a class="link-arrow mt-sm" href="/program/">Explore the full program ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
@@ -216,33 +283,16 @@ ${ticker(RESULTS)}
   </div>
 </section>
 
-<section class="section bg-surface" id="method">
-  <div class="wrap">
-    <div class="center-head reveal">
-      <p class="eyebrow">The SAT Blueprint Method™</p>
-      <h2 class="h2">Three pillars. <span>One proven system.</span></h2>
-    </div>
-    <div class="pillars3">
-      ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
-    </div>
-  </div>
-</section>
+${methodSection()}
 
 <section class="section" id="why">
   <div class="wrap">
     <div class="center-head reveal">
       <p class="eyebrow">Why SAT Blueprint</p>
       <h2 class="h2">Not more studying. <span>Smarter structure.</span></h2>
-      <p class="lead">Families usually come to us after trying videos, books, and generic prep. Here’s the difference.</p>
+      <p class="lead">Families usually come to us after trying videos, books, or a generic course. Here’s the difference — and one question to ask any tutor before you pay for more prep: “Which areas are costing my teen the most points, and how will you fix those first?”</p>
     </div>
-    <div class="compare reveal" role="region" aria-label="SAT Blueprint compared with typical SAT prep" tabindex="0">
-      <table>
-        <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="c-us"><img src="/assets/img/logo-mark-96.png" alt="" width="32" height="26"> SAT Blueprint</th><th scope="col">Typical prep</th></tr></thead>
-        <tbody>
-          ${compare.map(([f]) => `<tr><th scope="row">${f}</th><td class="c-us"><span class="yes">${icon('check', { size: 18, label: 'Yes' })}</span></td><td><span class="no">${icon('close', { size: 16, label: 'Usually not' })}</span></td></tr>`).join('')}
-        </tbody>
-      </table>
-    </div>
+    ${compareTable()}
     <div class="center mt-lg"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure()}</div>
   </div>
 </section>
@@ -255,29 +305,12 @@ ${ticker(RESULTS)}
         <h2 class="h2 on-dark">The results <span>speak for themselves.</span></h2>
       </div>
       <div>
-        <p class="lead on-dark">From perfect 1600s to 200-point jumps — real scores from real SAT Blueprint students.</p>
+        <p class="lead on-dark">From a perfect 1600 to 200-point jumps — real scores from real SAT Blueprint students.</p>
         <a class="link-arrow on-dark mt-sm" href="/results/">See all student results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
+    <div class="score-grid">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
     <div class="notes-grid notes-3 mt-lg">${[PROOF_NOTES[0], PROOF_NOTES[2], PROOF_NOTES[5]].map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>
-  </div>
-</section>
-
-<section class="section" id="founder">
-  <div class="wrap founder">
-    <div class="founder-photo reveal">
-      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" width="433" height="517" loading="lazy"></picture>
-      <div class="founder-badge"><p class="fb-num">15+</p><p class="fb-lbl">Years coaching</p></div>
-    </div>
-    <div class="founder-body reveal">
-      <p class="eyebrow">Meet your coach</p>
-      <h2 class="h2">“Most students aren’t stuck for lack of effort.”</h2>
-      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™. After helping thousands of families over the years, I’ve learned one thing: most students study hard without knowing what the SAT actually tests, which strategies matter most, or how to perform under pressure.</p>
-      <p>I built The SAT Blueprint™ to change that — replacing guesswork with a clear, proven system.</p>
-      <ul class="cred-row">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
-      <a class="link-arrow" href="/about/">Read Patrick’s story ${icon('arrow', { size: 16 })}</a>
-    </div>
   </div>
 </section>
 
@@ -285,7 +318,7 @@ ${parentBlock()}
 
 ${scheduleSection()}
 
-<section class="section" id="reviews">
+<section class="section bg-surface" id="reviews">
   <div class="wrap">
     <div class="split-head reveal">
       <div>
@@ -301,19 +334,19 @@ ${scheduleSection()}
   </div>
 </section>
 
-<section class="section bg-surface" id="faq">
+<section class="section" id="faq">
   <div class="wrap faq-preview">
     <div class="reveal">
       <p class="eyebrow">Questions</p>
       <h2 class="h2">What parents <span>ask first.</span></h2>
-      <p class="lead">Straight answers on cost, Step Up For Students, online classes, and one-on-one time.</p>
+      <p class="lead">Straight answers on cost, Step Up For Students, online classes, and one-on-one time — the questions parents usually bring to a first conversation.</p>
       <a class="link-arrow mt-sm" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a>
     </div>
-    ${faqAccordion([FAQS[0], FAQS[5], FAQS[3], FAQS[4]], { idPrefix: 'hfaq' })}
+    ${faqAccordion(['different', 'cost', 'online', 'one-on-one'].map(faqById), { idPrefix: 'hfaq' })}
   </div>
 </section>
 
-<section class="section" id="blog">
+<section class="section bg-surface" id="blog">
   <div class="wrap">
     <div class="split-head reveal">
       <div>
@@ -326,6 +359,7 @@ ${scheduleSection()}
   </div>
 </section>
 
+<div class="section-gap"></div>
 ${finalCta()}
 `,
   };
@@ -334,25 +368,24 @@ ${finalCta()}
 // ── PROGRAM ─────────────────────────────────────────────────────────────────
 function program() {
   const experience = [
-    ['target', 'Diagnostic', 'A full-length, timed diagnostic shows exactly where points are being lost — content, strategy, timing, or nerves.'],
+    ['target', 'Diagnostic', 'A full-length, timed diagnostic shows exactly where points are being lost — content, strategy, timing, or nerves — including what the Knowledge and Skills section already points to.'],
     ['plan', 'Personal plan', 'Patrick builds a week-by-week plan from your teen’s starting score to their target score and test date.'],
-    ['live', 'Live classes', 'Small-group instruction each week over Google Meet, taught in order of SAT priority — with real feedback.'],
-    ['check', 'Homework & accountability', 'Targeted practice every week, reviewed — plus reminders, so work actually gets done.'],
-    ['portal', 'Practice tests', 'Official-style, full-length tests at planned checkpoints to measure progress and sharpen pacing.'],
-    ['bell', 'Parent updates', 'Parents see how things are going and what’s next — no guessing, no nagging.'],
+    ['live', 'Live classes', 'Small-group instruction (3–6 students) over Google Meet, aimed at the areas costing the most points.'],
+    ['check', 'Homework & accountability', 'Homework is assigned in the Digital SAT portal, which tracks time studied and what to work on next — so the work actually gets done.'],
+    ['portal', 'Practice tests', 'Official-style, full-length tests at planned checkpoints, analyzed in the portal and aimed at weak spots, so test day feels familiar.'],
+    ['bell', 'Parent updates', 'You get a portal login and a weekly progress report, so you always know where your teen stands without having to nag.'],
   ];
-  const programFaqs = [FAQS[0], FAQS[4], FAQS[5]];
   return {
     path: '/program/',
     out: 'program/index.html',
     title: 'The 12-Week SAT Blueprint Program | Live Online SAT Coaching',
-    description: 'Inside the 12-week SAT Blueprint Method™: live small-group classes, weekly office hours, a personalized SAT portal, a custom study plan, and scholarship score strategy.',
+    description: 'Inside the 12-Week SAT Blueprint Program: live classes of 3–6, one-on-one, weekly office hours, a proprietary Digital SAT portal, practice tests, and a custom plan — all tracked, and mapped out in a free Roadmap Session.',
     schema: [
       {
         '@type': 'Course',
         '@id': `${SITE.url}/program/#course`,
-        name: 'SAT Blueprint Method™ — 12-Week SAT Program',
-        description: 'A structured, live online SAT coaching program for high schoolers: diagnostic assessment, a customized study plan, weekly live small-group instruction, weekly office hours, a personalized practice portal, and scholarship score strategy.',
+        name: 'The 12-Week SAT Blueprint Program',
+        description: 'Live online SAT coaching for high schoolers: a diagnostic, a week-by-week plan, live small-group classes of 3–6 students, one-on-one time, weekly office hours, a proprietary Digital SAT portal, and practice tests — with accountability and everything tracked.',
         provider: { '@id': ORG_ID },
         educationalLevel: 'High school',
         teaches: 'Digital SAT Reading and Writing, SAT Math, test-taking strategy, pacing, and time management',
@@ -362,7 +395,7 @@ function program() {
           '@type': 'CourseInstance',
           courseMode: 'Online',
           location: { '@type': 'VirtualLocation', url: `${SITE.url}/program/` },
-          instructor: { '@id': PERSON_ID },
+          instructor: [{ '@id': PERSON_ID }, { '@id': ALEX_ID }],
           courseSchedule: { '@type': 'Schedule', repeatFrequency: 'P1W', duration: 'P12W' },
         },
       },
@@ -372,7 +405,7 @@ function program() {
 ${pageHero({
   eyebrow: 'The 12-Week Program',
   title: 'A live, personalized path <span>to a higher SAT score.</span>',
-  sub: 'A structured, live online SAT coaching program for high schoolers — not a tutoring center and not a video library. A personalized, live program built around your teen’s exact situation.',
+  sub: 'The 12-Week SAT Blueprint Program is live online SAT coaching built around a higher score — not a tutoring center and not a video library. It starts with a diagnosis of where your teen is losing points, then a plan delivered by co-founders Patrick Spano and Alex Torres and a team of SAT specialists and tutors. Patrick runs every Roadmap Session. Book one and leave with a plan, whether you join or not.',
   crumbs: [{ name: 'Program', path: '/program/' }],
 })}
 
@@ -381,25 +414,28 @@ ${pageHero({
     <div class="reveal">
       ${eyebrow('Program overview')}
       <h2 class="h2">One program. <span>Twelve focused weeks.</span></h2>
-      <p>The SAT Blueprint Method™ is one program: a 12-week, live online SAT course for high schoolers. It starts with a diagnosis of exactly where your teen is losing points, turns that into a week-by-week plan, and then delivers it through live small-group classes, weekly office hours, a personalized practice portal, and Patrick’s proprietary SAT Blueprint™.</p>
+      <p>The 12-Week SAT Blueprint Program starts with a diagnosis of exactly where your teen is losing points, turns that into a week-by-week plan, and delivers it through Assess, Address, and Success: live classes of 3–6, one-on-one, weekly office hours, our Digital SAT portal, and practice tests — with accountability, and everything tracked. It’s built for juniors and seniors, so they can prepare without burnout, wasted time, or falling behind in school.</p>
       <p>Everything is online over Google Meet, so there’s no commute — and families outside Florida join just as easily as families in Deerfield Beach.</p>
     </div>
-    <ul class="contrast-list reveal" aria-label="What SAT Blueprint is and isn’t">
+    <ul class="contrast-list reveal" aria-label="What the program includes">
       <li class="is">${icon('check', { size: 18 })} Live instruction with real feedback</li>
       <li class="is">${icon('check', { size: 18 })} A plan built from your teen’s diagnostic</li>
-      <li class="is">${icon('check', { size: 18 })} Small groups — never one of 50</li>
-      <li class="is">${icon('check', { size: 18 })} Accountability and parent visibility</li>
+      <li class="is">${icon('check', { size: 18 })} Small groups — 3–6 students max</li>
+      <li class="is">${icon('check', { size: 18 })} The Digital SAT portal, plus practice tests</li>
+      <li class="is">${icon('check', { size: 18 })} Accountability, with everything tracked</li>
       <li class="not">${icon('close', { size: 18 })} Not a pre-recorded video library</li>
-      <li class="not">${icon('close', { size: 18 })} Not a generic, same-for-everyone curriculum</li>
     </ul>
   </div>
 </section>
 
 <section class="section bg-ink" id="included">
   <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('What’s included', 'on-dark')}
-      <h2 class="h2 on-dark">Everything your teen needs <span>to master the SAT.</span></h2>
+    <div class="split-head reveal">
+      <div>
+        ${eyebrow('What’s included', 'on-dark')}
+        <h2 class="h2 on-dark">Everything your teen needs <span>to master the SAT.</span></h2>
+      </div>
+      <p class="lead on-dark">${INCLUDES_INTRO}</p>
     </div>
     ${includesGrid()}
   </div>
@@ -418,13 +454,13 @@ ${pageHero({
   </div>
 </section>
 
-<section class="section bg-soft" id="one-on-one">
+<section class="section bg-surface" id="one-on-one">
   <div class="wrap split">
     <div class="reveal">
       ${eyebrow('One-on-one, built in')}
       <h2 class="h2">Individual attention <span>where it counts.</span></h2>
-      <p>There’s real one-on-one time built in — a personal onboarding, plus brief one-on-one sessions with Patrick when your teen needs them. Combined with small live groups and a fully personalized plan, they get individual attention where it counts.</p>
-      <p>There’s no separate tutoring package to buy. It’s simply part of how the 12-week program works.</p>
+      <p>There’s real one-on-one time built in — a personal onboarding, plus short sessions with Patrick when your teen needs them. Combined with small live groups (3–6 students) and a fully personalized plan, they get individual attention where it counts.</p>
+      <p>There’s no separate tutoring package to add on. One-on-one time is built into the 12-Week SAT Blueprint Program, along with a personal onboarding.</p>
     </div>
     <div class="quote-panel reveal">
       ${stars(5)}
@@ -434,19 +470,20 @@ ${pageHero({
   </div>
 </section>
 
-${methodSection()}
+${methodSection({ intro: 'A clear, step-by-step approach that turns confusion into confidence and preparation into performance — designed for high school students, and explained in a way parents can follow.' })}
 
 ${scheduleSection()}
 
 ${parentBlock()}
 
-<section class="section bg-gold-pale" id="step-up">
+<section class="section" id="step-up">
   <div class="wrap split">
     <div class="reveal">
       ${eyebrow('Pricing & Florida funding', 'gold')}
       <h2 class="h2">Personalized pricing. <span>Step Up For Students welcome.</span></h2>
       <p>Pricing is personalized to your teen’s goals and timeline. Florida families who qualify for Step Up For Students (PEP) can often use those funds for our tutoring — we’re an approved provider, which can mean little or no out-of-pocket cost. We’ll cover the details on your Roadmap Session.</p>
       <a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>
+      ${reassure()}
     </div>
     <div class="stepup-card reveal">
       <span class="su-ico">${icon('shield', { size: 34 })}</span>
@@ -457,17 +494,18 @@ ${parentBlock()}
   </div>
 </section>
 
-<section class="section" id="program-faq">
+<section class="section bg-surface" id="program-faq">
   <div class="wrap narrow">
     <div class="sec-head reveal">
       ${eyebrow('Program questions')}
       <h2 class="h2">Questions parents <span>ask most.</span></h2>
     </div>
-    ${faqAccordion(programFaqs, { idPrefix: 'pfaq' })}
+    ${faqAccordion(['different', 'one-on-one', 'cost'].map(faqById), { idPrefix: 'pfaq' })}
     <p class="center mt-md"><a class="link-arrow" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a></p>
   </div>
 </section>
 
+<div class="section-gap"></div>
 ${finalCta()}
 `,
   };
@@ -477,8 +515,8 @@ ${finalCta()}
 function results() {
   const groups = [
     { title: 'Top scores', names: ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Briana', 'Mark', 'Liana', 'Aarush', 'Sasha'] },
-    { title: 'Biggest jumps', names: ['Sammi', 'Eshaan', 'Jordan', 'Xavier', 'Tristan'] },
-    { title: 'Florida & Bright Futures', names: ['Wyatt C.', 'Mauricio', 'Jacob S.', 'Xavier'] },
+    { title: 'Biggest jumps', names: ['Sammi', 'Eshaan', 'Jordan', 'Eitan', 'Brooklyn', 'Xavier', 'Tristan'] },
+    { title: 'Florida & Bright Futures', names: ['Wyatt C.', 'Aarush', 'Mauricio', 'Jacob S.', 'Xavier'] },
   ];
   return {
     path: '/results/',
@@ -490,7 +528,7 @@ function results() {
 ${pageHero({
   eyebrow: 'Student results',
   title: 'Real families. <span>Real results.</span>',
-  sub: 'These families came in overwhelmed and left with a plan — and a score that opened doors.',
+  sub: 'These families came in unsure of the plan — and left with a higher score, and a clearer path to college and scholarships.',
   crumbs: [{ name: 'Results', path: '/results/' }],
 })}
 
@@ -531,7 +569,7 @@ ${pageHero({
   </div>
 </section>
 
-<section class="section bg-soft" id="scores">
+<section class="section bg-surface" id="scores">
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Score gallery')}
@@ -542,18 +580,22 @@ ${pageHero({
   </div>
 </section>
 
-<section class="section" id="messages">
+${screenshotWall()}
+
+<section class="section bg-surface" id="messages">
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('In their words')}
       <h2 class="h2">The messages <span>that make it worth it.</span></h2>
-      <p class="lead">Real texts from students and parents when scores and admissions decisions came in.</p>
+      <p class="lead">More texts from students and parents when scores and admissions decisions came in.</p>
     </div>
     ${notesWall()}
   </div>
 </section>
 
-${videosSection({ bg: 'bg-soft' })}
+${screenshotWall()}
+
+${videosSection({ bg: 'bg-surface' })}
 
 <section class="section-tight"><div class="wrap narrow">${resultsDisclaimer()}</div></section>
 
@@ -566,24 +608,24 @@ ${bookCta({ title: 'Join the families who’ve already unlocked better scores.' 
 function about() {
   const values = [
     ['compass', 'Structure, strategy, execution', 'Most SAT struggles aren’t about intelligence. We replace guesswork with structure, a strategy for every question type, and the practice to execute under pressure.'],
-    ['target', 'Diagnosis before practice', 'We find out exactly where points are being lost before assigning a single drill — so every hour goes where it matters.'],
-    ['users', 'Live coaching and accountability', 'Real instruction, real feedback, and someone in your teen’s corner every week. Not a video library.'],
+    ['target', 'Diagnosis before practice', 'We find out exactly where points are being lost — including what the Knowledge and Skills section of the score report already shows — before assigning a single drill.'],
+    ['users', 'Live coaching and accountability', 'SAT specialists and tutors, live classes, one-on-one, office hours, and the Digital SAT portal — with real feedback, and everything tracked. Not a video library.'],
     ['scholar', 'Opening doors', 'A score is a means to an end: real college options and scholarship dollars, especially for Florida families pursuing Bright Futures.'],
   ];
-  const coaches = COACHES.length
-    ? `<div class="coach-grid">${COACHES.map((c) => `<article class="coach-card reveal">${c.photo ? `<img src="${c.photo}" alt="${esc(c.name)}" loading="lazy" width="240" height="240">` : ''}<h3>${c.name}</h3><p class="coach-role">${c.role}</p><p>${c.bio}</p>${c.credentials?.length ? `<ul class="coach-creds">${c.credentials.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}</article>`).join('')}</div>`
-    : '';
+  const alexPhoto = SITE.alexPhoto
+    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
+    : '<span class="team-photo team-initials" aria-hidden="true">AT</span>';
   return {
     path: '/about/',
     out: 'about/index.html',
-    title: 'About Patrick Spano — Founder of the SAT Blueprint Method™',
-    description: 'Meet Patrick Spano: Yale graduate, perfect SAT scorer, former professional athlete, and SAT coach for 15+ years. Founder of the SAT Blueprint Method™ at Gradeful Test Prep.',
+    title: 'About Patrick Spano and Alex Torres — Co-Founders of the SAT Blueprint Method™',
+    description: 'Meet Patrick Spano and Alex Torres, co-founders of the SAT Blueprint Method™ at Gradeful Test Prep. Patrick is a Yale graduate, Perfect SAT Scorer, former professional athlete, and SAT coach for 15+ years.',
     schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])],
     body: `
 ${pageHero({
   eyebrow: 'About SAT Blueprint',
   title: 'Meet your coach, <span>Patrick Spano.</span>',
-  sub: 'Founder of the SAT Blueprint Method™ and Gradeful Test Prep. Yale graduate. Perfect SAT scorer. 15+ years coaching families through the SAT.',
+  sub: 'Co-founder of the SAT Blueprint Method™, with Alex Torres. Yale graduate and former Yale goalie. Perfect SAT Scorer. 15+ years coaching families through the SAT.',
   crumbs: [{ name: 'About', path: '/about/' }],
   ctas: false,
 })}
@@ -591,28 +633,29 @@ ${pageHero({
 <section class="section">
   <div class="wrap about-grid">
     <div class="about-photo reveal">
-      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" width="433" height="517"></picture>
+      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint co-founder, Yale Graduate" width="433" height="517"></picture>
       <div class="about-badge"><p class="ab-num">15+</p><p class="ab-lbl">Years coaching</p></div>
     </div>
     <div class="about-body reveal">
       ${eyebrow('Our story')}
       <h2 class="h2">Replacing guesswork <span>with a proven system.</span></h2>
-      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™.</p>
-      <p>After helping thousands of families over the years, I’ve learned one thing: most students aren’t stuck for lack of effort. They study hard without knowing what the SAT actually tests, which strategies matter most, or how to perform under pressure.</p>
-      <p>I built The SAT Blueprint™ to change that — replacing guesswork with a clear, proven system.</p>
+      <p>I’m Patrick Spano — co-founder of The SAT Blueprint Method™, with Alex Torres.</p>
+      <p>I played goalie at Yale, then pro hockey in the US and Europe. Now I run Gradeful Test Prep. After helping thousands of families over the years, I’ve learned one thing: most students aren’t stuck for lack of effort. They study hard without knowing what the SAT actually tests, or where the points are going.</p>
+      <p>A goalie doesn’t get better by playing more games. He gets better by watching the goals he let in. Most SAT prep is the same for everyone — more lessons, more practice tests, and nobody looks at the tape. Alex and I built The SAT Blueprint™ to change that.</p>
       <p>More than anything, I want every student to have the chance I did: to walk into the college process with real options, and to pursue the education and future they’re capable of. That’s what this work is really about.</p>
       <p class="signature">— Patrick Spano</p>
       <ul class="cred-row" aria-label="Credentials">
         ${CREDENTIALS.map((c) => `<li>${icon('check', { size: 16 })}${c}</li>`).join('')}
       </ul>
       <a class="btn btn-primary" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
+      ${reassure()}
     </div>
   </div>
 </section>
 
 <section class="stats-section" aria-label="Results at a glance"><div class="wrap">${statsBand()}</div></section>
 
-<section class="section bg-soft">
+<section class="section bg-surface">
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Mission & values')}
@@ -629,19 +672,52 @@ ${pageHero({
     <div class="reveal">
       ${eyebrow('How coaching works')}
       <h2 class="h2">Patrick’s method, <span>live every week.</span></h2>
-      <p>Patrick is the founder and head coach, and he personally runs every Roadmap Session. Weekly classes are live, small-group instruction delivered under his method — the same diagnostics, the same SAT Blueprint™, and the same week-by-week plan structure — with brief one-on-one time with Patrick built in when a student needs it.</p>
-      <p>Groups are kept intentionally small, so your teen is never just one of 50.</p>
+      <p>Patrick Spano and Alex Torres are the co-founders of SAT Blueprint and the minds behind its method and the 12-Week SAT Blueprint Program. Patrick runs every Roadmap Session. SAT specialists and tutors deliver the program alongside them: live small-group classes (3–6 students), one-on-one time with Patrick when a student needs it, office hours, the Digital SAT portal, and practice tests — with a week-by-week plan, and everything tracked. Parents get a portal login and a weekly progress report.</p>
+      <p>Groups are kept to 3–6 students, so your teen is never lost in a crowd.</p>
     </div>
     <div class="reveal">
       ${eyebrow('Where we work')}
       <h2 class="h2">Based in Deerfield Beach. <span>Live online everywhere.</span></h2>
-      <p>Our office is in Deerfield Beach, Florida, and the program runs fully online over Google Meet — so families anywhere in the U.S. can join without a commute.</p>
+      <p>Our office is in Deerfield Beach, Florida, and coaching runs fully online over Google Meet — so families anywhere in the U.S. can join without a commute.</p>
       <p>Florida families get extra depth: we know the score thresholds that unlock Bright Futures, and we’re an approved Step Up For Students provider.</p>
     </div>
   </div>
-  ${coaches ? `<div class="wrap mt-lg">${coaches}</div>` : ''}
 </section>
 
+<section class="section bg-surface" id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      ${eyebrow('The team')}
+      <h2 class="h2">The people behind <span>the Blueprint.</span></h2>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal">
+        <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img class="team-photo" src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy"></picture>
+        <div>
+          <h3>Patrick Spano</h3>
+          <p class="team-role">Co-founder · Runs every Roadmap Session</p>
+          <ul class="team-creds">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
+        </div>
+      </article>
+      <article class="team-card reveal">
+        ${alexPhoto}
+        <div>
+          <h3>Alex Torres</h3>
+          <p class="team-role">Co-founder</p>
+          <ul class="team-creds">
+            <li>${icon('check', { size: 15 })}Yale graduate</li>
+            <li>${icon('check', { size: 15 })}17 years of experience as an SAT instructor</li>
+            <li>${icon('check', { size: 15 })}3,500 instructional videos on YouTube</li>
+            <li>${icon('check', { size: 15 })}Helped students achieve seven 1500+ SAT scores in a 7-month stretch</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="team-note reveal">${icon('users', { size: 16 })} SAT specialists and tutors work alongside them to deliver the program.</p>
+  </div>
+</section>
+
+<div class="section-gap"></div>
 ${finalCta()}
 `,
   };
@@ -653,7 +729,7 @@ function blogIndex() {
   return {
     path: '/blog/',
     out: 'blog/index.html',
-    title: 'SAT Blog for Parents — Digital SAT, Strategy & Scholarships | SAT Blueprint',
+    title: 'SAT Blog for Parents — Digital SAT, Scholarships & Prep That Works | SAT Blueprint',
     description: 'Practical SAT guidance for parents of high schoolers: the digital SAT and Bluebook, score strategy, Florida Bright Futures scholarships, and signs prep isn’t working.',
     schema: [
       { '@type': 'Blog', '@id': `${SITE.url}/blog/#blog`, name: 'SAT Blueprint Blog', publisher: { '@id': ORG_ID }, url: `${SITE.url}/blog/` },
@@ -663,7 +739,7 @@ function blogIndex() {
 ${pageHero({
   eyebrow: 'The SAT Blueprint Blog',
   title: 'Clear SAT guidance <span>for parents.</span>',
-  sub: 'Straight answers on the digital SAT, score strategy, and scholarships — from the coach behind the SAT Blueprint Method™.',
+  sub: 'Straight answers on the digital SAT, scholarships, and why some prep never moves the score — from Patrick Spano, the coach behind the SAT Blueprint Method™.',
   crumbs: [{ name: 'Blog', path: '/blog/' }],
   ctas: false,
 })}
@@ -781,7 +857,7 @@ function reviews() {
 ${pageHero({
   eyebrow: 'Reviews',
   title: 'Parent &amp; student <span>reviews.</span>',
-  sub: 'Five-star words from the families who’ve been through the SAT Blueprint Method™ — in their own words, unedited.',
+  sub: 'In their own words, from the families who’ve been through the SAT Blueprint Method™.',
   crumbs: [{ name: 'Reviews', path: '/reviews/' }],
   extra: badge,
 })}
@@ -835,7 +911,7 @@ function faq() {
 ${pageHero({
   eyebrow: 'Common questions',
   title: 'Frequently asked <span>questions.</span>',
-  sub: 'Straight answers about the program, pricing, Step Up For Students, and the digital SAT. Don’t see your question? Ask Patrick on your free Roadmap Session.',
+  sub: 'Straight answers about the 12-Week SAT Blueprint Program, pricing, Step Up For Students, and the digital SAT. Don’t see your question? Ask Patrick on your free Roadmap Session.',
   crumbs: [{ name: 'FAQ', path: '/faq/' }],
   ctas: false,
 })}
@@ -861,11 +937,11 @@ ${finalCta()}
 // ── BOOK ────────────────────────────────────────────────────────────────────
 function book() {
   const willDo = [
-    'Review where your teen stands today — starting score, next test date, and target.',
+    'Review where your teen stands today — starting score, next test date, and target. If you have a score report, we’ll look at the Knowledge and Skills section together.',
     'Pinpoint what’s holding the score back — content gaps, strategy, timing, or mindset.',
-    'Discuss realistic score-improvement goals and a timeline around your teen’s schedule and test date.',
+    'Give you honest feedback about what’s realistically possible for your teen based on where they currently stand, and talk through a timeline around their schedule and test date.',
     'Identify common mistakes families make with prep and retakes.',
-    'Leave you with a clear, focused, personalized plan — whether you enroll or not.',
+    'Leave you with a clear plan, whether you join or not.',
   ];
   return {
     path: '/book/',
@@ -881,13 +957,14 @@ function book() {
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Book a Free Roadmap Session</span></li></ol></nav>
     ${eyebrow('Free — Zero Obligation')}
     <h1 class="ph-title">What happens on your <span>free Roadmap Session?</span></h1>
-    <p class="ph-sub">A free 45-minute call that gives you total clarity on your teen’s SAT situation — and a concrete plan to reach their target score.</p>
+    <p class="ph-sub">A free 45-minute call that gives you a clear read on your teen’s SAT situation, and honest feedback about what’s realistically possible based on where they currently stand. You’ll leave with a clear plan, whether you join or not.</p>
     <ul class="logistics" aria-label="Session details">
       <li>${icon('check', { size: 16 })} Free</li>
       <li>${icon('clock', { size: 16 })} 45 minutes</li>
       <li>${icon('live', { size: 16 })} Google Meet</li>
       <li>${icon('globe', { size: 16 })} Eastern Time</li>
       <li>${icon('users', { size: 16 })} With Patrick Spano</li>
+      <li class="lg-gold">${icon('clock', { size: 16 })} Limited spots — groups fill before SAT dates</li>
     </ul>
   </div>
 </section>
@@ -896,7 +973,6 @@ function book() {
   <div class="wrap book-grid">
     <div class="book-form-col">
       <div class="form-card" data-booking>
-        <p class="badge-gold">Limited spots — groups fill before SAT dates</p>
         <h2 class="form-title">Book Your Free Roadmap Session</h2>
         <p class="form-reassure">Free 45-minute Roadmap Session. No obligation. You’ll leave with a clear plan.</p>
 
@@ -994,7 +1070,7 @@ function book() {
               <label for="notes">Anything else we should know? <span class="opt">(optional)</span></label>
               <textarea id="notes" name="notes" rows="3"></textarea>
             </div>
-            <label class="check consent"><input type="checkbox" name="consent" value="yes"> <span>I confirm that I want to receive content from this company using any contact information I provide.</span></label>
+            <label class="check consent"><input type="checkbox" name="consent" value="yes"> <span>I’d like to receive SAT Blueprint emails and updates using the contact information I provide.</span></label>
             <div class="step-actions">
               <button type="button" class="btn btn-ghost" data-back>${icon('arrowLeft', { size: 18 })} Back</button>
               <button type="submit" class="btn btn-primary btn-lg" data-submit>Choose a time ${icon('arrow', { size: 18 })}</button>
@@ -1039,17 +1115,17 @@ function book() {
         <p>The session is designed for parents of high school students looking for clarity and help with the SAT. Please attend with your teen. If both parents are involved in college-planning decisions, plan to join the session together.</p>
       </div>
       <div class="promise-card">
-        <h3>${icon('lock', { size: 20 })} Our promise to you</h3>
-        <p>You’ll leave your free Roadmap Session knowing exactly what’s holding your teen’s score back and what it takes to fix it — whether or not you ever work with us. No pressure, no pitch, no wasted time. Just clarity and a concrete plan you can act on.</p>
+        <h3>${icon('compass', { size: 20 })} What you can expect</h3>
+        <p>You’ll leave your free Roadmap Session knowing what’s holding your teen’s score back, what’s realistically possible, and what it takes to fix it — whether you join or not. No pressure, and no obligation. You’ll have a concrete plan you can act on, and if SAT Blueprint is a fit, we can talk about how to get your teen started.</p>
       </div>
       <dl class="logistics-list">
         <div><dt>Cost</dt><dd>Free</dd></div>
         <div><dt>Length</dt><dd>45 minutes</dd></div>
         <div><dt>Where</dt><dd>Google Meet (link sent by email)</dd></div>
         <div><dt>When</dt><dd>${SITE.roadmapHours} · book at least 4 hours ahead</dd></div>
-        <div><dt>With</dt><dd>Patrick Spano, Founder</dd></div>
+        <div><dt>With</dt><dd>Patrick Spano, Co-founder</dd></div>
       </dl>
-      <p class="signed">I look forward to connecting with you!<br><span>— Patrick Spano (Founder of SAT Blueprint)</span></p>
+      <p class="signed">I look forward to connecting with you!<br><span>— Patrick Spano (Co-founder of SAT Blueprint)</span></p>
     </div>
   </div>
 </section>
@@ -1081,7 +1157,7 @@ function bookConfirmed() {
       <li>Have any recent SAT, PSAT, or practice-test scores handy.</li>
     </ol>
     <p>Need to reach the office? Call <a href="${SITE.phoneHref}">${SITE.phoneDisplay}</a> or email <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
-    <p class="signed">I look forward to connecting with you!<br><span>— Patrick Spano (Founder of SAT Blueprint)</span></p>
+    <p class="signed">I look forward to connecting with you!<br><span>— Patrick Spano (Co-founder of SAT Blueprint)</span></p>
     <p class="mt-md"><a class="link-arrow" href="/results/">While you wait, see real student results ${icon('arrow', { size: 16 })}</a></p>
   </div>
 </section>
@@ -1105,7 +1181,7 @@ function contact() {
 ${pageHero({
   eyebrow: 'Contact',
   title: 'Questions? <span>Reach Patrick directly.</span>',
-  sub: 'Have a question before you book, or already a current family? Send a note, call, or email — Patrick will get back to you. For a full plan for your teen, the best first step is a free Roadmap Session.',
+  sub: 'Have a question before you book, or already a current family? Send a note, call, or email — Patrick will get back to you. If you want a full plan for your teen, the best first step is a free Roadmap Session.',
   crumbs: [{ name: 'Contact', path: '/contact/' }],
   ctas: false,
 })}
@@ -1238,9 +1314,9 @@ function terms() {
     body: `
 <p>By using this website, operated by Gradeful Test Prep (“we,” “us”), you agree to these terms.</p>
 <h2>Educational services</h2>
-<p>This website describes the SAT Blueprint Method™, an online SAT preparation program. Enrollment, scheduling, pricing, and program details are confirmed directly with each family. Specific terms of enrollment are provided at the time of enrollment.</p>
-<h2>No guarantee of results</h2>
-<p>Scores, point increases, scholarships, and admissions outcomes shown on this site are examples of past students’ results. They are not a promise or guarantee of future results. Every student is different, and outcomes depend on many factors, including the student’s starting point, effort, and consistency. Scholarship eligibility, including Florida Bright Futures, is determined solely by the administering organizations.</p>
+<p>This website describes the SAT Blueprint Method™ and the 12-Week SAT Blueprint Program, online SAT preparation offered by Gradeful Test Prep. Enrollment, scheduling, pricing, and program details are confirmed directly with each family. Specific terms of enrollment are provided at the time of enrollment.</p>
+<h2>About the results on this site</h2>
+<p>Scores, point increases, scholarships, and admissions outcomes shown on this site are examples of past students’ results, not typical or future results. Every student is different, and outcomes depend on many factors, including the student’s starting point, effort, and consistency. Scholarship eligibility, including Florida Bright Futures, is determined solely by the administering organizations.</p>
 <h2>Website content</h2>
 <p>Content on this site — including text, graphics, logos, and The SAT Blueprint™ materials — belongs to Gradeful Test Prep or its licensors and may not be copied or redistributed without permission. Blog articles are general information, not individualized advice.</p>
 <h2>Third-party links and services</h2>

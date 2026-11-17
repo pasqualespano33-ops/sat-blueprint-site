@@ -78,13 +78,13 @@ export const POSTS = [
   <li><strong>Jacob S.</strong> scored a 1260 — about $20,000 in scholarship — with Bright Futures 75%.</li>
   <li><strong>Wyatt C.</strong> earned a perfect 1600 and is now at UF with 100% Bright Futures.</li>
 </ul>
-<p>Every student is different, and past results don’t guarantee future ones. But the pattern is consistent: when students know exactly which score they need and what’s standing between them and it, they stop studying in circles.</p>
+<p>Every student is different, and past results are not typical or future results. But the pattern is consistent: when students know exactly which score they need and what’s standing between them and it, they stop studying in circles.</p>
 
 <h2>A simple planning timeline</h2>
 <ol>
   <li><strong>Find your number.</strong> Confirm the FAS and FMS score minimums for your teen’s graduating class on the official site.</li>
   <li><strong>Get a real baseline.</strong> A recent SAT, PSAT, or full-length Bluebook practice test tells you the gap.</li>
-  <li><strong>Pick a target test date with runway.</strong> We typically plan a 12-week runway to a test date, with a backup date after it.</li>
+  <li><strong>Pick a target test date with runway.</strong> We plan a 12-week runway to your teen’s test date, with a backup date after it.</li>
   <li><strong>Diagnose before you drill.</strong> Find out whether points are being lost to content, strategy, timing, or nerves — then fix them in that order of impact.</li>
   <li><strong>Practice under real conditions.</strong> Full-length, timed practice in the official Bluebook app, so test day feels familiar.</li>
 </ol>
@@ -147,7 +147,7 @@ export const POSTS = [
 </ol>
 
 <h2>How SAT Blueprint uses all of this</h2>
-<p>The SAT Blueprint Method™ is built around the current digital SAT. Students begin with a diagnostic, get a week-by-week plan to a target score and test date, learn in live small-group classes, and practice in the same format they’ll see on test day. Weekly office hours mean mistakes get fixed, not repeated — and parents stay in the loop the whole way.</p>
+<p>The 12-Week SAT Blueprint Program is built around the current digital SAT. Students begin with a diagnostic, get a week-by-week plan to a target score and their test date, learn in live classes of 3–6, and practice in our Digital SAT portal — where homework is assigned, practice tests are analyzed, and progress is tracked. Weekly office hours mean mistakes get fixed, not repeated. You get a portal login and a weekly progress report, so you always know where your teen stands without having to nag.</p>
 <p>If you’re not sure where your teen stands on the digital SAT, book a free 45-minute Roadmap Session. Patrick will help you read their current scores, spot what’s costing points, and map a realistic plan.</p>
 <p class="post-note"><em>Test format details summarized from College Board’s public SAT information as of November 2026. Always confirm current timing and policies with College Board.</em></p>
 `,
@@ -173,6 +173,7 @@ export const POSTS = [
 <p>Ask your teen, “Which question types are costing you the most points?” If the answer is “math, I guess” or “reading is hard,” the prep is running without a diagnosis.</p>
 <p>Effective prep starts with a map: which concepts are shaky, which formulas are forgotten, which question types keep tripping them up, and whether the real issue is content, strategy, timing, or test anxiety. Without that map, every study hour is a guess.</p>
 <p><strong>What to do instead:</strong> Start with a full-length, timed diagnostic and a careful review of every missed question. Sort the mistakes by cause, then attack the biggest categories first.</p>
+<p>And don’t assume the only work worth doing is in the weaker section. Ask any tutor: “Which areas are costing my teen the most points, and how will you fix those first?”</p>
 
 <h2>Sign 2: The plan is “take more practice tests”</h2>
 <p>Practice tests are a measuring tool, not a teaching tool. Taking test after test without deep review is like stepping on a scale every day and expecting to lose weight. Students often repeat the same mistakes for months because no one stops to fix the underlying gap.</p>
@@ -193,12 +194,13 @@ export const POSTS = [
 
 <h2>What structured SAT prep looks like</h2>
 <p>When prep is working, you can see it. There’s a written plan from a starting score to a target score and a test date. Each week has a focus. Mistakes are reviewed, not just counted. Practice tests show steady movement. And parents get updates instead of guessing.</p>
-<p>That’s exactly how the SAT Blueprint Method™ is built:</p>
+<p>That’s how the 12-Week SAT Blueprint Program is built:</p>
 <ul>
   <li><strong>Assess</strong> — a diagnostic that maps where every point is being lost.</li>
   <li><strong>Address</strong> — live small-group instruction, taught in order of SAT priority, with a customized plan.</li>
   <li><strong>Success</strong> — weekly practice, office hours, and accountability, so test day feels familiar instead of frightening.</li>
 </ul>
+<p>Practice and homework live in the Digital SAT portal, and parents get a portal login and a weekly progress report, so they always know where their teen stands without having to nag.</p>
 <p>One parent, Preethi, put it this way: “We went from unprepared and lacking confidence to a 200 point boost up to a 1430 within 12 weeks.”</p>
 
 <h2>Not sure if your teen’s prep is on track?</h2>

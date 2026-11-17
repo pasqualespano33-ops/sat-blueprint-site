@@ -328,3 +328,29 @@
     show(1, false);
   }
 })();
+
+/* Screenshot lightbox */
+(function () {
+  var links = document.querySelectorAll('[data-lightbox]');
+  if (!links.length || typeof HTMLDialogElement === 'undefined') return;
+  var dlg = document.createElement('dialog');
+  dlg.className = 'lightbox';
+  dlg.setAttribute('aria-label', 'Full-size message');
+  dlg.innerHTML = '<button type="button" class="lightbox-close" aria-label="Close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button><img alt="">';
+  document.body.appendChild(dlg);
+  var img = dlg.querySelector('img');
+  var last = null;
+  dlg.querySelector('button').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { img.removeAttribute('src'); if (last) last.focus(); });
+  Array.prototype.forEach.call(links, function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      last = a;
+      var inner = a.querySelector('img');
+      img.src = a.getAttribute('href');
+      img.alt = inner ? inner.alt : '';
+      dlg.showModal();
+    });
+  });
+})();
