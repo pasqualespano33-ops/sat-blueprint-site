@@ -6,7 +6,7 @@ import { FAQS } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
-  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard,
+  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker,
   breadcrumbs, ORG_ID, PERSON_ID, ADDRESS,
 } from './layout.mjs';
 
@@ -44,24 +44,26 @@ function pillarsGrid() {
 }
 
 function methodSection() {
-  return `<section class="section" id="method">
+  return `<section class="section bg-surface" id="method">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="center-head reveal">
       ${eyebrow('The SAT Blueprint Method™')}
-      <h2 class="h2">Three Pillars. <span>One Proven System.</span></h2>
+      <h2 class="h2">Three pillars. <span>One proven system.</span></h2>
       <p class="lead">A structured, step-by-step approach that turns confusion into confidence and preparation into performance — designed specifically for high schoolers.</p>
     </div>
-    ${pillarsGrid()}
+    <div class="pillars3">
+      ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
+    </div>
   </div>
 </section>`;
 }
 
 function scheduleSection() {
-  return `<section class="section bg-pale" id="schedule">
+  return `<section class="section" id="schedule">
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Weekly schedule')}
-      <h2 class="h2">Live Online. Small Groups. <span>Built Around School.</span></h2>
+      <h2 class="h2">Live online. Small groups. <span>Built around school.</span></h2>
       <p class="lead">Classes run live over Google Meet, typically on weekday evenings in Eastern Time, plus weekly office hours. No commute — just log in and learn.</p>
     </div>
     ${scheduleModule()}
@@ -69,7 +71,7 @@ function scheduleSection() {
 </section>`;
 }
 
-function videosSection({ title = 'Hear It Straight From Students', bg = '' } = {}) {
+function videosSection({ title = 'Hear it straight from students.', bg = '' } = {}) {
   return `<section class="section ${bg}" id="videos">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -103,7 +105,7 @@ function carousel(items) {
   </div>`;
 }
 
-function bookCta({ title = 'Find Out Exactly What’s Holding the Score Back', sub = 'A free 45-minute call with Patrick. You’ll leave with a clear, personalized plan — whether you enroll or not.' } = {}) {
+function bookCta({ title = 'Find out exactly what’s holding the score back.', sub = 'A free 45-minute call with Patrick. You’ll leave with a clear, personalized plan — whether you enroll or not.' } = {}) {
   return `<section class="cta-strip">
   <div class="wrap cs-inner reveal">
     <div><h2 class="cs-title">${title}</h2><p>${sub}</p></div>
@@ -114,145 +116,225 @@ function bookCta({ title = 'Find Out Exactly What’s Holding the Score Back', s
 
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
-  const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan', 'Xavier', 'Tristan'].map((n) => R[n]);
+  const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan'].map((n) => R[n]);
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
+  const compare = [
+    ['Starts with a diagnosis of exactly where points are lost', true, false],
+    ['Live instruction with real feedback every week', true, false],
+    ['Week-by-week plan to a target score and test date', true, false],
+    ['Small groups — never one of 50', true, false],
+    ['Homework reviewed, reminders, and accountability', true, false],
+    ['Parents kept in the loop', true, false],
+    ['Scholarship-score strategy (Bright Futures & merit aid)', true, false],
+  ];
+  const bento = [
+    { ...INCLUDES[0], cls: 'b-wide b-blue' },
+    { ...INCLUDES[3], cls: 'b-tall b-ink' },
+    { ...INCLUDES[1], cls: '' },
+    { ...INCLUDES[2], cls: '' },
+    { ...INCLUDES[4], cls: '' },
+    { ...INCLUDES[5], cls: 'b-gold' },
+  ];
   return {
     path: '/',
     out: 'index.html',
     title: 'SAT Blueprint Method™ — Patrick Spano | 150+ Point SAT Coaching for High Schoolers',
     ogTitle: 'SAT Blueprint Method™ — A Clear Blueprint for the SAT',
     description: 'Help your teen boost their SAT score with a structured 12-week program — 150+ point average improvement. Live online SAT coaching with Yale grad Patrick Spano. Book a free Roadmap Session.',
-    preload: '<link rel="preload" as="image" href="/assets/img/hero-patrick-1600.webp" type="image/webp" media="(min-width: 900px)"><link rel="preload" as="image" href="/assets/img/hero-patrick-900.webp" type="image/webp" media="(max-width: 899px)">',
+    preload: '<link rel="preload" as="image" href="/assets/img/patrick-portrait-1100.webp" type="image/webp" media="(min-width: 700px)"><link rel="preload" as="image" href="/assets/img/patrick-portrait-640.webp" type="image/webp" media="(max-width: 699px)">',
     headExtra: '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>',
     bodyClass: 'is-home',
     schema: [],
     body: `
 <section class="hero">
-  <picture class="hero-photo">
-    <source media="(min-width: 900px)" srcset="/assets/img/hero-patrick-1600.webp" type="image/webp">
-    <source media="(min-width: 900px)" srcset="/assets/img/hero-patrick-1600.jpg">
-    <source srcset="/assets/img/hero-patrick-900.webp" type="image/webp">
-    <img src="/assets/img/hero-patrick-900.jpg" width="900" height="840" alt="Patrick Spano, founder of the SAT Blueprint Method, at his desk" fetchpriority="high">
-  </picture>
-  <div class="wrap hero-inner">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-kicker">Strategy · Skills · Confidence · Results</p>
-      <h1 class="hero-title">150+ Average Point Improvement. <span>A Clear Blueprint for the SAT.</span></h1>
-      <p class="hero-sub">A proven program that helps students master the SAT, boost their scores, and unlock their college potential — the SAT Blueprint Method™, live online with Patrick Spano.</p>
-      ${ctaPair()}
-      ${reassure('on-dark')}
-      <p class="hero-note">Let’s build your blueprint for success.</p>
+      <p class="eyebrow">For parents of high schoolers</p>
+      <h1 class="hero-title">Help your teen jump <mark>150+ points</mark> — with a proven SAT system.</h1>
+      <p class="hero-sub">The SAT Blueprint Method™ is a live, personalized 12-week program from Yale graduate and perfect SAT scorer Patrick Spano. Strategy. Skills. Confidence. Results.</p>
+      ${ctaPair({ dark: false })}
+      <p class="hero-assure">${icon('check', { size: 16 })} Free · 45 minutes · No pressure · No obligation</p>
+      <div class="hero-rating">
+        ${stars(5)}
+        <p><strong>2,000+ families</strong> helped · $1,500,000+ in scholarships earned</p>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-frame">
+        <picture>
+          <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.webp" type="image/webp">
+          <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.jpg">
+          <source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp">
+          <img src="/assets/img/patrick-portrait-640.jpg" width="640" height="800" alt="Patrick Spano, founder of the SAT Blueprint Method, at his desk" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="float-card fc-1"><p class="flc-lbl">Eshaan · 12 weeks</p><p class="flc-num"><s>1230</s> → 1430</p></div>
+      <div class="float-card fc-2"><p class="flc-lbl">Annabel</p><p class="flc-num">1550</p><p class="flc-sub">Yale &amp; Princeton admit</p></div>
+      <div class="float-card fc-3 dark"><p class="flc-lbl">Perfect score</p><p class="flc-num">1600</p><p class="flc-sub">Wyatt C. · 100% Bright Futures</p></div>
     </div>
   </div>
 </section>
 
 ${trustBar()}
+${ticker(RESULTS)}
 
-<section class="section bg-soft" id="familiar">
+<section class="section" id="familiar">
   <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('For Parents of High Schoolers')}
-      <h2 class="h2">Does Any of This <span>Sound Familiar?</span></h2>
-    </div>
-    <div class="hook-grid">
-      <ul class="pain-list">
-        ${PAINS.map((p) => `<li class="pain-card reveal"><span class="pain-ico">${icon(p.icon, { size: 22 })}</span><div><h3>${p.title}</h3><p>${p.body}</p></div></li>`).join('')}
-      </ul>
-      <div class="hook-callout reveal">
-        <h3 class="hc-title">Most SAT struggles aren’t about intelligence. <span>They’re about structure, strategy, and execution.</span></h3>
-        <p>The SAT isn’t a test of how smart your teen is. It’s a test of how well they understand the exam — its patterns, its traps, and how to move through it under pressure.</p>
-        <p>Students improve fastest when they know exactly what the SAT tests, which concepts to prioritize, and how to manage time and anxiety on test day.</p>
-        <p>That clarity — that structure — is exactly what The SAT Blueprint Method™ provides.</p>
-        <figure class="hc-quote">
-          ${stars(5)}
-          <blockquote><p>“${T.preethi.quote}”</p></blockquote>
-          <figcaption>— Preethi, parent of Eshaan</figcaption>
-        </figure>
-        <a class="btn btn-primary" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
+    <div class="split-head reveal">
+      <div>
+        <p class="eyebrow">Sound familiar?</p>
+        <h2 class="h2">Your teen is working hard. <span class="muted">The score isn’t moving.</span></h2>
       </div>
+      <p class="lead">Most SAT struggles aren’t about intelligence. They’re about structure, strategy, and execution. The SAT isn’t a test of how smart your teen is — it’s a test of how well they understand the exam: its patterns, its traps, and how to move through it under pressure.</p>
     </div>
+    <ol class="pain-grid">
+      ${PAINS.map((p, i) => `<li class="pain reveal"><span class="pain-n">0${i + 1}</span><h3>${p.title}</h3><p>${p.body}</p></li>`).join('')}
+    </ol>
+    <figure class="pullquote reveal">
+      <div class="pq-score"><span class="pq-from">1230</span><span class="pq-arrow">${icon('arrow', { size: 28 })}</span><span class="pq-to">1430</span><span class="pq-tag">+200 in 12 weeks</span></div>
+      <div>
+        ${stars(5)}
+        <blockquote><p>“${T.preethi.quote}”</p></blockquote>
+        <figcaption><strong>Preethi</strong> · Parent of Eshaan</figcaption>
+      </div>
+    </figure>
   </div>
 </section>
 
-<section class="stats-section" aria-label="Results at a glance"><div class="wrap">${statsBand()}</div></section>
-
-<section class="section bg-navy" id="program">
+<section class="section bg-surface" id="how">
   <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('What’s Inside', 'on-dark')}
-      <h2 class="h2 on-dark">Everything Your Teen Needs <span>to Master the SAT</span></h2>
-      <p class="lead on-dark">A complete coaching system — not a tutoring center, not a video library. A personalized, live 12-week program built around your teen’s exact situation.</p>
+    <div class="center-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">From where you are <span>to your dream college.</span></h2>
+      <p class="lead">Students improve fastest when they know exactly what the SAT tests, which concepts to prioritize, and how to manage time and anxiety on test day. That clarity is what the SAT Blueprint Method™ provides.</p>
     </div>
-    ${includesGrid({ linkToProgram: true })}
-    <p class="center mt-lg"><a class="btn btn-ghost-light" href="/program/">See the full 12-week program ${icon('arrow', { size: 16 })}</a></p>
-  </div>
-</section>
-
-<section class="section" id="why">
-  <div class="wrap why-grid">
-    <div class="why-head reveal">
-      ${eyebrow('Why SAT Blueprint')}
-      <h2 class="h2">Not More Studying. <span>Smarter Structure.</span></h2>
-      <p class="lead">Families come to us after trying videos, books, and big-box prep. Here’s what’s different.</p>
-      <a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>
-    </div>
-    <ol class="why-list">
-      ${WHY.map((w, i) => `<li class="why-item reveal"><span class="why-num" aria-hidden="true">0${i + 1}</span><div><h3>${w.title}</h3><p>${w.body}</p></div></li>`).join('')}
+    <ol class="steps4">
+      ${STEPS.map((s, i) => `<li class="s4 reveal${i === 0 ? ' is-first' : ''}"><span class="s4-n">Step ${i + 1}</span><h3>${s.title}</h3><p>${s.body}</p>${i === 0 ? `<a class="btn btn-primary btn-sm" href="/book/">Book Your Free Session</a>` : `<span class="s4-pill">${s.pill}</span>`}</li>`).join('')}
     </ol>
   </div>
 </section>
 
-<section class="section bg-pale" id="how">
-  <div class="wrap narrow">
-    <div class="sec-head reveal">
-      ${eyebrow('Step-by-Step Process')}
-      <h2 class="h2">From Where You Are <span>to Your Dream College</span></h2>
-      <p class="lead">A clear four-step path — from your first conversation with Patrick to walking out of the testing center with a score that changes everything.</p>
+<section class="section" id="program">
+  <div class="wrap">
+    <div class="split-head reveal">
+      <div>
+        <p class="eyebrow">What’s inside</p>
+        <h2 class="h2">A complete coaching system. <span>Not a video library.</span></h2>
+      </div>
+      <div>
+        <p class="lead">A personalized, live 12-week program built around your teen’s exact situation — every piece designed to turn effort into points.</p>
+        <a class="link-arrow mt-sm" href="/program/">Explore the full program ${icon('arrow', { size: 16 })}</a>
+      </div>
     </div>
-    ${stepsTimeline()}
+    <div class="bento">
+      ${bento.map((c) => `<a class="bento-card ${c.cls} reveal" href="/program/#${slug(c.title)}"><span class="bc-ico">${icon(c.icon, { size: 24 })}</span><h3>${c.title}</h3><p>${c.body}</p><span class="bc-go" aria-hidden="true">${icon('arrow', { size: 18 })}</span></a>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-surface" id="method">
+  <div class="wrap">
+    <div class="center-head reveal">
+      <p class="eyebrow">The SAT Blueprint Method™</p>
+      <h2 class="h2">Three pillars. <span>One proven system.</span></h2>
+    </div>
+    <div class="pillars3">
+      ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="center-head reveal">
+      <p class="eyebrow">Why SAT Blueprint</p>
+      <h2 class="h2">Not more studying. <span>Smarter structure.</span></h2>
+      <p class="lead">Families usually come to us after trying videos, books, and generic prep. Here’s the difference.</p>
+    </div>
+    <div class="compare reveal" role="region" aria-label="SAT Blueprint compared with typical SAT prep" tabindex="0">
+      <table>
+        <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="c-us"><img src="/assets/img/logo-mark-96.png" alt="" width="32" height="26"> SAT Blueprint</th><th scope="col">Typical prep</th></tr></thead>
+        <tbody>
+          ${compare.map(([f]) => `<tr><th scope="row">${f}</th><td class="c-us"><span class="yes">${icon('check', { size: 18, label: 'Yes' })}</span></td><td><span class="no">${icon('close', { size: 16, label: 'Usually not' })}</span></td></tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
     <div class="center mt-lg"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure()}</div>
   </div>
 </section>
 
-${methodSection()}
+<section class="section bg-ink" id="results">
+  <div class="wrap">
+    <div class="split-head reveal">
+      <div>
+        <p class="eyebrow on-dark">Student results</p>
+        <h2 class="h2 on-dark">The results <span>speak for themselves.</span></h2>
+      </div>
+      <div>
+        <p class="lead on-dark">From perfect 1600s to 200-point jumps — real scores from real SAT Blueprint students.</p>
+        <a class="link-arrow on-dark mt-sm" href="/results/">See all student results ${icon('arrow', { size: 16 })}</a>
+      </div>
+    </div>
+    <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
+    <div class="notes-grid notes-3 mt-lg">${[PROOF_NOTES[0], PROOF_NOTES[2], PROOF_NOTES[5]].map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>
+  </div>
+</section>
+
+<section class="section" id="founder">
+  <div class="wrap founder">
+    <div class="founder-photo reveal">
+      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" width="433" height="517" loading="lazy"></picture>
+      <div class="founder-badge"><p class="fb-num">15+</p><p class="fb-lbl">Years coaching</p></div>
+    </div>
+    <div class="founder-body reveal">
+      <p class="eyebrow">Meet your coach</p>
+      <h2 class="h2">“Most students aren’t stuck for lack of effort.”</h2>
+      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™. After helping thousands of families over the years, I’ve learned one thing: most students study hard without knowing what the SAT actually tests, which strategies matter most, or how to perform under pressure.</p>
+      <p>I built The SAT Blueprint™ to change that — replacing guesswork with a clear, proven system.</p>
+      <ul class="cred-row">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
+      <a class="link-arrow" href="/about/">Read Patrick’s story ${icon('arrow', { size: 16 })}</a>
+    </div>
+  </div>
+</section>
 
 ${parentBlock()}
 
 ${scheduleSection()}
 
-<section class="section" id="results">
+<section class="section" id="reviews">
   <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('Student Results')}
-      <h2 class="h2">The Results <span>Speak For Themselves</span></h2>
-      <p class="lead">Real scores from real SAT Blueprint students — from perfect 1600s to 200-point jumps.</p>
-    </div>
-    <div class="score-grid">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
-    <div class="notes-grid notes-3 mt-lg">${[PROOF_NOTES[0], PROOF_NOTES[2], PROOF_NOTES[5]].map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>
-    <p class="center mt-lg"><a class="btn btn-ghost" href="/results/">See all student results ${icon('arrow', { size: 16 })}</a></p>
-  </div>
-</section>
-
-<section class="section bg-soft" id="reviews">
-  <div class="wrap">
-    <div class="sec-head row-head reveal">
+    <div class="split-head reveal">
       <div>
-        ${eyebrow('Parent & Student Reviews')}
-        <h2 class="h2">Real Families. <span>Real Results.</span></h2>
-        <p class="lead">These families came in overwhelmed and left with a plan — and a score that opened doors.</p>
+        <p class="eyebrow">Parent &amp; student reviews</p>
+        <h2 class="h2">Real families. <span>Real results.</span></h2>
       </div>
-      <a class="link-arrow" href="/reviews/">All reviews ${icon('arrow', { size: 16 })}</a>
+      <div>
+        <p class="lead">These families came in overwhelmed and left with a plan — and a score that opened doors.</p>
+        <a class="link-arrow mt-sm" href="/reviews/">Read all reviews ${icon('arrow', { size: 16 })}</a>
+      </div>
     </div>
     ${carousel(TESTIMONIALS)}
   </div>
 </section>
 
+<section class="section bg-surface" id="faq">
+  <div class="wrap faq-preview">
+    <div class="reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2">What parents <span>ask first.</span></h2>
+      <p class="lead">Straight answers on cost, Step Up For Students, online classes, and one-on-one time.</p>
+      <a class="link-arrow mt-sm" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a>
+    </div>
+    ${faqAccordion([FAQS[0], FAQS[5], FAQS[3], FAQS[4]], { idPrefix: 'hfaq' })}
+  </div>
+</section>
+
 <section class="section" id="blog">
   <div class="wrap">
-    <div class="sec-head row-head reveal">
+    <div class="split-head reveal">
       <div>
-        ${eyebrow('From the Blog')}
-        <h2 class="h2">SAT Insight <span>for Parents</span></h2>
+        <p class="eyebrow">From the blog</p>
+        <h2 class="h2">SAT insight <span>for parents.</span></h2>
       </div>
       <a class="link-arrow" href="/blog/">All articles ${icon('arrow', { size: 16 })}</a>
     </div>
@@ -305,7 +387,7 @@ function program() {
     body: `
 ${pageHero({
   eyebrow: 'The 12-Week Program',
-  title: 'The SAT Blueprint Method™: <span>A Live, Personalized Path to a Higher Score</span>',
+  title: 'A live, personalized path <span>to a higher SAT score.</span>',
   sub: 'A structured, live online SAT coaching program for high schoolers — not a tutoring center and not a video library. A personalized, live program built around your teen’s exact situation.',
   crumbs: [{ name: 'Program', path: '/program/' }],
 })}
@@ -314,7 +396,7 @@ ${pageHero({
   <div class="wrap overview-grid">
     <div class="reveal">
       ${eyebrow('Program overview')}
-      <h2 class="h2">One Program. <span>Twelve Focused Weeks.</span></h2>
+      <h2 class="h2">One program. <span>Twelve focused weeks.</span></h2>
       <p>The SAT Blueprint Method™ is one program: a 12-week, live online SAT course for high schoolers. It starts with a diagnosis of exactly where your teen is losing points, turns that into a week-by-week plan, and then delivers it through live small-group classes, weekly office hours, a personalized practice portal, and Patrick’s proprietary SAT Blueprint™.</p>
       <p>Everything is online over Google Meet, so there’s no commute — and families outside Florida join just as easily as families in Deerfield Beach.</p>
     </div>
@@ -329,11 +411,11 @@ ${pageHero({
   </div>
 </section>
 
-<section class="section bg-navy" id="included">
+<section class="section bg-ink" id="included">
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('What’s included', 'on-dark')}
-      <h2 class="h2 on-dark">Everything Your Teen Needs <span>to Master the SAT</span></h2>
+      <h2 class="h2 on-dark">Everything your teen needs <span>to master the SAT.</span></h2>
     </div>
     ${includesGrid()}
   </div>
@@ -343,7 +425,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('The weekly experience')}
-      <h2 class="h2">What Your Teen’s Week <span>Actually Looks Like</span></h2>
+      <h2 class="h2">What your teen’s week <span>actually looks like.</span></h2>
       <p class="lead">Homework and reminders aren’t an afterthought — they’re part of the system. Here’s the loop your teen runs through the program.</p>
     </div>
     <ol class="flow">
@@ -356,7 +438,7 @@ ${pageHero({
   <div class="wrap split">
     <div class="reveal">
       ${eyebrow('One-on-one, built in')}
-      <h2 class="h2">Individual Attention <span>Where It Counts</span></h2>
+      <h2 class="h2">Individual attention <span>where it counts.</span></h2>
       <p>There’s real one-on-one time built in — a personal onboarding, plus brief one-on-one sessions with Patrick when your teen needs them. Combined with small live groups and a fully personalized plan, they get individual attention where it counts.</p>
       <p>There’s no separate tutoring package to buy. It’s simply part of how the 12-week program works.</p>
     </div>
@@ -378,7 +460,7 @@ ${parentBlock()}
   <div class="wrap split">
     <div class="reveal">
       ${eyebrow('Pricing & Florida funding', 'gold')}
-      <h2 class="h2">Personalized Pricing. <span>Step Up For Students Welcome.</span></h2>
+      <h2 class="h2">Personalized pricing. <span>Step Up For Students welcome.</span></h2>
       <p>Pricing is personalized to your teen’s goals and timeline. Florida families who qualify for Step Up For Students (PEP) can often use those funds for our tutoring — we’re an approved provider, which can mean little or no out-of-pocket cost. We’ll cover the details on your Roadmap Session.</p>
       <a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>
     </div>
@@ -395,7 +477,7 @@ ${parentBlock()}
   <div class="wrap narrow">
     <div class="sec-head reveal">
       ${eyebrow('Program questions')}
-      <h2 class="h2">Questions Parents <span>Ask Most</span></h2>
+      <h2 class="h2">Questions parents <span>ask most.</span></h2>
     </div>
     ${faqAccordion(programFaqs, { idPrefix: 'pfaq' })}
     <p class="center mt-md"><a class="link-arrow" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a></p>
@@ -423,7 +505,7 @@ function results() {
     body: `
 ${pageHero({
   eyebrow: 'Student results',
-  title: 'Real Families. <span>Real Results.</span>',
+  title: 'Real families. <span>Real results.</span>',
   sub: 'These families came in overwhelmed and left with a plan — and a score that opened doors.',
   crumbs: [{ name: 'Results', path: '/results/' }],
 })}
@@ -434,7 +516,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Featured stories')}
-      <h2 class="h2">The Results <span>Speak For Themselves</span></h2>
+      <h2 class="h2">The results <span>speak for themselves.</span></h2>
     </div>
     <div class="story-grid">
       <article class="story story-lg reveal">
@@ -469,7 +551,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Score gallery')}
-      <h2 class="h2">Every Score <span>Has a Story</span></h2>
+      <h2 class="h2">Every score <span>has a story.</span></h2>
       <p class="lead">Before-and-after scores are shown wherever both numbers are public.</p>
     </div>
     ${groups.map((g) => `<h3 class="group-title reveal">${g.title}</h3><div class="score-grid">${g.names.map((n) => `<div class="reveal">${resultCard(R[n])}</div>`).join('')}</div>`).join('')}
@@ -480,7 +562,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('In their words')}
-      <h2 class="h2">The Messages <span>That Make It Worth It</span></h2>
+      <h2 class="h2">The messages <span>that make it worth it.</span></h2>
       <p class="lead">Real texts from students and parents when scores and admissions decisions came in.</p>
     </div>
     ${notesWall()}
@@ -491,7 +573,7 @@ ${videosSection({ bg: 'bg-soft' })}
 
 <section class="section-tight"><div class="wrap narrow">${resultsDisclaimer()}</div></section>
 
-${bookCta({ title: 'Join the Families Who’ve Already Unlocked Better Scores' })}
+${bookCta({ title: 'Join the families who’ve already unlocked better scores.' })}
 `,
   };
 }
@@ -516,7 +598,7 @@ function about() {
     body: `
 ${pageHero({
   eyebrow: 'About SAT Blueprint',
-  title: 'Meet Your Coach: <span>Patrick Spano</span>',
+  title: 'Meet your coach, <span>Patrick Spano.</span>',
   sub: 'Founder of the SAT Blueprint Method™ and Gradeful Test Prep. Yale graduate. Perfect SAT scorer. 15+ years coaching families through the SAT.',
   crumbs: [{ name: 'About', path: '/about/' }],
   ctas: false,
@@ -530,7 +612,7 @@ ${pageHero({
     </div>
     <div class="about-body reveal">
       ${eyebrow('Our story')}
-      <h2 class="h2">Replacing Guesswork <span>With a Proven System</span></h2>
+      <h2 class="h2">Replacing guesswork <span>with a proven system.</span></h2>
       <p>I’m Patrick Spano — founder of The SAT Blueprint Method™.</p>
       <p>After helping thousands of families over the years, I’ve learned one thing: most students aren’t stuck for lack of effort. They study hard without knowing what the SAT actually tests, which strategies matter most, or how to perform under pressure.</p>
       <p>I built The SAT Blueprint™ to change that — replacing guesswork with a clear, proven system.</p>
@@ -550,7 +632,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Mission & values')}
-      <h2 class="h2">What We Believe <span>About the SAT</span></h2>
+      <h2 class="h2">What we believe <span>about the SAT.</span></h2>
     </div>
     <div class="values-grid">
       ${values.map(([ic, t, b]) => `<article class="value-card reveal"><span class="pl-ico">${icon(ic, { size: 22 })}</span><h3>${t}</h3><p>${b}</p></article>`).join('')}
@@ -562,13 +644,13 @@ ${pageHero({
   <div class="wrap split">
     <div class="reveal">
       ${eyebrow('How coaching works')}
-      <h2 class="h2">Patrick’s Method, <span>Live Every Week</span></h2>
+      <h2 class="h2">Patrick’s method, <span>live every week.</span></h2>
       <p>Patrick is the founder and head coach, and he personally runs every Roadmap Session. Weekly classes are live, small-group instruction delivered under his method — the same diagnostics, the same SAT Blueprint™, and the same week-by-week plan structure — with brief one-on-one time with Patrick built in when a student needs it.</p>
       <p>Groups are kept intentionally small, so your teen is never just one of 50.</p>
     </div>
     <div class="reveal">
       ${eyebrow('Where we work')}
-      <h2 class="h2">Based in Deerfield Beach. <span>Live Online Everywhere.</span></h2>
+      <h2 class="h2">Based in Deerfield Beach. <span>Live online everywhere.</span></h2>
       <p>Our office is in Deerfield Beach, Florida, and the program runs fully online over Google Meet — so families anywhere in the U.S. can join without a commute.</p>
       <p>Florida families get extra depth: we know the score thresholds that unlock Bright Futures, and we’re an approved Step Up For Students provider.</p>
     </div>
@@ -596,7 +678,7 @@ function blogIndex() {
     body: `
 ${pageHero({
   eyebrow: 'The SAT Blueprint Blog',
-  title: 'Clear SAT Guidance <span>for Parents</span>',
+  title: 'Clear SAT guidance <span>for parents.</span>',
   sub: 'Straight answers on the digital SAT, score strategy, and scholarships — from the coach behind the SAT Blueprint Method™.',
   crumbs: [{ name: 'Blog', path: '/blog/' }],
   ctas: false,
@@ -615,7 +697,7 @@ ${pageHero({
     <aside class="blog-side">
       <div class="side-cta">
         ${eyebrow('Free — Zero Obligation', 'on-dark')}
-        <p class="side-title">Get a Plan Built for Your Teen</p>
+        <p class="side-title">Get a plan built for your teen.</p>
         <p>A free 45-minute Roadmap Session with Patrick. Leave knowing exactly what’s holding the score back.</p>
         <a class="btn btn-primary btn-block" href="/book/">Book a Free Roadmap Session</a>
         ${reassure('on-dark')}
@@ -714,7 +796,7 @@ function reviews() {
     body: `
 ${pageHero({
   eyebrow: 'Reviews',
-  title: 'Parent & Student <span>Reviews</span>',
+  title: 'Parent &amp; student <span>reviews.</span>',
   sub: 'Five-star words from the families who’ve been through the SAT Blueprint Method™ — in their own words, unedited.',
   crumbs: [{ name: 'Reviews', path: '/reviews/' }],
   extra: badge,
@@ -724,7 +806,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Written reviews')}
-      <h2 class="h2">Real Families. <span>Real Results.</span></h2>
+      <h2 class="h2">Real families. <span>Real results.</span></h2>
     </div>
     <div class="t-grid">${TESTIMONIALS.map((t) => `<div class="reveal">${testimonialCard(t)}</div>`).join('')}</div>
   </div>
@@ -734,7 +816,7 @@ ${pageHero({
   <div class="wrap">
     <div class="sec-head reveal">
       ${eyebrow('Messages from families')}
-      <h2 class="h2">When the Scores <span>Came In</span></h2>
+      <h2 class="h2">When the scores <span>came in.</span></h2>
     </div>
     ${notesWall()}
   </div>
@@ -768,7 +850,7 @@ function faq() {
     body: `
 ${pageHero({
   eyebrow: 'Common questions',
-  title: 'Frequently Asked <span>Questions</span>',
+  title: 'Frequently asked <span>questions.</span>',
   sub: 'Straight answers about the program, pricing, Step Up For Students, and the digital SAT. Don’t see your question? Ask Patrick on your free Roadmap Session.',
   crumbs: [{ name: 'FAQ', path: '/faq/' }],
   ctas: false,
@@ -813,8 +895,8 @@ function book() {
 <section class="page-hero book-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Book a Free Roadmap Session</span></li></ol></nav>
-    ${eyebrow('Free — Zero Obligation', 'on-dark')}
-    <h1 class="ph-title">What Happens on Your <span>Free Roadmap Session?</span></h1>
+    ${eyebrow('Free — Zero Obligation')}
+    <h1 class="ph-title">What happens on your <span>free Roadmap Session?</span></h1>
     <p class="ph-sub">A free 45-minute call that gives you total clarity on your teen’s SAT situation — and a concrete plan to reach their target score.</p>
     <ul class="logistics" aria-label="Session details">
       <li>${icon('check', { size: 16 })} Free</li>
@@ -964,7 +1046,7 @@ function book() {
   <div class="wrap book-details">
     <div class="reveal">
       ${eyebrow('During the call')}
-      <h2 class="h2">On Your Session, <span>Patrick Will:</span></h2>
+      <h2 class="h2">On your session, <span>Patrick will:</span></h2>
       <ol class="num-list">${willDo.map((w) => `<li>${w}</li>`).join('')}</ol>
     </div>
     <div class="reveal">
@@ -1002,7 +1084,7 @@ function bookConfirmed() {
 <section class="page-hero confirm-hero">
   <div class="wrap narrow center">
     <span class="confirm-ico">${icon('check', { size: 40 })}</span>
-    <h1 class="ph-title">You’re <span>Booked.</span></h1>
+    <h1 class="ph-title">You’re <span>booked.</span></h1>
     <p class="ph-sub">Check your email for the Google Meet link and a calendar invite.</p>
   </div>
 </section>
@@ -1038,7 +1120,7 @@ function contact() {
     body: `
 ${pageHero({
   eyebrow: 'Contact',
-  title: 'Questions? <span>Reach Patrick Directly.</span>',
+  title: 'Questions? <span>Reach Patrick directly.</span>',
   sub: 'Have a question before you book, or already a current family? Send a note, call, or email — Patrick will get back to you. For a full plan for your teen, the best first step is a free Roadmap Session.',
   crumbs: [{ name: 'Contact', path: '/contact/' }],
   ctas: false,
@@ -1131,7 +1213,7 @@ function privacy() {
   return legalPage({
     path: '/privacy/', out: 'privacy/index.html',
     title: 'Privacy Policy | SAT Blueprint · Gradeful Test Prep',
-    h1: 'Privacy <span>Policy</span>',
+    h1: 'Privacy <span>policy</span>',
     description: 'How Gradeful Test Prep (SAT Blueprint Method™) collects, uses, and protects information submitted through this website.',
     body: `
 <p>This Privacy Policy explains how Gradeful Test Prep (“we,” “us”), which offers the SAT Blueprint Method™, handles information collected through this website.</p>
@@ -1167,7 +1249,7 @@ function terms() {
   return legalPage({
     path: '/terms/', out: 'terms/index.html',
     title: 'Terms of Use | SAT Blueprint · Gradeful Test Prep',
-    h1: 'Terms of <span>Use</span>',
+    h1: 'Terms of <span>use</span>',
     description: 'Terms of use for the SAT Blueprint Method™ website operated by Gradeful Test Prep.',
     body: `
 <p>By using this website, operated by Gradeful Test Prep (“we,” “us”), you agree to these terms.</p>
@@ -1198,12 +1280,12 @@ function notFound() {
     body: `
 <section class="page-hero">
   <div class="wrap narrow center">
-    ${eyebrow('404', 'on-dark')}
-    <h1 class="ph-title">This Page <span>Isn’t on the Blueprint.</span></h1>
+    ${eyebrow('404')}
+    <h1 class="ph-title">This page <span>isn’t on the blueprint.</span></h1>
     <p class="ph-sub">The page you’re looking for has moved or doesn’t exist. Try one of these instead.</p>
     <div class="cta-row center-row">
       <a class="btn btn-primary" href="/">Go to the homepage</a>
-      <a class="btn btn-ghost-light" href="/book/">Book a Free Roadmap Session</a>
+      <a class="btn btn-ghost" href="/book/">Book a Free Roadmap Session</a>
     </div>
   </div>
 </section>`,

@@ -143,18 +143,12 @@ export function header(current) {
   return `
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
-  <div class="util-bar">
-    <div class="wrap util-inner">
-      <p class="util-left"><span>Live online over Google Meet</span><span aria-hidden="true">·</span><span>Based in Deerfield Beach, FL</span><span aria-hidden="true">·</span><span class="util-gold">Approved Step Up For Students Provider</span></p>
-      <p class="util-right"><a href="mailto:${SITE.email}">${icon('mail', { size: 14 })}${SITE.email}</a></p>
-    </div>
-  </div>
   <div class="hdr">
     <div class="wrap hdr-inner">
       <a class="brand" href="/">
         <img class="brand-mark" src="/assets/img/logo-mark-96.png" width="48" height="39" alt="">
         <span class="brand-text">
-          <span class="brand-name">SAT <em>Blueprint</em> Method™</span>
+          <span class="brand-name">SAT Blueprint<sup>™</sup></span>
           <span class="brand-tag">by Gradeful Test Prep</span>
         </span>
       </a>
@@ -162,7 +156,7 @@ export function header(current) {
         <ul>${navLinks(current, 'nav-link')}</ul>
       </nav>
       <a class="hdr-phone" href="${SITE.phoneHref}">${icon('phone', { size: 16 })}<span>${SITE.phoneDisplay}</span></a>
-      <a class="btn btn-primary btn-sm hdr-cta" href="/book/"><span class="cta-long">Book a Free Roadmap Session</span><span class="cta-short">Free Roadmap Session</span></a>
+      <a class="btn btn-dark btn-sm hdr-cta" href="/book/"><span class="cta-long">Book a Free Roadmap Session</span><span class="cta-short">Free Roadmap Session</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
         <span class="sr-only">Menu</span>
         <span class="nt-open">${icon('menu', { size: 24 })}</span><span class="nt-close">${icon('close', { size: 24 })}</span>
@@ -276,7 +270,7 @@ export function ctaPair({ secondary = 'call', dark = true } = {}) {
 }
 
 export function eyebrow(text, tone = '') {
-  return `<p class="eyebrow ${tone}"><span class="ey-line" aria-hidden="true"></span>${text}</p>`;
+  return `<p class="eyebrow ${tone}">${text}</p>`;
 }
 
 export function pageHero({ eyebrow: ey, title, sub, crumbs = [], ctas = true, extra = '' }) {
@@ -288,24 +282,38 @@ export function pageHero({ eyebrow: ey, title, sub, crumbs = [], ctas = true, ex
   return `<section class="page-hero">
   <div class="wrap">
     ${bc}
-    ${ey ? eyebrow(ey, 'on-dark') : ''}
+    ${ey ? eyebrow(ey) : ''}
     <h1 class="ph-title">${title}</h1>
     ${sub ? `<p class="ph-sub">${sub}</p>` : ''}
-    ${ctas ? `${ctaPair()}${reassure('on-dark')}` : ''}
+    ${ctas ? `${ctaPair({ dark: false })}${reassure()}` : ''}
     ${extra}
   </div>
 </section>`;
 }
 
 export function trustBar() {
-  const items = [
-    ...STATS.map((s) => `<li><strong>${s.num}</strong> ${s.label.toLowerCase()}</li>`),
-    '<li>Yale Graduate</li>',
-    '<li>Perfect SAT Scorer</li>',
-    '<li>15+ Years Coaching</li>',
-    '<li class="tb-gold">Approved Step Up For Students Provider</li>',
-  ];
-  return `<section class="trust-bar" aria-label="Why families trust SAT Blueprint"><div class="wrap"><ul>${items.join('')}</ul></div></section>`;
+  return `<section class="proof-row" aria-label="Why families trust SAT Blueprint">
+  <div class="wrap pr-inner">
+    ${STATS.map((s) => `<div class="pr-stat"><p class="pr-num">${s.num}</p><p class="pr-lbl">${s.label}</p></div>`).join('')}
+    <ul class="pr-creds">
+      <li>${icon('check', { size: 15 })}Yale Graduate</li>
+      <li>${icon('check', { size: 15 })}Perfect SAT Scorer</li>
+      <li>${icon('check', { size: 15 })}15+ Years Coaching</li>
+      <li>${icon('shield', { size: 15 })}Approved Step Up For Students Provider</li>
+    </ul>
+  </div>
+</section>`;
+}
+
+export function ticker(results) {
+  const items = results
+    .filter((r) => r.score || r.delta)
+    .map((r) => `<li><span class="tk-name">${r.name}</span><span class="tk-score">${r.before ? `${r.before} → ` : ''}${r.score || `+${r.delta}`}</span></li>`)
+    .join('');
+  return `<section class="ticker" aria-label="Recent student scores">
+  <ul class="tk-track">${items}</ul>
+  <ul class="tk-track" aria-hidden="true">${items}</ul>
+</section>`;
 }
 
 export function statsBand(cls = '') {
@@ -436,14 +444,16 @@ export function trustAside({ quote } = {}) {
 
 export function finalCta() {
   return `<section class="final-cta">
-  <div class="wrap fc-inner reveal">
+  <div class="wrap"><div class="fc-panel reveal"><div class="fc-inner">
     <p class="badge-gold">Limited Spots Available</p>
-    <h2 class="fc-title">Ready to Build Your <span>Blueprint?</span></h2>
+    <h2 class="fc-title">Ready to build your <span>blueprint?</span></h2>
     <p class="fc-sub">If your teen is motivated, capable, and serious about their SAT score — all they need is the right structure, the right strategy, and the right coach. Let’s build that plan together.</p>
     ${ctaPair({ secondary: 'email' })}
     ${reassure('on-dark')}
     <p class="fc-lock">SAT dates fill the calendar fast, and scholarship deadlines don’t move. The best time to start was last year — the next best time is today.</p>
   </div>
+  <div class="fc-photo" aria-hidden="true"><picture><source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp"><img src="/assets/img/patrick-portrait-640.jpg" alt="" width="640" height="800" loading="lazy"></picture></div>
+  </div></div>
 </section>`;
 }
 
