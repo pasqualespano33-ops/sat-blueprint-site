@@ -222,78 +222,31 @@ function home() {
 </section>
 
 ${trustBar()}
-${ticker(RESULTS)}
 
 ${founderBlock()}
 
-<section class="section bg-surface" id="familiar">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        <p class="eyebrow">Sound familiar?</p>
-        <h2 class="h2">Your teen is working hard. <span class="muted">The score isn’t moving.</span></h2>
-      </div>
-      <div>
-        <p class="lead">Most SAT struggles aren’t about intelligence. They’re about structure, strategy, and execution. A lot of prep is more practice without looking at the tape — where the points are actually being lost. The SAT isn’t a test of how smart your teen is. It’s a test of how well they understand the exam: its patterns, its traps, and how to move through it under pressure.</p>
-        <p class="lead mt-sm">The real risk usually isn’t picking the wrong program. It’s waiting, or doing more of the same, while the test date gets closer.</p>
-      </div>
-    </div>
-    <ol class="pain-grid">
-      ${PAINS.map((p, i) => `<li class="pain reveal"><span class="pain-n">0${i + 1}</span><h3>${p.title}</h3><p>${p.body}</p></li>`).join('')}
-    </ol>
-    <figure class="pullquote reveal">
-      <div class="pq-score"><span class="pq-from">1230</span><span class="pq-arrow">${icon('arrow', { size: 28 })}</span><span class="pq-to">1430</span><span class="pq-tag">+200 in 12 weeks</span></div>
-      <div>
-        ${stars(5)}
-        <blockquote><p>“${T.preethi.quote}”</p></blockquote>
-        <figcaption><strong>Preethi</strong> · Parent of Eshaan</figcaption>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<section class="section" id="how">
+<section class="section bg-surface" id="method">
   <div class="wrap">
     <div class="center-head reveal">
-      <p class="eyebrow">How it works</p>
-      <h2 class="h2">From where you are <span>to your dream college.</span></h2>
-      <p class="lead">Students improve fastest when they know exactly what the SAT tests, which concepts to prioritize, and how to manage time and anxiety on test day. That clarity is what the SAT Blueprint Method™ provides — Assess, Address, Success — and what you and Patrick map out together on the Roadmap Session.</p>
+      <p class="eyebrow">Our learning method</p>
+      <h2 class="h2">The SAT Blueprint Method™. <span>Assess. Address. Success.</span></h2>
+      <p class="lead">Most prep is more practice without looking at the tape. We find exactly where your teen is losing points, then fix those first.</p>
     </div>
-    <ol class="steps4">
-      ${STEPS.map((s, i) => `<li class="s4 reveal${i === 0 ? ' is-first' : ''}"><span class="s4-n">Step ${i + 1}</span><h3>${s.title}</h3><p>${s.body}</p>${i === 0 ? `<a class="btn btn-primary btn-sm" href="/book/">Book Your Free Session</a>` : `<span class="s4-pill">${s.pill}</span>`}</li>`).join('')}
-    </ol>
-  </div>
-</section>
-
-<section class="section bg-surface" id="program">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        <p class="eyebrow">What’s inside</p>
-        <h2 class="h2">A complete coaching system. <span>Not a video library.</span></h2>
-      </div>
-      <div>
-        <p class="lead">${INCLUDES_INTRO}</p>
-        <a class="link-arrow mt-sm" href="/program/">Explore the full program ${icon('arrow', { size: 16 })}</a>
-      </div>
+    <div class="pillars3">
+      ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
     </div>
-    <div class="bento">
-      ${bento.map((c) => `<a class="bento-card ${c.cls} reveal" href="/program/#${slug(c.title)}"><span class="bc-ico">${icon(c.icon, { size: 24 })}</span><h3>${c.title}</h3><p>${c.body}</p><span class="bc-go" aria-hidden="true">${icon('arrow', { size: 18 })}</span></a>`).join('')}
+    <div class="method-inc reveal">
+      <p class="mi-label">Inside the 12-Week SAT Blueprint Program</p>
+      <ul class="mi-chips">
+        <li>${icon('live', { size: 16 })}Live classes of 3–6</li>
+        <li>${icon('portal', { size: 16 })}Digital SAT portal</li>
+        <li>${icon('users', { size: 16 })}One-on-one time</li>
+        <li>${icon('office', { size: 16 })}Weekly office hours</li>
+        <li>${icon('plan', { size: 16 })}Practice tests</li>
+        <li>${icon('eye', { size: 16 })}Weekly parent progress report</li>
+      </ul>
+      <a class="link-arrow" href="/program/">See the full 12-week program ${icon('arrow', { size: 16 })}</a>
     </div>
-  </div>
-</section>
-
-${methodSection()}
-
-<section class="section" id="why">
-  <div class="wrap">
-    <div class="center-head reveal">
-      <p class="eyebrow">Why SAT Blueprint</p>
-      <h2 class="h2">Not more studying. <span>Smarter structure.</span></h2>
-      <p class="lead">Families usually come to us after trying videos, books, or a generic course. Here’s the difference — and one question to ask any tutor before you pay for more prep: “Which areas are costing my teen the most points, and how will you fix those first?”</p>
-    </div>
-    ${compareTable()}
-    <div class="center mt-lg"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure()}</div>
   </div>
 </section>
 
@@ -311,51 +264,6 @@ ${methodSection()}
     </div>
     <div class="score-grid">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
     <div class="notes-grid notes-3 mt-lg">${[PROOF_NOTES[0], PROOF_NOTES[2], PROOF_NOTES[5]].map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>
-  </div>
-</section>
-
-${parentBlock()}
-
-${scheduleSection()}
-
-<section class="section bg-surface" id="reviews">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        <p class="eyebrow">Parent &amp; student reviews</p>
-        <h2 class="h2">Real families. <span>Real results.</span></h2>
-      </div>
-      <div>
-        <p class="lead">These families came in overwhelmed and left with a plan — and a score that opened doors.</p>
-        <a class="link-arrow mt-sm" href="/reviews/">Read all reviews ${icon('arrow', { size: 16 })}</a>
-      </div>
-    </div>
-    ${carousel(TESTIMONIALS)}
-  </div>
-</section>
-
-<section class="section" id="faq">
-  <div class="wrap faq-preview">
-    <div class="reveal">
-      <p class="eyebrow">Questions</p>
-      <h2 class="h2">What parents <span>ask first.</span></h2>
-      <p class="lead">Straight answers on cost, Step Up For Students, online classes, and one-on-one time — the questions parents usually bring to a first conversation.</p>
-      <a class="link-arrow mt-sm" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a>
-    </div>
-    ${faqAccordion(['different', 'cost', 'online', 'one-on-one'].map(faqById), { idPrefix: 'hfaq' })}
-  </div>
-</section>
-
-<section class="section bg-surface" id="blog">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        <p class="eyebrow">From the blog</p>
-        <h2 class="h2">SAT insight <span>for parents.</span></h2>
-      </div>
-      <a class="link-arrow" href="/blog/">All articles ${icon('arrow', { size: 16 })}</a>
-    </div>
-    <div class="blog-grid">${posts.map(blogCard).join('')}</div>
   </div>
 </section>
 

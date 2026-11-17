@@ -1071,3 +1071,11 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .lightbox::backdrop { background: rgba(4, 10, 18, .88); backdrop-filter: blur(4px); }
 .lightbox img { display: block; width: 100%; max-height: 86vh; object-fit: contain; border-radius: 14px; }
 .lightbox-close { position: fixed; top: max(16px, env(safe-area-inset-top)); right: 16px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #fff; color: #0C1A2A; display: grid; place-items: center; cursor: pointer; }
+
+/* Tightened home: learning method summary */
+.method-inc { display: grid; justify-items: center; gap: 16px; margin-top: 40px; text-align: center; }
+.mi-label { font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-300); }
+.mi-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.mi-chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: var(--card); border: 1px solid var(--line-2); font-size: .9rem; font-weight: 700; color: var(--fg); }
+.mi-chips .ico { color: var(--accent); }
+.is-home #results { padding-top: clamp(64px, 6vw, 112px); }
