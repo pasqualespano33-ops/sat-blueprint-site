@@ -57,6 +57,22 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // Hero score count-up
+  $$('[data-count-to]').forEach(function (el) {
+    var from = Number(el.dataset.countFrom), to = Number(el.dataset.countTo);
+    if (reduceMotion || !from) return;
+    var start = null, dur = 1600;
+    el.textContent = from;
+    var tick = function (t) {
+      if (!start) start = t;
+      var k = Math.min(1, (t - start) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(from + (to - from) * e);
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    setTimeout(function () { requestAnimationFrame(tick); }, 350);
+  });
+
   // Accordions
   $$('.acc-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {

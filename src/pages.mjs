@@ -141,37 +141,21 @@ function home() {
     title: 'SAT Blueprint Method™ — Patrick Spano | 150+ Point SAT Coaching for High Schoolers',
     ogTitle: 'SAT Blueprint Method™ — A Clear Blueprint for the SAT',
     description: 'Help your teen boost their SAT score with a structured 12-week program — 150+ point average improvement. Live online SAT coaching with Yale grad Patrick Spano. Book a free Roadmap Session.',
-    preload: '<link rel="preload" as="image" href="/assets/img/patrick-portrait-1100.webp" type="image/webp" media="(min-width: 700px)"><link rel="preload" as="image" href="/assets/img/patrick-portrait-640.webp" type="image/webp" media="(max-width: 699px)">',
     headExtra: '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>',
     bodyClass: 'is-home',
     schema: [],
     body: `
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">For parents of high schoolers</p>
-      <h1 class="hero-title">Help your teen jump <mark>150+ points</mark> — with a proven SAT system.</h1>
-      <p class="hero-sub">The SAT Blueprint Method™ is a live, personalized 12-week program from Yale graduate and perfect SAT scorer Patrick Spano. Strategy. Skills. Confidence. Results.</p>
-      ${ctaPair({ dark: false })}
-      <p class="hero-assure">${icon('check', { size: 16 })} Free · 45 minutes · No pressure · No obligation</p>
-      <div class="hero-rating">
-        ${stars(5)}
-        <p><strong>2,000+ families</strong> helped · $1,500,000+ in scholarships earned</p>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hv-frame">
-        <picture>
-          <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.webp" type="image/webp">
-          <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.jpg">
-          <source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp">
-          <img src="/assets/img/patrick-portrait-640.jpg" width="640" height="800" alt="Patrick Spano, founder of the SAT Blueprint Method, at his desk" fetchpriority="high">
-        </picture>
-      </div>
-      <div class="float-card fc-1"><p class="flc-lbl">Eshaan · 12 weeks</p><p class="flc-num"><s>1230</s> → 1430</p></div>
-      <div class="float-card fc-2"><p class="flc-lbl">Annabel</p><p class="flc-num">1550</p><p class="flc-sub">Yale &amp; Princeton admit</p></div>
-      <div class="float-card fc-3 dark"><p class="flc-lbl">Perfect score</p><p class="flc-num">1600</p><p class="flc-sub">Wyatt C. · 100% Bright Futures</p></div>
-    </div>
+<section class="hero hero-b">
+  <div class="wrap">
+    <p class="hb-kick">Real result · 12 weeks</p>
+    <p class="hb-score" role="img" aria-label="Eshaan's SAT score went from 1230 to 1430"><span class="from" aria-hidden="true">1230</span><span class="arr" aria-hidden="true">${icon('arrow', { size: 96 })}</span><span class="to" aria-hidden="true" data-count-from="1230" data-count-to="1430">1430</span></p>
+    <p class="hb-cap">Eshaan · +200 points · “Thank you Patrick!” — Preethi, parent of Eshaan</p>
+    <h1 class="hero-title">150+ average point improvement. <span>A clear blueprint for the SAT.</span></h1>
+    <p class="hero-sub">The SAT Blueprint Method™ is live, personalized SAT coaching for high schoolers — built on a diagnosis of exactly where your teen is losing points. Strategy. Skills. Confidence. Results.</p>
+    ${ctaPair({ dark: true })}
+    <p class="hero-assure">${icon('check', { size: 16 })} Free · 45 minutes · No pressure · No obligation</p>
+    <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · Perfect SAT scorer</p></div>
+    <div class="hb-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 </section>
 
