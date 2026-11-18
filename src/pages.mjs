@@ -919,6 +919,7 @@ function legalPage({ path, out, title, h1, description, body }) {
 ${pageHero({ eyebrow: 'Legal', title: h1, crumbs: [{ name: h1.replace(/<[^>]+>/g, ''), path }], ctas: false })}
 <section class="section">
   <div class="wrap narrow prose legal">
+    <p class="legal-date">Last updated: November 18, 2026</p>
     ${body}
     <h2>Trademark notice</h2>
     <p>SAT® is a registered trademark of the College Board, which is not affiliated with and does not endorse this website or program.</p>

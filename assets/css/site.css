@@ -1408,3 +1408,4 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .cw-label { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .cw-value { display: block; font-size: 1.15rem; font-weight: 700; overflow-wrap: anywhere; }
 .legal h2 { font-size: 1.05rem; letter-spacing: .04em; margin-top: 2em; }
+.legal-date { color: var(--muted); font-size: .9rem; font-weight: 600; }
