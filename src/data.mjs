@@ -189,3 +189,21 @@ export const COMPARE = [
   'Scholarship-score strategy (Bright Futures & merit aid)',
   'Personalized Digital SAT portal — homework, practice-test analysis, and progress you can see',
 ];
+
+// Homepage "Where our students have been admitted" scroll.
+// Real admits and scholarships only. Add new ones as { school, student, note }.
+// `note` is optional (e.g. a scholarship amount); `gold: true` highlights it.
+export const ADMITS = [
+  { school: 'Yale', student: 'Annabel' },
+  { school: 'Princeton', student: 'Annabel' },
+  { school: 'Johns Hopkins', student: 'Annabel', note: 'Huge scholarship', gold: true },
+  { school: 'University of Florida', student: 'Wyatt C.', note: '100% Bright Futures', gold: true },
+  { school: 'Emory', student: 'Annabel', note: 'Huge scholarship', gold: true },
+  { school: 'UNC Chapel Hill', student: 'Annabel' },
+  { school: 'Florida Bright Futures', student: 'Jacob S.', note: '~$20,000 in scholarship', gold: true },
+  { school: 'UVA', student: 'Annabel' },
+  { school: 'Florida Bright Futures', student: 'Mauricio', note: '100% tuition', gold: true },
+  { school: 'Tufts', student: 'Annabel' },
+  { school: 'Florida Bright Futures', student: 'Drew', note: '100% tuition', gold: true },
+  { school: 'Florida Bright Futures', student: 'Aarush', note: '100% tuition', gold: true },
+];

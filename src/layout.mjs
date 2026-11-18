@@ -1,5 +1,5 @@
 import { SITE, SCHEDULE, OFFICE_HOURS_TIME } from './config.mjs';
-import { STATS, CREDENTIALS } from './data.mjs';
+import { STATS, CREDENTIALS, ADMITS } from './data.mjs';
 import { icon, stars } from './icons.mjs';
 
 export const YEAR = new Date().getFullYear();
@@ -303,6 +303,17 @@ export function trustBar() {
   return `<section class="proof-row" aria-label="Why families trust SAT Blueprint">
   <div class="wrap pr-inner">
     ${STATS.map((s) => `<div class="pr-stat"><p class="pr-num">${s.num}</p><p class="pr-lbl">${s.label}</p></div>`).join('')}
+  </div>
+</section>`;
+}
+
+export function admitsTicker() {
+  const items = ADMITS.map((a) => `<li class="ad-item${a.gold ? ' is-gold' : ''}"><span class="ad-school">${a.school}</span><span class="ad-meta">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`).join('<li class="ad-dot" aria-hidden="true"></li>');
+  return `<section class="admits" aria-label="Where our students got in and the scholarships they earned">
+  <p class="ad-label">Where our students got in — and the scholarships they earned</p>
+  <div class="ad-viewport">
+    <ul class="ad-track">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
+    <ul class="ad-track" aria-hidden="true">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
   </div>
 </section>`;
 }

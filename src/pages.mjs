@@ -7,7 +7,7 @@ import { FAQS, faqById } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
-  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker,
+  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker,
   breadcrumbs, ORG_ID, PERSON_ID, ADDRESS, RISK_REDUCER,
 } from './layout.mjs';
 
@@ -257,7 +257,7 @@ function home() {
   </div>
 </section>
 
-${trustBar()}
+${admitsTicker()}
 
 ${founderBlock()}
 
