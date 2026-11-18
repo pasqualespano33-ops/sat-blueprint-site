@@ -13,9 +13,7 @@ export const SITE = {
   brandShort: 'SAT Blueprint',
   founder: 'Patrick Spano',
 
-  // PLACEHOLDER (phone conflict): the live footer uses (561) 430-2972, but the
-  // current booking-confirmation message mentions (203) 500-6217. This site
-  // uses (561) 430-2972 everywhere until Patrick confirms otherwise.
+  // Confirmed by Patrick: calls and texts.
   phoneDisplay: '(561) 430-2972',
   phoneHref: 'tel:+15614302972',
   phoneE164: '+1-561-430-2972',
