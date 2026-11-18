@@ -42,7 +42,7 @@
     "award": "100% of tuition and applicable fees at public Florida institutions (private colleges: $212 per credit hour at 4-year schools in 2026-27)",
     "source_url": "https://www.floridastudentfinancialaidsg.org/",
     "data_year": "2025-26 / 2026-27 cycle, verified November 18, 2026",
-    "notes": "Also requires a 3.50 weighted Bright Futures GPA, 16 required credits, and 100 volunteer hours (or 100 paid work hours, or a combination totaling 100). File the FFAA between Oct. 1, 2026, and Aug. 31, 2027. Tests by Aug. 31 of the graduation year. Superscores are not used. Sources: https://sso.osfaffelp.org/BFIEHS/Documents/HS-2627-01.pdf and the Bright Futures Student Handbook."
+    "notes": "Also requires a 3.50 weighted Bright Futures GPA, 16 required credits, and 100 volunteer hours (or 100 paid work hours, or a combination totaling 100). File the FFAA between Oct. 1, 2026, and Aug. 31, 2027. Tests by Aug. 31 of the graduation year. Bright Futures combines your best SAT Reading and Writing score and best Math score from any sittings taken by the deadline; scores must be sent directly by the testing agency. Sources: https://sso.osfaffelp.org/BFIEHS/Documents/HS-2627-01.pdf and the Bright Futures Student Handbook (https://www.floridastudentfinancialaidsg.org/PDF/BFHandbookChapter1.pdf)."
   },
   {
     "state": "Florida",
@@ -76,14 +76,14 @@
     "program": "TOPS (Tech, Opportunity, Performance, Honors, Excellence)",
     "sat_needed": "Tech 920; Opportunity 1030; Performance 1130; Honors 1260; Excellence 1400 (SAT reading + math). ACT: 17 / 20 / 23 / 27 / 31. TOPS does not accept an ACT superscore.",
     "award": "Opportunity pays the TOPS tuition amount (varies by campus). Performance adds a $400 annual stipend; Honors adds $800. Excellence pays tuition and fees or $12,000 at public colleges, whichever is less ($8,500 cap at LAICU private colleges).",
-    "source_url": "https://losfa.laregents.edu/wp-content/uploads/2026/07/ACT-and-SAT-questions.pdf",
+    "source_url": "https://mylosfa.la.gov/wp-content/uploads/2026/07/ACT-and-SAT-questions.pdf",
     "data_year": "2025-26 / 2026-27 cycle, verified November 18, 2026",
-    "notes": "Core GPA and 19 TOPS core units also apply (3.50 core GPA for Honors and Excellence). Qualifying score is due by the April national ACT date of the graduation year. Excellence page: https://losfa.laregents.edu/tops/the-tops-excellence-award/"
+    "notes": "Core GPA and 19 TOPS core units also apply (3.50 core GPA for Honors and Excellence). Qualifying score is due by the April national ACT date of the graduation year. Excellence page: https://mylosfa.la.gov/tops/the-tops-excellence-award/"
   },
   {
     "state": "Mississippi",
     "program": "Mississippi Eminent Scholars Grant (MESG)",
-    "sat_needed": "1330 SAT or ACT 29 (superscores accepted), or National Merit Finalist or Semifinalist, plus a 3.5 GPA",
+    "sat_needed": "ACT 29 (ACT superscores accepted) or SAT 1350, or National Merit Finalist or Semifinalist, plus a 3.5 GPA",
     "award": "Up to $2,500 a year, not to exceed tuition and required fees",
     "source_url": "https://www.msfinancialaid.org/programs/mesg-mississippi-eminent-scholars-grant/",
     "data_year": "2025-26 / 2026-27 cycle, verified November 18, 2026",
