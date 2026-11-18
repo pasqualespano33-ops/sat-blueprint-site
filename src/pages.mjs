@@ -63,7 +63,6 @@ function videosSection({ title = 'Hear it straight from students.', bg = '' } = 
       <p class="lead">Real students sharing their results in their own words.</p>
     </div>
     <div class="video-grid">${VIDEOS.map(videoCard).join('')}</div>
-    <p class="center mt-md"><a class="link-arrow" href="${SITE.youtube}" target="_blank" rel="noopener">More on our YouTube channel ${icon('arrow', { size: 16 })}<span class="sr-only"> (opens in a new tab)</span></a></p>
   </div>
 </section>`;
 }
@@ -721,7 +720,7 @@ function faq() {
 ${pageHero({
   eyebrow: 'Common questions',
   title: 'Frequently asked <span>questions.</span>',
-  sub: 'Straight answers about the 12-Week SAT Blueprint Program, pricing, Step Up For Students, and the digital SAT. Don’t see your question? Ask Patrick on your free Roadmap Session.',
+  sub: 'Straight answers about the SAT Blueprint Program, pricing, Step Up For Students, and the digital SAT. Don’t see your question? Ask Patrick on your free Roadmap Session.',
   crumbs: [{ name: 'FAQ', path: '/faq/' }],
   ctas: false,
 })}
@@ -772,7 +771,6 @@ function book() {
       <li>${icon('check', { size: 16 })} Free</li>
       <li>${icon('clock', { size: 16 })} 45 minutes</li>
       <li>${icon('live', { size: 16 })} Google Meet</li>
-      <li>${icon('globe', { size: 16 })} Eastern Time</li>
       <li>${icon('users', { size: 16 })} With Patrick Spano</li>
       <li class="lg-gold">${icon('clock', { size: 16 })} Limited spots — groups fill before SAT dates</li>
     </ul>
@@ -815,13 +813,6 @@ function book() {
         <h3>${icon('compass', { size: 20 })} What you can expect</h3>
         <p>You’ll leave your free Roadmap Session knowing what’s holding your teen’s score back, what’s realistically possible, and what it takes to fix it — whether you join or not. No pressure, and no obligation. You’ll have a concrete plan you can act on, and if SAT Blueprint is a fit, we can talk about how to get your teen started.</p>
       </div>
-      <dl class="logistics-list">
-        <div><dt>Cost</dt><dd>Free</dd></div>
-        <div><dt>Length</dt><dd>45 minutes</dd></div>
-        <div><dt>Where</dt><dd>Google Meet (link sent by email)</dd></div>
-        <div><dt>When</dt><dd>${SITE.roadmapHours} · book at least 4 hours ahead</dd></div>
-        <div><dt>With</dt><dd>Patrick Spano, Founder</dd></div>
-      </dl>
       <p class="signed">I look forward to connecting with you!<br><span>— Patrick Spano (Founder of SAT Blueprint)</span></p>
     </div>
   </div>
@@ -867,7 +858,6 @@ function contact() {
   const hours = SITE.officeHours
     ? `<p><strong>Office hours:</strong> ${SITE.officeHours}</p>`
     : `<p><strong>Roadmap Sessions:</strong> ${SITE.roadmapHours}</p><p>Classes themselves run as live evening sessions online.</p>`;
-  const mapQ = encodeURIComponent(ADDRESS);
   return {
     path: '/contact/',
     out: 'contact/index.html',
@@ -934,11 +924,6 @@ ${pageHero({
         <p>We’re an approved Step Up For Students (PEP) provider — ask about using those funds on your Roadmap Session.</p>
       </div>
       ${trustAside()}
-    </div>
-  </div>
-  <div class="wrap mt-lg">
-    <div class="map-wrap">
-      <iframe title="Map: Gradeful Test Prep, ${esc(ADDRESS)}" src="https://www.google.com/maps?q=${mapQ}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>

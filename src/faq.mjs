@@ -51,7 +51,7 @@ export const FAQS = [
   {
     id: 'test-date',
     q: 'Which SAT test date should we target?',
-    text: 'It depends on your teen’s starting point, school calendar, and scholarship or admissions deadlines. On the Roadmap Session, Patrick maps a realistic test date and a 12-week plan around it — often with a backup date after it.',
+    text: 'It depends on your teen’s starting point, school calendar, and scholarship or admissions deadlines. On the Roadmap Session, Patrick maps a realistic test date and a plan around it — often with a backup date after it.',
   },
   {
     id: 'homework',

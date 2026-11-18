@@ -355,15 +355,15 @@ export function admitsTicker({ link = true } = {}) {
       : `<span class="ad-mono" style="background:${a.bg};color:${a.fg}" aria-hidden="true">${a.mono}</span>`;
     const hideName = f && !a.crest;
     return `<li class="ad-item${f ? ' has-logo' : ''}">${mark}<span class="ad-what${hideName ? ' sr-only' : ''}">${a.school}</span><span class="ad-name">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`;
-  }).join('<li class="ad-dot" aria-hidden="true"></li>');
+  }).join('');
   return `<section class="admits" aria-label="Colleges our students got into">
   <div class="wrap ad-head">
     <p class="ad-label-top">Where our students got in</p>
     ${link ? `<a class="link-arrow ad-link" href="/results/">See all Real Results ${icon('arrow', { size: 14 })}</a>` : ''}
   </div>
   <div class="ad-viewport" data-ticker tabindex="0" aria-label="Scrolling list of student results. Tap or focus to pause.">
-    <ul class="ad-track">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
-    <ul class="ad-track" aria-hidden="true">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
+    <ul class="ad-track">${items}</ul>
+    <ul class="ad-track" aria-hidden="true">${items}</ul>
   </div>
 </section>`;
 }

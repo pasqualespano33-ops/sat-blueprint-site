@@ -1116,7 +1116,7 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .admits { padding: 26px 0 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, .02); }
 .ad-label { margin-bottom: 16px; text-align: center; font-size: .72rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 .ad-viewport { display: flex; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-.ad-track { display: flex; flex-shrink: 0; align-items: center; gap: 40px; padding-right: 40px; animation: tick 60s linear infinite; }
+.ad-track { display: flex; flex-shrink: 0; align-items: center; gap: 56px; padding-right: 56px; animation: tick 60s linear infinite; }
 .admits:hover .ad-track { animation-play-state: paused; }
 .ad-item { display: grid; gap: 3px; white-space: nowrap; }
 .ad-school { font-size: 1.35rem; font-weight: 900; letter-spacing: -.02em; color: #fff; line-height: 1.1; }
