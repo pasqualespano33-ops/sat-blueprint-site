@@ -48,6 +48,9 @@ export const SCORE_REPORTS = [
 ];
 
 export const SCREENSHOTS = [
+  { file: 'harry-1510', h: 940, title: 'Harry G.', result: '1510 superscore · 780 Math', featured: true, alt: 'Text from Harry: “I got a 780 on math and a 700 on English so my superscore is now a 1510!” Patrick replies “My guy, 780, Damn.” Later Harry writes: “Hey Patrick. I just wanted to thank you for being so helpful throughout the time I was testing. I had a lot of fun working with you!”' },
+  { file: 'mark-parent-1490', h: 902, title: 'Mark’s parent', result: '1490', featured: true, alt: 'Text from Mark’s parent: “Hey Mark SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying what do you think.” Patrick replies: “That is a very good score, it all depends what schools he is trying to get into what his college counselor thinks.”' },
+  { file: 'annabel-1550', h: 774, title: 'Annabel', result: '1550 · 750 Reading · 800 Math', featured: true, alt: 'Text from Annabel: “Good Morning, It’s Annabel… I got a 1550: 750 reading and 800 math. Thank you so much for helping me get there!” Patrick replies “That’s amazing!” and “Yale here you come.” Annabel: “Hopefully.”' },
   { file: 'eitan-200-plus', h: 889, title: 'Eitan', result: '+200 points · 1080', featured: true, alt: 'Text thread: Eitan shares his College Board score report — total 1080, 550 Reading and Writing, 530 Math. Patrick replies “Congrats” and “Proud of you.” Eitan: “Tysm up by 200+ from last score.”' },
   { file: 'annabel-parent-admits', h: 1054, title: 'Annabel’s parent', result: 'Yale · Princeton · Emory · Johns Hopkins', featured: true, alt: 'Text from Annabel’s parent: “She was also accepted to: Emory with a huge scholarship, John’s Hopkins with a huge scholarship, UNC Chapel Hill, UVA, Tufts. Waitlisted to Vanderbilt & Harvard. Rejected only from UPenn. She still feels like she’s dreaming. We are going to admitted students day at Yale and Princeton. Her two beyond dream top choices!” Patrick replies “Wow that is incredible,” “Made my day,” “Dreams come true if you work hard.”' },
   { file: 'liana-1420', h: 1103, title: 'Liana', result: '1420 · Columbia University', alt: 'WhatsApp thread: “Hi Patrick! It’s Liana. Just wanted to let you know that I got my SAT score back and I got a 1420.” Patrick: “Hey nice job! Are you happy with that?” Liana: “I definitely am happy with the improvement!”' },
@@ -56,7 +59,6 @@ export const SCREENSHOTS = [
   { file: 'drew-1380', title: 'Drew', result: '1380 · 100% Bright Futures', alt: 'Text from Drew: “Hey sir just wanted to thank you for all the help and support you gave me I got a 1380 on my last SAT.” Patrick replies “Hey Drew that’s amazing!”' },
   { file: 'drew-parent-email-1380', title: 'Drew’s parent', result: 'Email · 1380 · 100% Florida tuition', alt: 'Email from Drew’s parent: “Thought you may want to know Andrew’s last score was 1380 which allows him to get 100% Florida tuition paid.” Patrick replies “Amazing! Thanks for the great news.”' },
   { file: 'parent-1050-1160', title: 'A parent', result: '1050 → 1160', alt: 'Text from a parent: “1050 last SAT that he took this past year. Yesterday he got an 1160. Super proud.” Patrick replies “That’s amazing! Only the start.” Parent: “He was very excited.”' },
-  { file: 'superscore-1510', title: 'A student', result: '1510 superscore · 780 Math', alt: 'Text from a student: “I got a 780 on math and a 700 on English so my superscore is now a 1510!” Patrick replies “My guy, 780, Damn.”' },
   { file: 'bright-futures-1340', title: 'A student', result: '1330 · 1340 superscore · 100% Bright Futures', alt: 'Text from a student: “Got a 1330. Got 680 math and 650 reading. But got 660 reading last time so I can superscore it to 1340.” Patrick replies “100% BF.”' },
 ];
 
@@ -108,13 +110,6 @@ export const TESTIMONIALS = [
 // Restyled proof notes (text messages from the live site). Verbatim.
 export const PROOF_NOTES = [
   {
-    from: 'Annabel', date: 'Jun 20', score: '1550',
-    msgs: [
-      { in: true, text: 'Good morning! SAT scores came out this morning. I got a 1550: 750 reading and 800 math. Thank you so much for helping me get there! 🙂' },
-      { in: false, text: 'That’s amazing! Yale here you come' },
-    ],
-  },
-  {
     from: 'Parent of Annabel', date: 'Apr 11', score: 'Yale · Princeton',
     msgs: [
       { in: true, text: 'Annabel was accepted to Yale and Princeton! She was beyond excited and wanted you to know.' },
@@ -135,13 +130,6 @@ export const PROOF_NOTES = [
     msgs: [
       { in: true, text: 'I scored a 1380 on the SAT!! My mom is so thrilled, especially compared to my last score 😊' },
       { in: false, text: 'That’s a huge jump — so happy for you!' },
-    ],
-  },
-  {
-    from: 'Parent of Mark', date: '', score: '1490',
-    msgs: [
-      { in: true, text: 'Mark’s SAT is 1490 :) THANK YOU SO MUCH FOR HELPING HIM!!!!!' },
-      { in: false, text: 'That’s fantastic — so well deserved! 🎉' },
     ],
   },
 ];

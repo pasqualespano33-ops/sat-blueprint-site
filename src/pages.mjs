@@ -224,7 +224,7 @@ function proofCard() {
 
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
-  const gallery = ['Eshaan', 'Eitan', 'Jordan', 'Brooklyn', 'Xavier', 'Tristan', 'Parent text', 'Sammi'].map((n) => R[n]).filter((r) => r && r.before);
+  const gallery = ['Eitan', 'Eshaan', 'Brooklyn'].map((n) => R[n]);
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
   const vertical = Boolean(SITE.heroVideoFile);
   const hasVideo = vertical || Boolean(SITE.promoVideoYouTubeId);
@@ -312,8 +312,7 @@ ${founderBlock()}
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="shot-feature">${shotFig(shotBy('eitan-200-plus'))}${shotFig(shotBy('annabel-parent-admits'))}${shotFig(shotBy('liana-1420'))}</div>
-    ${scoreReports({ dark: true })}
+    <div class="shot-feature">${['harry-1510', 'mark-parent-1490', 'annabel-1550'].map((f) => shotFig(shotBy(f))).join('')}</div>
     <h3 class="group-title on-dark-title mt-lg reveal">Before → after</h3>
     <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
     <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
