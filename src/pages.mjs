@@ -868,53 +868,32 @@ function contact() {
 ${pageHero({
   eyebrow: 'Contact',
   title: 'Questions? <span>Reach Patrick directly.</span>',
-  sub: 'Have a question before you book, or already a current family? Send a note, call, or email — Patrick will get back to you. If you want a full plan for your teen, the best first step is a free Roadmap Session.',
+  sub: 'Have a question before you book, or already a current family? Call or email — Patrick will get back to you. If you want a full plan for your teen, the best first step is a free Roadmap Session.',
   crumbs: [{ name: 'Contact', path: '/contact/' }],
   ctas: false,
 })}
 <section class="section">
   <div class="wrap contact-grid">
-    <div class="form-card">
-      <h2 class="form-title">Send a message</h2>
-      <p class="hint">For general questions. Ready for a plan? <a href="/book/">Book a Free Roadmap Session</a> instead.</p>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate data-contact>
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <div class="field">
-          <label for="c_name">Name <span class="req">*</span></label>
-          <input id="c_name" name="name" type="text" autocomplete="name" required>
-          <p class="err" id="c_name-err" hidden>Please enter your name.</p>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="c_phone">Phone</label>
-            <input id="c_phone" name="phone" type="tel" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="c_email">Email <span class="req">*</span></label>
-            <input id="c_email" name="email" type="email" autocomplete="email" required>
-            <p class="err" id="c_email-err" hidden>Please enter a valid email address.</p>
-          </div>
-        </div>
-        <fieldset class="field radios">
-          <legend>I am a…</legend>
-          <label class="check"><input type="radio" name="role" value="Parent" checked> <span>Parent / guardian</span></label>
-          <label class="check"><input type="radio" name="role" value="Student"> <span>Student</span></label>
-        </fieldset>
-        <div class="field">
-          <label for="c_msg">Message <span class="req">*</span></label>
-          <textarea id="c_msg" name="message" rows="5" required></textarea>
-          <p class="err" id="c_msg-err" hidden>Please enter a message.</p>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg">Send message ${icon('arrow', { size: 18 })}</button>
-        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-      </form>
+    <div class="form-card contact-ways">
+      <h2 class="form-title">Get in touch</h2>
+      <p class="hint">Call or email with any question. Ready for a plan for your teen? Book a free Roadmap Session.</p>
+      <div class="cw-list">
+        <a class="cw-item" href="${SITE.phoneHref}">
+          <span class="cw-ico">${icon('phone', { size: 22 })}</span>
+          <span><span class="cw-label">Call</span><span class="cw-value">${SITE.phoneDisplay}</span></span>
+        </a>
+        <a class="cw-item" href="mailto:${SITE.email}">
+          <span class="cw-ico">${icon('mail', { size: 22 })}</span>
+          <span><span class="cw-label">Email</span><span class="cw-value">${SITE.email}</span></span>
+        </a>
+      </div>
+      <a class="btn btn-primary btn-lg btn-block mt-md" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
+      ${reassure('', { plan: false })}
     </div>
     <div class="contact-side">
       <div class="side-card">
-        <p class="side-title-dark">Reach us</p>
-        <a class="side-link big" href="${SITE.phoneHref}">${icon('phone', { size: 18 })} ${SITE.phoneDisplay}</a>
-        <a class="side-link" href="mailto:${SITE.email}">${icon('mail', { size: 18 })} ${SITE.email}</a>
+        <p class="side-title-dark">Based in Deerfield Beach, FL</p>
+        <p class="hint">All classes and Roadmap Sessions are live online.</p>
         <p class="side-link">${icon('pin', { size: 18 })} <span>${SITE.address.street}<br>${SITE.address.city}, ${SITE.address.region} ${SITE.address.postal}</span></p>
         <div class="hours">${hours}</div>
       </div>

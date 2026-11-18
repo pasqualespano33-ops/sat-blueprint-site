@@ -1401,3 +1401,9 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .jc-scores small { font-size: .7rem; font-weight: 800; letter-spacing: .1em; color: var(--muted); margin-right: -4px; }
 @media (max-width: 760px) { .map-wrap { aspect-ratio: auto; height: 320px; width: 100%; } }
 .form-card-cal .scheduler { margin-top: 18px; background: #fff; }
+.cw-list { display: grid; gap: 12px; margin-top: 18px; }
+.cw-item { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--fg); text-decoration: none; transition: border-color .2s, background .2s; min-width: 0; }
+.cw-item:hover { border-color: rgba(240,192,64,.5); background: rgba(240,192,64,.06); }
+.cw-ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-300); flex-shrink: 0; }
+.cw-label { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.cw-value { display: block; font-size: 1.15rem; font-weight: 700; overflow-wrap: anywhere; }
