@@ -1129,3 +1129,8 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .fc-panel { grid-template-columns: 1.35fr .65fr; }
 .fc-photo img { object-position: 50% 30%; }
 @media (max-width: 900px) { .fc-panel { grid-template-columns: 1fr; } }
+
+/* Closing panel roadmap illustration */
+.fc-visual { position: relative; display: grid; place-items: center; padding: 28px 28px 28px 0; }
+.fc-visual svg { width: 100%; max-width: 340px; height: auto; border-radius: var(--r); background: rgba(10, 23, 38, .55); border: 1px solid var(--line-2); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+@media (max-width: 900px) { .fc-visual { display: none; } }
