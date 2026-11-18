@@ -868,7 +868,7 @@ function contact() {
 ${pageHero({
   eyebrow: 'Contact',
   title: 'Questions? <span>Reach Patrick directly.</span>',
-  sub: 'Have a question before you book, or already a current family? Call or email — Patrick will get back to you. If you want a full plan for your teen, the best first step is a free Roadmap Session.',
+  sub: 'Have a question before you book, or already a current family? Call, text, or email — Patrick will get back to you. If you want a full plan for your teen, the best first step is a free Roadmap Session.',
   crumbs: [{ name: 'Contact', path: '/contact/' }],
   ctas: false,
 })}
@@ -876,11 +876,11 @@ ${pageHero({
   <div class="wrap contact-grid">
     <div class="form-card contact-ways">
       <h2 class="form-title">Get in touch</h2>
-      <p class="hint">Call or email with any question. Ready for a plan for your teen? Book a free Roadmap Session.</p>
+      <p class="hint">Call, text, or email with any question. Ready for a plan for your teen? Book a free Roadmap Session.</p>
       <div class="cw-list">
         <a class="cw-item" href="${SITE.phoneHref}">
           <span class="cw-ico">${icon('phone', { size: 22 })}</span>
-          <span><span class="cw-label">Call</span><span class="cw-value">${SITE.phoneDisplay}</span></span>
+          <span><span class="cw-label">Call or text</span><span class="cw-value">${SITE.phoneDisplay}</span></span>
         </a>
         <a class="cw-item" href="mailto:${SITE.email}">
           <span class="cw-ico">${icon('mail', { size: 22 })}</span>
