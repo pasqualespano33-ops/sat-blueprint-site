@@ -58,6 +58,12 @@ export const SITE = {
   // While empty, the hero shows Patrick's photo and the no-video headline.
   promoVideoYouTubeId: '',
 
+  // Vertical (9:16) self-hosted hero video. Takes priority over the YouTube
+  // ID above. Example: '/assets/video/hero.mp4' with a poster frame at
+  // '/assets/video/hero-poster.jpg'. Autoplays muted with burned-in captions.
+  heroVideoFile: '',
+  heroVideoPoster: '',
+
   // Alex Torres headshot. Drop the file at assets/img/alex-torres.jpg and set
   // this to '/assets/img/alex-torres.jpg'. While empty, his card shows initials.
   alexPhoto: '/assets/img/alex-torres.jpg',

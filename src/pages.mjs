@@ -195,6 +195,15 @@ function heroMedia(hasVideo) {
     </div>`;
 }
 
+function phoneVideo() {
+  return `<div class="phone-video">
+      <div class="pv-screen">
+        <video class="pv-video" src="${SITE.heroVideoFile}"${SITE.heroVideoPoster ? ` poster="${SITE.heroVideoPoster}"` : ''} autoplay muted loop playsinline preload="metadata" aria-label="Patrick Spano explains how SAT Blueprint helps your teen raise their SAT score (captions included)"></video>
+        <button type="button" class="pv-sound" data-video-sound aria-pressed="false">${icon('play', { size: 14 })}<span>Tap for sound</span></button>
+      </div>
+    </div>`;
+}
+
 function proofCard() {
   return `<figure class="proof-card">
       <p class="pc-kick">Real result</p>
@@ -207,7 +216,8 @@ function proofCard() {
 function home() {
   const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan', 'Eitan', 'Brooklyn'].map((n) => R[n]);
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
-  const hasVideo = Boolean(SITE.promoVideoYouTubeId);
+  const vertical = Boolean(SITE.heroVideoFile);
+  const hasVideo = vertical || Boolean(SITE.promoVideoYouTubeId);
   const bento = [
     { ...INCLUDES[0], cls: 'b-wide b-blue' },
     { ...INCLUDES[1], cls: 'b-tall b-ink' },
@@ -229,19 +239,19 @@ function home() {
     bodyClass: 'is-home',
     schema: [],
     body: `
-<section class="hero hero-v${hasVideo ? ' has-video' : ''}">
+<section class="hero hero-v${vertical ? ' has-vertical' : hasVideo ? ' has-video' : ''}">
   <div class="wrap hv-grid">
     <div class="hv-copy">
       <p class="hb-kick">Live online SAT coaching for high schoolers</p>
       <h1 class="hero-title">${h1}</h1>
-      ${hasVideo ? heroMedia(true) : ''}
+      ${hasVideo && !vertical ? heroMedia(true) : ''}
       <p class="hero-sub">The SAT Blueprint Program finds exactly where your teen is losing points, then builds a live, personalized plan to go after them. Book a free Roadmap Session and leave with that plan, whether you join or not.</p>
       ${ctaPair({ dark: true })}
       ${reassure('hero-reassure')}
       <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · Perfect SAT Scorer<span>${stars(5)} Trusted by 2,000+ families</span></p></div>
     </div>
     <div class="hv-side">
-      ${hasVideo ? '' : heroMedia(false)}
+      ${vertical ? phoneVideo() : hasVideo ? '' : heroMedia(false)}
       ${proofCard()}
     </div>
   </div>

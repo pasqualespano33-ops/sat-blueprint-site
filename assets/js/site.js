@@ -354,3 +354,16 @@
     });
   });
 })();
+
+/* Hero video: tap for sound (video autoplays muted with burned-in captions) */
+(function () {
+  var btn = document.querySelector('[data-video-sound]');
+  if (!btn) return;
+  var v = btn.parentNode.querySelector('video');
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+  btn.addEventListener('click', function () {
+    v.muted = false; v.currentTime = 0; v.loop = false; v.controls = true;
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    btn.setAttribute('aria-pressed', 'true');
+  });
+})();
