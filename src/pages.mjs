@@ -760,7 +760,7 @@ function book() {
     description: 'Book a free 45-minute SAT Roadmap Session over Google Meet. Patrick Spano will pinpoint what’s holding your teen’s score back and map a clear plan. No obligation.',
     bodyClass: 'is-book',
     schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Book a Free Roadmap Session', path: '/book/' }])],
-    scripts: `<script>window.SB_BOOKING=${JSON.stringify({ url: SITE.bookingUrl, webhook: SITE.intakeWebhook })};</script>`,
+    scripts: '<script src="https://link.gradefultestprep.com/js/form_embed.js" async></script>',
     body: `
 <section class="page-hero book-hero">
   <div class="wrap">
@@ -782,127 +782,14 @@ function book() {
 <section class="section book-section" id="booking">
   <div class="wrap book-grid">
     <div class="book-form-col">
-      <div class="form-card" data-booking>
+      <div class="form-card form-card-cal">
         <h2 class="form-title">Book a Free Roadmap Session</h2>
-        <p class="form-reassure">Free 45-minute Roadmap Session. No obligation. You’ll leave with a clear plan.</p>
-
-        <ol class="progress" aria-label="Booking progress">
-          <li data-step-ind="1" aria-current="step"><span>1</span><em>Student</em></li>
-          <li data-step-ind="2"><span>2</span><em>Who’s attending</em></li>
-          <li data-step-ind="3"><span>3</span><em>Your details</em></li>
-          <li data-step-ind="4"><span>4</span><em>Pick a time</em></li>
-        </ol>
-        <p class="sr-only" aria-live="polite" data-step-status></p>
-
-        <form name="roadmap-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate data-intake>
-          <input type="hidden" name="form-name" value="roadmap-intake">
-          <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-          <fieldset class="step" data-step="1">
-            <legend class="step-legend">Student snapshot</legend>
-            <div class="field">
-              <label for="student_name">Student first name <span class="req">*</span></label>
-              <input id="student_name" name="student_first_name" type="text" autocomplete="off" required>
-              <p class="err" id="student_name-err" hidden>Please enter your student’s first name.</p>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="grade">Current grade <span class="req">*</span></label>
-                <select id="grade" name="grade" required>
-                  <option value="">Select grade</option>
-                  <option>9th</option><option>10th</option><option>11th</option><option>12th</option><option>Other</option>
-                </select>
-                <p class="err" id="grade-err" hidden>Please choose a grade.</p>
-              </div>
-              <div class="field">
-                <label for="test_date">Target SAT test date</label>
-                <select id="test_date" name="target_test_date" data-months>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </div>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="current_score">Current SAT or PSAT score <span class="opt">(if any)</span></label>
-                <input id="current_score" name="current_score" type="text" inputmode="numeric" placeholder="e.g. 1180 SAT" aria-describedby="current_score-hint">
-                <p class="hint" id="current_score-hint">Practice tests count too.</p>
-              </div>
-              <div class="field">
-                <label for="target_score">Target score <span class="opt">(if any)</span></label>
-                <input id="target_score" name="target_score" type="text" inputmode="numeric" placeholder="e.g. 1350">
-              </div>
-            </div>
-            <div class="step-actions"><button type="button" class="btn btn-primary btn-lg" data-next>Continue ${icon('arrow', { size: 18 })}</button></div>
-          </fieldset>
-
-          <fieldset class="step" data-step="2" hidden>
-            <legend class="step-legend">Who will attend the session?</legend>
-            <p class="hint" id="attend-hint">This session is designed for parents and their teen. If both parents are part of the college-planning decision, please join together so nothing gets lost in translation.</p>
-            <div class="checks" aria-describedby="attend-hint">
-              <label class="check"><input type="checkbox" name="attend_parent_1" value="yes" checked> <span>Parent / guardian 1</span></label>
-              <label class="check"><input type="checkbox" name="attend_parent_2" value="yes"> <span>Parent / guardian 2</span></label>
-              <label class="check"><input type="checkbox" name="attend_student" value="yes" checked> <span>Student</span></label>
-            </div>
-            <p class="err" id="attend-err" hidden>Please select at least one parent or guardian — this session is built for the decision-maker.</p>
-            <p class="nudge" data-student-nudge hidden>${icon('users', { size: 16 })} We strongly recommend your teen joins — they’ll hear the plan firsthand.</p>
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-back>${icon('arrowLeft', { size: 18 })} Back</button>
-              <button type="button" class="btn btn-primary btn-lg" data-next>Continue ${icon('arrow', { size: 18 })}</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="step" data-step="3" hidden>
-            <legend class="step-legend">Parent contact</legend>
-            <div class="field">
-              <label for="parent_name">Parent / guardian name <span class="req">*</span></label>
-              <input id="parent_name" name="parent_name" type="text" autocomplete="name" required>
-              <p class="err" id="parent_name-err" hidden>Please enter your name.</p>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="phone">Phone <span class="req">*</span></label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-                <p class="err" id="phone-err" hidden>Please enter a valid phone number.</p>
-              </div>
-              <div class="field">
-                <label for="email">Email <span class="req">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-                <p class="err" id="email-err" hidden>Please enter a valid email address.</p>
-              </div>
-            </div>
-            <div class="field">
-              <label for="contact_time">Best time to reach you</label>
-              <select id="contact_time" name="preferred_contact_time">
-                <option>Any time</option><option>Morning</option><option>Afternoon</option><option>Evening</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="notes">Anything else we should know? <span class="opt">(optional)</span></label>
-              <textarea id="notes" name="notes" rows="3"></textarea>
-            </div>
-            <label class="check consent"><input type="checkbox" name="consent" value="yes"> <span>I’d like to receive SAT Blueprint emails and updates using the contact information I provide.</span></label>
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-back>${icon('arrowLeft', { size: 18 })} Back</button>
-              <button type="submit" class="btn btn-primary btn-lg" data-submit>Choose a time ${icon('arrow', { size: 18 })}</button>
-            </div>
-            <p class="privacy-note">${icon('lock', { size: 14 })} We never sell student or family data. See our <a href="/privacy/">Privacy Policy</a>.</p>
-          </fieldset>
-        </form>
-
-        <div class="step step-4" data-step="4" hidden tabindex="-1">
-          <p class="step-legend">Pick a time that works</p>
-          <p class="hint">Choose any open 45-minute slot below (shown in your time zone). You’ll get a calendar invite and a Google Meet link by email.</p>
-          <div class="scheduler" data-scheduler></div>
-          <p class="hint mt-sm">Trouble loading the calendar? <a href="${SITE.bookingUrl}" target="_blank" rel="noopener" data-scheduler-link>Open the scheduler in a new tab</a>, or call <a href="${SITE.phoneHref}">${SITE.phoneDisplay}</a>.</p>
-          <button type="button" class="btn btn-ghost btn-sm mt-sm" data-back>${icon('arrowLeft', { size: 16 })} Edit my answers</button>
+        <p class="form-reassure">Pick any open 45-minute slot below (shown in your time zone). You’ll get a confirmation and a Google Meet link by email.</p>
+        <div class="scheduler">
+          <iframe src="${SITE.bookingUrl}" title="Pick a time for your free Roadmap Session" id="sat-roadmap-booking" scrolling="no" loading="eager"></iframe>
         </div>
-
-        <noscript>
-          <div class="noscript-box">
-            <p>Our step-by-step form needs JavaScript. You can book directly on our scheduler instead:</p>
-            <a class="btn btn-primary" href="${SITE.bookingUrl}">Open the Roadmap Session scheduler</a>
-          </div>
-        </noscript>
+        <p class="hint mt-sm">Trouble loading the calendar? <a href="${SITE.bookingUrl}" target="_blank" rel="noopener">Open the scheduler in a new tab</a>, or call <a href="${SITE.phoneHref}">${SITE.phoneDisplay}</a>.</p>
+        <p class="privacy-note">${icon('lock', { size: 14 })} We never sell student or family data. See our <a href="/privacy/">Privacy Policy</a>.</p>
       </div>
     </div>
 

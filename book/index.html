@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap">
 
-<link rel="stylesheet" href="/assets/css/site.css?v=mwmmu6qq">
+<link rel="stylesheet" href="/assets/css/site.css?v=mwmn4a7g">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://gradefultestprep.com/#org","name":"Gradeful Test Prep","alternateName":["SAT Blueprint Method","SAT Blueprint"],"description":"Gradeful Test Prep runs the SAT Blueprint Method™, a structured, live online SAT coaching program for high schoolers.","url":"https://gradefultestprep.com/","logo":"https://gradefultestprep.com/assets/img/logo-footer-600.png","image":"https://gradefultestprep.com/assets/img/og-image.jpg","telephone":"+1-561-430-2972","email":"patrick@gradefultestprep.com","address":{"@type":"PostalAddress","streetAddress":"1761 West Hillsboro Boulevard, Suite 207","addressLocality":"Deerfield Beach","addressRegion":"FL","postalCode":"33442","addressCountry":"US"},"areaServed":[{"@type":"Country","name":"United States"},{"@type":"State","name":"Florida"}],"founder":[{"@id":"https://gradefultestprep.com/#patrick"},{"@id":"https://gradefultestprep.com/#alex"}],"sameAs":["https://www.youtube.com/gradefultestprep","https://www.instagram.com/patrickspanotestprep/","https://www.facebook.com/profile.php?id=61582906097113"]},{"@type":"Person","@id":"https://gradefultestprep.com/#patrick","name":"Patrick Spano","jobTitle":"Founder, SAT Blueprint Method","alumniOf":{"@type":"CollegeOrUniversity","name":"Yale University"},"worksFor":{"@id":"https://gradefultestprep.com/#org"},"image":"https://gradefultestprep.com/assets/img/patrick-headshot.jpg"},{"@type":"Person","@id":"https://gradefultestprep.com/#alex","name":"Alex Torres","jobTitle":"Educational Director, SAT Blueprint Method","alumniOf":{"@type":"CollegeOrUniversity","name":"Yale University"},"worksFor":{"@id":"https://gradefultestprep.com/#org"}},{"@type":"WebSite","@id":"https://gradefultestprep.com/#website","url":"https://gradefultestprep.com/","name":"SAT Blueprint Method","publisher":{"@id":"https://gradefultestprep.com/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gradefultestprep.com/"},{"@type":"ListItem","position":2,"name":"Book a Free Roadmap Session","item":"https://gradefultestprep.com/book/"}]}]}</script>
 
 </head>
@@ -87,127 +87,14 @@
 <section class="section book-section" id="booking">
   <div class="wrap book-grid">
     <div class="book-form-col">
-      <div class="form-card" data-booking>
+      <div class="form-card form-card-cal">
         <h2 class="form-title">Book a Free Roadmap Session</h2>
-        <p class="form-reassure">Free 45-minute Roadmap Session. No obligation. You’ll leave with a clear plan.</p>
-
-        <ol class="progress" aria-label="Booking progress">
-          <li data-step-ind="1" aria-current="step"><span>1</span><em>Student</em></li>
-          <li data-step-ind="2"><span>2</span><em>Who’s attending</em></li>
-          <li data-step-ind="3"><span>3</span><em>Your details</em></li>
-          <li data-step-ind="4"><span>4</span><em>Pick a time</em></li>
-        </ol>
-        <p class="sr-only" aria-live="polite" data-step-status></p>
-
-        <form name="roadmap-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate data-intake>
-          <input type="hidden" name="form-name" value="roadmap-intake">
-          <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-          <fieldset class="step" data-step="1">
-            <legend class="step-legend">Student snapshot</legend>
-            <div class="field">
-              <label for="student_name">Student first name <span class="req">*</span></label>
-              <input id="student_name" name="student_first_name" type="text" autocomplete="off" required>
-              <p class="err" id="student_name-err" hidden>Please enter your student’s first name.</p>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="grade">Current grade <span class="req">*</span></label>
-                <select id="grade" name="grade" required>
-                  <option value="">Select grade</option>
-                  <option>9th</option><option>10th</option><option>11th</option><option>12th</option><option>Other</option>
-                </select>
-                <p class="err" id="grade-err" hidden>Please choose a grade.</p>
-              </div>
-              <div class="field">
-                <label for="test_date">Target SAT test date</label>
-                <select id="test_date" name="target_test_date" data-months>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </div>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="current_score">Current SAT or PSAT score <span class="opt">(if any)</span></label>
-                <input id="current_score" name="current_score" type="text" inputmode="numeric" placeholder="e.g. 1180 SAT" aria-describedby="current_score-hint">
-                <p class="hint" id="current_score-hint">Practice tests count too.</p>
-              </div>
-              <div class="field">
-                <label for="target_score">Target score <span class="opt">(if any)</span></label>
-                <input id="target_score" name="target_score" type="text" inputmode="numeric" placeholder="e.g. 1350">
-              </div>
-            </div>
-            <div class="step-actions"><button type="button" class="btn btn-primary btn-lg" data-next>Continue <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div>
-          </fieldset>
-
-          <fieldset class="step" data-step="2" hidden>
-            <legend class="step-legend">Who will attend the session?</legend>
-            <p class="hint" id="attend-hint">This session is designed for parents and their teen. If both parents are part of the college-planning decision, please join together so nothing gets lost in translation.</p>
-            <div class="checks" aria-describedby="attend-hint">
-              <label class="check"><input type="checkbox" name="attend_parent_1" value="yes" checked> <span>Parent / guardian 1</span></label>
-              <label class="check"><input type="checkbox" name="attend_parent_2" value="yes"> <span>Parent / guardian 2</span></label>
-              <label class="check"><input type="checkbox" name="attend_student" value="yes" checked> <span>Student</span></label>
-            </div>
-            <p class="err" id="attend-err" hidden>Please select at least one parent or guardian — this session is built for the decision-maker.</p>
-            <p class="nudge" data-student-nudge hidden><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg> We strongly recommend your teen joins — they’ll hear the plan firsthand.</p>
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-back><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> Back</button>
-              <button type="button" class="btn btn-primary btn-lg" data-next>Continue <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-            </div>
-          </fieldset>
-
-          <fieldset class="step" data-step="3" hidden>
-            <legend class="step-legend">Parent contact</legend>
-            <div class="field">
-              <label for="parent_name">Parent / guardian name <span class="req">*</span></label>
-              <input id="parent_name" name="parent_name" type="text" autocomplete="name" required>
-              <p class="err" id="parent_name-err" hidden>Please enter your name.</p>
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="phone">Phone <span class="req">*</span></label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-                <p class="err" id="phone-err" hidden>Please enter a valid phone number.</p>
-              </div>
-              <div class="field">
-                <label for="email">Email <span class="req">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-                <p class="err" id="email-err" hidden>Please enter a valid email address.</p>
-              </div>
-            </div>
-            <div class="field">
-              <label for="contact_time">Best time to reach you</label>
-              <select id="contact_time" name="preferred_contact_time">
-                <option>Any time</option><option>Morning</option><option>Afternoon</option><option>Evening</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="notes">Anything else we should know? <span class="opt">(optional)</span></label>
-              <textarea id="notes" name="notes" rows="3"></textarea>
-            </div>
-            <label class="check consent"><input type="checkbox" name="consent" value="yes"> <span>I’d like to receive SAT Blueprint emails and updates using the contact information I provide.</span></label>
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-back><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> Back</button>
-              <button type="submit" class="btn btn-primary btn-lg" data-submit>Choose a time <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-            </div>
-            <p class="privacy-note"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> We never sell student or family data. See our <a href="/privacy/">Privacy Policy</a>.</p>
-          </fieldset>
-        </form>
-
-        <div class="step step-4" data-step="4" hidden tabindex="-1">
-          <p class="step-legend">Pick a time that works</p>
-          <p class="hint">Choose any open 45-minute slot below (shown in your time zone). You’ll get a calendar invite and a Google Meet link by email.</p>
-          <div class="scheduler" data-scheduler></div>
-          <p class="hint mt-sm">Trouble loading the calendar? <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank" rel="noopener" data-scheduler-link>Open the scheduler in a new tab</a>, or call <a href="tel:+15614302972">(561) 430-2972</a>.</p>
-          <button type="button" class="btn btn-ghost btn-sm mt-sm" data-back><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> Edit my answers</button>
+        <p class="form-reassure">Pick any open 45-minute slot below (shown in your time zone). You’ll get a confirmation and a Google Meet link by email.</p>
+        <div class="scheduler">
+          <iframe src="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" title="Pick a time for your free Roadmap Session" id="sat-roadmap-booking" scrolling="no" loading="eager"></iframe>
         </div>
-
-        <noscript>
-          <div class="noscript-box">
-            <p>Our step-by-step form needs JavaScript. You can book directly on our scheduler instead:</p>
-            <a class="btn btn-primary" href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session">Open the Roadmap Session scheduler</a>
-          </div>
-        </noscript>
+        <p class="hint mt-sm">Trouble loading the calendar? <a href="https://link.gradefultestprep.com/widget/bookings/sat-strategy-session" target="_blank" rel="noopener">Open the scheduler in a new tab</a>, or call <a href="tel:+15614302972">(561) 430-2972</a>.</p>
+        <p class="privacy-note"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> We never sell student or family data. See our <a href="/privacy/">Privacy Policy</a>.</p>
       </div>
     </div>
 
@@ -305,6 +192,6 @@
   <a class="btn btn-primary mb-book" href="/book/"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Book a Free Roadmap Session</span></a>
   <a class="mb-call" href="tel:+15614302972"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call</span></a>
 </div>
-<script src="/assets/js/site.js?v=mwmmu6qq" defer></script><script>window.SB_BOOKING={"url":"https://link.gradefultestprep.com/widget/bookings/sat-strategy-session","webhook":""};</script>
+<script src="/assets/js/site.js?v=mwmn4a7g" defer></script><script src="https://link.gradefultestprep.com/js/form_embed.js" async></script>
 </body>
 </html>
