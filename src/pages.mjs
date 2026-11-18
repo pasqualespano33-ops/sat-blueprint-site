@@ -282,7 +282,7 @@ ${founderBlock()}
         <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
         <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
       </ul>
-      <a class="link-arrow" href="/program/">See the full program ${icon('arrow', { size: 16 })}</a>
+      <a class="link-arrow" href="/methodology/">See how we teach the SAT ${icon('arrow', { size: 16 })}</a>
     </div>
   </div>
 </section>
@@ -315,147 +315,103 @@ ${finalCta()}
   };
 }
 
-// ── PROGRAM ─────────────────────────────────────────────────────────────────
+// ── METHODOLOGY (was Program) ───────────────────────────────────────────────
 function program() {
-  const experience = [
-    ['target', 'Diagnostic', 'A full-length, timed diagnostic shows exactly where points are being lost — content, strategy, timing, or nerves — including what the Knowledge and Skills section already points to.'],
-    ['plan', 'Personal plan', 'Patrick builds a week-by-week plan from your teen’s starting score to their target score and test date.'],
-    ['live', 'Live classes', 'Small-group instruction (3–6 students) over Google Meet, aimed at the areas costing the most points.'],
-    ['check', 'Homework & accountability', 'Homework is assigned in the Digital SAT portal, which tracks time studied and what to work on next — so the work actually gets done.'],
-    ['portal', 'Practice tests', 'Official-style, full-length tests at planned checkpoints, analyzed in the portal and aimed at weak spots, so test day feels familiar.'],
-    ['bell', 'Parent updates', 'You get a portal login and a weekly progress report, so you always know where your teen stands without having to nag.'],
+  const principles = [
+    {
+      title: 'Put the effort where the points are',
+      body: 'SAT passages are packed with extreme specifics. We teach students to tell those apart from the structural cues in the writing — the signals that actually carry value for test takers — so their energy goes to the things that matter most.',
+    },
+    {
+      title: 'Breeze through the passage. Scrutinize the answers.',
+      body: 'Most students pour their effort into reading the passage, then pick an answer quickly. We flip that. Students move briskly through the text, setting aside names, dates, and other concrete details unless they turn out to matter, and slow down on the answer choices — where a single word is often the difference between right and wrong. It feels like less effort, and it yields far more.',
+    },
+    {
+      title: 'Judgment, not just rules',
+      body: 'No one succeeds on the SAT by staying big-picture all the time, or by obsessing over every detail. The real skill is knowing which mode a question calls for. It’s the same judgment that separates successful college students — and we train it every week.',
+    },
+    {
+      title: 'Learn the SAT’s language',
+      body: 'Today’s SAT leans on algebra, basic geometry, and shorter passages. To separate students, test writers layer in difficulty another way: unconventional wording, common words used in unusual ways (“disrupt” or “consequence” with a positive meaning), and vocabulary that’s common in professional writing but outside most teens’ everyday speech. Some “pet words” (like engender) and “pet math concepts” (the unit circle, the altitude to the hypotenuse of a right triangle) show up again and again. We know what weighs most — so your teen does too.',
+    },
+    {
+      title: 'Desmos: a tool, not a shortcut',
+      body: 'Students hear that mastering the built-in Desmos graphing calculator is the secret to the Math section. We find those claims overblown. Desmos can save real time on certain questions — and become a trap on others. We teach students when it helps, and when to skip it.',
+    },
+    {
+      title: 'Always studying the newest test',
+      body: 'Since the SAT went digital, we’ve been among the first to analyze it and translate it for students and parents. We still learn something new every week, and it goes straight into how we teach.',
+    },
   ];
   return {
-    path: '/program/',
-    out: 'program/index.html',
-    title: 'The 12-Week SAT Blueprint Program | Live Online SAT Coaching',
-    description: 'Inside the 12-Week SAT Blueprint Program: live classes of 3–6, one-on-one, weekly office hours, a proprietary Digital SAT portal, practice tests, and a custom plan — all tracked, and mapped out in a free Roadmap Session.',
+    path: '/methodology/',
+    out: 'methodology/index.html',
+    title: 'Our SAT Methodology — How SAT Blueprint Teaches the Digital SAT',
+    description: 'The SAT is its own world, with its own language. See how SAT Blueprint teaches students to read smarter, use judgment, learn the test’s language, and use Desmos the right way.',
     schema: [
       {
         '@type': 'Course',
-        '@id': `${SITE.url}/program/#course`,
-        name: 'The 12-Week SAT Blueprint Program',
-        description: 'Live online SAT coaching for high schoolers: a diagnostic, a week-by-week plan, live small-group classes of 3–6 students, one-on-one time, weekly office hours, a proprietary Digital SAT portal, and practice tests — with accountability and everything tracked.',
+        '@id': `${SITE.url}/methodology/#course`,
+        name: 'The SAT Blueprint Program',
+        description: 'Live online SAT coaching for high schoolers: weekly live instruction classes, 1-on-1 support, office hours, mock exams, weekly homework, a Digital SAT study portal, and weekly progress reports.',
         provider: { '@id': ORG_ID },
         educationalLevel: 'High school',
-        teaches: 'Digital SAT Reading and Writing, SAT Math, test-taking strategy, pacing, and time management',
+        teaches: 'Digital SAT Reading and Writing, SAT Math, test-taking strategy, pacing, and Desmos',
         inLanguage: 'en',
-        timeRequired: 'P12W',
         hasCourseInstance: {
           '@type': 'CourseInstance',
           courseMode: 'Online',
-          location: { '@type': 'VirtualLocation', url: `${SITE.url}/program/` },
+          location: { '@type': 'VirtualLocation', url: `${SITE.url}/methodology/` },
           instructor: [{ '@id': PERSON_ID }, { '@id': ALEX_ID }],
-          courseSchedule: { '@type': 'Schedule', repeatFrequency: 'P1W', duration: 'P12W' },
         },
       },
-      breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Program', path: '/program/' }]),
+      breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Methodology', path: '/methodology/' }]),
     ],
     body: `
 ${pageHero({
-  eyebrow: 'The 12-Week Program',
-  title: 'A live, personalized path <span>to a higher SAT score.</span>',
-  sub: 'The 12-Week SAT Blueprint Program is live online SAT coaching built around a higher score — not a tutoring center and not a video library. It starts with a diagnosis of where your teen is losing points, then a plan delivered by founder Patrick Spano, Educational Director Alex Torres, and a team of SAT specialists and tutors. Patrick runs every Roadmap Session. Book one and leave with a plan, whether you join or not.',
-  crumbs: [{ name: 'Program', path: '/program/' }],
+  eyebrow: 'Our methodology',
+  title: 'The SAT is its own world. <span>We teach your teen its language.</span>',
+  sub: 'The SAT has its own language: advanced vocabulary, hyper-professional writing, and math questions asked in deliberately unusual ways. It’s intimidating, and even motivated students struggle to stay with something that feels that foreign. Our job is to make it familiar — and then make it work for your teen.',
+  crumbs: [{ name: 'Methodology', path: '/methodology/' }],
 })}
 
 <section class="section">
-  <div class="wrap overview-grid">
-    <div class="reveal">
-      ${eyebrow('Program overview')}
-      <h2 class="h2">One program. <span>Twelve focused weeks.</span></h2>
-      <p>The 12-Week SAT Blueprint Program starts with a diagnosis of exactly where your teen is losing points, turns that into a week-by-week plan, and delivers it through Assess, Address, and Success: live classes of 3–6, one-on-one, weekly office hours, our Digital SAT portal, and practice tests — with accountability, and everything tracked. It’s built for juniors and seniors, so they can prepare without burnout, wasted time, or falling behind in school.</p>
-      <p>Everything is online over Google Meet, so there’s no commute — and families outside Florida join just as easily as families in Deerfield Beach.</p>
-    </div>
-    <ul class="contrast-list reveal" aria-label="What the program includes">
-      <li class="is">${icon('check', { size: 18 })} Live instruction with real feedback</li>
-      <li class="is">${icon('check', { size: 18 })} A plan built from your teen’s diagnostic</li>
-      <li class="is">${icon('check', { size: 18 })} Small groups — 3–6 students max</li>
-      <li class="is">${icon('check', { size: 18 })} The Digital SAT portal, plus practice tests</li>
-      <li class="is">${icon('check', { size: 18 })} Accountability, with everything tracked</li>
-      <li class="not">${icon('close', { size: 18 })} Not a pre-recorded video library</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section bg-ink" id="included">
   <div class="wrap">
     <div class="split-head reveal">
       <div>
-        ${eyebrow('What’s included', 'on-dark')}
-        <h2 class="h2 on-dark">Everything your teen needs <span>to master the SAT.</span></h2>
+        ${eyebrow('How we teach')}
+        <h2 class="h2">Six principles <span>behind every lesson.</span></h2>
       </div>
-      <p class="lead on-dark">${INCLUDES_INTRO}</p>
+      <p class="lead">Built by Educational Director Alex Torres from 17 years of teaching the SAT, and used in every class, office hour, and homework assignment.</p>
     </div>
-    ${includesGrid()}
-  </div>
-</section>
-
-<section class="section" id="weekly-experience">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('The weekly experience')}
-      <h2 class="h2">What your teen’s week <span>actually looks like.</span></h2>
-      <p class="lead">Homework and reminders aren’t an afterthought — they’re part of the system. Here’s the loop your teen runs through the program.</p>
-    </div>
-    <ol class="flow">
-      ${experience.map(([ic, t, b], i) => `<li class="flow-step reveal"><span class="flow-ico">${icon(ic, { size: 22 })}</span><p class="flow-n">0${i + 1}</p><h3>${t}</h3><p>${b}</p></li>`).join('')}
+    <ol class="principles">
+      ${principles.map((p, i) => `<li class="principle reveal"><span class="pr-n">0${i + 1}</span><div><h3>${p.title}</h3><p>${p.body}</p></div></li>`).join('')}
     </ol>
   </div>
 </section>
 
-<section class="section bg-surface" id="one-on-one">
-  <div class="wrap split">
-    <div class="reveal">
-      ${eyebrow('One-on-one, built in')}
-      <h2 class="h2">Individual attention <span>where it counts.</span></h2>
-      <p>There’s real one-on-one time built in — a personal onboarding, plus short sessions with Patrick when your teen needs them. Combined with small live groups (3–6 students) and a fully personalized plan, they get individual attention where it counts.</p>
-      <p>There’s no separate tutoring package to add on. One-on-one time is built into the 12-Week SAT Blueprint Program, along with a personal onboarding.</p>
+<section class="section bg-surface">
+  <div class="wrap">
+    <div class="center-head reveal">
+      ${eyebrow('Inside the program')}
+      <h2 class="h2">How it comes together <span>each week.</span></h2>
+      <p class="lead">Live online over Google Meet, in small groups of 3–6 students.</p>
     </div>
-    <div class="quote-panel reveal">
-      ${stars(5)}
-      <blockquote><p>“${T.david.quote}”</p></blockquote>
-      <p class="qp-attr">— David C., Parent of Adin · Miami, FL</p>
+    <div class="method-inc reveal" style="margin-top:0">
+      <ul class="mi-chips">
+        <li>${icon('live', { size: 16 })}Weekly live instruction classes</li>
+        <li>${icon('users', { size: 16 })}1-on-1 support</li>
+        <li>${icon('office', { size: 16 })}Office hours</li>
+        <li>${icon('clock', { size: 16 })}Mock exams</li>
+        <li>${icon('plan', { size: 16 })}Weekly homework assignments</li>
+        <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
+        <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
+      </ul>
     </div>
+    <p class="center mt-md stepup-line">${icon('shield', { size: 16 })} Pricing is personalized. Florida families who qualify for Step Up For Students (PEP) can often use those funds — we’re an approved provider. We’ll cover the details on your Roadmap Session.</p>
   </div>
 </section>
 
-${methodSection({ intro: 'A clear, step-by-step approach that turns confusion into confidence and preparation into performance — designed for high school students, and explained in a way parents can follow.' })}
-
-${scheduleSection()}
-
-${parentBlock()}
-
-<section class="section" id="step-up">
-  <div class="wrap split">
-    <div class="reveal">
-      ${eyebrow('Pricing & Florida funding', 'gold')}
-      <h2 class="h2">Personalized pricing. <span>Step Up For Students welcome.</span></h2>
-      <p>Pricing is personalized to your teen’s goals and timeline. Florida families who qualify for Step Up For Students (PEP) can often use those funds for our tutoring — we’re an approved provider, which can mean little or no out-of-pocket cost. We’ll cover the details on your Roadmap Session.</p>
-      <a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>
-      ${reassure()}
-    </div>
-    <div class="stepup-card reveal">
-      <span class="su-ico">${icon('shield', { size: 34 })}</span>
-      <p class="su-title">Approved Provider</p>
-      <p class="su-sub">Step Up For Students</p>
-      <p>Ask about using PEP funds on your Roadmap Session.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-surface" id="program-faq">
-  <div class="wrap narrow">
-    <div class="sec-head reveal">
-      ${eyebrow('Program questions')}
-      <h2 class="h2">Questions parents <span>ask most.</span></h2>
-    </div>
-    ${faqAccordion(['different', 'one-on-one', 'cost'].map(faqById), { idPrefix: 'pfaq' })}
-    <p class="center mt-md"><a class="link-arrow" href="/faq/">See all FAQs ${icon('arrow', { size: 16 })}</a></p>
-  </div>
-</section>
-
-<div class="section-gap"></div>
 ${finalCta()}
 `,
   };

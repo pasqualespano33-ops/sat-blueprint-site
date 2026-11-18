@@ -10,7 +10,7 @@ export const esc = (s = '') =>
 
 export const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/program/', label: 'Program' },
+  { href: '/methodology/', label: 'Methodology' },
   { href: '/results/', label: 'Results' },
   { href: '/about/', label: 'About' },
   { href: '/reviews/', label: 'Reviews' },
@@ -214,7 +214,7 @@ export function footer({ hideMobileBar = false } = {}) {
       <div class="ft-col">
         <h2 class="ft-h">The Program</h2>
         <ul>
-          <li><a href="/program/">The 12-Week SAT Blueprint Program</a></li>
+          <li><a href="/methodology/">Our Methodology</a></li>
           <li><a href="/book/">Book a Free Roadmap Session</a></li>
           <li><a href="/results/">Student Results</a></li>
           <li><a href="/contact/">Contact</a></li>

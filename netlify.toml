@@ -12,6 +12,16 @@
   status = 301
 
 [[redirects]]
+  from = "/program"
+  to = "/methodology/"
+  status = 301
+
+[[redirects]]
+  from = "/program/*"
+  to = "/methodology/"
+  status = 301
+
+[[redirects]]
   from = "/blog/*"
   to = "/"
   status = 301
