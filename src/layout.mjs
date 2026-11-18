@@ -13,8 +13,6 @@ export const NAV = [
   { href: '/program/', label: 'Program' },
   { href: '/results/', label: 'Results' },
   { href: '/about/', label: 'About' },
-  { href: '/blog/', label: 'Blog' },
-  { href: '/reviews/', label: 'Reviews' },
   { href: '/faq/', label: 'FAQ' },
 ];
 
@@ -218,7 +216,6 @@ export function footer({ hideMobileBar = false } = {}) {
           <li><a href="/program/">The 12-Week SAT Blueprint Program</a></li>
           <li><a href="/book/">Book a Free Roadmap Session</a></li>
           <li><a href="/results/">Student Results</a></li>
-          <li><a href="/blog/">SAT Blog for Parents</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
@@ -305,12 +302,6 @@ export function trustBar() {
   return `<section class="proof-row" aria-label="Why families trust SAT Blueprint">
   <div class="wrap pr-inner">
     ${STATS.map((s) => `<div class="pr-stat"><p class="pr-num">${s.num}</p><p class="pr-lbl">${s.label}</p></div>`).join('')}
-    <ul class="pr-creds">
-      <li>${icon('check', { size: 15 })}Yale Graduate</li>
-      <li>${icon('check', { size: 15 })}Perfect SAT Scorer</li>
-      <li>${icon('check', { size: 15 })}15+ Years Coaching</li>
-      <li>${icon('shield', { size: 15 })}Approved Step Up For Students Provider</li>
-    </ul>
   </div>
 </section>`;
 }
@@ -441,7 +432,6 @@ export function trustAside({ quote } = {}) {
       <div><p class="ta-name">Patrick Spano</p><p class="ta-role">Co-founder</p></div>
     </div>
     <ul class="ta-list">
-      <li>${icon('check', { size: 16 })}<span><strong>150+</strong> avg. point improvement</span></li>
       <li>${icon('check', { size: 16 })}<span><strong>2,000+</strong> families helped</span></li>
       <li>${icon('check', { size: 16 })}<span><strong>$1,500,000+</strong> in scholarships earned</span></li>
       <li>${icon('check', { size: 16 })}<span>Yale graduate · Perfect SAT Scorer</span></li>

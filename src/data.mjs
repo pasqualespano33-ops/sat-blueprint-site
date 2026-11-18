@@ -2,9 +2,10 @@
 // embedded video testimonials). Do not add entries that haven't happened.
 
 export const STATS = [
-  { num: '150+', label: 'Avg. point improvement' },
   { num: '2,000+', label: 'Families helped' },
   { num: '$1,500,000+', label: 'In scholarships earned' },
+  { num: '1600', label: 'Top student score (perfect)' },
+  { num: '3–6', label: 'Students per live class' },
 ];
 
 export const CREDENTIALS = [
