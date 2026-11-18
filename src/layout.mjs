@@ -10,7 +10,7 @@ export const esc = (s = '') =>
 
 export const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/methodology/', label: 'Methodology' },
+  { href: '/method/', label: 'The Method', title: 'The Method' },
   { href: '/results/', label: 'Results' },
   { href: '/about/', label: 'About' },
   { href: '/reviews/', label: 'Reviews' },
@@ -137,7 +137,7 @@ ${page.headExtra || ''}
 function navLinks(current, cls) {
   return NAV.map(
     (n) =>
-      `<li><a class="${cls}" href="${n.href}"${isCurrent(current, n.href) ? ' aria-current="page"' : ''}>${n.label}</a></li>`,
+      `<li><a class="${cls}" href="${n.href}"${n.title ? ` title="${n.title}"` : ''}${isCurrent(current, n.href) ? ' aria-current="page"' : ''}>${n.label}</a></li>`,
   ).join('');
 }
 
@@ -207,14 +207,14 @@ export function footer({ hideMobileBar = false } = {}) {
       <nav class="ft-col" aria-label="Footer">
         <h2 class="ft-h">Explore</h2>
         <ul>
-          ${NAV.map((n) => `<li><a href="${n.href}">${n.label}</a></li>`).join('')}
+          ${NAV.map((n) => `<li><a href="${n.href}">${n.title || n.label}</a></li>`).join('')}
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
       <div class="ft-col">
         <h2 class="ft-h">The Program</h2>
         <ul>
-          <li><a href="/methodology/">Our Methodology</a></li>
+          <li><a href="/method/">The Method</a></li>
           <li><a href="/book/">Book a Free Roadmap Session</a></li>
           <li><a href="/results/">Student Results</a></li>
           <li><a href="/contact/">Contact</a></li>

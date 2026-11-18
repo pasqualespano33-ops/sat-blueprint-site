@@ -282,7 +282,8 @@ ${founderBlock()}
         <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
         <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
       </ul>
-      <a class="link-arrow" href="/methodology/">See how we teach the SAT ${icon('arrow', { size: 16 })}</a>
+      <p class="mi-more">Go deeper on how Assess, Address, and Success teach the language of the SAT.</p>
+      <a class="link-arrow" href="/method/">See how the method works ${icon('arrow', { size: 16 })}</a>
     </div>
   </div>
 </section>
@@ -315,100 +316,210 @@ ${finalCta()}
   };
 }
 
-// ── METHODOLOGY (was Program) ───────────────────────────────────────────────
+// ── THE SAT BLUEPRINT METHOD ────────────────────────────────────────────────
+// Spec: method_page_for_coder.md. Titles follow Patrick's instruction:
+// Patrick = Founder, Alex = Educational Director.
 function program() {
-  const principles = [
+  const steps = [
     {
-      title: 'Put the effort where the points are',
-      body: 'SAT passages are packed with extreme specifics. We teach students to tell those apart from the structural cues in the writing — the signals that actually carry value for test takers — so their energy goes to the things that matter most.',
+      n: '01', key: 'Assess', head: 'We find where your teen is getting lost in translation.',
+      short: 'A diagnostic and the portal show which question types, wording, and traps are costing them points — and where their effort is going to the wrong places.',
+      more: 'We look at gaps, strategy mistakes, and timing, including what the Knowledge and Skills section of the score report is already showing. The point isn’t to assign more practice. It’s to see, clearly, which habits use a lot of energy and earn few points, so the plan starts there. Then we build a week-by-week plan around their target score and test date.',
     },
     {
-      title: 'Breeze through the passage. Scrutinize the answers.',
-      body: 'Most students pour their effort into reading the passage, then pick an answer quickly. We flip that. Students move briskly through the text, setting aside names, dates, and other concrete details unless they turn out to matter, and slow down on the answer choices — where a single word is often the difference between right and wrong. It feels like less effort, and it yields far more.',
+      n: '02', key: 'Address', head: 'We teach the language — and where the points really are.',
+      short: 'Live classes, specialists, and practice in the portal teach the wording the College Board actually uses, how to decode the math, and when to apply each Blueprint strategy.',
+      more: 'In reading, that means moving quickly through names, dates, and concrete details — unless they later turn out to be critical — and slowing down on the answer choices, where a single word often separates right from wrong. In math, we focus on the topics the SAT tests most, and we teach when a tool like Desmos actually saves time, instead of treating it as a shortcut for everything. SAT specialists deliver this in live classes of 3–6, with one-on-one and office hours when something stays stuck.',
     },
     {
-      title: 'Judgment, not just rules',
-      body: 'No one succeeds on the SAT by staying big-picture all the time, or by obsessing over every detail. The real skill is knowing which mode a question calls for. It’s the same judgment that separates successful college students — and we train it every week.',
-    },
-    {
-      title: 'Learn the SAT’s language',
-      body: 'Today’s SAT leans on algebra, basic geometry, and shorter passages. To separate students, test writers layer in difficulty another way: unconventional wording, common words used in unusual ways (“disrupt” or “consequence” with a positive meaning), and vocabulary that’s common in professional writing but outside most teens’ everyday speech. Some “pet words” (like engender) and “pet math concepts” (the unit circle, the altitude to the hypotenuse of a right triangle) show up again and again. We know what weighs most — so your teen does too.',
-    },
-    {
-      title: 'Desmos: a tool, not a shortcut',
-      body: 'Students hear that mastering the built-in Desmos graphing calculator is the secret to the Math section. We find those claims overblown. Desmos can save real time on certain questions — and become a trap on others. We teach students when it helps, and when to skip it.',
-    },
-    {
-      title: 'Always studying the newest test',
-      body: 'Since the SAT went digital, we’ve been among the first to analyze it and translate it for students and parents. We still learn something new every week, and it goes straight into how we teach.',
+      n: '03', key: 'Success', head: 'Those choices become instinct under pressure.',
+      short: 'Timed practice and progress tracking until the test feels familiar instead of intimidating.',
+      more: 'The portal tracks progress, time studied, and everything your teen does, then gives feedback on what to work on next. Parents get a portal login and a weekly progress report. By test day, the judgment — when to skim, when to focus, when to use a tool and when to skip it — is already practiced. The test feels like one more practice test, not a scary new thing.',
     },
   ];
+  const why = [
+    ['A team of SAT specialists', 'Not generalist tutors. Instructors who live in this test, and know which words, question types, and math ideas carry extra weight.'],
+    ['Live classes of 3–6', 'Small enough that your teen isn’t lost in a crowd. Real instruction and feedback, not a stack of videos to watch alone.'],
+    ['A mix of instruction formats', 'Live classes, one-on-one, weekly office hours, and practice in the portal — the right medium for the work at hand.'],
+    ['Real accountability', 'Homework, reminders, and follow-through, so prep doesn’t disappear behind sports and AP classes — and you’re not the one nagging.'],
+    ['A powerful Digital SAT portal', 'It tracks progress, time studied, and everything your teen does, then gives feedback on what to work on next.'],
+    ['Parents stay in the loop', 'You get a portal login and a weekly progress report, so you always know where your teen stands.'],
+  ];
+  const alexImg = SITE.alexPhoto
+    ? `<img class="dq-photo" src="${SITE.alexPhoto}" alt="Alex Torres, Educational Director of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
+    : '<span class="dq-photo team-initials" aria-hidden="true">AT</span>';
   return {
-    path: '/methodology/',
-    out: 'methodology/index.html',
-    title: 'Our SAT Methodology — How SAT Blueprint Teaches the Digital SAT',
-    description: 'The SAT is its own world, with its own language. See how SAT Blueprint teaches students to read smarter, use judgment, learn the test’s language, and use Desmos the right way.',
+    path: '/method/',
+    out: 'method/index.html',
+    title: 'The SAT Blueprint Method™ — How We Teach the Language of the SAT',
+    description: 'The SAT is its own language. See how the 12-Week SAT Blueprint Program teaches it through Assess, Address, and Success — so your teen learns where to put their effort, not just how to study more. Book a free Roadmap Session.',
     schema: [
       {
         '@type': 'Course',
-        '@id': `${SITE.url}/methodology/#course`,
-        name: 'The SAT Blueprint Program',
-        description: 'Live online SAT coaching for high schoolers: weekly live instruction classes, 1-on-1 support, office hours, mock exams, weekly homework, a Digital SAT study portal, and weekly progress reports.',
+        '@id': `${SITE.url}/method/#course`,
+        name: 'The 12-Week SAT Blueprint Program',
+        description: 'Live online SAT coaching for high schoolers built on the SAT Blueprint Method: Assess, Address, Success. Live classes of 3–6, one-on-one support, office hours, mock exams, weekly homework, a Digital SAT study portal, and weekly progress reports.',
         provider: { '@id': ORG_ID },
         educationalLevel: 'High school',
-        teaches: 'Digital SAT Reading and Writing, SAT Math, test-taking strategy, pacing, and Desmos',
+        teaches: 'Digital SAT Reading and Writing, SAT Math, test-taking judgment, pacing, and Desmos',
         inLanguage: 'en',
+        timeRequired: 'P12W',
         hasCourseInstance: {
           '@type': 'CourseInstance',
           courseMode: 'Online',
-          location: { '@type': 'VirtualLocation', url: `${SITE.url}/methodology/` },
+          location: { '@type': 'VirtualLocation', url: `${SITE.url}/method/` },
           instructor: [{ '@id': PERSON_ID }, { '@id': ALEX_ID }],
         },
       },
-      breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Methodology', path: '/methodology/' }]),
+      breadcrumbs([{ name: 'Home', path: '/' }, { name: 'The Method', path: '/method/' }]),
     ],
     body: `
-${pageHero({
-  eyebrow: 'Our methodology',
-  title: 'The SAT is its own world. <span>We teach your teen its language.</span>',
-  sub: 'The SAT has its own language: advanced vocabulary, hyper-professional writing, and math questions asked in deliberately unusual ways. It’s intimidating, and even motivated students struggle to stay with something that feels that foreign. Our job is to make it familiar — and then make it work for your teen.',
-  crumbs: [{ name: 'Methodology', path: '/methodology/' }],
-})}
-
-<section class="section">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        ${eyebrow('How we teach')}
-        <h2 class="h2">Six principles <span>behind every lesson.</span></h2>
-      </div>
-      <p class="lead">Built by Educational Director Alex Torres from 17 years of teaching the SAT, and used in every class, office hour, and homework assignment.</p>
+<section class="page-hero method-hero">
+  <div class="wrap mh-grid">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">The Method</span></li></ol></nav>
+      ${eyebrow('The SAT Blueprint Method™')}
+      <h1 class="ph-title">The SAT is its own language. <span>We teach your teen how to read it.</span></h1>
+      <p class="ph-sub">The vocabulary is advanced, the passages read like professional writing, and the math questions ask for answers in ways no classroom does. Motivated students still stall — not for lack of effort, but because they haven’t learned how the test communicates. The 12-Week SAT Blueprint Program teaches that language, and the judgment to know where to put their energy.</p>
+      ${ctaPair({ dark: false })}
+      ${reassure()}
     </div>
-    <ol class="principles">
-      ${principles.map((p, i) => `<li class="principle reveal"><span class="pr-n">0${i + 1}</span><div><h3>${p.title}</h3><p>${p.body}</p></div></li>`).join('')}
+    <ol class="mh-diagram" aria-label="The SAT Blueprint Method in four steps">
+      <li><span class="mh-dot" aria-hidden="true"></span>The SAT is its own language</li>
+      <li><span class="mh-dot" aria-hidden="true"></span>The Blueprint teaches it</li>
+      <li><span class="mh-dot" aria-hidden="true"></span>Judgment is the skill</li>
+      <li class="is-gold"><span class="mh-dot" aria-hidden="true"></span>Assess · Address · Success</li>
     </ol>
   </div>
 </section>
 
-<section class="section bg-surface">
+<section class="section" id="language">
+  <div class="wrap lang-grid">
+    <div class="reveal">
+      ${eyebrow('Why the test feels harder than it should')}
+      <h2 class="h2">The SAT is its own world, <span>with its own language.</span></h2>
+      <div class="prose-sm">
+        <p>For most teens, the SAT has a high intimidation factor. The wording is unfamiliar. Common words show up with unexpected meanings. Math answers are requested in ways that don’t look like homework. It’s hard to stay motivated when the test feels designed to trip them up.</p>
+        <p>The problem usually isn’t intelligence or work ethic. They just haven’t learned the language yet.</p>
+        <p>The test emphasizes algebra, basic geometry, and shorter passages — a design meant to keep it fair and accessible. To still differentiate students, difficulty gets layered in other ways: unconventional wording, unusual uses of everyday words, and vocabulary that’s common in literature and the professional world, but outside most students’ working vocabulary. The SAT also has favorite words and favorite math ideas — the ones that come up again and again.</p>
+        <p>That’s what the SAT Blueprint is: a guide to how the test thinks, so your teen can stop guessing and start recognizing what each question is really asking.</p>
+      </div>
+    </div>
+    <div class="lang-cards reveal" aria-label="How the SAT layers difficulty">
+      <p class="lc-title">How the SAT layers difficulty</p>
+      <div class="lc"><p class="lc-label">Word</p><p class="lc-ex">engender</p><p>A SAT “pet word.” Most students rarely use it. The test does.</p></div>
+      <div class="lc"><p class="lc-label">Word</p><p class="lc-ex">disrupt, consequence</p><p>Everyday words the SAT sometimes uses with a positive meaning — not the way students expect.</p></div>
+      <div class="lc"><p class="lc-label">Math</p><p class="lc-ex">the unit circle</p><p>A favorite SAT math idea, along with others like the altitude to the hypotenuse of a right triangle. These carry extra weight on this test.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-surface" id="judgment">
+  <div class="wrap judgment reveal">
+    ${eyebrow('What students actually learn')}
+    <h2 class="h2">The real skill is <span>judgment.</span></h2>
+    <p>Students can’t be detail-focused all the time, or general all the time. They need to know which one each moment calls for.</p>
+    <p>That’s the same kind of judgment a successful college student develops — knowing when to bear down and when to ease up, when a situation calls for precision and when it calls for speed. It’s not just a test-taking trick. It’s the skill that separates a student who works hard from a student who works on the right things.</p>
+    <p>The Blueprint builds that judgment. Assess, Address, and Success are the three stages of getting there.</p>
+    <p class="judgment-pull">That’s the skill the Blueprint builds.</p>
+  </div>
+</section>
+
+<section class="section" id="assess-address-success">
   <div class="wrap">
     <div class="center-head reveal">
-      ${eyebrow('Inside the program')}
-      <h2 class="h2">How it comes together <span>each week.</span></h2>
-      <p class="lead">Live online over Google Meet, in small groups of 3–6 students.</p>
+      ${eyebrow('The three stages')}
+      <h2 class="h2">Assess. Address. <span>Success.</span></h2>
+      <p class="lead">This is how the 12-Week SAT Blueprint Program turns the language of the SAT into habit.</p>
     </div>
-    <div class="method-inc reveal" style="margin-top:0">
-      <ul class="mi-chips">
-        <li>${icon('live', { size: 16 })}Weekly live instruction classes</li>
-        <li>${icon('users', { size: 16 })}1-on-1 support</li>
-        <li>${icon('office', { size: 16 })}Office hours</li>
-        <li>${icon('clock', { size: 16 })}Mock exams</li>
-        <li>${icon('plan', { size: 16 })}Weekly homework assignments</li>
-        <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
-        <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
-      </ul>
+    <ol class="stage-line">
+      ${steps.map((s, i) => `<li class="stage reveal">
+        <span class="st-n">${s.n}</span>
+        <p class="st-key">${s.key}</p>
+        <h3>${s.head}</h3>
+        <p>${s.short}</p>
+        <div class="st-more" id="stage-more-${i}" hidden><p>${s.more}</p></div>
+        <button type="button" class="st-toggle" data-more aria-expanded="false" aria-controls="stage-more-${i}"><span>Learn more</span>${icon('plus', { size: 16 })}</button>
+      </li>`).join('')}
+    </ol>
+  </div>
+</section>
+
+<section class="section bg-surface" id="reading">
+  <div class="wrap">
+    <div class="center-head reveal">
+      ${eyebrow('Reading and Writing')}
+      <h2 class="h2">How most students read <span>vs. how we teach.</span></h2>
+      <p class="lead">Most students put their energy into the passage and pick an answer relatively quickly. We flip that.</p>
     </div>
-    <p class="center mt-md stepup-line">${icon('shield', { size: 16 })} Pricing is personalized. Florida families who qualify for Step Up For Students (PEP) can often use those funds — we’re an approved provider. We’ll cover the details on your Roadmap Session.</p>
+    <div class="vs-grid">
+      <div class="vs-card reveal">
+        <p class="vs-head">How most students read</p>
+        <ul>
+          <li>Spend the most effort on the text itself</li>
+          <li>Hang on to names, dates, and concrete details</li>
+          <li>Choose an answer relatively quickly</li>
+          <li>A lot of effort, not enough return</li>
+        </ul>
+      </div>
+      <div class="vs-card is-us reveal">
+        <p class="vs-head"><span class="vs-badge">SAT Blueprint</span>How we teach it</p>
+        <ul>
+          <li>Breeze through the passage first</li>
+          <li>Deprioritize specifics unless they later prove critical</li>
+          <li>Read the answer choices with much more attention — often one word is the difference</li>
+          <li>Feels like less effort, and they extract more value</li>
+        </ul>
+      </div>
+    </div>
+    <p class="vs-close reveal">We teach students to tell the difference between the extreme specifics of SAT passages and the structural cues in the writing that actually help them. That’s judgment, applied to Reading and Writing.</p>
+  </div>
+</section>
+
+<section class="section" id="desmos">
+  <div class="wrap">
+    <div class="desmos reveal">
+      ${eyebrow('Math, and a common myth')}
+      <h2 class="h2">Desmos can help. <span>It isn’t a shortcut for everything.</span></h2>
+      <div class="vs-grid">
+        <div class="vs-card"><p class="vs-head">The myth</p><p>Become extremely proficient at solving everything in Desmos, and you’ll have a big advantage.</p></div>
+        <div class="vs-card is-us"><p class="vs-head">The reality</p><p>Some of that chatter is exaggerated. Desmos can save real time and energy on certain questions — and for some students, those advantages are real. For many others, it becomes another place to get lost, if they’re using it in ways that don’t actually help.</p></div>
+      </div>
+      <p class="vs-close">The skill is the same one we teach everywhere else: knowing what is appropriate for a given situation. That’s what your teen gets from a team that focuses on the SAT, not a general tutoring center.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-ink" id="educational-director">
+  <div class="wrap dq reveal">
+    ${alexImg}
+    <div>
+      <p class="eyebrow on-dark">From our Educational Director</p>
+      <p class="dq-intro">Alex Torres, our Educational Director, puts the whole method in one idea:</p>
+      <blockquote class="dq-quote"><p>“A student can’t succeed by being general all the time, or by having high attention to detail all the time. They need the judgment to know which emphasis to have at which moment. It’s the judgment about what is appropriate at various moments that separates the successful college student — and test taker.”</p></blockquote>
+      <p class="dq-name">Alex Torres</p>
+      <p class="dq-role">Educational Director</p>
+      <p class="dq-creds">Yale graduate · 17 years as an SAT instructor · 3,500 instructional videos on YouTube</p>
+      <a class="link-arrow on-dark mt-sm" href="/about/">Meet the team ${icon('arrow', { size: 16 })}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why-it-works">
+  <div class="wrap">
+    <div class="center-head reveal">
+      ${eyebrow('Why this works in practice')}
+      <h2 class="h2">A method is only as strong <span>as how it’s delivered.</span></h2>
+      <p class="lead">Founder Patrick Spano and Educational Director Alex Torres are the minds behind the SAT Blueprint Method™. Patrick runs every Roadmap Session. A team of SAT specialists and tutors delivers the work alongside them.</p>
+    </div>
+    <div class="why6">
+      ${why.map(([t, b]) => `<article class="why6-card reveal"><h3>${t}</h3><p>${b}</p></article>`).join('')}
+    </div>
+    <div class="center mt-lg reveal">
+      <p class="why-closer">When the SAT stops feeling like a foreign language, your teen can put their effort where it actually counts.</p>
+      <a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
+      ${reassure()}
+    </div>
   </div>
 </section>
 

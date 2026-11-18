@@ -367,3 +367,17 @@
     btn.setAttribute('aria-pressed', 'true');
   });
 })();
+
+/* "Learn more" expanders (Method page stages) */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-more]'), function (btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var label = btn.querySelector('span');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      if (panel) panel.hidden = open;
+      if (label) label.textContent = open ? 'Learn more' : 'Show less';
+    });
+  });
+})();
