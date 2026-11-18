@@ -33,8 +33,8 @@ export const RESULTS = [
   { name: 'Sammi', delta: 240, tag: 'Video story', detail: '+240 point boost' },
   { name: 'Xavier', before: 1090, score: 1200, delta: 110, tag: 'Bright Futures', detail: 'Florida · Bright Futures 75%' },
   { name: 'Jordan', before: 930, score: 1100, delta: 170, tag: 'Biggest jumps', detail: '+170 points' },
-  { name: 'Eitan', before: 850, score: 1080, tag: 'Biggest jumps', detail: '' },
-  { name: 'Brooklyn', before: 1040, score: 1210, tag: 'Biggest jumps', detail: '' },
+  { name: 'Eitan', before: 850, score: 1080, delta: 230, tag: 'Biggest jumps', detail: '+230 points' },
+  { name: 'Brooklyn', before: 1040, score: 1210, delta: 170, tag: 'Biggest jumps', detail: '+170 points' },
 ];
 
 // Original screenshots (cropped; private details blurred or removed).

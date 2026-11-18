@@ -7,7 +7,7 @@ import { FAQS, faqById } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
-  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker,
+  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker, satCountdown,
   breadcrumbs, ORG_ID, PERSON_ID, ADDRESS, RISK_REDUCER,
 } from './layout.mjs';
 
@@ -213,7 +213,7 @@ function proofCard() {
 
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
-  const gallery = ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Eshaan', 'Jordan', 'Eitan', 'Brooklyn'].map((n) => R[n]);
+  const gallery = ['Eshaan', 'Eitan', 'Jordan', 'Brooklyn', 'Xavier', 'Tristan', 'Parent text', 'Sammi'].map((n) => R[n]).filter((r) => r && r.before);
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
   const vertical = Boolean(SITE.heroVideoFile);
   const hasVideo = vertical || Boolean(SITE.promoVideoYouTubeId);
@@ -257,6 +257,7 @@ function home() {
 </section>
 
 ${admitsTicker()}
+${satCountdown()}
 
 ${founderBlock()}
 
@@ -296,7 +297,7 @@ ${founderBlock()}
         <h2 class="h2 on-dark">The results <span>speak for themselves.</span></h2>
       </div>
       <div>
-        <p class="lead on-dark">Real messages from students and parents when the scores came in — from a perfect 1600 to 200-point jumps.</p>
+        <p class="lead on-dark">Real messages from students and parents — and the before-and-after scores behind them.</p>
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
@@ -306,7 +307,8 @@ ${founderBlock()}
         </a>
         <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
       </figure>`).join('')}</div>
-    <div class="score-grid mt-lg">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
+    <h3 class="group-title on-dark-title mt-lg reveal">Before → after</h3>
+    <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
     <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
     <p class="fine-print on-dark mt-md">Results shown are real outcomes from past SAT Blueprint students, not typical or future results. Individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations.</p>
   </div>

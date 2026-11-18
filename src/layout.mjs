@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { SITE, SCHEDULE, OFFICE_HOURS_TIME } from './config.mjs';
+import { SITE, SCHEDULE, OFFICE_HOURS_TIME, SAT_DATES } from './config.mjs';
 import { STATS, CREDENTIALS, ADMITS } from './data.mjs';
 import { icon, stars } from './icons.mjs';
 
@@ -307,6 +307,26 @@ function logoFile(slug) {
   return '';
 }
 
+export function satCountdown() {
+  if (!SAT_DATES.length) return '';
+  return `<section class="countdown" data-countdown='${JSON.stringify(SAT_DATES)}' hidden>
+  <div class="wrap cd-inner">
+    <div class="cd-copy">
+      <p class="cd-kick">Next SAT</p>
+      <p class="cd-date" data-cd-date></p>
+      <p class="cd-reg" data-cd-reg></p>
+    </div>
+    <ol class="cd-clock" aria-label="Time until the next SAT">
+      <li><span data-cd-d>0</span><em>Days</em></li>
+      <li><span data-cd-h>0</span><em>Hours</em></li>
+      <li><span data-cd-m>0</span><em>Minutes</em></li>
+      <li><span data-cd-s>0</span><em>Seconds</em></li>
+    </ol>
+    <div class="cd-cta"><a class="btn btn-primary" href="/book/">Book a Free Roadmap Session</a>${reassure('on-dark', { plan: false })}</div>
+  </div>
+</section>`;
+}
+
 export function admitsTicker({ link = true } = {}) {
   const items = ADMITS.map((a) => {
     const f = logoFile(a.logo);
@@ -475,27 +495,27 @@ export function finalCta() {
   <div class="fc-visual" aria-hidden="true">
     <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg" role="presentation">
       <defs>
-        <pattern id="bp-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#6FA6FF" stroke-opacity=".14"/></pattern>
-        <linearGradient id="bp-path" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#F0C040"/></linearGradient>
+        <pattern id="gap-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#6FA6FF" stroke-opacity=".12"/></pattern>
+        <linearGradient id="gap-dream" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0C040"/><stop offset="1" stop-color="#C89B2A" stop-opacity=".35"/></linearGradient>
+        <linearGradient id="gap-now" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1D5FD4" stop-opacity=".35"/></linearGradient>
+        <linearGradient id="gap-bridge" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#F0C040"/></linearGradient>
       </defs>
-      <rect width="360" height="480" fill="url(#bp-grid)"/>
-      <text x="28" y="44" fill="#F0C040" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="2.5">YOUR SAT ROADMAP</text>
-      <path d="M50 420 C 80 405, 95 382, 110 365 S 150 318, 175 290 S 222 228, 240 200 S 286 132, 300 112" fill="none" stroke="url(#bp-path)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/>
-      <g font-family="Montserrat, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#ffffff">
-        <circle cx="50" cy="420" r="9" fill="#0C1A2A" stroke="#3B82F6" stroke-width="3"/>
-        <text x="30" y="454" fill="#A6B2C4" font-size="10" letter-spacing="1.5">STARTING SCORE</text>
-        <circle cx="110" cy="365" r="7" fill="#3B82F6"/>
-        <text x="126" y="370">Diagnostic</text>
-        <circle cx="175" cy="290" r="7" fill="#3B82F6"/>
-        <text x="160" y="295" text-anchor="end">Your plan</text>
-        <circle cx="240" cy="200" r="7" fill="#6FA6FF"/>
-        <text x="225" y="205" text-anchor="end">Practice tests</text>
-        <circle cx="300" cy="112" r="11" fill="#F0C040"/>
-        <line x1="300" y1="112" x2="300" y2="72" stroke="#F0C040" stroke-width="3" stroke-linecap="round"/>
-        <path d="M300 72 l 26 9 -26 9 z" fill="#F0C040"/>
-        <text x="282" y="122" text-anchor="end" fill="#F0C040" font-size="10" letter-spacing="1.5">TARGET SCORE</text>
-        <text x="282" y="140" text-anchor="end">Test day</text>
+      <rect width="360" height="480" fill="url(#gap-grid)"/>
+      <rect x="36" y="300" width="78" height="140" rx="10" fill="url(#gap-now)"/>
+      <rect x="246" y="96" width="78" height="344" rx="10" fill="url(#gap-dream)"/>
+      <path d="M114 304 L246 100" stroke="url(#gap-bridge)" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round"/>
+      <g fill="none" stroke="#6FA6FF" stroke-opacity=".55" stroke-width="2">
+        <path d="M150 248 h24 M171 216 h24 M192 184 h24 M213 152 h24"/>
       </g>
+      <rect x="112" y="186" width="136" height="40" rx="20" fill="#0C1A2A" stroke="#F0C040" stroke-width="1.5"/>
+      <text x="180" y="211" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="12" font-weight="800" fill="#F0C040" letter-spacing="1.2">SAT BLUEPRINT</text>
+      <g font-family="Montserrat, Arial, sans-serif" font-weight="800" fill="#ffffff" text-anchor="middle">
+        <text x="75" y="282" font-size="11" letter-spacing="1.4" fill="#A6B2C4">CURRENT</text>
+        <text x="75" y="462" font-size="13">Today</text>
+        <text x="285" y="78" font-size="11" letter-spacing="1.4" fill="#F0C040">DREAM SCORE</text>
+        <text x="285" y="462" font-size="13">Test day</text>
+      </g>
+      <text x="180" y="40" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="11" font-weight="800" fill="#A6B2C4" letter-spacing="2.2">CLOSING THE GAP</text>
     </svg>
   </div>
   </div></div>

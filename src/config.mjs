@@ -107,3 +107,14 @@ export const UPCOMING_DATES = [];
 // { name: '', role: '', bio: '', photo: '/assets/img/coach-name.jpg', credentials: [] }
 // While empty, the About page features Patrick as head coach only.
 export const COACHES = [];
+
+// Upcoming SAT dates for the homepage countdown (US weekend administrations).
+// Source: College Board "SAT Suite Test Dates and Deadlines" (checked Nov 18, 2026).
+// The countdown always shows the next date after today; it hides itself when
+// the list runs out, so add next year's dates when College Board publishes them.
+export const SAT_DATES = [
+  { date: '2026-12-05', reg: 'Nov 20', late: 'Nov 24' },
+  { date: '2027-03-06', reg: 'Feb 19', late: 'Feb 23' },
+  { date: '2027-05-01' },
+  { date: '2027-06-05' },
+];

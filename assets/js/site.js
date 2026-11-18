@@ -407,3 +407,30 @@
     });
   });
 })();
+
+/* Next-SAT countdown (dates from config; test day ~8:00 AM Eastern) */
+(function () {
+  var el = document.querySelector('[data-countdown]');
+  if (!el) return;
+  var dates; try { dates = JSON.parse(el.getAttribute('data-countdown')); } catch (e) { return; }
+  var now = Date.now(), next = null;
+  for (var i = 0; i < dates.length; i++) {
+    var t = Date.parse(dates[i].date + 'T08:00:00-05:00');
+    if (t > now) { next = dates[i]; next.t = t; break; }
+  }
+  if (!next) return;
+  el.hidden = false;
+  var d = new Date(next.date + 'T12:00:00');
+  el.querySelector('[data-cd-date]').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  el.querySelector('[data-cd-reg]').textContent = next.reg ? 'Registration deadline: ' + next.reg + (next.late ? ' (late: ' + next.late + ')' : '') : 'Register early — seats fill up.';
+  var q = function (s) { return el.querySelector(s); };
+  var tick = function () {
+    var ms = Math.max(0, next.t - Date.now());
+    var s = Math.floor(ms / 1000);
+    q('[data-cd-d]').textContent = Math.floor(s / 86400);
+    q('[data-cd-h]').textContent = String(Math.floor(s % 86400 / 3600)).padStart(2, '0');
+    q('[data-cd-m]').textContent = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
+    q('[data-cd-s]').textContent = String(s % 60).padStart(2, '0');
+  };
+  tick(); setInterval(tick, 1000);
+})();
