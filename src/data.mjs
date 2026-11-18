@@ -34,6 +34,7 @@ export const RESULTS = [
   { name: 'Xavier', before: 1090, score: 1200, delta: 110, tag: 'Bright Futures', detail: 'Florida · Bright Futures 75%' },
   { name: 'Jordan', before: 930, score: 1100, delta: 170, tag: 'Biggest jumps', detail: '+170 points' },
   { name: 'Eitan', before: 850, score: 1080, delta: 230, tag: 'Biggest jumps', detail: '+230 points' },
+  { name: 'Mia J.', before: 930, score: 1060, delta: 130, tag: 'Biggest jumps', detail: '+130 points' },
   { name: 'Brooklyn', before: 1040, score: 1210, delta: 170, tag: 'Biggest jumps', detail: '+170 points' },
 ];
 
@@ -48,6 +49,7 @@ export const SCORE_REPORTS = [
 ];
 
 export const SCREENSHOTS = [
+  { file: 'mia-930-1060', h: 1073, title: 'Mia J.', result: '930 → 1060 · +130', alt: 'Text from Mia with two College Board score reports: 930 total (430 Reading and Writing, 500 Math), then 1060 total (520 Reading and Writing, 540 Math) — “You’ve improved 130 points since your last SAT test!” Mia: “Here is my updated SAT scores from two weeks ago! Before and after!” Patrick replies “Hi wow that’s amazing!”' },
   { file: 'harry-1510', h: 940, title: 'Harry G.', result: '1510 superscore · 780 Math', featured: true, alt: 'Text from Harry: “I got a 780 on math and a 700 on English so my superscore is now a 1510!” Patrick replies “My guy, 780, Damn.” Later Harry writes: “Hey Patrick. I just wanted to thank you for being so helpful throughout the time I was testing. I had a lot of fun working with you!”' },
   { file: 'mark-parent-1490', h: 902, title: 'Mark’s parent', result: '1490', featured: true, alt: 'Text from Mark’s parent: “Hey Mark SAT is 1490 :) THANK YOU SO MUCH!!!! I think we are done trying what do you think.” Patrick replies: “That is a very good score, it all depends what schools he is trying to get into what his college counselor thinks.”' },
   { file: 'annabel-1550', h: 774, title: 'Annabel', result: '1550 · 750 Reading · 800 Math', featured: true, alt: 'Text from Annabel: “Good Morning, It’s Annabel… I got a 1550: 750 reading and 800 math. Thank you so much for helping me get there!” Patrick replies “That’s amazing!” and “Yale here you come.” Annabel: “Hopefully.”' },

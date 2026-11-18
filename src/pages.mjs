@@ -8,7 +8,7 @@ import { FAQS, faqById } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
-  proofNote, scoreReport, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker, satCountdown,
+  proofNote, scoreReport, jumpCard, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker, satCountdown,
   breadcrumbs, ORG_ID, PERSON_ID, ADDRESS, RISK_REDUCER,
 } from './layout.mjs';
 
@@ -72,12 +72,12 @@ function notesWall(notes = PROOF_NOTES) {
   return `<div class="notes-grid">${notes.map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>`;
 }
 
-function shotFig(s, cls = '') {
+function shotFig(s, cls = '', { caption = true } = {}) {
   return `<figure class="shot${cls} reveal">
         <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
           <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="${s.h || 900}" loading="lazy"></picture>
         </a>
-        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
+        ${caption ? `<figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>` : ''}
       </figure>`;
 }
 const shotBy = (f) => SCREENSHOTS.find((x) => x.file === f);
@@ -224,7 +224,11 @@ function proofCard() {
 
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
-  const gallery = ['Eitan', 'Eshaan', 'Brooklyn'].map((n) => R[n]);
+  const jumps = [
+    { name: 'Eitan', before: 850, after: 1080, quote: '“Tysm up by 200+ from last score”' },
+    { name: 'Eshaan', before: 1230, after: 1430, when: 'in 12 weeks', quote: '“We went from unprepared and lacking confidence to a 200 point boost.” — Eshaan’s parent' },
+    { name: 'Mia J.', before: 930, after: 1060, when: 'in 1 month', quote: '“Here is my updated SAT scores… Before and after!”' },
+  ];
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
   const vertical = Boolean(SITE.heroVideoFile);
   const hasVideo = vertical || Boolean(SITE.promoVideoYouTubeId);
@@ -312,9 +316,9 @@ ${founderBlock()}
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="shot-feature">${['harry-1510', 'mark-parent-1490', 'annabel-1550'].map((f) => shotFig(shotBy(f))).join('')}</div>
-    <h3 class="group-title on-dark-title mt-lg reveal">Before → after</h3>
-    <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
+    <div class="shot-feature" tabindex="0" role="region" aria-label="Original text messages from students and parents">${['harry-1510', 'mark-parent-1490', 'annabel-1550', 'liana-1420', 'mauricio-1350', 'mia-930-1060'].map((f) => shotFig(shotBy(f), '', { caption: false })).join('')}</div>
+    <h3 class="group-title on-dark-title mt-lg reveal">Biggest score jumps</h3>
+    <div class="jump-grid">${jumps.map((j) => `<div class="reveal">${jumpCard(j)}</div>`).join('')}</div>
     <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
     <p class="fine-print on-dark mt-md">Results shown are real outcomes from past SAT Blueprint students, not typical or future results. Individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations.</p>
   </div>
@@ -515,24 +519,6 @@ function program() {
   </div>
 </section>
 
-<section class="section" id="why-it-works">
-  <div class="wrap">
-    <div class="center-head reveal">
-      ${eyebrow('Why this works in practice')}
-      <h2 class="h2">A method is only as strong <span>as how it’s delivered.</span></h2>
-      <p class="lead">Founder Patrick Spano and Educational Director Alex Torres are the minds behind the SAT Blueprint Method™. Patrick runs every Roadmap Session. A team of SAT specialists and tutors delivers the work alongside them.</p>
-    </div>
-    <div class="why6">
-      ${why.map(([t, b]) => `<article class="why6-card reveal"><h3>${t}</h3><p>${b}</p></article>`).join('')}
-    </div>
-    <div class="center mt-lg reveal">
-      <p class="why-closer">When the SAT stops feeling like a foreign language, your teen can put their effort where it actually counts.</p>
-      <a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
-      ${reassure()}
-    </div>
-  </div>
-</section>
-
 ${finalCta()}
 `,
   };
@@ -543,7 +529,7 @@ function results() {
   // One card per student; tags drive the filter tabs.
   const cards = [
     ['Wyatt C.', '1500 admits'], ['Abhi', '1500'], ['Annabel', '1500 admits'], ['Leonardo C.', '1500'], ['Briana', '1500'],
-    ['Eshaan', 'jumps'], ['Sammi', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Brooklyn', 'jumps'],
+    ['Eshaan', 'jumps'], ['Sammi', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Mia J.', 'jumps'], ['Brooklyn', 'jumps'],
     ['Xavier', 'jumps admits'], ['Tristan', 'jumps'], ['Aarush', 'jumps admits'],
     ['Mauricio', 'admits'], ['Jacob S.', 'admits'],
     ['Mark', ''], ['Liana', ''], ['Sasha', ''],
