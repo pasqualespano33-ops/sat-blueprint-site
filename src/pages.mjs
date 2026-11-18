@@ -533,27 +533,20 @@ ${finalCta()}
 
 // ── REAL RESULTS (Results + Reviews merged) ─────────────────────────────────
 function results() {
-  // One card per student; tags drive the filter tabs.
-  const cards = [
-    ['Wyatt C.', '1500 admits'], ['Abhi', '1500'], ['Annabel', '1500 admits'], ['Leonardo C.', '1500'], ['Briana', '1500'],
-    ['Drew V.', 'jumps admits'], ['Eshaan', 'jumps'], ['Sammi W.', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Mia J.', 'jumps'], ['Brooklyn', 'jumps'],
-    ['Xavier', 'jumps admits'], ['Tristan', 'jumps'], ['Aarush', 'jumps admits'],
-    ['Mauricio', 'admits'], ['Jacob S.', 'admits'],
-    ['Mark', ''], ['Liana', ''], ['Sasha', ''],
-  ];
-  const tabs = [['all', 'All results'], ['jumps', 'Big jumps'], ['1500', '1500+ club'], ['admits', 'Scholarships & admits']];
-  const reviewSchema = TESTIMONIALS.map((t) => ({
+  // Home already shows these six originals; Results shows the rest (no duplicates).
+  const HOME_SHOTS = ['harry-1510', 'mark-parent-1490', 'annabel-1550', 'liana-1420', 'mauricio-1350', 'mia-930-1060'];
+  const parents = TESTIMONIALS.filter((t) => t.type === 'parent');
+  const reviewSchema = parents.map((t) => ({
     '@type': 'Review',
     itemReviewed: { '@id': ORG_ID },
     author: { '@type': 'Person', name: t.name },
-    reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
     reviewBody: t.quote,
   }));
   return {
     path: '/results/',
     out: 'results/index.html',
-    title: 'Real Results — SAT Scores, Admits & Scholarships | SAT Blueprint',
-    description: 'Real SAT Blueprint students: a perfect 1600, 1500+ scores, 200-point jumps, Yale and Princeton admits, Bright Futures scholarships — plus parent reviews, original messages, and video testimonials.',
+    title: 'Real Results — Video Testimonials, Parent Reviews & Original Messages | SAT Blueprint',
+    description: 'Real SAT Blueprint families: video testimonials from students, reviews from parents, and original texts and emails sharing their scores, admits, and scholarships.',
     schema: [...reviewSchema, breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Real Results', path: '/results/' }])],
     body: `
 ${pageHero({
@@ -565,59 +558,32 @@ ${pageHero({
 
 ${admitsTicker({ link: false })}
 
-<section class="section" id="scores">
-  <div class="wrap">
-    <div class="split-head reveal">
-      <div>
-        ${eyebrow('Score gallery')}
-        <h2 class="h2">Every score <span>has a story.</span></h2>
-      </div>
-      <p class="lead">Before-and-after scores are shown wherever both numbers are public.</p>
-    </div>
-    <div class="filter-bar" role="group" aria-label="Filter results">
-      ${tabs.map(([k, l], i) => `<button type="button" class="chip" data-rfilter="${k}" aria-pressed="${i === 0}">${l}</button>`).join('')}
-    </div>
-    <p class="sr-only" aria-live="polite" data-rfilter-status></p>
-    <div class="score-grid" data-rgrid>${cards.map(([n, tags]) => `<div class="reveal" data-tags="${tags}">${resultCard(R[n])}</div>`).join('')}</div>
-  </div>
-</section>
+${videosSection()}
 
-<section class="section bg-surface" id="score-reports">
+<section class="section bg-surface" id="parents">
   <div class="wrap">
     <div class="sec-head reveal">
-      ${eyebrow('Official scores')}
-      <h2 class="h2">Straight from <span>the score report.</span></h2>
-      <p class="lead">Official College Board totals from past SAT Blueprint students.</p>
+      ${eyebrow('Parent testimonials')}
+      <h2 class="h2">What parents <span>are saying.</span></h2>
     </div>
-    ${scoreReports({ title: false })}
+    <div class="t-grid">${parents.map((t) => `<div class="reveal">${testimonialCard(t)}</div>`).join('')}</div>
   </div>
 </section>
 
 ${bookCta({ title: 'Want a plan like theirs?', sub: `A free 45-minute Roadmap Session with Patrick. ${RISK_REDUCER}` })}
 
-<section class="section bg-surface" id="reviews">
+<section class="section" id="screenshots">
   <div class="wrap">
     <div class="sec-head reveal">
-      ${eyebrow('Parent & student reviews')}
-      <h2 class="h2">In their <span>own words.</span></h2>
+      ${eyebrow('Original messages')}
+      <h2 class="h2">Straight from <span>Patrick’s phone.</span></h2>
+      <p class="lead">Real texts and emails from students and parents, unedited. Names, numbers, and photos are hidden to protect privacy. Tap any message to see it full size.</p>
     </div>
-    <div class="t-grid">${TESTIMONIALS.map((t) => `<div class="reveal">${testimonialCard(t)}</div>`).join('')}</div>
+    <div class="shot-grid">
+      ${SCREENSHOTS.filter((x) => !HOME_SHOTS.includes(x.file)).map((x) => shotFig(x)).join('')}
+    </div>
   </div>
 </section>
-
-${screenshotWall()}
-
-<section class="section bg-surface" id="messages">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('More messages')}
-      <h2 class="h2">When the scores <span>came in.</span></h2>
-    </div>
-    ${notesWall()}
-  </div>
-</section>
-
-${videosSection()}
 
 <section class="section-tight"><div class="wrap narrow">${resultsDisclaimer()}</div></section>
 
