@@ -1207,7 +1207,7 @@ function scholarshipsPage() {
   const states = [...new Set(SCHOLARSHIPS.map((r) => r.state))];
   const rows = SCHOLARSHIPS.map((r) => `<tr data-state="${esc(r.state)}">
           <th scope="row" data-label="State">${esc(r.state)}</th>
-          <td data-label="Program"><strong>${esc(r.program)}</strong>${r.notes ? `<details class="res-notes"><summary>Details</summary><p>${esc(r.notes).replace(/(https?:\/\/[^\s]+?)([.,]?)(?=\s|$)/g, '<a href="$1" target="_blank" rel="noopener">official document</a>$2')}</p></details>` : ''}</td>
+          <td data-label="Program"><strong>${esc(r.program)}</strong>${r.notes ? `<details class="res-notes"><summary>Details</summary><p>${esc(r.notes).replace(/(https?:\/\/[^\s)]+?)([.,)]*)(?=\s|$)/g, '<a href="$1" target="_blank" rel="noopener">official document</a>$2')}</p></details>` : ''}</td>
           <td data-label="SAT needed">${esc(r.sat_needed)}</td>
           <td data-label="Award">${esc(r.award)}</td>
           <td data-label="Official link"><a class="res-src" href="${esc(r.source_url)}" target="_blank" rel="noopener">Official site ${icon('arrow', { size: 14 })}<span class="sr-only"> for ${esc(r.program)} (opens in a new tab)</span></a></td>

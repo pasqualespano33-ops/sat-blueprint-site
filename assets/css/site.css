@@ -1399,3 +1399,4 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .shot-feature .shot-link picture, .shot-feature .shot-link img { height: auto; object-fit: initial; }
 .shot figcaption.shot-ctx { min-height: 4.1em; display: flex; align-items: center; }
 .jc-scores small { font-size: .7rem; font-weight: 800; letter-spacing: .1em; color: var(--muted); margin-right: -4px; }
+@media (max-width: 760px) { .map-wrap { aspect-ratio: auto; height: 320px; width: 100%; } }
