@@ -211,8 +211,8 @@ export function footer({ hideMobileBar = false } = {}) {
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
-      <nav class="ft-col" aria-label="Free resources">
-        <h2 class="ft-h">Free resources</h2>
+      <nav class="ft-col" aria-label="Scholarships and Admissions">
+        <h2 class="ft-h">Scholarships &amp; Admissions</h2>
         <ul>
           <li><a href="/scholarships-by-state/">SAT Scholarships by State</a></li>
           <li><a href="/sat-scores-by-college/">SAT Scores by College</a></li>

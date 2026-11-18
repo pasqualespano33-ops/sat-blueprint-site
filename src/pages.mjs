@@ -312,7 +312,7 @@ ${founderBlock()}
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="shot-feature">${shotFig(shotBy('eitan-200-plus'))}${shotFig(shotBy('annabel-parent-admits'))}${shotFig(shotBy('mauricio-1350'))}</div>
+    <div class="shot-feature">${shotFig(shotBy('eitan-200-plus'))}${shotFig(shotBy('annabel-parent-admits'))}${shotFig(shotBy('liana-1420'))}</div>
     ${scoreReports({ dark: true })}
     <h3 class="group-title on-dark-title mt-lg reveal">Before → after</h3>
     <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
@@ -1262,7 +1262,7 @@ function scholarshipsPage() {
     schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'SAT Scholarships by State', path: '/scholarships-by-state/' }])],
     body: `
 ${pageHero({
-  eyebrow: 'Free resource',
+  eyebrow: 'Scholarships & Admissions',
   title: 'SAT scholarships <span>by state.</span>',
   sub: intro.replace(/<\/?p>/g, ''),
   crumbs: [{ name: 'SAT Scholarships by State', path: '/scholarships-by-state/' }],
@@ -1321,7 +1321,7 @@ function collegesPage() {
     schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'SAT Scores by College', path: '/sat-scores-by-college/' }])],
     body: `
 ${pageHero({
-  eyebrow: 'Free resource',
+  eyebrow: 'Scholarships & Admissions',
   title: 'SAT scores <span>by college.</span>',
   sub: intro.replace(/<\/?p>/g, ''),
   crumbs: [{ name: 'SAT Scores by College', path: '/sat-scores-by-college/' }],
