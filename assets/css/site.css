@@ -1422,3 +1422,4 @@ ol.mh-diagram li { font-size: 1.15rem; }
   .cw-value { font-size: .98rem; overflow-wrap: normal; word-break: keep-all; }
 }
 @media (max-width: 420px) { .cw-ico { display: none; } .cw-value { font-size: .95rem; } }
+@media (max-width: 960px) { .stage-line::before { display: none; } }

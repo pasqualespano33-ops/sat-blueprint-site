@@ -361,6 +361,13 @@
   if (!btn) return;
   var v = btn.parentNode.querySelector('video');
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+  else {
+    // If the phone blocks autoplay (e.g. iPhone Low Power Mode), show play controls instead of a frozen poster.
+    var tryPlay = v.play && v.play();
+    if (tryPlay && tryPlay.catch) tryPlay.catch(function () { v.controls = true; });
+    setTimeout(function () { if (v.paused && !v.controls) v.controls = true; }, 2500);
+  }
+  v.addEventListener('click', function () { if (v.paused) { var q = v.play(); if (q && q.catch) q.catch(function () {}); } });
   btn.addEventListener('click', function () {
     v.muted = false; v.currentTime = 0; v.loop = false; v.controls = true;
     var p = v.play(); if (p && p.catch) p.catch(function () {});
