@@ -171,7 +171,7 @@ function heroMedia(hasVideo) {
 
 function proofCard() {
   return `<figure class="proof-card">
-      <p class="pc-kick">Real result · 12 weeks</p>
+      <p class="pc-kick">Real result</p>
       <p class="pc-score" role="img" aria-label="1230 to 1430"><span class="from" aria-hidden="true">1230</span><span class="arr" aria-hidden="true">${icon('arrow', { size: 30 })}</span><span class="to" aria-hidden="true" data-count-from="1230" data-count-to="1430">1430</span></p>
       <figcaption>Eshaan · +200 points · “Thank you Patrick!” — Preethi, parent of Eshaan</figcaption>
     </figure>`;
@@ -198,7 +198,7 @@ function home() {
     out: 'index.html',
     title: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
     ogTitle: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
-    description: 'See how the 12-Week SAT Blueprint Program helps your teen raise their SAT score with a clear plan, not more guessing. 150+ point average improvement. Live online coaching from co-founders Patrick Spano and Alex Torres, a team of SAT specialists and tutors, and a personalized Digital SAT portal. Book a free Roadmap Session.',
+    description: 'See how the SAT Blueprint Program helps your teen raise their SAT score with a clear plan, not more guessing. Live online coaching from co-founders Patrick Spano and Alex Torres, a team of SAT specialists and tutors, and a personalized Digital SAT portal. Book a free Roadmap Session.',
     headExtra: '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>',
     bodyClass: 'is-home',
     schema: [],
@@ -209,7 +209,7 @@ function home() {
       <p class="hb-kick">Live online SAT coaching for high schoolers</p>
       <h1 class="hero-title">${h1}</h1>
       ${hasVideo ? heroMedia(true) : ''}
-      <p class="hero-sub">The 12-Week SAT Blueprint Program finds exactly where your teen is losing points, then builds a live, personalized plan to go after them. Book a free Roadmap Session and leave with that plan, whether you join or not.</p>
+      <p class="hero-sub">The SAT Blueprint Program finds exactly where your teen is losing points, then builds a live, personalized plan to go after them. Book a free Roadmap Session and leave with that plan, whether you join or not.</p>
       ${ctaPair({ dark: true })}
       ${reassure('hero-reassure')}
       <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · Perfect SAT Scorer<span>${stars(5)} Trusted by 2,000+ families</span></p></div>
@@ -258,12 +258,17 @@ ${founderBlock()}
         <h2 class="h2 on-dark">The results <span>speak for themselves.</span></h2>
       </div>
       <div>
-        <p class="lead on-dark">From a perfect 1600 to 200-point jumps — real scores from real SAT Blueprint students.</p>
+        <p class="lead on-dark">Real messages from students and parents when the scores came in — from a perfect 1600 to 200-point jumps.</p>
         <a class="link-arrow on-dark mt-sm" href="/results/">See all student results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="score-grid">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
-    <div class="notes-grid notes-3 mt-lg">${[PROOF_NOTES[0], PROOF_NOTES[2], PROOF_NOTES[5]].map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>
+    <div class="shot-row">${['drew-1380', 'superscore-1510', 'mauricio-1350'].map((f) => SCREENSHOTS.find((x) => x.file === f)).map((s) => `<figure class="shot reveal">
+        <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
+          <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="900" loading="lazy"></picture>
+        </a>
+        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
+      </figure>`).join('')}</div>
+    <div class="score-grid mt-lg">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
   </div>
 </section>
 
@@ -1262,7 +1267,7 @@ function notFound() {
 
 export function allPages() {
   return [
-    home(), program(), results(), about(), blogIndex(), ...POSTS.map(blogPost), reviews(), faq(), book(),
+    home(), program(), results(), about(), reviews(), faq(), book(),
     bookConfirmed(), contact(), privacy(), terms(), notFound(),
   ];
 }

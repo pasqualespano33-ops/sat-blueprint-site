@@ -1079,3 +1079,11 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .mi-chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: var(--card); border: 1px solid var(--line-2); font-size: .9rem; font-weight: 700; color: var(--fg); }
 .mi-chips .ico { color: var(--accent); }
 .is-home #results { padding-top: clamp(64px, 6vw, 112px); }
+
+/* Success wall: real screenshots first; 4-up stats */
+.shot-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.shot-row .shot { margin: 0; }
+@media (max-width: 860px) { .shot-row { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+.pr-inner { grid-template-columns: repeat(4, 1fr); }
+.stats-band { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 760px) { .pr-inner, .stats-band { grid-template-columns: 1fr 1fr; } .pr-stat:nth-child(3) { grid-column: auto; } .stat:nth-child(2) { border-right: 0; } }

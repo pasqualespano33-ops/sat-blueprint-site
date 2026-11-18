@@ -11,5 +11,10 @@
   to = "/"
   status = 301
 
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+
 # /book is now the on-site booking page (book/index.html), which embeds the
 # HighLevel scheduler. Old links to /book land there instead of redirecting.
