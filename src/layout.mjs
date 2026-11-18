@@ -57,7 +57,7 @@ export function baseGraph() {
       '@type': 'Person',
       '@id': PERSON_ID,
       name: SITE.founder,
-      jobTitle: 'Co-founder, SAT Blueprint Method',
+      jobTitle: 'Founder, SAT Blueprint Method',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Yale University' },
       worksFor: { '@id': ORG_ID },
       image: `${SITE.url}/assets/img/patrick-headshot.jpg`,
@@ -430,12 +430,12 @@ export function trustAside({ quote } = {}) {
   return `<aside class="trust-aside" aria-label="Why families choose SAT Blueprint">
     <div class="ta-head">
       <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint Coach, Yale Graduate" width="72" height="86" loading="lazy"></picture>
-      <div><p class="ta-name">Patrick Spano</p><p class="ta-role">Co-founder</p></div>
+      <div><p class="ta-name">Patrick Spano</p><p class="ta-role">Founder</p></div>
     </div>
     <ul class="ta-list">
       <li>${icon('check', { size: 16 })}<span><strong>2,000+</strong> families helped</span></li>
       <li>${icon('check', { size: 16 })}<span><strong>$1,500,000+</strong> in scholarships earned</span></li>
-      <li>${icon('check', { size: 16 })}<span>Yale graduate · Perfect SAT Scorer</span></li>
+      <li>${icon('check', { size: 16 })}<span>Yale graduate · 99th Percentile SAT Scorer</span></li>
       <li>${icon('check', { size: 16 })}<span>Approved Step Up For Students provider</span></li>
     </ul>
     ${quote ? `<figure class="ta-quote">${stars(5)}<blockquote><p>“${quote.quote}”</p></blockquote><figcaption>— ${quote.name}, ${quote.role}</figcaption></figure>` : ''}
