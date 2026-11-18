@@ -1394,3 +1394,7 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .shot-feature .shot-link { height: 480px; max-height: none; }
 .shot-feature .shot-link picture, .shot-feature .shot-link img { display: block; height: 100%; width: 100%; object-fit: cover; object-position: top; }
 @media (max-width: 560px) { .shot-feature .shot-link { height: 420px; } }
+.shot figcaption.shot-ctx { display: block; padding: 12px 16px 14px; font-size: .92rem; font-weight: 700; line-height: 1.4; color: #fff; border-top: 2px solid var(--gold); background: rgba(10,23,38,.96); }
+.shot-feature .shot-link { overflow: hidden; background: #fff; }
+.shot-feature .shot-link picture, .shot-feature .shot-link img { height: auto; object-fit: initial; }
+.shot figcaption.shot-ctx { min-height: 4.1em; display: flex; align-items: center; }

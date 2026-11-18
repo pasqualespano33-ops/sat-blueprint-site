@@ -72,12 +72,12 @@ function notesWall(notes = PROOF_NOTES) {
   return `<div class="notes-grid">${notes.map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>`;
 }
 
-function shotFig(s, cls = '', { caption = true } = {}) {
+function shotFig(s, cls = '', { caption = true, ctx = '' } = {}) {
   return `<figure class="shot${cls} reveal">
         <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
           <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="${s.h || 900}" loading="lazy"></picture>
         </a>
-        ${caption ? `<figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>` : ''}
+        ${ctx ? `<figcaption class="shot-ctx">${ctx}</figcaption>` : caption ? `<figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>` : ''}
       </figure>`;
 }
 const shotBy = (f) => SCREENSHOTS.find((x) => x.file === f);
@@ -316,7 +316,14 @@ ${founderBlock()}
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="shot-feature" tabindex="0" role="region" aria-label="Original text messages from students and parents">${['harry-1510', 'mark-parent-1490', 'annabel-1550', 'liana-1420', 'mauricio-1350', 'mia-930-1060'].map((f) => shotFig(shotBy(f), '', { caption: false })).join('')}</div>
+    <div class="shot-feature" tabindex="0" role="region" aria-label="Original text messages from students and parents">${[
+      ['harry-1510', 'Harry’s 1510 superscore'],
+      ['mark-parent-1490', 'Mark’s 150+ point improvement'],
+      ['annabel-1550', 'Annabel’s 1550 got her into two Ivy League schools — plus lucrative scholarships'],
+      ['liana-1420', 'Liana got into Columbia'],
+      ['mauricio-1350', 'Mauricio’s 1350 earned him a 100% scholarship in Florida'],
+      ['mia-930-1060', 'Mia’s 130-point increase in only one month'],
+    ].map(([f, ctx]) => shotFig(shotBy(f), '', { ctx })).join('')}</div>
     <h3 class="group-title on-dark-title mt-lg reveal">Biggest score jumps</h3>
     <div class="jump-grid">${jumps.map((j) => `<div class="reveal">${jumpCard(j)}</div>`).join('')}</div>
     <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
