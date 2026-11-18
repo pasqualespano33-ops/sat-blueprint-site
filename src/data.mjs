@@ -39,13 +39,13 @@ export const RESULTS = [
 
 // Original screenshots (cropped; private details blurred or removed).
 export const SCREENSHOTS = [
-  { file: 'mauricio-1350', title: 'Mauricio', result: '1350 · 100% Bright Futures', alt: 'Text thread: Mauricio shares his College Board score report for the March 14, 2026 SAT — total 1350, 730 Reading and Writing, 620 Math. Patrick replies “Wow, Congrats” and confirms 100% Bright Futures.' },
+  { file: 'mauricio-1350', title: 'Mauricio', result: '1350 · 100% Bright Futures', alt: 'Text thread: Mauricio shares his College Board score report — total 1350, 730 Reading and Writing, 620 Math. Patrick replies “Wow, Congrats” and confirms 100% Bright Futures.' },
   { file: 'aarush-1410', title: 'Aarush', result: '1410 · 700 Math · 710 RW', alt: 'Text from Aarush: “Hey Patrick I got a 1410 on the SAT 700 on math 710 on Reading and Writing.” Aarush adds: “Thank you it was definitely better than I thought I did.”' },
   { file: 'drew-1380', title: 'Drew', result: '1380 · 100% Bright Futures', alt: 'Text from Drew: “Hey sir just wanted to thank you for all the help and support you gave me I got a 1380 on my last SAT.” Patrick replies “Hey Drew that’s amazing!”' },
   { file: 'drew-parent-email-1380', title: 'Drew’s parent', result: 'Email · 1380 · 100% Florida tuition', alt: 'Email from Drew’s parent: “Thought you may want to know Andrew’s last score was 1380 which allows him to get 100% Florida tuition paid.” Patrick replies “Amazing! Thanks for the great news.”' },
   { file: 'parent-1050-1160', title: 'A parent', result: '1050 → 1160', alt: 'Text from a parent: “1050 last SAT that he took this past year. Yesterday he got an 1160. Super proud.” Patrick replies “That’s amazing! Only the start.” Parent: “He was very excited.”' },
   { file: 'superscore-1510', title: 'A student', result: '1510 superscore · 780 Math', alt: 'Text from a student: “I got a 780 on math and a 700 on English so my superscore is now a 1510!” Patrick replies “My guy, 780, Damn.”' },
-  { file: 'bright-futures-1340', title: 'A student', result: '1330 · 1340 superscore · 100% Bright Futures', alt: 'Text from a student: “Got a 1330. Got 680 math and 650 reading. But got 660 reading last time so I can superscore it to 1340. Plus one more test in October.” Patrick replies “100% BF.”' },
+  { file: 'bright-futures-1340', title: 'A student', result: '1330 · 1340 superscore · 100% Bright Futures', alt: 'Text from a student: “Got a 1330. Got 680 math and 650 reading. But got 660 reading last time so I can superscore it to 1340.” Patrick replies “100% BF.”' },
 ];
 
 // Verbatim written testimonials from the live site.
@@ -147,8 +147,8 @@ export const VIDEOS = [
   { id: 'tVnn4XjRJdg', title: 'How Aarush Got a 1410 and Boosted 100 Points', name: 'Aarush', outcome: '1410 · +100 points' },
   { id: 'mWV1HZyed8o', title: 'Sammi’s 240 Point Boost and Overcoming Weaknesses', name: 'Sammi', outcome: '+240 points' },
   // TODO: add student name + result for these two (titles not yet provided)
-  { id: '8TqzVMjGnX4', title: 'Student video testimonial', name: '', outcome: 'SAT Blueprint student' },
-  { id: 'jKemrNzX6Iw', title: 'Student video testimonial', name: '', outcome: 'SAT Blueprint student' },
+  { id: '8TqzVMjGnX4', title: 'SAT Blueprint student video testimonial', name: '', outcome: 'Student story' },
+  { id: 'jKemrNzX6Iw', title: 'SAT Blueprint student video testimonial — in their own words', name: '', outcome: 'Student story' },
 ];
 
 export const INCLUDES = [
@@ -197,16 +197,17 @@ export const COMPARE = [
 // Real admits and scholarships only. Add new ones as { school, student, note }.
 // `note` is optional (e.g. a scholarship amount); `gold: true` highlights it.
 export const ADMITS = [
-  { school: 'Yale', student: 'Annabel' },
-  { school: 'Princeton', student: 'Annabel' },
-  { school: 'Johns Hopkins', student: 'Annabel', note: 'Huge scholarship', gold: true },
-  { school: 'University of Florida', student: 'Wyatt C.', note: '100% Bright Futures', gold: true },
-  { school: 'Emory', student: 'Annabel', note: 'Huge scholarship', gold: true },
-  { school: 'UNC Chapel Hill', student: 'Annabel' },
-  { school: 'Florida Bright Futures', student: 'Jacob S.', note: '~$20,000 in scholarship', gold: true },
-  { school: 'UVA', student: 'Annabel' },
-  { school: 'Florida Bright Futures', student: 'Mauricio', note: '100% tuition', gold: true },
-  { school: 'Tufts', student: 'Annabel' },
-  { school: 'Florida Bright Futures', student: 'Drew', note: '100% tuition', gold: true },
-  { school: 'Florida Bright Futures', student: 'Aarush', note: '100% tuition', gold: true },
-];
+  { score: '1600', label: 'UF · 100% Bright Futures', student: 'Wyatt C.', gold: true },
+  { score: '1550', label: 'Yale & Princeton', student: 'Annabel' },
+  { score: '1580', label: 'Top 1% nationally', student: 'Abhi' },
+  { score: '1550', label: 'Johns Hopkins & Emory', student: 'Annabel' },
+  { score: '1230 → 1430', label: '+200 points', student: 'Eshaan' },
+  { score: '1380', label: '100% Bright Futures', student: 'Drew', gold: true },
+  { score: '1550', label: 'UNC Chapel Hill · UVA · Tufts', student: 'Annabel' },
+  { score: '1260', label: '~$20,000 scholarship', student: 'Jacob S.', gold: true },
+  { score: '1540', label: 'Delray Beach, FL', student: 'Leonardo C.' },
+  { score: '1350', label: '100% Bright Futures', student: 'Mauricio', gold: true },
+  { score: '930 → 1100', label: '+170 points', student: 'Jordan' },
+  { score: '1410', label: '100% Bright Futures', student: 'Aarush', gold: true },
+  { score: '1530', label: 'Superscore', student: 'Briana' },
+]

@@ -30,7 +30,7 @@ function methodSection({ intro = '' } = {}) {
   <div class="wrap">
     <div class="center-head reveal">
       ${eyebrow('The SAT Blueprint Method™')}
-      <h2 class="h2">Three pillars. <span>One proven system.</span></h2>
+      <h2 class="h2">Three pillars. <span>One clear system.</span></h2>
       ${intro ? `<p class="lead">${intro}</p>` : ''}
     </div>
     <div class="pillars3">
@@ -166,7 +166,6 @@ function founderBlock() {
       </div>
       <div>
         <p class="lead">SAT Blueprint is led by founder Patrick Spano and Educational Director Alex Torres — two Yale graduates with more than 30 years of SAT teaching between them. Patrick played goalie at Yale, then pro hockey in the US and Europe, and he coaches the SAT the way he trained: you don’t get better by playing more games, you get better by studying the tape. Alex leads the teaching behind the program, drawing on 17 years as an SAT instructor and more than 3,500 instructional videos. Together, they find exactly where your teen is losing points — and build the plan to win them back.</p>
-        <a class="link-arrow mt-sm" href="/about/">Read our story ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
     ${teamCards()}
@@ -248,7 +247,7 @@ function home() {
       <p class="hero-sub">The SAT Blueprint Program finds exactly where your teen is losing points, then builds a live, personalized plan to go after them. Book a free Roadmap Session and leave with that plan, whether you join or not.</p>
       ${ctaPair({ dark: true })}
       ${reassure('hero-reassure')}
-      <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · 99th Percentile SAT Scorer<span>${stars(5)} Trusted by 2,000+ families</span></p></div>
+      <div class="hb-coach"><picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano, founder of the SAT Blueprint Method" width="40" height="48"></picture><p>Coached by <strong>Patrick Spano</strong> · Yale graduate · 99th Percentile SAT Scorer<span>${stars(5)} Trusted by 2,000+ families</span></p></div>
     </div>
     <div class="hv-side">
       ${vertical ? phoneVideo() : hasVideo ? '' : heroMedia(false)}
@@ -280,11 +279,12 @@ ${founderBlock()}
         <li>${icon('clock', { size: 16 })}Mock exams</li>
         <li>${icon('plan', { size: 16 })}Weekly homework assignments</li>
         <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
-        <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
+        <li>${icon('eye', { size: 16 })}Parent portal login &amp; weekly progress reports</li>
       </ul>
       <p class="mi-more">Go deeper on how Assess, Address, and Success teach the language of the SAT.</p>
       <a class="link-arrow" href="/method/">See how the method works ${icon('arrow', { size: 16 })}</a>
     </div>
+    <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure()}</div>
   </div>
 </section>
 
@@ -297,7 +297,7 @@ ${founderBlock()}
       </div>
       <div>
         <p class="lead on-dark">Real messages from students and parents when the scores came in — from a perfect 1600 to 200-point jumps.</p>
-        <a class="link-arrow on-dark mt-sm" href="/results/">See all student results ${icon('arrow', { size: 16 })}</a>
+        <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
     <div class="shot-row">${['drew-1380', 'superscore-1510', 'mauricio-1350'].map((f) => SCREENSHOTS.find((x) => x.file === f)).map((s) => `<figure class="shot reveal">
@@ -307,6 +307,8 @@ ${founderBlock()}
         <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
       </figure>`).join('')}</div>
     <div class="score-grid mt-lg">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
+    <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
+    <p class="fine-print on-dark mt-md">Results shown are real outcomes from past SAT Blueprint students, not typical or future results. Individual results depend on each student’s starting point, effort, and consistency. Bright Futures and scholarship eligibility are determined solely by their administering organizations.</p>
   </div>
 </section>
 
@@ -407,7 +409,7 @@ function program() {
     </div>
     <div class="lang-cards reveal" aria-label="How the SAT layers difficulty">
       <p class="lc-title">How the SAT layers difficulty</p>
-      <div class="lc"><p class="lc-label">Word</p><p class="lc-ex">engender</p><p>A SAT “pet word.” Most students rarely use it. The test does.</p></div>
+      <div class="lc"><p class="lc-label">Word</p><p class="lc-ex">engender</p><p>An SAT “pet word.” Most students rarely use it. The test does.</p></div>
       <div class="lc"><p class="lc-label">Word</p><p class="lc-ex">disrupt, consequence</p><p>Everyday words the SAT sometimes uses with a positive meaning — not the way students expect.</p></div>
       <div class="lc"><p class="lc-label">Math</p><p class="lc-ex">the unit circle</p><p>A favorite SAT math idea, along with others like the altitude to the hypotenuse of a right triangle. These carry extra weight on this test.</p></div>
     </div>
@@ -500,7 +502,7 @@ function program() {
       <p class="dq-name">Alex Torres</p>
       <p class="dq-role">Educational Director</p>
       <p class="dq-creds">Yale graduate · 17 years as an SAT instructor · 3,500 instructional videos on YouTube</p>
-      <a class="link-arrow on-dark mt-sm" href="/about/">Meet the team ${icon('arrow', { size: 16 })}</a>
+      <a class="link-arrow on-dark mt-sm" href="/#founder">Meet the team ${icon('arrow', { size: 16 })}</a>
     </div>
   </div>
 </section>
@@ -528,72 +530,66 @@ ${finalCta()}
   };
 }
 
-// ── RESULTS ─────────────────────────────────────────────────────────────────
+// ── REAL RESULTS (Results + Reviews merged) ─────────────────────────────────
 function results() {
-  const groups = [
-    { title: 'Top scores', names: ['Wyatt C.', 'Abhi', 'Annabel', 'Leonardo C.', 'Briana', 'Mark', 'Liana', 'Aarush', 'Sasha'] },
-    { title: 'Biggest jumps', names: ['Sammi', 'Eshaan', 'Jordan', 'Eitan', 'Brooklyn', 'Xavier', 'Tristan'] },
-    { title: 'Florida & Bright Futures', names: ['Wyatt C.', 'Aarush', 'Mauricio', 'Jacob S.', 'Xavier'] },
+  // One card per student; tags drive the filter tabs.
+  const cards = [
+    ['Wyatt C.', '1500 admits'], ['Abhi', '1500'], ['Annabel', '1500 admits'], ['Leonardo C.', '1500'], ['Briana', '1500'],
+    ['Eshaan', 'jumps'], ['Sammi', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Brooklyn', 'jumps'],
+    ['Xavier', 'jumps admits'], ['Tristan', 'jumps'], ['Aarush', 'jumps admits'],
+    ['Mauricio', 'admits'], ['Jacob S.', 'admits'],
+    ['Mark', ''], ['Liana', ''], ['Sasha', ''],
   ];
+  const tabs = [['all', 'All results'], ['jumps', 'Big jumps'], ['1500', '1500+ club'], ['admits', 'Scholarships & admits']];
+  const reviewSchema = TESTIMONIALS.map((t) => ({
+    '@type': 'Review',
+    itemReviewed: { '@id': ORG_ID },
+    author: { '@type': 'Person', name: t.name },
+    reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+    reviewBody: t.quote,
+  }));
   return {
     path: '/results/',
     out: 'results/index.html',
-    title: 'SAT Score Results — Real Students, Real Score Jumps | SAT Blueprint',
-    description: 'Real SAT Blueprint results: a perfect 1600, a 1580, 1550 with Yale and Princeton admits, +200 and +240 point jumps, and Florida Bright Futures scholarships.',
-    schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }])],
+    title: 'Real Results — SAT Scores, Admits & Scholarships | SAT Blueprint',
+    description: 'Real SAT Blueprint students: a perfect 1600, 1500+ scores, 200-point jumps, Yale and Princeton admits, Bright Futures scholarships — plus parent reviews, original messages, and video testimonials.',
+    schema: [...reviewSchema, breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Real Results', path: '/results/' }])],
     body: `
 ${pageHero({
-  eyebrow: 'Student results',
-  title: 'Real families. <span>Real results.</span>',
-  sub: 'These families came in unsure of the plan — and left with a higher score, and a clearer path to college and scholarships.',
-  crumbs: [{ name: 'Results', path: '/results/' }],
+  eyebrow: 'Real Results',
+  title: 'Real students. <span>Real scores. Real families.</span>',
+  sub: 'These families came in unsure of the plan. Here are the scores, scholarships, and college admits they earned — and what they told us afterward.',
+  crumbs: [{ name: 'Real Results', path: '/results/' }],
 })}
 
-<section class="stats-section" aria-label="Results at a glance"><div class="wrap">${statsBand()}</div></section>
+${admitsTicker({ link: false })}
 
-<section class="section">
+<section class="section" id="scores">
   <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('Featured stories')}
-      <h2 class="h2">The results <span>speak for themselves.</span></h2>
+    <div class="split-head reveal">
+      <div>
+        ${eyebrow('Score gallery')}
+        <h2 class="h2">Every score <span>has a story.</span></h2>
+      </div>
+      <p class="lead">Before-and-after scores are shown wherever both numbers are public.</p>
     </div>
-    <div class="story-grid">
-      <article class="story story-lg reveal">
-        <p class="story-score"><span>1550</span></p>
-        <h3>Annabel — accepted to Yale and Princeton</h3>
-        <p class="story-meta">750 RW · 800 Math · Weston, FL</p>
-        <p>Also accepted to Emory and Johns Hopkins with huge scholarships, plus UNC Chapel Hill, UVA, and Tufts.</p>
-        <figure class="story-quote">${stars(5)}<blockquote><p>“${T.shari.quote}”</p></blockquote><figcaption>— Shari S., Parent of Annabel</figcaption></figure>
-      </article>
-      <article class="story story-perfect reveal">
-        <p class="story-kicker">${icon('trophy', { size: 18 })} Perfect score</p>
-        <p class="story-score"><span>1600</span></p>
-        <h3>Wyatt C.</h3>
-        <p class="story-meta">Now at UF · 100% Bright Futures</p>
-      </article>
-      <article class="story reveal">
-        <p class="story-score"><span class="sb">1230</span>${icon('arrow', { size: 22 })}<span>1430</span></p>
-        <h3>Eshaan — +200 in 12 weeks</h3>
-        <figure class="story-quote">${stars(5)}<blockquote><p>“${T.preethi.quote}”</p></blockquote><figcaption>— Preethi, parent of Eshaan</figcaption></figure>
-      </article>
-      <article class="story reveal">
-        <p class="story-score"><span>1540</span></p>
-        <h3>Leonardo C.</h3>
-        <p class="story-meta">Student · Delray Beach, FL</p>
-        <figure class="story-quote">${stars(5)}<blockquote><p>“${T.leonardo.quote}”</p></blockquote><figcaption>— Leonardo C., Student</figcaption></figure>
-      </article>
+    <div class="filter-bar" role="group" aria-label="Filter results">
+      ${tabs.map(([k, l], i) => `<button type="button" class="chip" data-rfilter="${k}" aria-pressed="${i === 0}">${l}</button>`).join('')}
     </div>
+    <p class="sr-only" aria-live="polite" data-rfilter-status></p>
+    <div class="score-grid" data-rgrid>${cards.map(([n, tags]) => `<div class="reveal" data-tags="${tags}">${resultCard(R[n])}</div>`).join('')}</div>
   </div>
 </section>
 
-<section class="section bg-surface" id="scores">
+${bookCta({ title: 'Want a plan like theirs?', sub: `A free 45-minute Roadmap Session with Patrick. ${RISK_REDUCER}` })}
+
+<section class="section bg-surface" id="reviews">
   <div class="wrap">
     <div class="sec-head reveal">
-      ${eyebrow('Score gallery')}
-      <h2 class="h2">Every score <span>has a story.</span></h2>
-      <p class="lead">Before-and-after scores are shown wherever both numbers are public.</p>
+      ${eyebrow('Parent & student reviews')}
+      <h2 class="h2">In their <span>own words.</span></h2>
     </div>
-    ${groups.map((g) => `<h3 class="group-title reveal">${g.title}</h3><div class="score-grid">${g.names.map((n) => `<div class="reveal">${resultCard(R[n])}</div>`).join('')}</div>`).join('')}
+    <div class="t-grid">${TESTIMONIALS.map((t) => `<div class="reveal">${testimonialCard(t)}</div>`).join('')}</div>
   </div>
 </section>
 
@@ -602,118 +598,18 @@ ${screenshotWall()}
 <section class="section bg-surface" id="messages">
   <div class="wrap">
     <div class="sec-head reveal">
-      ${eyebrow('In their words')}
-      <h2 class="h2">The messages <span>that make it worth it.</span></h2>
-      <p class="lead">More texts from students and parents when scores and admissions decisions came in.</p>
+      ${eyebrow('More messages')}
+      <h2 class="h2">When the scores <span>came in.</span></h2>
     </div>
     ${notesWall()}
   </div>
 </section>
 
-${screenshotWall()}
-
-${videosSection({ bg: 'bg-surface' })}
+${videosSection()}
 
 <section class="section-tight"><div class="wrap narrow">${resultsDisclaimer()}</div></section>
 
-${bookCta({ title: 'Join the families who’ve already unlocked better scores.' })}
-`,
-  };
-}
-
-// ── ABOUT ───────────────────────────────────────────────────────────────────
-function about() {
-  const values = [
-    ['compass', 'Structure, strategy, execution', 'Most SAT struggles aren’t about intelligence. We replace guesswork with structure, a strategy for every question type, and the practice to execute under pressure.'],
-    ['target', 'Diagnosis before practice', 'We find out exactly where points are being lost — including what the Knowledge and Skills section of the score report already shows — before assigning a single drill.'],
-    ['users', 'Live coaching and accountability', 'SAT specialists and tutors, live classes, one-on-one, office hours, and the Digital SAT portal — with real feedback, and everything tracked. Not a video library.'],
-    ['scholar', 'Opening doors', 'A score is a means to an end: real college options and scholarship dollars, especially for Florida families pursuing Bright Futures.'],
-  ];
-  const alexPhoto = SITE.alexPhoto
-    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, Educational Director of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
-    : '<span class="team-photo team-initials" aria-hidden="true">AT</span>';
-  return {
-    path: '/about/',
-    out: 'about/index.html',
-    title: 'About Patrick Spano and Alex Torres — SAT Blueprint Method™',
-    description: 'Meet Patrick Spano, founder, and Alex Torres, Educational Director, of the SAT Blueprint Method™ at Gradeful Test Prep. Patrick is a Yale graduate, 99th Percentile SAT Scorer, former professional athlete, and SAT coach for 15+ years.',
-    schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])],
-    body: `
-${pageHero({
-  eyebrow: 'About SAT Blueprint',
-  title: 'Meet your coach, <span>Patrick Spano.</span>',
-  sub: 'Founder of the SAT Blueprint Method™, with Educational Director Alex Torres. Yale graduate and former Yale goalie. 99th Percentile SAT Scorer. 15+ years coaching families through the SAT.',
-  crumbs: [{ name: 'About', path: '/about/' }],
-  ctas: false,
-})}
-
-<section class="section">
-  <div class="wrap about-grid">
-    <div class="about-photo reveal">
-      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint founder, Yale Graduate" width="433" height="517"></picture>
-      <div class="about-badge"><p class="ab-num">15+</p><p class="ab-lbl">Years coaching</p></div>
-    </div>
-    <div class="about-body reveal">
-      ${eyebrow('Our story')}
-      <h2 class="h2">Replacing guesswork <span>with a proven system.</span></h2>
-      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™. Alex Torres is our Educational Director.</p>
-      <p>I played goalie at Yale, then pro hockey in the US and Europe. Now I run Gradeful Test Prep. After helping thousands of families over the years, I’ve learned one thing: most students aren’t stuck for lack of effort. They study hard without knowing what the SAT actually tests, or where the points are going.</p>
-      <p>A goalie doesn’t get better by playing more games. He gets better by watching the goals he let in. Most SAT prep is the same for everyone — more lessons, more practice tests, and nobody looks at the tape. Alex and I built The SAT Blueprint™ to change that.</p>
-      <p>More than anything, I want every student to have the chance I did: to walk into the college process with real options, and to pursue the education and future they’re capable of. That’s what this work is really about.</p>
-      <p class="signature">— Patrick Spano</p>
-      <ul class="cred-row" aria-label="Credentials">
-        ${CREDENTIALS.map((c) => `<li>${icon('check', { size: 16 })}${c}</li>`).join('')}
-      </ul>
-      <a class="btn btn-primary" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
-      ${reassure()}
-    </div>
-  </div>
-</section>
-
-<section class="stats-section" aria-label="Results at a glance"><div class="wrap">${statsBand()}</div></section>
-
-<section class="section bg-surface">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('Mission & values')}
-      <h2 class="h2">What we believe <span>about the SAT.</span></h2>
-    </div>
-    <div class="values-grid">
-      ${values.map(([ic, t, b]) => `<article class="value-card reveal"><span class="pl-ico">${icon(ic, { size: 22 })}</span><h3>${t}</h3><p>${b}</p></article>`).join('')}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap split">
-    <div class="reveal">
-      ${eyebrow('How coaching works')}
-      <h2 class="h2">Patrick’s method, <span>live every week.</span></h2>
-      <p>Patrick Spano (founder) and Alex Torres (Educational Director) lead SAT Blueprint and the minds behind its method and the 12-Week SAT Blueprint Program. Patrick runs every Roadmap Session. SAT specialists and tutors deliver the program alongside them: live small-group classes (3–6 students), one-on-one time with Patrick when a student needs it, office hours, the Digital SAT portal, and practice tests — with a week-by-week plan, and everything tracked. Parents get a portal login and a weekly progress report.</p>
-      <p>Groups are kept to 3–6 students, so your teen is never lost in a crowd.</p>
-    </div>
-    <div class="reveal">
-      ${eyebrow('Where we work')}
-      <h2 class="h2">Based in Deerfield Beach. <span>Live online everywhere.</span></h2>
-      <p>Our office is in Deerfield Beach, Florida, and coaching runs fully online over Google Meet — so families anywhere in the U.S. can join without a commute.</p>
-      <p>Florida families get extra depth: we know the score thresholds that unlock Bright Futures, and we’re an approved Step Up For Students provider.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section bg-surface" id="team">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('The team')}
-      <h2 class="h2">The people behind <span>the Blueprint.</span></h2>
-    </div>
-    ${teamCards()}
-    <p class="team-note reveal">${icon('users', { size: 16 })} SAT specialists and tutors work alongside them to deliver the program.</p>
-  </div>
-</section>
-
-<div class="section-gap"></div>
-${finalCta()}
+${bookCta({ title: 'See what these families achieved — then map out a plan for yours.' })}
 `,
   };
 }
@@ -829,65 +725,6 @@ function blogPost(p) {
   };
 }
 
-// ── REVIEWS ─────────────────────────────────────────────────────────────────
-function reviews() {
-  const rp = SITE.reviewProfile;
-  const badge = rp.url && rp.rating && rp.count
-    ? `<a class="rating-badge" href="${rp.url}" target="_blank" rel="noopener">${stars(5)}<span><strong>${rp.rating}</strong> from ${rp.count} reviews</span></a>`
-    : '';
-  const reviewSchema = TESTIMONIALS.map((t) => ({
-    '@type': 'Review',
-    itemReviewed: { '@id': ORG_ID },
-    author: { '@type': 'Person', name: t.name },
-    reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-    reviewBody: t.quote,
-  }));
-  return {
-    path: '/reviews/',
-    out: 'reviews/index.html',
-    title: 'Parent & Student Reviews of SAT Blueprint | Gradeful Test Prep',
-    description: 'Read real parent and student reviews of the SAT Blueprint Method™ — score jumps, Ivy League admits, Bright Futures scholarships, and video testimonials.',
-    schema: [...reviewSchema, breadcrumbs([{ name: 'Home', path: '/' }, { name: 'Reviews', path: '/reviews/' }])],
-    body: `
-${pageHero({
-  eyebrow: 'Reviews',
-  title: 'Parent &amp; student <span>reviews.</span>',
-  sub: 'In their own words, from the families who’ve been through the SAT Blueprint Method™.',
-  crumbs: [{ name: 'Reviews', path: '/reviews/' }],
-  extra: badge,
-})}
-
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('Written reviews')}
-      <h2 class="h2">Real families. <span>Real results.</span></h2>
-    </div>
-    <div class="t-grid">${TESTIMONIALS.map((t) => `<div class="reveal">${testimonialCard(t)}</div>`).join('')}</div>
-  </div>
-</section>
-
-<section class="section bg-soft">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      ${eyebrow('Messages from families')}
-      <h2 class="h2">When the scores <span>came in.</span></h2>
-    </div>
-    ${notesWall()}
-  </div>
-</section>
-
-${videosSection()}
-
-${rp.url ? `<section class="section-tight"><div class="wrap center"><a class="btn btn-ghost" href="${rp.url}" target="_blank" rel="noopener">${icon('star', { size: 18 })} Leave us a review<span class="sr-only"> (opens in a new tab)</span></a></div></section>` : ''}
-
-<section class="section-tight"><div class="wrap narrow">${resultsDisclaimer()}</div></section>
-
-${finalCta()}
-`,
-  };
-}
-
 // ── FAQ ─────────────────────────────────────────────────────────────────────
 function faq() {
   return {
@@ -952,7 +789,7 @@ function book() {
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Book a Free Roadmap Session</span></li></ol></nav>
     ${eyebrow('Free — Zero Obligation')}
     <h1 class="ph-title">What happens on your <span>free Roadmap Session?</span></h1>
-    <p class="ph-sub">A free 45-minute call that gives you a clear read on your teen’s SAT situation, and honest feedback about what’s realistically possible based on where they currently stand. You’ll leave with a clear plan, whether you join or not.</p>
+    <p class="ph-sub">A free 45-minute Roadmap Session that gives you a clear read on your teen’s SAT situation, and honest feedback about what’s realistically possible based on where they currently stand. You’ll leave with a clear plan, whether you join or not.</p>
     <ul class="logistics" aria-label="Session details">
       <li>${icon('check', { size: 16 })} Free</li>
       <li>${icon('clock', { size: 16 })} 45 minutes</li>
@@ -968,7 +805,7 @@ function book() {
   <div class="wrap book-grid">
     <div class="book-form-col">
       <div class="form-card" data-booking>
-        <h2 class="form-title">Book Your Free Roadmap Session</h2>
+        <h2 class="form-title">Book a Free Roadmap Session</h2>
         <p class="form-reassure">Free 45-minute Roadmap Session. No obligation. You’ll leave with a clear plan.</p>
 
         <ol class="progress" aria-label="Booking progress">
@@ -1100,7 +937,7 @@ function book() {
 <section class="section bg-soft">
   <div class="wrap book-details">
     <div class="reveal">
-      ${eyebrow('During the call')}
+      ${eyebrow('During the session')}
       <h2 class="h2">On your session, <span>Patrick will:</span></h2>
       <ol class="num-list">${willDo.map((w) => `<li>${w}</li>`).join('')}</ol>
     </div>
@@ -1184,7 +1021,7 @@ ${pageHero({
   <div class="wrap contact-grid">
     <div class="form-card">
       <h2 class="form-title">Send a message</h2>
-      <p class="hint">For general questions. Ready for a plan? <a href="/book/">Book a free Roadmap Session</a> instead.</p>
+      <p class="hint">For general questions. Ready for a plan? <a href="/book/">Book a Free Roadmap Session</a> instead.</p>
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate data-contact>
         <input type="hidden" name="form-name" value="contact">
         <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -1313,7 +1150,7 @@ function terms() {
 <h2>About the results on this site</h2>
 <p>Scores, point increases, scholarships, and admissions outcomes shown on this site are examples of past students’ results, not typical or future results. Every student is different, and outcomes depend on many factors, including the student’s starting point, effort, and consistency. Scholarship eligibility, including Florida Bright Futures, is determined solely by the administering organizations.</p>
 <h2>Website content</h2>
-<p>Content on this site — including text, graphics, logos, and The SAT Blueprint™ materials — belongs to Gradeful Test Prep or its licensors and may not be copied or redistributed without permission. Blog articles are general information, not individualized advice.</p>
+<p>Content on this site — including text, graphics, logos, and The SAT Blueprint™ materials — belongs to Gradeful Test Prep or its licensors and may not be copied or redistributed without permission.</p>
 <h2>Third-party links and services</h2>
 <p>This site links to and embeds third-party services such as our scheduler, YouTube, and Google Maps. We are not responsible for their content or practices.</p>
 <h2>Limitation of liability</h2>
@@ -1349,7 +1186,7 @@ function notFound() {
 
 export function allPages() {
   return [
-    home(), program(), results(), about(), reviews(), faq(), book(),
+    home(), program(), results(), faq(), book(),
     bookConfirmed(), contact(), privacy(), terms(), notFound(),
   ];
 }

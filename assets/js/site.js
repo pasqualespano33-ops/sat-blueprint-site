@@ -381,3 +381,29 @@
     });
   });
 })();
+
+/* Ticker: tap to pause/resume */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-ticker]'), function (t) {
+    t.addEventListener('click', function () { t.classList.toggle('is-paused'); });
+  });
+})();
+
+/* Real Results filter tabs */
+(function () {
+  var tabs = document.querySelectorAll('[data-rfilter]');
+  if (!tabs.length) return;
+  var items = document.querySelectorAll('[data-rgrid] > [data-tags]');
+  var status = document.querySelector('[data-rfilter-status]');
+  Array.prototype.forEach.call(tabs, function (tab) {
+    tab.addEventListener('click', function () {
+      var f = tab.dataset.rfilter, shown = 0;
+      Array.prototype.forEach.call(tabs, function (t) { t.setAttribute('aria-pressed', String(t === tab)); });
+      Array.prototype.forEach.call(items, function (el) {
+        var ok = f === 'all' || (' ' + el.dataset.tags + ' ').indexOf(' ' + f + ' ') > -1;
+        el.hidden = !ok; if (ok) { shown++; el.classList.add('in'); }
+      });
+      if (status) status.textContent = shown + ' results shown';
+    });
+  });
+})();

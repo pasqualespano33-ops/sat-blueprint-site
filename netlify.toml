@@ -32,6 +32,26 @@
   status = 301
 
 [[redirects]]
+  from = "/reviews"
+  to = "/results/"
+  status = 301
+
+[[redirects]]
+  from = "/reviews/*"
+  to = "/results/"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/#founder"
+  status = 301
+
+[[redirects]]
+  from = "/about/*"
+  to = "/#founder"
+  status = 301
+
+[[redirects]]
   from = "/blog/*"
   to = "/"
   status = 301

@@ -10,12 +10,10 @@ export const esc = (s = '') =>
 
 export const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/method/', label: 'The Method', title: 'The Method' },
-  { href: '/results/', label: 'Results' },
-  { href: '/about/', label: 'About' },
-  { href: '/reviews/', label: 'Reviews' },
+  { href: '/method/', label: 'How It Works' },
+  { href: '/results/', label: 'Real Results' },
   { href: '/faq/', label: 'FAQ' },
-];
+]
 
 const fullAddress = `${SITE.address.street}, ${SITE.address.city}, ${SITE.address.region} ${SITE.address.postal}`;
 export const ADDRESS = fullAddress;
@@ -208,18 +206,10 @@ export function footer({ hideMobileBar = false } = {}) {
         <h2 class="ft-h">Explore</h2>
         <ul>
           ${NAV.map((n) => `<li><a href="${n.href}">${n.title || n.label}</a></li>`).join('')}
+          <li><a href="/book/">Book a Free Roadmap Session</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
-      <div class="ft-col">
-        <h2 class="ft-h">The Program</h2>
-        <ul>
-          <li><a href="/method/">The Method</a></li>
-          <li><a href="/book/">Book a Free Roadmap Session</a></li>
-          <li><a href="/results/">Student Results</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
       <div class="ft-col">
         <h2 class="ft-h">Contact</h2>
         <ul class="ft-contact">
@@ -307,11 +297,14 @@ export function trustBar() {
 </section>`;
 }
 
-export function admitsTicker() {
-  const items = ADMITS.map((a) => `<li class="ad-item${a.gold ? ' is-gold' : ''}"><span class="ad-school">${a.school}</span><span class="ad-meta">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`).join('<li class="ad-dot" aria-hidden="true"></li>');
-  return `<section class="admits" aria-label="Where our students got in and the scholarships they earned">
-  <p class="ad-label">Where our students got in — and the scholarships they earned</p>
-  <div class="ad-viewport">
+export function admitsTicker({ link = true } = {}) {
+  const items = ADMITS.map((a) => `<li class="ad-item"><span class="ad-score">${a.score}</span><span class="ad-sep" aria-hidden="true">·</span><span class="ad-what">${a.label}</span>${a.student ? `<span class="ad-name">${a.student}</span>` : ''}</li>`).join('<li class="ad-dot" aria-hidden="true"></li>');
+  return `<section class="admits" aria-label="Where our students got in, their scores, and scholarships">
+  <div class="wrap ad-head">
+    <p class="ad-label-top">Where our students got in — and the scores that got them there</p>
+    ${link ? `<a class="link-arrow ad-link" href="/results/">See all Real Results ${icon('arrow', { size: 14 })}</a>` : ''}
+  </div>
+  <div class="ad-viewport" data-ticker tabindex="0" aria-label="Scrolling list of student results. Tap or focus to pause.">
     <ul class="ad-track">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
     <ul class="ad-track" aria-hidden="true">${items}<li class="ad-dot" aria-hidden="true"></li></ul>
   </div>
@@ -381,7 +374,7 @@ export function videoCard(v) {
   return `<figure class="video-card">
     <div class="video" data-yt="${v.id}" data-title="${esc(v.title)}">
       <button type="button" class="video-play" aria-label="Play video: ${esc(v.title)}">
-        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${esc(v.title)} — student video" width="480" height="360" loading="lazy">
         <span class="vp-btn">${icon('play', { size: 28 })}</span>
       </button>
       <noscript><a href="https://www.youtube.com/watch?v=${v.id}">Watch “${esc(v.title)}” on YouTube</a></noscript>

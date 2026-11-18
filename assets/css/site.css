@@ -1227,3 +1227,22 @@ ol.mh-diagram { padding: 34px 30px; gap: 26px; }
 ol.mh-diagram::before { left: 43px; top: 48px; bottom: 48px; }
 ol.mh-diagram li { font-size: 1.15rem; }
 .stage .st-key { margin-top: 16px; font-size: 1.9rem; font-weight: 900; letter-spacing: -.035em; color: var(--fg); line-height: 1; }
+
+/* Admits/scores ticker — one line per item */
+.ad-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; margin-bottom: 14px; }
+.ad-label-top { font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.ad-link { font-size: .85rem; color: var(--gold-300); }
+.ad-item { display: inline-flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.ad-score { font-family: var(--num); font-size: 1.7rem; letter-spacing: .02em; line-height: 1; color: var(--gold-300); }
+.ad-sep { color: var(--muted); }
+.ad-label { font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; color: #fff; }
+.ad-label.is-gold { color: #fff; }
+.ad-name { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.ad-viewport:focus-visible { outline-offset: -3px; }
+.ad-viewport.is-paused .ad-track, .ad-viewport:focus .ad-track { animation-play-state: paused; }
+.ad-track { animation-duration: 70s; }
+@media (max-width: 560px) { .ad-score { font-size: 1.4rem; } .ad-label { font-size: .92rem; } .ad-head { justify-content: center; text-align: center; } }
+.fine-print.on-dark { color: var(--on-ink-2); }
+[data-rgrid] > div[hidden] { display: none; }
+.ad-what { font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; color: #fff; text-transform: none; }
+@media (max-width: 560px) { .ad-label-top { display: none; } .ad-head { margin-bottom: 10px; } .ad-what { font-size: .92rem; } }
