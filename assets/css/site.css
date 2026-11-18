@@ -1124,3 +1124,8 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .ad-item.is-gold .ad-meta { color: var(--gold-300); }
 .ad-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 @media (prefers-reduced-motion: reduce) { .ad-track:last-child { display: none; } .ad-viewport { overflow-x: auto; } }
+
+/* Closing panel with photo (video still) */
+.fc-panel { grid-template-columns: 1.35fr .65fr; }
+.fc-photo img { object-position: 50% 30%; }
+@media (max-width: 900px) { .fc-panel { grid-template-columns: 1fr; } }

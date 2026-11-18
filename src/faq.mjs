@@ -5,7 +5,7 @@ export const FAQS = [
   {
     id: 'different',
     q: 'My teen tried prep before and it didn’t help. Why is this different?',
-    text: 'Most prep is the same for everyone. Nobody finds what’s actually costing your teen points. We find that first, and we fix it first — a method built by founder Patrick Spano and co-founder Alex Torres, delivered by SAT specialists and tutors alongside them, with a mix of live classes, one-on-one, office hours, and the Digital SAT portal, and with everything tracked.',
+    text: 'Most prep is the same for everyone. Nobody finds what’s actually costing your teen points. We find that first, and we fix it first — a method built by founder Patrick Spano and Educational Director Alex Torres, delivered by SAT specialists and tutors alongside them, with a mix of live classes, one-on-one, office hours, and the Digital SAT portal, and with everything tracked.',
   },
   {
     id: 'too-late',

@@ -66,7 +66,7 @@ export function baseGraph() {
       '@type': 'Person',
       '@id': `${SITE.url}/#alex`,
       name: 'Alex Torres',
-      jobTitle: 'Co-founder, SAT Blueprint Method',
+      jobTitle: 'Educational Director, SAT Blueprint Method',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Yale University' },
       worksFor: { '@id': ORG_ID },
     },
@@ -463,6 +463,7 @@ export function finalCta() {
     ${reassure('on-dark', { extra: 'Patrick runs every Roadmap Session.' })}
     <p class="fc-lock">SAT dates fill the calendar fast, and scholarship deadlines don’t move. Starting sooner gives your teen more room to improve — and if you’re already close to a test date, we’ll be honest about what’s realistic.</p>
   </div>
+  <div class="fc-photo" aria-hidden="true"><picture><source srcset="/assets/img/patrick-cta.webp" type="image/webp"><img src="/assets/img/patrick-cta.jpg" alt="" width="720" height="840" loading="lazy"></picture></div>
   </div></div>
 </section>`;
 }

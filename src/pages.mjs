@@ -129,14 +129,14 @@ function compareTable() {
 
 function teamCards() {
   const alexPhoto = SITE.alexPhoto
-    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
+    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, Educational Director of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
     : '<span class="team-photo team-initials" aria-hidden="true">AT</span>';
   return `<div class="team-grid">
       <article class="team-card reveal">
         <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img class="team-photo" src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano, founder of the SAT Blueprint Method" width="160" height="160" loading="lazy"></picture>
         <div>
           <h3>Patrick Spano</h3>
-          <p class="team-role">Founder · Runs every Roadmap Session</p>
+          <p class="team-role">Founder</p>
           <ul class="team-creds">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
         </div>
       </article>
@@ -144,7 +144,7 @@ function teamCards() {
         ${alexPhoto}
         <div>
           <h3>Alex Torres</h3>
-          <p class="team-role">Co-founder</p>
+          <p class="team-role">Educational Director</p>
           <ul class="team-creds">
             <li>${icon('check', { size: 15 })}Yale graduate</li>
             <li>${icon('check', { size: 15 })}17 years of experience as an SAT instructor</li>
@@ -165,7 +165,7 @@ function founderBlock() {
         <h2 class="h2">“Most students aren’t stuck <span>for lack of effort.”</span></h2>
       </div>
       <div>
-        <p class="lead">I’m Patrick Spano — founder of The SAT Blueprint Method™, which I built with co-founder Alex Torres. I played goalie at Yale, then pro hockey in the US and Europe. A goalie doesn’t get better by playing more games. He gets better by watching the tape. Alex and I built The SAT Blueprint™ so your teen isn’t just doing more prep — they’re fixing the pattern that’s costing points.</p>
+        <p class="lead">SAT Blueprint is led by founder Patrick Spano and Educational Director Alex Torres — two Yale graduates with more than 30 years of SAT teaching between them. Patrick played goalie at Yale, then pro hockey in the US and Europe, and he coaches the SAT the way he trained: you don’t get better by playing more games, you get better by studying the tape. Alex leads the teaching behind the program, drawing on 17 years as an SAT instructor and more than 3,500 instructional videos. Together, they find exactly where your teen is losing points — and build the plan to win them back.</p>
         <a class="link-arrow mt-sm" href="/about/">Read our story ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
@@ -234,7 +234,7 @@ function home() {
     out: 'index.html',
     title: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
     ogTitle: 'SAT Blueprint Method™ — Help Your Teen Raise Their SAT Score',
-    description: 'See how the SAT Blueprint Program helps your teen raise their SAT score with a clear plan, not more guessing. Live online coaching from founder Patrick Spano and co-founder Alex Torres, a team of SAT specialists and tutors, and a personalized Digital SAT portal. Book a free Roadmap Session.',
+    description: 'See how the SAT Blueprint Program helps your teen raise their SAT score with a clear plan, not more guessing. Live online coaching from founder Patrick Spano and Educational Director Alex Torres, a team of SAT specialists and tutors, and a personalized Digital SAT portal. Book a free Roadmap Session.',
     headExtra: '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>',
     bodyClass: 'is-home',
     schema: [],
@@ -272,16 +272,17 @@ ${founderBlock()}
       ${PILLARS.map((p, i) => `<article class="p3 reveal"><p class="p3-n">0${i + 1}</p><h3 class="p3-name">${p.key}</h3><p class="p3-sub">${p.sub}</p><ul>${p.items.map((it) => `<li>${icon('check', { size: 16 })}${it}</li>`).join('')}</ul></article>`).join('')}
     </div>
     <div class="method-inc reveal">
-      <p class="mi-label">Inside the 12-Week SAT Blueprint Program</p>
+      <p class="mi-label">Inside the program</p>
       <ul class="mi-chips">
-        <li>${icon('live', { size: 16 })}Live classes of 3–6</li>
-        <li>${icon('portal', { size: 16 })}Digital SAT portal</li>
-        <li>${icon('users', { size: 16 })}One-on-one time</li>
-        <li>${icon('office', { size: 16 })}Weekly office hours</li>
-        <li>${icon('plan', { size: 16 })}Practice tests</li>
-        <li>${icon('eye', { size: 16 })}Weekly parent progress report</li>
+        <li>${icon('live', { size: 16 })}Weekly live instruction classes</li>
+        <li>${icon('users', { size: 16 })}1-on-1 support</li>
+        <li>${icon('office', { size: 16 })}Office hours</li>
+        <li>${icon('clock', { size: 16 })}Mock exams</li>
+        <li>${icon('plan', { size: 16 })}Weekly homework assignments</li>
+        <li>${icon('portal', { size: 16 })}Digital SAT study portal</li>
+        <li>${icon('eye', { size: 16 })}Weekly progress reports</li>
       </ul>
-      <a class="link-arrow" href="/program/">See the full 12-week program ${icon('arrow', { size: 16 })}</a>
+      <a class="link-arrow" href="/program/">See the full program ${icon('arrow', { size: 16 })}</a>
     </div>
   </div>
 </section>
@@ -354,7 +355,7 @@ function program() {
 ${pageHero({
   eyebrow: 'The 12-Week Program',
   title: 'A live, personalized path <span>to a higher SAT score.</span>',
-  sub: 'The 12-Week SAT Blueprint Program is live online SAT coaching built around a higher score — not a tutoring center and not a video library. It starts with a diagnosis of where your teen is losing points, then a plan delivered by founder Patrick Spano and co-founder Alex Torres and a team of SAT specialists and tutors. Patrick runs every Roadmap Session. Book one and leave with a plan, whether you join or not.',
+  sub: 'The 12-Week SAT Blueprint Program is live online SAT coaching built around a higher score — not a tutoring center and not a video library. It starts with a diagnosis of where your teen is losing points, then a plan delivered by founder Patrick Spano, Educational Director Alex Torres, and a team of SAT specialists and tutors. Patrick runs every Roadmap Session. Book one and leave with a plan, whether you join or not.',
   crumbs: [{ name: 'Program', path: '/program/' }],
 })}
 
@@ -562,19 +563,19 @@ function about() {
     ['scholar', 'Opening doors', 'A score is a means to an end: real college options and scholarship dollars, especially for Florida families pursuing Bright Futures.'],
   ];
   const alexPhoto = SITE.alexPhoto
-    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
+    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, Educational Director of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
     : '<span class="team-photo team-initials" aria-hidden="true">AT</span>';
   return {
     path: '/about/',
     out: 'about/index.html',
-    title: 'About Patrick Spano and Alex Torres — Founders of the SAT Blueprint Method™',
-    description: 'Meet Patrick Spano, founder, and Alex Torres, co-founder, of the SAT Blueprint Method™ at Gradeful Test Prep. Patrick is a Yale graduate, 99th Percentile SAT Scorer, former professional athlete, and SAT coach for 15+ years.',
+    title: 'About Patrick Spano and Alex Torres — SAT Blueprint Method™',
+    description: 'Meet Patrick Spano, founder, and Alex Torres, Educational Director, of the SAT Blueprint Method™ at Gradeful Test Prep. Patrick is a Yale graduate, 99th Percentile SAT Scorer, former professional athlete, and SAT coach for 15+ years.',
     schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])],
     body: `
 ${pageHero({
   eyebrow: 'About SAT Blueprint',
   title: 'Meet your coach, <span>Patrick Spano.</span>',
-  sub: 'Founder of the SAT Blueprint Method™, with co-founder Alex Torres. Yale graduate and former Yale goalie. 99th Percentile SAT Scorer. 15+ years coaching families through the SAT.',
+  sub: 'Founder of the SAT Blueprint Method™, with Educational Director Alex Torres. Yale graduate and former Yale goalie. 99th Percentile SAT Scorer. 15+ years coaching families through the SAT.',
   crumbs: [{ name: 'About', path: '/about/' }],
   ctas: false,
 })}
@@ -588,7 +589,7 @@ ${pageHero({
     <div class="about-body reveal">
       ${eyebrow('Our story')}
       <h2 class="h2">Replacing guesswork <span>with a proven system.</span></h2>
-      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™, which I built with co-founder Alex Torres.</p>
+      <p>I’m Patrick Spano — founder of The SAT Blueprint Method™. Alex Torres is our Educational Director.</p>
       <p>I played goalie at Yale, then pro hockey in the US and Europe. Now I run Gradeful Test Prep. After helping thousands of families over the years, I’ve learned one thing: most students aren’t stuck for lack of effort. They study hard without knowing what the SAT actually tests, or where the points are going.</p>
       <p>A goalie doesn’t get better by playing more games. He gets better by watching the goals he let in. Most SAT prep is the same for everyone — more lessons, more practice tests, and nobody looks at the tape. Alex and I built The SAT Blueprint™ to change that.</p>
       <p>More than anything, I want every student to have the chance I did: to walk into the college process with real options, and to pursue the education and future they’re capable of. That’s what this work is really about.</p>
@@ -621,7 +622,7 @@ ${pageHero({
     <div class="reveal">
       ${eyebrow('How coaching works')}
       <h2 class="h2">Patrick’s method, <span>live every week.</span></h2>
-      <p>Patrick Spano (founder) and Alex Torres (co-founder) are the team behind SAT Blueprint and the minds behind its method and the 12-Week SAT Blueprint Program. Patrick runs every Roadmap Session. SAT specialists and tutors deliver the program alongside them: live small-group classes (3–6 students), one-on-one time with Patrick when a student needs it, office hours, the Digital SAT portal, and practice tests — with a week-by-week plan, and everything tracked. Parents get a portal login and a weekly progress report.</p>
+      <p>Patrick Spano (founder) and Alex Torres (Educational Director) lead SAT Blueprint and the minds behind its method and the 12-Week SAT Blueprint Program. Patrick runs every Roadmap Session. SAT specialists and tutors deliver the program alongside them: live small-group classes (3–6 students), one-on-one time with Patrick when a student needs it, office hours, the Digital SAT portal, and practice tests — with a week-by-week plan, and everything tracked. Parents get a portal login and a weekly progress report.</p>
       <p>Groups are kept to 3–6 students, so your teen is never lost in a crowd.</p>
     </div>
     <div class="reveal">
