@@ -225,9 +225,9 @@ function proofCard() {
 // ── HOME ────────────────────────────────────────────────────────────────────
 function home() {
   const jumps = [
+    { name: 'Drew V.', before: 1040, after: 1380, beforeLabel: 'PSAT', afterLabel: 'SAT', quote: '“Just wanted to thank you for all the help and support you gave me. I got a 1380 on my last SAT.”' },
+    { name: 'Sammi W.', before: 1040, after: 1280, quote: 'From 1040 to 1280 — a 240-point boost.' },
     { name: 'Eitan', before: 850, after: 1080, quote: '“Tysm up by 200+ from last score”' },
-    { name: 'Eshaan', before: 1230, after: 1430, when: 'in 12 weeks', quote: '“We went from unprepared and lacking confidence to a 200 point boost.” — Eshaan’s parent' },
-    { name: 'Mia J.', before: 930, after: 1060, when: 'in 1 month', quote: '“Here is my updated SAT scores… Before and after!”' },
   ];
   const posts = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
   const vertical = Boolean(SITE.heroVideoFile);
@@ -536,7 +536,7 @@ function results() {
   // One card per student; tags drive the filter tabs.
   const cards = [
     ['Wyatt C.', '1500 admits'], ['Abhi', '1500'], ['Annabel', '1500 admits'], ['Leonardo C.', '1500'], ['Briana', '1500'],
-    ['Eshaan', 'jumps'], ['Sammi', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Mia J.', 'jumps'], ['Brooklyn', 'jumps'],
+    ['Drew V.', 'jumps admits'], ['Eshaan', 'jumps'], ['Sammi W.', 'jumps'], ['Jordan', 'jumps'], ['Eitan', 'jumps'], ['Mia J.', 'jumps'], ['Brooklyn', 'jumps'],
     ['Xavier', 'jumps admits'], ['Tristan', 'jumps'], ['Aarush', 'jumps admits'],
     ['Mauricio', 'admits'], ['Jacob S.', 'admits'],
     ['Mark', ''], ['Liana', ''], ['Sasha', ''],

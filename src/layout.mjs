@@ -420,7 +420,7 @@ export function jumpCard(j) {
   return `<article class="jump-card">
     <p class="jc-delta"><span class="jc-plus">+${j.after - j.before}</span><span class="jc-unit">points${j.when ? ` <em>${j.when}</em>` : ''}</span></p>
     <div class="jc-bar" aria-hidden="true"><span class="jc-base" style="width:${pos(j.before)}%"></span><span class="jc-gain" style="left:${pos(j.before)}%;width:${(pos(j.after) - pos(j.before)).toFixed(1)}%"></span></div>
-    <p class="jc-scores"><span class="jc-before">${j.before}</span>${icon('arrow', { size: 18 })}<span class="jc-after">${j.after}</span><span class="sr-only"> (from ${j.before} to ${j.after})</span></p>
+    <p class="jc-scores">${j.beforeLabel ? `<small>${j.beforeLabel}</small>` : ''}<span class="jc-before">${j.before}</span>${icon('arrow', { size: 18 })}${j.afterLabel ? `<small>${j.afterLabel}</small>` : ''}<span class="jc-after">${j.after}</span><span class="sr-only"> (from ${j.before} to ${j.after})</span></p>
     <h3 class="jc-name">${j.name}</h3>
     ${j.quote ? `<p class="jc-quote">${j.quote}</p>` : ''}
   </article>`;
