@@ -1104,3 +1104,10 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
   .has-vertical .hv-side { order: -1; }
   .has-vertical .phone-video { width: min(78vw, 340px); }
 }
+.pv-sound { top: 14px; bottom: auto; white-space: nowrap; padding: 8px 14px; font-size: .78rem; }
+.has-vertical .hero-title { font-size: clamp(2.2rem, 1.2rem + 2.9vw, 3.6rem); }
+@media (max-width: 960px) {
+  .has-vertical .hv-side { display: contents; }
+  .has-vertical .phone-video { order: -1; justify-self: center; }
+  .has-vertical .proof-card { order: 1; justify-self: center; width: min(100%, 420px); }
+}
