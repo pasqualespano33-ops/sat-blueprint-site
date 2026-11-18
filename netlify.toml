@@ -12,6 +12,49 @@
   status = 301
 
 [[redirects]]
-  from = "/book"
-  to = "https://link.gradefultestprep.com/widget/bookings/sat-strategy-session"
+  from = "/program"
+  to = "/method/"
   status = 301
+
+[[redirects]]
+  from = "/program/*"
+  to = "/method/"
+  status = 301
+
+[[redirects]]
+  from = "/methodology"
+  to = "/method/"
+  status = 301
+
+[[redirects]]
+  from = "/methodology/*"
+  to = "/method/"
+  status = 301
+
+[[redirects]]
+  from = "/reviews"
+  to = "/results/"
+  status = 301
+
+[[redirects]]
+  from = "/reviews/*"
+  to = "/results/"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/#founder"
+  status = 301
+
+[[redirects]]
+  from = "/about/*"
+  to = "/#founder"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+
+# /book is now the on-site booking page (book/index.html), which embeds the
+# HighLevel scheduler. Old links to /book land there instead of redirecting.

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /book/confirmed/
+
+Sitemap: https://gradefultestprep.com/sitemap.xml

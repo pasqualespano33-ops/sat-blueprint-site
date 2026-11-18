@@ -1,0 +1,78 @@
+tier,school_name,state,sat_middle_50,test_policy,is_sat_blueprint_alumni_school,source_url,data_year
+Tier 1: 1500+,Brown University,RI,1510–1580,Required,false,https://collegescorecard.ed.gov/school/?217156,Fall 2024 entering class
+Tier 1: 1500+,Carnegie Mellon University,PA,1500–1570,Required,false,https://collegescorecard.ed.gov/school/?211440,Fall 2024 entering class
+Tier 1: 1500+,Columbia University,NY,1510–1580,Optional now; required for fall 2028 entry,true,https://collegescorecard.ed.gov/school/?190150,Fall 2024 entering class
+Tier 1: 1500+,Cornell University,NY,1500–1570,Required,false,https://collegescorecard.ed.gov/school/?190415,Fall 2024 entering class
+Tier 1: 1500+,Dartmouth College,NH,1500–1570,Required,false,https://collegescorecard.ed.gov/school/?182670,Fall 2024 entering class
+Tier 1: 1500+,Duke University,NC,1500–1570,Optional,false,https://collegescorecard.ed.gov/school/?198419,Fall 2024 entering class
+Tier 1: 1500+,Emory University,GA,1470–1550,Optional,false,https://collegescorecard.ed.gov/school/?139658,Fall 2024 entering class
+Tier 1: 1500+,Harvard University,MA,1510–1580,Required,false,https://collegescorecard.ed.gov/school/?166027,Fall 2024 entering class
+Tier 1: 1500+,Johns Hopkins University,MD,1520–1570,Required,false,https://collegescorecard.ed.gov/school/?162928,Fall 2024 entering class
+Tier 1: 1500+,Massachusetts Institute of Technology,MA,1520–1580,Required,false,https://collegescorecard.ed.gov/school/?166683,Fall 2024 entering class
+Tier 1: 1500+,New York University,NY,1480–1560,Optional,false,https://collegescorecard.ed.gov/school/?193900,Fall 2024 entering class
+Tier 1: 1500+,Northwestern University,IL,1510–1570,Optional,false,https://collegescorecard.ed.gov/school/?147767,Fall 2024 entering class
+Tier 1: 1500+,Princeton University,NJ,1510–1580,Optional now; required for fall 2028 entry,true,https://collegescorecard.ed.gov/school/?186131,Fall 2024 entering class
+Tier 1: 1500+,Rice University,TX,1510–1570,Required,true,https://collegescorecard.ed.gov/school/?227757,Fall 2024 entering class
+Tier 1: 1500+,Stanford University,CA,1510–1580,Required,false,https://collegescorecard.ed.gov/school/?243744,Fall 2024 entering class
+Tier 1: 1500+,University of Chicago,IL,1510–1580,Optional,false,https://collegescorecard.ed.gov/school/?144050,Fall 2024 entering class
+Tier 1: 1500+,University of Notre Dame,IN,1455–1560,Required,true,https://collegescorecard.ed.gov/school/?152080,Fall 2024 entering class
+Tier 1: 1500+,University of Pennsylvania,PA,1510–1570,Required,false,https://collegescorecard.ed.gov/school/?215062,Fall 2024 entering class
+Tier 1: 1500+,University of Southern California,CA,1450–1550,Optional,false,https://collegescorecard.ed.gov/school/?123961,Fall 2024 entering class
+Tier 1: 1500+,Vanderbilt University,TN,1500–1570,Optional now; required for fall 2029 entry,false,https://collegescorecard.ed.gov/school/?221999,Fall 2024 entering class
+Tier 1: 1500+,Yale University,CT,1470–1570,Required,true,https://collegescorecard.ed.gov/school/?130794,Fall 2024 entering class
+Tier 2: 1400–1499,Boston College,MA,1440–1540,Optional,false,https://collegescorecard.ed.gov/school/?164924,Fall 2024 entering class
+Tier 2: 1400–1499,Boston University,MA,1420–1530,Optional,false,https://collegescorecard.ed.gov/school/?164988,Fall 2024 entering class
+Tier 2: 1400–1499,Georgetown University,DC,1390–1550,Required,false,https://collegescorecard.ed.gov/school/?131496,Fall 2024 entering class
+Tier 2: 1400–1499,Georgia Institute of Technology,GA,1370–1540,Required,false,https://collegescorecard.ed.gov/school/?139755,Fall 2024 entering class
+Tier 2: 1400–1499,Northeastern University,MA,1440–1540,Optional,false,https://collegescorecard.ed.gov/school/?167358,Fall 2024 entering class
+Tier 2: 1400–1499,University of Florida,FL,1320–1480,Required,true,https://collegescorecard.ed.gov/school/?134130,Fall 2024 entering class
+Tier 2: 1400–1499,University of Illinois Urbana-Champaign,IL,1310–1520,Optional,false,https://collegescorecard.ed.gov/school/?145637,Fall 2024 entering class
+Tier 2: 1400–1499,University of Miami,FL,1320–1480,Required,false,https://collegescorecard.ed.gov/school/?135726,Fall 2024 entering class
+Tier 2: 1400–1499,University of Michigan,MI,1360–1530,Optional,true,https://collegescorecard.ed.gov/school/?170976,Fall 2024 entering class
+Tier 2: 1400–1499,University of North Carolina at Chapel Hill,NC,1390–1530,Optional if unweighted GPA is 2.8+; otherwise required,false,https://collegescorecard.ed.gov/school/?199120,Fall 2024 entering class
+Tier 2: 1400–1499,University of Virginia,VA,1410–1540,Optional,false,https://collegescorecard.ed.gov/school/?234076,Fall 2024 entering class
+Tier 2: 1400–1499,University of Wisconsin-Madison,WI,1380–1520,Optional,false,https://collegescorecard.ed.gov/school/?240444,Fall 2024 entering class
+Tier 2: 1400–1499,Wake Forest University,NC,1410–1520,Optional,false,https://collegescorecard.ed.gov/school/?199847,Fall 2024 entering class
+Tier 3: 1300–1399,Auburn University,AL,1260–1390,Required,false,https://collegescorecard.ed.gov/school/?100858,Fall 2024 entering class
+Tier 3: 1300–1399,Clemson University,SC,1240–1410,Optional,false,https://collegescorecard.ed.gov/school/?217882,Fall 2024 entering class
+Tier 3: 1300–1399,Florida State University,FL,1270–1410,Required,true,https://collegescorecard.ed.gov/school/?134097,Fall 2024 entering class
+Tier 3: 1300–1399,North Carolina State University,NC,1300–1470,Optional if unweighted GPA is 2.8+; otherwise required,true,https://collegescorecard.ed.gov/school/?199193,Fall 2024 entering class
+Tier 3: 1300–1399,Ohio State University,OH,1310–1480,Required,false,https://collegescorecard.ed.gov/school/?204796,Fall 2024 entering class
+Tier 3: 1300–1399,Pennsylvania State University,PA,1240–1420,Optional,false,https://collegescorecard.ed.gov/school/?214777,Fall 2024 entering class
+Tier 3: 1300–1399,Purdue University,IN,1200–1480,Optional,false,https://collegescorecard.ed.gov/school/?243780,Fall 2024 entering class
+Tier 3: 1300–1399,United States Naval Academy,MD,1210–1410,Required,true,https://collegescorecard.ed.gov/school/?164155,Fall 2024 entering class
+Tier 3: 1300–1399,University of Georgia,GA,1270–1480,Required,true,https://collegescorecard.ed.gov/school/?139959,Fall 2024 entering class
+Tier 3: 1300–1399,University of Texas at Austin,TX,1250–1510,Required,false,https://collegescorecard.ed.gov/school/?228778,Fall 2024 entering class
+Tier 3: 1300–1399,Virginia Tech,VA,1280–1450,Optional,false,https://collegescorecard.ed.gov/school/?233921,Fall 2024 entering class
+Tier 4: 1200–1299,Indiana University Bloomington,IN,1170–1400,Optional,true,https://collegescorecard.ed.gov/school/?151351,Fall 2024 entering class
+Tier 4: 1200–1299,Louisiana State University,LA,1180–1340,Required,false,https://collegescorecard.ed.gov/school/?159391,Fall 2024 entering class
+Tier 4: 1200–1299,Michigan State University,MI,1180–1360,Optional,false,https://collegescorecard.ed.gov/school/?171100,Fall 2024 entering class
+Tier 4: 1200–1299,Texas A&M University,TX,1150–1400,Optional,false,https://collegescorecard.ed.gov/school/?228723,Fall 2024 entering class
+Tier 4: 1200–1299,Texas Christian University,TX,1140–1350,Optional,false,https://collegescorecard.ed.gov/school/?228875,Fall 2024 entering class
+Tier 4: 1200–1299,University of Alabama,AL,1170–1400,Required,true,https://collegescorecard.ed.gov/school/?100751,Fall 2024 entering class
+Tier 4: 1200–1299,University of Arizona,AZ,1150–1420,Optional,false,https://collegescorecard.ed.gov/school/?104179,Fall 2024 entering class
+Tier 4: 1200–1299,University of Central Florida,FL,1200–1350,Required,false,https://collegescorecard.ed.gov/school/?132903,Fall 2024 entering class
+Tier 4: 1200–1299,University of South Florida,FL,1130–1320,Required,false,https://collegescorecard.ed.gov/school/?137351,Fall 2024 entering class
+Tier 4: 1200–1299,"University of Tennessee, Knoxville",TN,1200–1370,Required,false,https://collegescorecard.ed.gov/school/?221759,Fall 2024 entering class
+Tier 5: 1100–1199,Florida A&M University,FL,1030–1180,Required,false,https://collegescorecard.ed.gov/school/?133650,Fall 2024 entering class
+Tier 5: 1100–1199,Florida Atlantic University,FL,1040–1200,Required,true,https://collegescorecard.ed.gov/school/?133669,Fall 2024 entering class
+Tier 5: 1100–1199,Florida Gulf Coast University,FL,1040–1200,Required,false,https://collegescorecard.ed.gov/school/?433660,Fall 2024 entering class
+Tier 5: 1100–1199,Florida International University,FL,1070–1260,Required,true,https://collegescorecard.ed.gov/school/?133951,Fall 2024 entering class
+Tier 5: 1100–1199,University of Arkansas,AR,1030–1220,Optional,false,https://collegescorecard.ed.gov/school/?106397,Fall 2024 entering class
+Tier 5: 1100–1199,University of Kentucky,KY,1070–1290,Optional,false,https://collegescorecard.ed.gov/school/?157085,Fall 2024 entering class
+Tier 5: 1100–1199,University of Mississippi,MS,1000–1200,Optional,false,https://collegescorecard.ed.gov/school/?176017,Fall 2024 entering class
+Tier 5: 1100–1199,University of North Florida,FL,1070–1270,Required,true,https://collegescorecard.ed.gov/school/?136172,Fall 2024 entering class
+Tier 6: under 1100,Georgia State University,GA,940–1180,Required,false,https://collegescorecard.ed.gov/school/?139940,Fall 2024 entering class
+Tier 6: under 1100,University of Memphis,TN,915–1180,Required,false,https://collegescorecard.ed.gov/school/?220862,Fall 2024 entering class
+Tier 6: under 1100,University of New Mexico,NM,890–1170,Optional,false,https://collegescorecard.ed.gov/school/?187985,Fall 2024 entering class
+Tier 6: under 1100,University of Texas at El Paso,TX,860–1080,Optional,false,https://collegescorecard.ed.gov/school/?228796,Fall 2024 entering class
+Scores not reported,Cal Poly San Luis Obispo,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110422,Fall 2024 entering class
+Scores not reported,California Institute of Technology,CA,not reported,Required,false,https://collegescorecard.ed.gov/school/?110404,Fall 2024 entering class
+Scores not reported,San Diego State University,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?122409,Fall 2024 entering class
+Scores not reported,UC Berkeley,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110635,Fall 2024 entering class
+Scores not reported,UC Davis,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110644,Fall 2024 entering class
+Scores not reported,UC Irvine,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110653,Fall 2024 entering class
+Scores not reported,UC San Diego,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110680,Fall 2024 entering class
+Scores not reported,UC Santa Barbara,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110705,Fall 2024 entering class
+Scores not reported,UCLA,CA,not reported,Test-blind,false,https://collegescorecard.ed.gov/school/?110662,Fall 2024 entering class
+Scores not reported,University of Washington,WA,not reported,Optional,false,https://collegescorecard.ed.gov/school/?236948,Fall 2024 entering class

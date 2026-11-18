@@ -1,0 +1,772 @@
+[
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Brown University",
+    "state": "RI",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?217156",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Carnegie Mellon University",
+    "state": "PA",
+    "sat_middle_50": "1500–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?211440",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Columbia University",
+    "state": "NY",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Optional now; required for fall 2028 entry",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?190150",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Cornell University",
+    "state": "NY",
+    "sat_middle_50": "1500–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?190415",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Dartmouth College",
+    "state": "NH",
+    "sat_middle_50": "1500–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?182670",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Duke University",
+    "state": "NC",
+    "sat_middle_50": "1500–1570",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?198419",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Emory University",
+    "state": "GA",
+    "sat_middle_50": "1470–1550",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?139658",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Harvard University",
+    "state": "MA",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?166027",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Johns Hopkins University",
+    "state": "MD",
+    "sat_middle_50": "1520–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?162928",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Massachusetts Institute of Technology",
+    "state": "MA",
+    "sat_middle_50": "1520–1580",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?166683",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "New York University",
+    "state": "NY",
+    "sat_middle_50": "1480–1560",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?193900",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Northwestern University",
+    "state": "IL",
+    "sat_middle_50": "1510–1570",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?147767",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Princeton University",
+    "state": "NJ",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Optional now; required for fall 2028 entry",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?186131",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Rice University",
+    "state": "TX",
+    "sat_middle_50": "1510–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?227757",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Stanford University",
+    "state": "CA",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?243744",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "University of Chicago",
+    "state": "IL",
+    "sat_middle_50": "1510–1580",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?144050",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "University of Notre Dame",
+    "state": "IN",
+    "sat_middle_50": "1455–1560",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?152080",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "University of Pennsylvania",
+    "state": "PA",
+    "sat_middle_50": "1510–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?215062",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "University of Southern California",
+    "state": "CA",
+    "sat_middle_50": "1450–1550",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?123961",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Vanderbilt University",
+    "state": "TN",
+    "sat_middle_50": "1500–1570",
+    "test_policy": "Optional now; required for fall 2029 entry",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?221999",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 1: 1500+",
+    "school_name": "Yale University",
+    "state": "CT",
+    "sat_middle_50": "1470–1570",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?130794",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Boston College",
+    "state": "MA",
+    "sat_middle_50": "1440–1540",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?164924",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Boston University",
+    "state": "MA",
+    "sat_middle_50": "1420–1530",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?164988",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Georgetown University",
+    "state": "DC",
+    "sat_middle_50": "1390–1550",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?131496",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Georgia Institute of Technology",
+    "state": "GA",
+    "sat_middle_50": "1370–1540",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?139755",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Northeastern University",
+    "state": "MA",
+    "sat_middle_50": "1440–1540",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?167358",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Florida",
+    "state": "FL",
+    "sat_middle_50": "1320–1480",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?134130",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Illinois Urbana-Champaign",
+    "state": "IL",
+    "sat_middle_50": "1310–1520",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?145637",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Miami",
+    "state": "FL",
+    "sat_middle_50": "1320–1480",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?135726",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Michigan",
+    "state": "MI",
+    "sat_middle_50": "1360–1530",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?170976",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of North Carolina at Chapel Hill",
+    "state": "NC",
+    "sat_middle_50": "1390–1530",
+    "test_policy": "Optional if unweighted GPA is 2.8+; otherwise required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?199120",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Virginia",
+    "state": "VA",
+    "sat_middle_50": "1410–1540",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?234076",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "University of Wisconsin-Madison",
+    "state": "WI",
+    "sat_middle_50": "1380–1520",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?240444",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 2: 1400–1499",
+    "school_name": "Wake Forest University",
+    "state": "NC",
+    "sat_middle_50": "1410–1520",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?199847",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Auburn University",
+    "state": "AL",
+    "sat_middle_50": "1260–1390",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?100858",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Clemson University",
+    "state": "SC",
+    "sat_middle_50": "1240–1410",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?217882",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Florida State University",
+    "state": "FL",
+    "sat_middle_50": "1270–1410",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?134097",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "North Carolina State University",
+    "state": "NC",
+    "sat_middle_50": "1300–1470",
+    "test_policy": "Optional if unweighted GPA is 2.8+; otherwise required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?199193",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Ohio State University",
+    "state": "OH",
+    "sat_middle_50": "1310–1480",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?204796",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Pennsylvania State University",
+    "state": "PA",
+    "sat_middle_50": "1240–1420",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?214777",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Purdue University",
+    "state": "IN",
+    "sat_middle_50": "1200–1480",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?243780",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "United States Naval Academy",
+    "state": "MD",
+    "sat_middle_50": "1210–1410",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?164155",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "University of Georgia",
+    "state": "GA",
+    "sat_middle_50": "1270–1480",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?139959",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "University of Texas at Austin",
+    "state": "TX",
+    "sat_middle_50": "1250–1510",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?228778",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 3: 1300–1399",
+    "school_name": "Virginia Tech",
+    "state": "VA",
+    "sat_middle_50": "1280–1450",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?233921",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "Indiana University Bloomington",
+    "state": "IN",
+    "sat_middle_50": "1170–1400",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?151351",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "Louisiana State University",
+    "state": "LA",
+    "sat_middle_50": "1180–1340",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?159391",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "Michigan State University",
+    "state": "MI",
+    "sat_middle_50": "1180–1360",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?171100",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "Texas A&M University",
+    "state": "TX",
+    "sat_middle_50": "1150–1400",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?228723",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "Texas Christian University",
+    "state": "TX",
+    "sat_middle_50": "1140–1350",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?228875",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "University of Alabama",
+    "state": "AL",
+    "sat_middle_50": "1170–1400",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?100751",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "University of Arizona",
+    "state": "AZ",
+    "sat_middle_50": "1150–1420",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?104179",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "University of Central Florida",
+    "state": "FL",
+    "sat_middle_50": "1200–1350",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?132903",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "University of South Florida",
+    "state": "FL",
+    "sat_middle_50": "1130–1320",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?137351",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 4: 1200–1299",
+    "school_name": "University of Tennessee, Knoxville",
+    "state": "TN",
+    "sat_middle_50": "1200–1370",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?221759",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "Florida A&M University",
+    "state": "FL",
+    "sat_middle_50": "1030–1180",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?133650",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "Florida Atlantic University",
+    "state": "FL",
+    "sat_middle_50": "1040–1200",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?133669",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "Florida Gulf Coast University",
+    "state": "FL",
+    "sat_middle_50": "1040–1200",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?433660",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "Florida International University",
+    "state": "FL",
+    "sat_middle_50": "1070–1260",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?133951",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "University of Arkansas",
+    "state": "AR",
+    "sat_middle_50": "1030–1220",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?106397",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "University of Kentucky",
+    "state": "KY",
+    "sat_middle_50": "1070–1290",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?157085",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "University of Mississippi",
+    "state": "MS",
+    "sat_middle_50": "1000–1200",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?176017",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 5: 1100–1199",
+    "school_name": "University of North Florida",
+    "state": "FL",
+    "sat_middle_50": "1070–1270",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": true,
+    "source_url": "https://collegescorecard.ed.gov/school/?136172",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 6: under 1100",
+    "school_name": "Georgia State University",
+    "state": "GA",
+    "sat_middle_50": "940–1180",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?139940",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 6: under 1100",
+    "school_name": "University of Memphis",
+    "state": "TN",
+    "sat_middle_50": "915–1180",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?220862",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 6: under 1100",
+    "school_name": "University of New Mexico",
+    "state": "NM",
+    "sat_middle_50": "890–1170",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?187985",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Tier 6: under 1100",
+    "school_name": "University of Texas at El Paso",
+    "state": "TX",
+    "sat_middle_50": "860–1080",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?228796",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "Cal Poly San Luis Obispo",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110422",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "California Institute of Technology",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Required",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110404",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "San Diego State University",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?122409",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UC Berkeley",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110635",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UC Davis",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110644",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UC Irvine",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110653",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UC San Diego",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110680",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UC Santa Barbara",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110705",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "UCLA",
+    "state": "CA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Test-blind",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?110662",
+    "data_year": "Fall 2024 entering class"
+  },
+  {
+    "tier": "Scores not reported",
+    "school_name": "University of Washington",
+    "state": "WA",
+    "sat_middle_50": "not reported",
+    "test_policy": "Optional",
+    "is_sat_blueprint_alumni_school": false,
+    "source_url": "https://collegescorecard.ed.gov/school/?236948",
+    "data_year": "Fall 2024 entering class"
+  }
+]
