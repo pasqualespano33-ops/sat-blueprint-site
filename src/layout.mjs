@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { SITE, SCHEDULE, OFFICE_HOURS_TIME } from './config.mjs';
 import { STATS, CREDENTIALS, ADMITS } from './data.mjs';
 import { icon, stars } from './icons.mjs';
@@ -199,7 +200,7 @@ export function footer({ hideMobileBar = false } = {}) {
         <a href="/" class="ft-logo"><picture><source srcset="/assets/img/logo-footer-600.webp" type="image/webp"><img src="/assets/img/logo-footer-600.png" width="240" height="162" alt="SAT Blueprint" loading="lazy"></picture></a>
         <p>The SAT Blueprint Method™ is the signature SAT program of Gradeful Test Prep.</p>
         <p class="ft-area">${icon('globe', { size: 16 })} Live online · Based in Deerfield Beach, FL</p>
-        <p class="stepup-badge">${icon('shield', { size: 18 })}<span><strong>Approved Provider</strong> Step Up For Students</span></p>
+        <p class="stepup-badge">${icon('shield', { size: 18 })}<span><strong>For Florida families</strong> Approved Step Up For Students provider</span></p>
         <ul class="ft-social" aria-label="Social media">${socialLinks()}</ul>
       </div>
       <nav class="ft-col" aria-label="Footer">
@@ -297,11 +298,26 @@ export function trustBar() {
 </section>`;
 }
 
+// Use a real logo file if one exists in assets/img/logos/<slug>.(svg|png|webp|jpg)
+function logoFile(slug) {
+  if (!slug) return '';
+  for (const ext of ['svg', 'png', 'webp', 'jpg']) {
+    if (existsSync(new URL(`../assets/img/logos/${slug}.${ext}`, import.meta.url))) return `/assets/img/logos/${slug}.${ext}`;
+  }
+  return '';
+}
+
 export function admitsTicker({ link = true } = {}) {
-  const items = ADMITS.map((a) => `<li class="ad-item"><span class="ad-score">${a.score}</span><span class="ad-sep" aria-hidden="true">·</span><span class="ad-what">${a.label}</span>${a.student ? `<span class="ad-name">${a.student}</span>` : ''}</li>`).join('<li class="ad-dot" aria-hidden="true"></li>');
-  return `<section class="admits" aria-label="Where our students got in, their scores, and scholarships">
+  const items = ADMITS.map((a) => {
+    const f = logoFile(a.logo);
+    const mark = f
+      ? `<img class="ad-logo" src="${f}" alt="" width="40" height="40" loading="lazy">`
+      : `<span class="ad-mono" style="background:${a.bg};color:${a.fg}" aria-hidden="true">${a.mono}</span>`;
+    return `<li class="ad-item">${mark}<span class="ad-what">${a.school}</span><span class="ad-name">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`;
+  }).join('<li class="ad-dot" aria-hidden="true"></li>');
+  return `<section class="admits" aria-label="Colleges our students got into">
   <div class="wrap ad-head">
-    <p class="ad-label-top">Where our students got in — and the scores that got them there</p>
+    <p class="ad-label-top">Where our students got in</p>
     ${link ? `<a class="link-arrow ad-link" href="/results/">See all Real Results ${icon('arrow', { size: 14 })}</a>` : ''}
   </div>
   <div class="ad-viewport" data-ticker tabindex="0" aria-label="Scrolling list of student results. Tap or focus to pause.">

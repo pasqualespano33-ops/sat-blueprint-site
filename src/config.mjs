@@ -30,12 +30,12 @@ export const SITE = {
 
   bookingUrl: 'https://link.gradefultestprep.com/widget/bookings/sat-strategy-session',
   bookingCalendarName: 'Patrick Spano—SAT Blueprint™ Roadmap Session',
-  youtube: 'https://www.youtube.com/@SATBlueprintMethod',
+  youtube: 'https://www.youtube.com/gradefultestprep',
 
   // PLACEHOLDER: other social profiles. Only networks with a URL are shown.
   social: {
-    instagram: '',
-    facebook: '',
+    instagram: 'https://www.instagram.com/patrickspanotestprep/',
+    facebook: 'https://www.facebook.com/profile.php?id=61582906097113',
     tiktok: '',
     x: '',
   },
@@ -61,8 +61,8 @@ export const SITE = {
   // Vertical (9:16) self-hosted hero video. Takes priority over the YouTube
   // ID above. Example: '/assets/video/hero.mp4' with a poster frame at
   // '/assets/video/hero-poster.jpg'. Autoplays muted with burned-in captions.
-  heroVideoFile: '/assets/video/sat-blueprint-hero.mp4',
-  heroVideoPoster: '/assets/video/sat-blueprint-hero-poster.jpg',
+  heroVideoFile: '/assets/video/sat-blueprint-hero-v2.mp4',
+  heroVideoPoster: '/assets/video/sat-blueprint-hero-v2-poster.jpg',
 
   // Alex Torres headshot. Drop the file at assets/img/alex-torres.jpg and set
   // this to '/assets/img/alex-torres.jpg'. While empty, his card shows initials.

@@ -1246,3 +1246,5 @@ ol.mh-diagram li { font-size: 1.15rem; }
 [data-rgrid] > div[hidden] { display: none; }
 .ad-what { font-size: 1.02rem; font-weight: 800; letter-spacing: -.01em; color: #fff; text-transform: none; }
 @media (max-width: 560px) { .ad-label-top { display: none; } .ad-head { margin-bottom: 10px; } .ad-what { font-size: .92rem; } }
+.ad-mono { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 6px; border-radius: 999px; font-size: .72rem; font-weight: 900; letter-spacing: .02em; align-self: center; box-shadow: 0 0 0 2px rgba(255,255,255,.12); }
+.ad-item { align-items: center; }
