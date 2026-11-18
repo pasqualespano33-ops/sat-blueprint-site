@@ -1409,3 +1409,16 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .cw-value { display: block; font-size: 1.15rem; font-weight: 700; overflow-wrap: anywhere; }
 .legal h2 { font-size: 1.05rem; letter-spacing: .04em; margin-top: 2em; }
 .legal-date { color: var(--muted); font-size: .9rem; font-weight: 600; }
+.cw-row { display: flex; gap: 10px; align-items: stretch; min-width: 0; }
+.cw-row .cw-item { flex: 1; }
+.cw-copy { flex-shrink: 0; padding: 0 18px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--gold-300); font: inherit; font-weight: 800; font-size: .85rem; cursor: pointer; }
+.cw-copy:hover { border-color: rgba(240,192,64,.5); }
+@media (max-width: 420px) { .cw-copy { padding: 0 12px; } .cw-value { font-size: 1rem; } }
+@media (max-width: 560px) {
+  .cw-row { flex-direction: column; gap: 8px; }
+  .cw-copy { padding: 10px 16px; border-radius: 12px; }
+  .cw-item { padding: 14px 14px; gap: 12px; }
+  .cw-ico { width: 40px; height: 40px; }
+  .cw-value { font-size: .98rem; overflow-wrap: normal; word-break: keep-all; }
+}
+@media (max-width: 420px) { .cw-ico { display: none; } .cw-value { font-size: .95rem; } }

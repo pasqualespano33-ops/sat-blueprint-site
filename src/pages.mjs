@@ -882,10 +882,13 @@ ${pageHero({
           <span class="cw-ico">${icon('phone', { size: 22 })}</span>
           <span><span class="cw-label">Call or text</span><span class="cw-value">${SITE.phoneDisplay}</span></span>
         </a>
-        <a class="cw-item" href="mailto:${SITE.email}">
-          <span class="cw-ico">${icon('mail', { size: 22 })}</span>
-          <span><span class="cw-label">Email</span><span class="cw-value">${SITE.email}</span></span>
-        </a>
+        <div class="cw-row">
+          <a class="cw-item" href="mailto:${SITE.email}">
+            <span class="cw-ico">${icon('mail', { size: 22 })}</span>
+            <span><span class="cw-label">Email</span><span class="cw-value">${SITE.email}</span></span>
+          </a>
+          <button type="button" class="cw-copy" data-copy="${SITE.email}" aria-label="Copy email address">Copy</button>
+        </div>
       </div>
       <a class="btn btn-primary btn-lg btn-block mt-md" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>
       ${reassure('', { plan: false })}

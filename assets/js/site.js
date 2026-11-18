@@ -455,3 +455,14 @@
     if (status) status.textContent = shown + (shown === 1 ? ' result' : ' results') + (v ? ' for ' + sel.options[sel.selectedIndex].text : '');
   });
 })();
+
+// Copy-to-clipboard buttons (e.g. email address on the Contact page)
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.getAttribute('data-copy');
+    var done = function () { var t = b.textContent; b.textContent = 'Copied!'; setTimeout(function () { b.textContent = t; }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy this email address:', text); });
+    } else { window.prompt('Copy this email address:', text); }
+  });
+});
