@@ -146,6 +146,9 @@ export const VIDEOS = [
   { id: '5Bi-oBb8rAE', title: 'Mauricio’s 1350 and 100% Bright Futures', name: 'Mauricio', outcome: '1350 · 100% Bright Futures' },
   { id: 'tVnn4XjRJdg', title: 'How Aarush Got a 1410 and Boosted 100 Points', name: 'Aarush', outcome: '1410 · +100 points' },
   { id: 'mWV1HZyed8o', title: 'Sammi’s 240 Point Boost and Overcoming Weaknesses', name: 'Sammi', outcome: '+240 points' },
+  // TODO: add student name + result for these two (titles not yet provided)
+  { id: '8TqzVMjGnX4', title: 'Student video testimonial', name: '', outcome: 'SAT Blueprint student' },
+  { id: 'jKemrNzX6Iw', title: 'Student video testimonial', name: '', outcome: 'SAT Blueprint student' },
 ];
 
 export const INCLUDES = [

@@ -1144,3 +1144,4 @@ input:hover, select:hover, textarea:hover { border-color: rgba(255, 255, 255, .3
 .stepup-line { display: flex; align-items: flex-start; justify-content: center; gap: 8px; max-width: 760px; margin-left: auto; margin-right: auto; color: var(--muted); font-size: .92rem; }
 .stepup-line .ico { color: var(--gold-300); flex-shrink: 0; margin-top: 4px; }
 @media (max-width: 860px) { .principles { grid-template-columns: 1fr; } .principle { grid-template-columns: 1fr; gap: 10px; } }
+@media (min-width: 961px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
