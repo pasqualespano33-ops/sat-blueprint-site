@@ -1407,3 +1407,4 @@ ol.mh-diagram li { font-size: 1.15rem; }
 .cw-ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-300); flex-shrink: 0; }
 .cw-label { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .cw-value { display: block; font-size: 1.15rem; font-weight: 700; overflow-wrap: anywhere; }
+.legal h2 { font-size: 1.05rem; letter-spacing: .04em; margin-top: 2em; }

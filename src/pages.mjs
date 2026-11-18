@@ -917,9 +917,8 @@ function legalPage({ path, out, title, h1, description, body }) {
     path, out, title, description,
     body: `
 ${pageHero({ eyebrow: 'Legal', title: h1, crumbs: [{ name: h1.replace(/<[^>]+>/g, ''), path }], ctas: false })}
-<section class="section" data-review="new-copy">
-  <div class="wrap narrow prose">
-    <p class="legal-flag">Placeholder policy — pending legal review. Last updated: November 17, 2026.</p>
+<section class="section">
+  <div class="wrap narrow prose legal">
     ${body}
     <h2>Trademark notice</h2>
     <p>SAT® is a registered trademark of the College Board, which is not affiliated with and does not endorse this website or program.</p>
@@ -936,58 +935,17 @@ function privacy() {
     title: 'Privacy Policy | SAT Blueprint · Gradeful Test Prep',
     h1: 'Privacy <span>policy</span>',
     description: 'How Gradeful Test Prep (SAT Blueprint Method™) collects, uses, and protects information submitted through this website.',
-    body: `
-<p>This Privacy Policy explains how Gradeful Test Prep (“we,” “us”), which offers the SAT Blueprint Method™, handles information collected through this website.</p>
-<h2>Information we collect</h2>
-<ul>
-  <li><strong>Information you give us.</strong> When you book a Roadmap Session or send a message, we collect what you enter — such as parent/guardian name, phone, email, your student’s first name, grade, test dates, scores, and any notes.</li>
-  <li><strong>Scheduling information.</strong> Appointments are booked through our scheduling provider, which receives the details you enter to create your appointment and send confirmations.</li>
-  <li><strong>Basic usage data.</strong> Like most websites, our hosting and analytics tools may record standard technical information such as browser type, pages visited, and approximate location.</li>
-  <li><strong>Embedded content.</strong> Pages may include embedded videos (YouTube) and maps (Google Maps). Those services may collect data according to their own policies when you interact with them.</li>
-</ul>
-<h2>How we use it</h2>
-<ul>
-  <li>To schedule and prepare for your Roadmap Session and respond to your questions.</li>
-  <li>To deliver our services to enrolled families, including progress updates and reminders.</li>
-  <li>To send information about our programs if you’ve agreed to receive it. You can opt out at any time.</li>
-</ul>
-<h2>What we don’t do</h2>
-<p>We do not sell student or family personal information. We share information only with service providers that help us operate (such as website hosting, scheduling, and communication tools), when required by law, or with your permission.</p>
-<h2>Students</h2>
-<p>Our services are intended for high school students with the involvement of a parent or guardian. This website is not directed to children under 13, and we do not knowingly collect personal information from children under 13 through it.</p>
-<h2>Text messages and email</h2>
-<p>If you provide a phone number or email, we may contact you about your appointment or our services. Message and data rates may apply. Reply STOP to opt out of texts, or use the unsubscribe link in any email.</p>
-<h2>Security and retention</h2>
-<p>We use reasonable safeguards to protect the information we collect and keep it only as long as needed for the purposes above or as required by law.</p>
-<h2>Your choices</h2>
-<p>You can ask us to access, correct, or delete your information by contacting us using the details below.</p>
-<h2>Changes</h2>
-<p>We may update this policy from time to time. The “last updated” date above shows when it last changed.</p>`,
+    body: LEGAL.privacy,
   });
 }
 
 function terms() {
   return legalPage({
     path: '/terms/', out: 'terms/index.html',
-    title: 'Terms of Use | SAT Blueprint · Gradeful Test Prep',
-    h1: 'Terms of <span>use</span>',
+    title: 'Terms and Conditions | SAT Blueprint · Gradeful Test Prep',
+    h1: 'Terms and <span>conditions</span>',
     description: 'Terms of use for the SAT Blueprint Method™ website operated by Gradeful Test Prep.',
-    body: `
-<p>By using this website, operated by Gradeful Test Prep (“we,” “us”), you agree to these terms.</p>
-<h2>Educational services</h2>
-<p>This website describes the SAT Blueprint Method™ and the 12-Week SAT Blueprint Program, online SAT preparation offered by Gradeful Test Prep. Enrollment, scheduling, pricing, and program details are confirmed directly with each family. Specific terms of enrollment are provided at the time of enrollment.</p>
-<h2>About the results on this site</h2>
-<p>Scores, point increases, scholarships, and admissions outcomes shown on this site are examples of past students’ results, not typical or future results. Every student is different, and outcomes depend on many factors, including the student’s starting point, effort, and consistency. Scholarship eligibility, including Florida Bright Futures, is determined solely by the administering organizations.</p>
-<h2>Website content</h2>
-<p>Content on this site — including text, graphics, logos, and The SAT Blueprint™ materials — belongs to Gradeful Test Prep or its licensors and may not be copied or redistributed without permission.</p>
-<h2>Third-party links and services</h2>
-<p>This site links to and embeds third-party services such as our scheduler, YouTube, and Google Maps. We are not responsible for their content or practices.</p>
-<h2>Limitation of liability</h2>
-<p>This website is provided “as is.” To the extent permitted by law, we are not liable for any damages arising from your use of the site.</p>
-<h2>Governing law</h2>
-<p>These terms are governed by the laws of the State of Florida.</p>
-<h2>Changes</h2>
-<p>We may update these terms from time to time. Continued use of the site means you accept the updated terms.</p>`,
+    body: LEGAL.terms,
   });
 }
 
@@ -1018,6 +976,8 @@ function notFound() {
 const readRes = (f) => readFileSync(new URL(`./resources/${f}`, import.meta.url), 'utf8');
 const SCHOLARSHIPS = JSON.parse(readRes('scholarships_by_state.json'));
 const COLLEGES = JSON.parse(readRes('sat_by_college.json'));
+// Patrick's own Privacy Policy and Terms (from his PDF), converted to HTML.
+const LEGAL = JSON.parse(readRes('legal.json'));
 const STATE_NAMES = { AL: 'Alabama', AZ: 'Arizona', CA: 'California', CO: 'Colorado', CT: 'Connecticut', DC: 'District of Columbia', FL: 'Florida', GA: 'Georgia', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa', LA: 'Louisiana', MA: 'Massachusetts', MD: 'Maryland', MI: 'Michigan', MN: 'Minnesota', MO: 'Missouri', NC: 'North Carolina', NH: 'New Hampshire', NJ: 'New Jersey', NY: 'New York', OH: 'Ohio', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VA: 'Virginia', WA: 'Washington', WI: 'Wisconsin', WV: 'West Virginia' };
 const stateName = (c) => STATE_NAMES[c] || c;
 
