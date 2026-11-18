@@ -127,21 +127,49 @@ function compareTable() {
     </div>`;
 }
 
+function teamCards() {
+  const alexPhoto = SITE.alexPhoto
+    ? `<img class="team-photo" src="${SITE.alexPhoto}" alt="Alex Torres, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy">`
+    : '<span class="team-photo team-initials" aria-hidden="true">AT</span>';
+  return `<div class="team-grid">
+      <article class="team-card reveal">
+        <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img class="team-photo" src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy"></picture>
+        <div>
+          <h3>Patrick Spano</h3>
+          <p class="team-role">Co-founder · Runs every Roadmap Session</p>
+          <ul class="team-creds">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
+        </div>
+      </article>
+      <article class="team-card reveal">
+        ${alexPhoto}
+        <div>
+          <h3>Alex Torres</h3>
+          <p class="team-role">Co-founder</p>
+          <ul class="team-creds">
+            <li>${icon('check', { size: 15 })}Yale graduate</li>
+            <li>${icon('check', { size: 15 })}17 years of experience as an SAT instructor</li>
+            <li>${icon('check', { size: 15 })}3,500 instructional videos on YouTube</li>
+            <li>${icon('check', { size: 15 })}Helped students achieve seven 1500+ SAT scores in a 7-month stretch</li>
+          </ul>
+        </div>
+      </article>
+    </div>`;
+}
+
 function founderBlock() {
   return `<section class="section" id="founder">
-  <div class="wrap founder">
-    <div class="founder-photo reveal">
-      <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano — SAT Blueprint co-founder, Yale Graduate" width="433" height="517" loading="lazy"></picture>
-      <div class="founder-badge"><p class="fb-num">15+</p><p class="fb-lbl">Years coaching</p></div>
+  <div class="wrap">
+    <div class="split-head reveal">
+      <div>
+        <p class="eyebrow">Meet your coaches</p>
+        <h2 class="h2">“Most students aren’t stuck <span>for lack of effort.”</span></h2>
+      </div>
+      <div>
+        <p class="lead">I’m Patrick Spano — co-founder of The SAT Blueprint Method™, with Alex Torres. I played goalie at Yale, then pro hockey in the US and Europe. A goalie doesn’t get better by playing more games. He gets better by watching the tape. Alex and I built The SAT Blueprint™ so your teen isn’t just doing more prep — they’re fixing the pattern that’s costing points.</p>
+        <a class="link-arrow mt-sm" href="/about/">Read our story ${icon('arrow', { size: 16 })}</a>
+      </div>
     </div>
-    <div class="founder-body reveal">
-      <p class="eyebrow">Meet your coach</p>
-      <h2 class="h2">“Most students aren’t stuck for lack of effort.”</h2>
-      <p>I’m Patrick Spano — co-founder of The SAT Blueprint Method™, with Alex Torres. I played goalie at Yale, then pro hockey in the US and Europe. Now I run Gradeful Test Prep. After helping thousands of families, I’ve learned one thing: most students study hard without knowing what the SAT actually tests, or where the points are going.</p>
-      <p>A goalie doesn’t get better by playing more games. He gets better by watching the tape. Alex and I built The SAT Blueprint™ so your teen isn’t just doing more prep — they’re fixing the pattern that’s costing points.</p>
-      <ul class="cred-row">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
-      <a class="link-arrow" href="/about/">Read Patrick’s story ${icon('arrow', { size: 16 })}</a>
-    </div>
+    ${teamCards()}
   </div>
 </section>`;
 }
@@ -161,10 +189,8 @@ function heroMedia(hasVideo) {
   }
   return `<div class="hv-frame">
       <picture>
-        <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.webp" type="image/webp">
-        <source media="(min-width: 700px)" srcset="/assets/img/patrick-portrait-1100.jpg">
-        <source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp">
-        <img src="/assets/img/patrick-portrait-640.jpg" width="640" height="800" alt="Patrick Spano, co-founder of the SAT Blueprint Method, at his desk" fetchpriority="high">
+        <source srcset="/assets/img/patrick-headshot.webp" type="image/webp">
+        <img src="/assets/img/patrick-headshot.jpg" width="433" height="517" alt="Patrick Spano, co-founder of the SAT Blueprint Method" fetchpriority="high">
       </picture>
     </div>`;
 }
@@ -191,8 +217,8 @@ function home() {
     { ...INCLUDES[5], cls: 'b-gold' },
   ];
   const h1 = hasVideo
-    ? 'Watch the video and discover how we help your teen <span>raise their SAT score.</span>'
-    : 'Discover how we help your teen <span>raise their SAT score.</span>';
+    ? 'Watch the video and discover how we help your teen raise their SAT score <span>by 200 points.</span>'
+    : 'Discover how we help your teen raise their SAT score <span>by 200 points.</span>';
   return {
     path: '/',
     out: 'index.html',
@@ -603,29 +629,7 @@ ${pageHero({
       ${eyebrow('The team')}
       <h2 class="h2">The people behind <span>the Blueprint.</span></h2>
     </div>
-    <div class="team-grid">
-      <article class="team-card reveal">
-        <picture><source srcset="/assets/img/patrick-headshot.webp" type="image/webp"><img class="team-photo" src="/assets/img/patrick-headshot.jpg" alt="Patrick Spano, co-founder of the SAT Blueprint Method" width="160" height="160" loading="lazy"></picture>
-        <div>
-          <h3>Patrick Spano</h3>
-          <p class="team-role">Co-founder · Runs every Roadmap Session</p>
-          <ul class="team-creds">${CREDENTIALS.map((c) => `<li>${icon('check', { size: 15 })}${c}</li>`).join('')}</ul>
-        </div>
-      </article>
-      <article class="team-card reveal">
-        ${alexPhoto}
-        <div>
-          <h3>Alex Torres</h3>
-          <p class="team-role">Co-founder</p>
-          <ul class="team-creds">
-            <li>${icon('check', { size: 15 })}Yale graduate</li>
-            <li>${icon('check', { size: 15 })}17 years of experience as an SAT instructor</li>
-            <li>${icon('check', { size: 15 })}3,500 instructional videos on YouTube</li>
-            <li>${icon('check', { size: 15 })}Helped students achieve seven 1500+ SAT scores in a 7-month stretch</li>
-          </ul>
-        </div>
-      </article>
-    </div>
+    ${teamCards()}
     <p class="team-note reveal">${icon('users', { size: 16 })} SAT specialists and tutors work alongside them to deliver the program.</p>
   </div>
 </section>

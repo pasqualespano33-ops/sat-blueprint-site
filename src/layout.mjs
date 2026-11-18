@@ -452,7 +452,6 @@ export function finalCta() {
     ${reassure('on-dark', { extra: 'Patrick runs every Roadmap Session.' })}
     <p class="fc-lock">SAT dates fill the calendar fast, and scholarship deadlines don’t move. Starting sooner gives your teen more room to improve — and if you’re already close to a test date, we’ll be honest about what’s realistic.</p>
   </div>
-  <div class="fc-photo" aria-hidden="true"><picture><source srcset="/assets/img/patrick-portrait-640.webp" type="image/webp"><img src="/assets/img/patrick-portrait-640.jpg" alt="" width="640" height="800" loading="lazy"></picture></div>
   </div></div>
 </section>`;
 }

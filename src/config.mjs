@@ -60,7 +60,7 @@ export const SITE = {
 
   // Alex Torres headshot. Drop the file at assets/img/alex-torres.jpg and set
   // this to '/assets/img/alex-torres.jpg'. While empty, his card shows initials.
-  alexPhoto: '',
+  alexPhoto: '/assets/img/alex-torres.jpg',
 
   // Roadmap Session availability, from the current HighLevel calendar.
   roadmapHours: 'Monday–Friday, 8:00 AM–5:00 PM ET',
