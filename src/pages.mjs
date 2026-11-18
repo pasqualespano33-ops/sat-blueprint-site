@@ -1,13 +1,14 @@
 import { SITE, COACHES, OFFICE_HOURS_TIME } from './config.mjs';
 import {
   STATS, CREDENTIALS, RESULTS, TESTIMONIALS, PROOF_NOTES, VIDEOS, INCLUDES, INCLUDES_INTRO, STEPS, PILLARS, PAINS,
-  COMPARE, SCREENSHOTS,
+  COMPARE, SCREENSHOTS, SCORE_REPORTS,
 } from './data.mjs';
+import { readFileSync } from 'node:fs';
 import { FAQS, faqById } from './faq.mjs';
 import { POSTS, CATEGORIES } from './posts.mjs';
 import {
   icon, stars, esc, eyebrow, reassure, ctaPair, pageHero, trustBar, statsBand, testimonialCard, resultCard,
-  proofNote, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker, satCountdown,
+  proofNote, scoreReport, videoCard, scheduleModule, parentBlock, trustAside, finalCta, faqAccordion, blogCard, ticker, admitsTicker, satCountdown,
   breadcrumbs, ORG_ID, PERSON_ID, ADDRESS, RISK_REDUCER,
 } from './layout.mjs';
 
@@ -71,6 +72,21 @@ function notesWall(notes = PROOF_NOTES) {
   return `<div class="notes-grid">${notes.map((n) => `<div class="reveal">${proofNote(n)}</div>`).join('')}</div>`;
 }
 
+function shotFig(s, cls = '') {
+  return `<figure class="shot${cls} reveal">
+        <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
+          <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="${s.h || 900}" loading="lazy"></picture>
+        </a>
+        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
+      </figure>`;
+}
+const shotBy = (f) => SCREENSHOTS.find((x) => x.file === f);
+
+function scoreReports({ dark = false, title = true } = {}) {
+  return `${title ? `<h3 class="group-title${dark ? ' on-dark-title' : ''} mt-lg reveal">Official score reports</h3>` : ''}
+    <div class="sr-grid">${SCORE_REPORTS.map((r) => `<div class="reveal">${scoreReport(r)}</div>`).join('')}</div>`;
+}
+
 function screenshotWall({ bg = '' } = {}) {
   return `<section class="section ${bg}" id="screenshots">
   <div class="wrap">
@@ -80,12 +96,7 @@ function screenshotWall({ bg = '' } = {}) {
       <p class="lead">Real texts and emails from students and parents, unedited. Names, numbers, and photos are hidden to protect privacy. Tap any message to see it full size.</p>
     </div>
     <div class="shot-grid">
-      ${SCREENSHOTS.map((s) => `<figure class="shot reveal">
-        <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
-          <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="900" loading="lazy"></picture>
-        </a>
-        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
-      </figure>`).join('')}
+      ${SCREENSHOTS.map((x) => shotFig(x)).join('')}
     </div>
   </div>
 </section>`;
@@ -301,12 +312,8 @@ ${founderBlock()}
         <a class="link-arrow on-dark mt-sm" href="/results/">See all Real Results ${icon('arrow', { size: 16 })}</a>
       </div>
     </div>
-    <div class="shot-row">${['drew-1380', 'superscore-1510', 'mauricio-1350'].map((f) => SCREENSHOTS.find((x) => x.file === f)).map((s) => `<figure class="shot reveal">
-        <a class="shot-link" href="/assets/img/proof/${s.file}.jpg" data-lightbox aria-label="View full size: ${esc(s.title)}, ${esc(s.result)}">
-          <picture><source srcset="/assets/img/proof/${s.file}.webp" type="image/webp"><img src="/assets/img/proof/${s.file}.jpg" alt="${esc(s.alt)}" width="700" height="900" loading="lazy"></picture>
-        </a>
-        <figcaption><strong>${s.title}</strong><span>${s.result}</span></figcaption>
-      </figure>`).join('')}</div>
+    <div class="shot-feature">${shotFig(shotBy('eitan-200-plus'))}${shotFig(shotBy('annabel-parent-admits'))}${shotFig(shotBy('mauricio-1350'))}</div>
+    ${scoreReports({ dark: true })}
     <h3 class="group-title on-dark-title mt-lg reveal">Before → after</h3>
     <div class="score-grid s6">${gallery.map((r) => `<div class="reveal">${resultCard(r)}</div>`).join('')}</div>
     <div class="center mt-lg reveal"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a>${reassure('on-dark')}</div>
@@ -580,6 +587,17 @@ ${admitsTicker({ link: false })}
     </div>
     <p class="sr-only" aria-live="polite" data-rfilter-status></p>
     <div class="score-grid" data-rgrid>${cards.map(([n, tags]) => `<div class="reveal" data-tags="${tags}">${resultCard(R[n])}</div>`).join('')}</div>
+  </div>
+</section>
+
+<section class="section bg-surface" id="score-reports">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      ${eyebrow('Official scores')}
+      <h2 class="h2">Straight from <span>the score report.</span></h2>
+      <p class="lead">Official College Board totals from past SAT Blueprint students.</p>
+    </div>
+    ${scoreReports({ title: false })}
   </div>
 </section>
 
@@ -1186,9 +1204,151 @@ function notFound() {
   };
 }
 
+// ── FREE RESOURCES (footer only) ────────────────────────────────────────────
+// Data files: src/resources/*.json (source of truth; see src/resources/README.md).
+const readRes = (f) => readFileSync(new URL(`./resources/${f}`, import.meta.url), 'utf8');
+const SCHOLARSHIPS = JSON.parse(readRes('scholarships_by_state.json'));
+const COLLEGES = JSON.parse(readRes('sat_by_college.json'));
+const STATE_NAMES = { AL: 'Alabama', AZ: 'Arizona', CA: 'California', CO: 'Colorado', CT: 'Connecticut', DC: 'District of Columbia', FL: 'Florida', GA: 'Georgia', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa', LA: 'Louisiana', MA: 'Massachusetts', MD: 'Maryland', MI: 'Michigan', MN: 'Minnesota', MO: 'Missouri', NC: 'North Carolina', NH: 'New Hampshire', NJ: 'New Jersey', NY: 'New York', OH: 'Ohio', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VA: 'Virginia', WA: 'Washington', WI: 'Wisconsin', WV: 'West Virginia' };
+const stateName = (c) => STATE_NAMES[c] || c;
+
+// Tiny Markdown → HTML for the resource copy (paragraphs, **bold**, [links](url)).
+function md(text) {
+  return text.trim().split(/\n\s*\n/).filter((b) => !b.startsWith('# ')).map((b) => `<p>${esc(b)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, (m, t, u) => (/^https?:/.test(u) && !u.includes('gradefultestprep.com')
+      ? `<a href="${u}" target="_blank" rel="noopener">${t}<span class="sr-only"> (opens in a new tab)</span></a>`
+      : `<a href="${u.replace('https://gradefultestprep.com', '') || '/'}${u.endsWith('/') || u.includes('://') ? '' : '/'}">${t}</a>`))}</p>`);
+}
+
+function stateFilter(states, label) {
+  return `<div class="res-filter reveal">
+      <label for="state-filter">${label}</label>
+      <select id="state-filter" data-state-filter>
+        <option value="">All states</option>
+        ${states.map((st) => `<option value="${esc(st)}">${esc(stateName(st))}</option>`).join('')}
+      </select>
+      <p class="sr-only" aria-live="polite" data-state-status></p>
+    </div>`;
+}
+
+function resourceCta(other) {
+  return `<section class="section-tight"><div class="wrap narrow">
+    <div class="res-cta reveal">
+      <p class="rc-title">Turn these numbers into a plan.</p>
+      <p>The SAT Blueprint Method™ is live online over Google Meet. On a free Roadmap Session, Patrick maps the score your teen needs — and the path to get there.</p>
+      <div class="rc-actions"><a class="btn btn-primary btn-lg" href="/book/">${icon('calendar', { size: 18 })} Book a Free Roadmap Session</a><a class="link-arrow" href="${other.href}">${other.label} ${icon('arrow', { size: 16 })}</a></div>
+      ${reassure('', { plan: false })}
+    </div>
+  </div></section>`;
+}
+
+function scholarshipsPage() {
+  const copy = md(readRes('scholarships.md'));
+  const [intro, nm, helps, disc] = copy;
+  const states = [...new Set(SCHOLARSHIPS.map((r) => r.state))];
+  const rows = SCHOLARSHIPS.map((r) => `<tr data-state="${esc(r.state)}">
+          <th scope="row" data-label="State">${esc(r.state)}</th>
+          <td data-label="Program"><strong>${esc(r.program)}</strong>${r.notes ? `<details class="res-notes"><summary>Details</summary><p>${esc(r.notes).replace(/(https?:\/\/[^\s]+?)([.,]?)(?=\s|$)/g, '<a href="$1" target="_blank" rel="noopener">official document</a>$2')}</p></details>` : ''}</td>
+          <td data-label="SAT needed">${esc(r.sat_needed)}</td>
+          <td data-label="Award">${esc(r.award)}</td>
+          <td data-label="Official link"><a class="res-src" href="${esc(r.source_url)}" target="_blank" rel="noopener">Official site ${icon('arrow', { size: 14 })}<span class="sr-only"> for ${esc(r.program)} (opens in a new tab)</span></a></td>
+        </tr>`).join('');
+  return {
+    path: '/scholarships-by-state/',
+    out: 'scholarships-by-state/index.html',
+    title: 'SAT Scholarships by State — Score Cutoffs & Awards | SAT Blueprint',
+    description: 'State merit scholarships tied to SAT scores — Florida Bright Futures, Georgia Zell Miller, Louisiana TOPS and more — with the SAT needed, award, and official links.',
+    schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'SAT Scholarships by State', path: '/scholarships-by-state/' }])],
+    body: `
+${pageHero({
+  eyebrow: 'Free resource',
+  title: 'SAT scholarships <span>by state.</span>',
+  sub: intro.replace(/<\/?p>/g, ''),
+  crumbs: [{ name: 'SAT Scholarships by State', path: '/scholarships-by-state/' }],
+  ctas: false,
+  extra: '<p class="res-asof">Data as of November 18, 2026</p>',
+})}
+<section class="section res-sec">
+  <div class="wrap">
+    ${stateFilter(states, 'Show scholarships for')}
+    <div class="res-table-wrap reveal" data-state-scope>
+      <table class="res-table">
+        <caption class="sr-only">State merit scholarships with SAT requirements</caption>
+        <thead><tr><th scope="col">State</th><th scope="col">Program</th><th scope="col">SAT needed</th><th scope="col">Award</th><th scope="col">Official link</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div class="res-copy narrow-left reveal">${nm}${helps}</div>
+    <div class="fine-print res-disc">${disc}</div>
+  </div>
+</section>
+${resourceCta({ href: '/sat-scores-by-college/', label: 'See SAT scores by college' })}
+`,
+  };
+}
+
+function collegesPage() {
+  const copy = md(readRes('college-scores.md'));
+  const [intro, method, helps, disc] = copy;
+  const order = ['Tier 1: 1500+', 'Tier 2: 1400–1499', 'Tier 3: 1300–1399', 'Tier 4: 1200–1299', 'Tier 5: 1100–1199', 'Tier 6: under 1100', 'Scores not reported'];
+  const states = [...new Set(COLLEGES.map((c) => c.state))].sort((a, b) => stateName(a).localeCompare(stateName(b)));
+  const sections = order.map((t) => {
+    const list = COLLEGES.filter((c) => c.tier === t);
+    if (!list.length) return '';
+    const [label, range] = t.includes(':') ? t.split(': ') : ['', t];
+    return `<section class="tier-block reveal" data-state-group>
+      <h2 class="tier-h">${label ? `<span class="tier-n">${label}</span>` : ''}<span class="tier-r">${range}</span></h2>
+      <div class="res-table-wrap">
+        <table class="res-table res-colleges">
+          <caption class="sr-only">${esc(t)} colleges</caption>
+          <thead><tr><th scope="col">College</th><th scope="col">State</th><th scope="col">SAT mid-50%</th><th scope="col">Test policy</th></tr></thead>
+          <tbody>${list.map((c) => `<tr data-state="${c.state}"${c.is_sat_blueprint_alumni_school ? ' class="is-alum"' : ''}>
+            <th scope="row" data-label="College"><a href="${esc(c.source_url)}" target="_blank" rel="noopener">${esc(c.school_name)}<span class="sr-only"> on College Scorecard (opens in a new tab)</span></a>${c.is_sat_blueprint_alumni_school ? ' <span class="alum-badge">SAT Blueprint alumni</span>' : ''}</th>
+            <td data-label="State">${c.state}</td>
+            <td data-label="SAT mid-50%" class="${c.sat_middle_50 === 'not reported' ? 'is-na' : 'num'}">${esc(c.sat_middle_50)}</td>
+            <td data-label="Test policy">${esc(c.test_policy)}</td>
+          </tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </section>`;
+  }).join('');
+  return {
+    path: '/sat-scores-by-college/',
+    out: 'sat-scores-by-college/index.html',
+    title: 'SAT Scores by College — Middle-50% Ranges by Tier | SAT Blueprint',
+    description: 'Middle-50% SAT ranges at well-known colleges, grouped by score band, with each school’s test policy. Data from the U.S. Department of Education College Scorecard.',
+    schema: [breadcrumbs([{ name: 'Home', path: '/' }, { name: 'SAT Scores by College', path: '/sat-scores-by-college/' }])],
+    body: `
+${pageHero({
+  eyebrow: 'Free resource',
+  title: 'SAT scores <span>by college.</span>',
+  sub: intro.replace(/<\/?p>/g, ''),
+  crumbs: [{ name: 'SAT Scores by College', path: '/sat-scores-by-college/' }],
+  ctas: false,
+  extra: '<p class="res-asof">Data as of November 18, 2026</p>',
+})}
+<section class="section res-sec">
+  <div class="wrap">
+    <div class="res-copy narrow-left reveal">${method}</div>
+    <div class="res-tools">
+      ${stateFilter(states, 'Show colleges in')}
+      <p class="alum-legend reveal"><span class="alum-badge">SAT Blueprint alumni</span> = a college where an SAT Blueprint student has been confirmed</p>
+    </div>
+    <div data-state-scope>${sections}</div>
+    <p class="res-empty" data-state-empty hidden>No colleges from that state on this list yet.</p>
+    <div class="res-copy narrow-left reveal mt-lg">${helps}</div>
+    <div class="fine-print res-disc">${disc}</div>
+  </div>
+</section>
+${resourceCta({ href: '/scholarships-by-state/', label: 'See SAT scholarships by state' })}
+`,
+  };
+}
+
 export function allPages() {
   return [
     home(), program(), results(), faq(), book(),
-    bookConfirmed(), contact(), privacy(), terms(), notFound(),
+    bookConfirmed(), contact(), scholarshipsPage(), collegesPage(), privacy(), terms(), notFound(),
   ];
 }

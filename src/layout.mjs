@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { SITE, SCHEDULE, OFFICE_HOURS_TIME, SAT_DATES } from './config.mjs';
 import { STATS, CREDENTIALS, ADMITS } from './data.mjs';
 import { icon, stars } from './icons.mjs';
@@ -211,6 +211,13 @@ export function footer({ hideMobileBar = false } = {}) {
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
+      <nav class="ft-col" aria-label="Free resources">
+        <h2 class="ft-h">Free resources</h2>
+        <ul>
+          <li><a href="/scholarships-by-state/">SAT Scholarships by State</a></li>
+          <li><a href="/sat-scores-by-college/">SAT Scores by College</a></li>
+        </ul>
+      </nav>
       <div class="ft-col">
         <h2 class="ft-h">Contact</h2>
         <ul class="ft-contact">
@@ -307,6 +314,18 @@ function logoFile(slug) {
   return '';
 }
 
+// Size each logo to the same visual area so wide wordmarks and tall crests balance.
+function logoSize(file) {
+  let w = 40, h = 40;
+  if (file.endsWith('.png')) {
+    const b = readFileSync(new URL(`..${file}`, import.meta.url));
+    w = b.readUInt32BE(16); h = b.readUInt32BE(20);
+  }
+  const area = 4200, r = w / h;
+  const dh = Math.min(46, Math.round(Math.sqrt(area / r)));
+  return { w: Math.round(dh * r), h: dh };
+}
+
 export function satCountdown() {
   if (!SAT_DATES.length) return '';
   return `<section class="countdown" data-countdown='${JSON.stringify(SAT_DATES)}' hidden>
@@ -330,10 +349,12 @@ export function satCountdown() {
 export function admitsTicker({ link = true } = {}) {
   const items = ADMITS.map((a) => {
     const f = logoFile(a.logo);
+    const sz = f ? logoSize(f) : null;
     const mark = f
-      ? `<img class="ad-logo" src="${f}" alt="" width="40" height="40" loading="lazy">`
+      ? `<img class="ad-logo" src="${f}" alt="" width="${sz.w}" height="${sz.h}" style="width:${sz.w}px;height:${sz.h}px" loading="lazy">`
       : `<span class="ad-mono" style="background:${a.bg};color:${a.fg}" aria-hidden="true">${a.mono}</span>`;
-    return `<li class="ad-item">${mark}<span class="ad-what">${a.school}</span><span class="ad-name">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`;
+    const hideName = f && !a.crest;
+    return `<li class="ad-item${f ? ' has-logo' : ''}">${mark}<span class="ad-what${hideName ? ' sr-only' : ''}">${a.school}</span><span class="ad-name">${a.student}${a.note ? ` · ${a.note}` : ''}</span></li>`;
   }).join('<li class="ad-dot" aria-hidden="true"></li>');
   return `<section class="admits" aria-label="Colleges our students got into">
   <div class="wrap ad-head">
@@ -372,6 +393,25 @@ export function testimonialCard(t, { schema = false } = {}) {
     <blockquote><p>“${t.quote}”</p></blockquote>
     <figcaption><span class="t-avatar" aria-hidden="true">${initials}</span><span><strong>${t.name}</strong><span class="t-meta">${meta}</span></span></figcaption>
   </figure>`;
+}
+
+export function scoreReport(r) {
+  const pct = Math.max(0, Math.min(100, ((r.total - 400) / 1200) * 100));
+  const init = r.student.replace(/[^A-Z]/g, '').slice(0, 2);
+  const face = r.photo
+    ? `<img class="sr-photo" src="${r.photo}" alt="" width="56" height="56" loading="lazy">`
+    : `<span class="sr-photo sr-init" aria-hidden="true">${init}</span>`;
+  return `<article class="score-report">
+    <header class="sr-top"><span class="sr-kicker">Official SAT score</span>${face}</header>
+    <div class="sr-body">
+      <p class="sr-label">Total score</p>
+      <p class="sr-total">${r.total}</p>
+      <div class="sr-scale" aria-hidden="true"><span class="sr-fill" style="width:${pct.toFixed(1)}%"></span></div>
+      <p class="sr-range"><span>400</span><span>1600</span></p>
+      <h3 class="sr-name">${r.student}</h3>
+      ${r.detail ? `<p class="sr-detail">${r.detail}</p>` : ''}
+    </div>
+  </article>`;
 }
 
 export function resultCard(r) {

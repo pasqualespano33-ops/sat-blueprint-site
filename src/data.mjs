@@ -38,7 +38,19 @@ export const RESULTS = [
 ];
 
 // Original screenshots (cropped; private details blurred or removed).
+// Official College Board totals, shown as score-report-style cards.
+// Add more here; `photo` (optional) = '/assets/img/students/<file>.jpg'.
+export const SCORE_REPORTS = [
+  { student: 'Abhi N.', total: 1580 },
+  { student: 'Harry G.', total: 1510 },
+  { student: 'Rishi S.', total: 1430 },
+  { student: 'Aarush R.', total: 1410 },
+];
+
 export const SCREENSHOTS = [
+  { file: 'eitan-200-plus', h: 889, title: 'Eitan', result: '+200 points · 1080', featured: true, alt: 'Text thread: Eitan shares his College Board score report — total 1080, 550 Reading and Writing, 530 Math. Patrick replies “Congrats” and “Proud of you.” Eitan: “Tysm up by 200+ from last score.”' },
+  { file: 'annabel-parent-admits', h: 1054, title: 'Annabel’s parent', result: 'Yale · Princeton · Emory · Johns Hopkins', featured: true, alt: 'Text from Annabel’s parent: “She was also accepted to: Emory with a huge scholarship, John’s Hopkins with a huge scholarship, UNC Chapel Hill, UVA, Tufts. Waitlisted to Vanderbilt & Harvard. Rejected only from UPenn. She still feels like she’s dreaming. We are going to admitted students day at Yale and Princeton. Her two beyond dream top choices!” Patrick replies “Wow that is incredible,” “Made my day,” “Dreams come true if you work hard.”' },
+  { file: 'liana-1420', h: 1103, title: 'Liana', result: '1420 · Columbia University', alt: 'WhatsApp thread: “Hi Patrick! It’s Liana. Just wanted to let you know that I got my SAT score back and I got a 1420.” Patrick: “Hey nice job! Are you happy with that?” Liana: “I definitely am happy with the improvement!”' },
   { file: 'mauricio-1350', title: 'Mauricio', result: '1350 · 100% Bright Futures', alt: 'Text thread: Mauricio shares his College Board score report — total 1350, 730 Reading and Writing, 620 Math. Patrick replies “Wow, Congrats” and confirms 100% Bright Futures.' },
   { file: 'aarush-1410', title: 'Aarush', result: '1410 · 700 Math · 710 RW', alt: 'Text from Aarush: “Hey Patrick I got a 1410 on the SAT 700 on math 710 on Reading and Writing.” Aarush adds: “Thank you it was definitely better than I thought I did.”' },
   { file: 'drew-1380', title: 'Drew', result: '1380 · 100% Bright Futures', alt: 'Text from Drew: “Hey sir just wanted to thank you for all the help and support you gave me I got a 1380 on my last SAT.” Patrick replies “Hey Drew that’s amazing!”' },
@@ -116,14 +128,6 @@ export const PROOF_NOTES = [
       { in: true, text: 'hey Patrick!!!! my school SAT score just came out, my superscore is a 1530 now!! 740 RW and 790 math' },
       { in: true, text: 'thanks for all your help!!' },
       { in: false, text: 'That’s amazing. You deserve it' },
-    ],
-  },
-  {
-    from: 'Liana', date: '', score: '1420',
-    msgs: [
-      { in: true, text: 'Hi Patrick! It’s Liana. Just wanted to let you know that I got my SAT score back and I got a 1420' },
-      { in: false, text: 'Hey nice job! Are you happy with that?' },
-      { in: true, text: 'I definitely am happy with the improvement!' },
     ],
   },
   {
@@ -207,7 +211,7 @@ export const ADMITS = [
   { student: 'Maura E.', school: 'Notre Dame', logo: 'notre-dame', mono: 'ND', bg: '#0C2340', fg: '#C99700' },
   { student: 'Shaurya B.', school: 'University of Michigan', logo: 'michigan', mono: 'M', bg: '#00274C', fg: '#FFCB05' },
   { student: 'Theo Y.', school: 'Rice', logo: 'rice', mono: 'R', bg: '#00205B', fg: '#C1C6C8' },
-  { student: 'Victor S.', school: 'U.S. Naval Academy', logo: 'navy', mono: 'N', bg: '#00205B', fg: '#C5B783' },
+  { student: 'Victor S.', school: 'U.S. Naval Academy', logo: 'navy', crest: true, mono: 'N', bg: '#00205B', fg: '#C5B783' },
   { student: 'Katie H.', school: 'Florida State', logo: 'fsu', mono: 'FSU', bg: '#782F40', fg: '#CEB888', note: 'Bright Futures' },
   { student: 'Jeremiah A.', school: 'University of Georgia', logo: 'georgia', mono: 'G', bg: '#BA0C2F', fg: '#fff' },
   { student: 'Nicolas W.', school: 'Indiana University', logo: 'indiana', mono: 'IU', bg: '#990000', fg: '#fff' },

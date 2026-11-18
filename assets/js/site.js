@@ -434,3 +434,24 @@
   };
   tick(); setInterval(tick, 1000);
 })();
+
+// State filter on the resource pages (scholarships by state / scores by college)
+(function () {
+  var sel = document.querySelector('[data-state-filter]');
+  if (!sel) return;
+  var scope = document.querySelector('[data-state-scope]');
+  var status = document.querySelector('[data-state-status]');
+  var empty = document.querySelector('[data-state-empty]');
+  sel.addEventListener('change', function () {
+    var v = sel.value, shown = 0;
+    scope.querySelectorAll('tr[data-state]').forEach(function (tr) {
+      var ok = !v || tr.getAttribute('data-state') === v;
+      tr.hidden = !ok; if (ok) shown++;
+    });
+    scope.querySelectorAll('[data-state-group]').forEach(function (g) {
+      g.hidden = !g.querySelector('tr[data-state]:not([hidden])');
+    });
+    if (empty) empty.hidden = shown > 0;
+    if (status) status.textContent = shown + (shown === 1 ? ' result' : ' results') + (v ? ' for ' + sel.options[sel.selectedIndex].text : '');
+  });
+})();
